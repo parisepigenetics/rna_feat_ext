@@ -1,0 +1,6 @@
+METADATA :
+File name : Homo_sapiens.GRCh38.90.gtf
+Description : Gene annotation informations of human "Homo sapiens".  
+
+Source : ftp://ftp.ensembl.org/pub/release-90/gtf/homo_sapiens
+
