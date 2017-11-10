@@ -48,3 +48,12 @@ if __name__ == '__main__':
 	#------------------------------------------
 	end = time.time()
 	print(end - start)
+
+# USAGE
+'''
+If ids to extract are from CDS sequences :
+python extract_ids.py ../data/Homo_sapiens.GRCh38.90.gff3 ../results/Homo_sapiens.GRCh38.90_CDS_id.txt -t CDS
+
+Default : extraction of mRNA sequences :
+python extract_ids.py ../data/Homo_sapiens.GRCh38.90.gff3 ../results/Homo_sapiens.GRCh38.90_CDS_id.txt
+'''
