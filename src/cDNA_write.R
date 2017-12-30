@@ -54,7 +54,7 @@ attributes = listAttributes(mart)
 attribs = attributes[c(1,3,8,14,15,16,17,21,200,201,202,203, 211,1694,1695,1702),1]
 
 # split the big file into smaller ones (4,5k lines per file):
-system("split -l 4500 Homo_sapiens.GRCh38.90_mARN_id.txt")
+#system("split -l 4500 ../results/10112017/Homo_sapiens.GRCh38.90_mARN_id.txt")
 
 # Parsing the database to retrieve sequences :
 split_files = system("ls ../results/split_mRNA_file/x*", intern = TRUE)
@@ -92,7 +92,7 @@ for(f in seq(length(split_files))){
                      mart=mart)
   cdna_table = rbind(cdna_table, tmp3)
   print(paste("done",f,"/",length(split_files)))
-  tmp = NULL
+  tmp3 = NULL
 }
 
 
@@ -125,11 +125,11 @@ write_cdna <- function(df, filename){
                             df[ligne,8], "_", df[ligne,4], "_", df[ligne,5], "_",
                             df[ligne,6], "_", df[ligne,7], "_", df[ligne,9], "_",
                             df[ligne,10], "_", df[ligne,11], "_", df[ligne,12], "_",
-                            df[ligne,14], "_", df[ligne,15])
+                            df[ligne,14], "_", df[ligne,15], "_", df[ligne,16])
             #print(tmp_md)
             write(tmp_md, paste0(filename,".txt"), append = TRUE)
-            #print(df[ligne, 16])
-            write(df[ligne, 16], paste0(filename,".txt"), append = TRUE)
+            #print(df[ligne, 17])
+            write(df[ligne, 17], paste0(filename,".txt"), append = TRUE)
             break
           }
           if(nbtranscrits > 1){
@@ -138,27 +138,27 @@ write_cdna <- function(df, filename){
                               df[ligne,8], "_", df[ligne,4], "_", df[ligne,5], "_",
                               df[ligne,6], "_", df[ligne,7], "_", df[ligne,9], "_",
                               df[ligne,10], "_", df[ligne,11], "_", df[ligne,12], "_",
-                              df[ligne,14], "_", df[ligne,15])
+                              df[ligne,14], "_", df[ligne,15], "_", df[ligne,16])
               FLAG = FLAG + 1
               #print(c("apres if(FLAG == 1): FLAG value = ", FLAG))
               next
             }else if(FLAG < nbtranscrits){
               tmp_md = paste(tmp_md, df[ligne,9], df[ligne,10], 
                              df[ligne,11], df[ligne,12], df[ligne,14],
-                             df[ligne,15], sep = "_")
+                             df[ligne,15], df[ligne,16], sep = "_")
               FLAG = FLAG + 1
               #print(c("apres if(FLAG < nbtranscrits): FLAG value = ", FLAG))
               next
             }else if(FLAG == nbtranscrits){
               tmp_md = paste(tmp_md, df[ligne,9], df[ligne,10], 
                              df[ligne,11], df[ligne,12], df[ligne,14],
-                             df[ligne,15], sep = "_")
+                             df[ligne,15], df[ligne,16], sep = "_")
               FLAG = FLAG + 1
               #print(c("apres if(FLAG == nbtranscrits): FLAG value = ", FLAG))
               #print(tmp_md)
-              #print(df[ligne, 16])
+              #print(df[ligne, 17])
               write(tmp_md, paste0(filename,".txt"), append = TRUE)
-              write(df[ligne, 16], paste0(filename,".txt"), append = TRUE)
+              write(df[ligne, 17], paste0(filename,".txt"), append = TRUE)
               next
             }
           }
