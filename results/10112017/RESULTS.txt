@@ -1,0 +1,11 @@
+10-11-2017 results
+
+Using Python:
+* Homo_sapiens.GRCh38.90_CDS_id.txt : text file containing every ensembl protein ids (95 693 ids)
+* Homo_sapiens.GRCh38.90_CDS_id.txt : text file containing every ensembl protein ids (95 274 ids)
+
+Using Biomart Server
+http://www.ensembl.org/biomart/martview/43df8295942c011140e8a9c9b1640c82
+
+* mart_export_mRNA.txt : text file containing transcript sequences : ERROR not every transcript
+have been retrieved --> ID list given too long, must split the file
