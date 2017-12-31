@@ -1,0 +1,33 @@
+31-12-2017 results
+
+metagene_script.R : script that aims to write a FASTA file of the "metagenes" of each gene
+Number of unique gene: 19 921
+Number of unique transcripts: 95 274
+>> Only the longest transcript for each gene is kept: if it is the longest, the short ones are part of the longest one.
+Number of metagene retrieved and written in the txt/fasta file: 19 908
+
+----
+- Extraction of the attributes for the headers of the sequences (same script for cDNA)
+
+- listeTrIDs.txt : File written by the previous script. Contains all the longest transcript ids
+>> This file is then split into x smaller files containing each 4500 transcript ids
+
+- 19 908/4500 = 5 files named 'xaa', 'xab', 'xac', 'xad' and 'xae'
+>> These files are used as inputs in a loop to extract in a dataframe
+	- gene exon sequence
+	- gene id
+	- transcript id
+	- rank
+
+- Merging of the previous dataframes (header attributes df and the last one)
+by 3 colomns: 'ensembl_gene_id', 'ensembl_transcript_id' and 'rank'
+/!\ IMPORTANT to merge by 'rank' column to make sure that the exon sequences are
+written in the right order!!!
+>> New dataframe named 'ToWrite' that will be used as an input in the next function:
+'writeMetagene'
+
+- Write a txt/FASTA file for each metagene
+
+OUTPUT:
+>> SeqMetagene.txt
+>> Contains 19 908 metagenes
