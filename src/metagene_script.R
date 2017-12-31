@@ -1,9 +1,19 @@
-#' Example script: steps to write all exon fasta file
-#' 
+###########################
+# Antoine LU              #
+# M2BI - Projet Long 2017 #
+###########################
+# References
+# Folding energy calculator:
+#http://rna.urmc.rochester.edu/RNAstructureWeb/Servers/AllSub/AllSub.html
+#https://www.tbi.univie.ac.at/RNA/tutorial/
+
+#' @description  
 #' This script aims to write a FASTA file of the "metagenes" of each gene
 #' (total of genes: 19 921)
 #' A metagene is the union of all the exon of one gene
+#' 
 
+# library
 library("biomaRt")
 
 # Mart (show available marts): ## NEEDS INTERNET
@@ -11,38 +21,24 @@ listMarts()
 listEnsembl(version=90) # version actuelle: 91/ 90: version du genome utilisé
 # we want homo sapiens genes from ensembl database:
 ensembl90 = useEnsembl(biomart="ensembl",version=90)
-mart = useMart("ensembl")
 
 ld = listDatasets(ensembl90)
-View(ld)
 ld[which(ld[,]=="hsapiens_gene_ensembl"),1]
 mart = useDataset("hsapiens_gene_ensembl",mart=ensembl90)
 
-# Header information: Gene stable ID; Gene Description; Gene name
-# + Transcript information: CDS start (within cDNA); CDS end (within cDNA)
-# + 5' UTR start/end; 3' UTR start/end; transcript stable ID;
-# + Transcript start/end (bp); Transcript length (including UTRs and CDS)
-# + Exon stable ID; Exon region start (bp)
-
-filters = listFilters(mart)
 attributes = listAttributes(mart)
 attribs = attributes[c(1,3,8,14,15,16,17,21,200,201,202,203, 211,1694,1695,1702,1707),1]
-#attrib = c("ensembl_gene_id","ensembl_transcript_id", "description", "transcript_start", "transcript_end", "transcription_start_site", "transcript_length", "external_gene_name", "5_utr_start", "5_utr_end", "3_utr_start", "3_utr_end", "cdna_coding_start", "cdna_coding_end", "ensembl_exon_id", "exon_chrom_start")
-#getBM(attributes = c("refseq_dna", "interpro", "interpro_description"), filt + values = refseqids, mart = ensembl)
 
 # split the big file into smaller ones (4,5k lines per file):
-#system("split -l 4500 Homo_sapiens.GRCh38.90_mARN_id.txt")
+#' system("split -l 4500 Homo_sapiens.GRCh38.90_mARN_id.txt")
 
 # Parsing the database to retrieve sequences :
 split_files = system("ls ../results/split_mRNA_file/x*", intern = TRUE)
+
+# METADATA Table:
+# for each transcript id, retrieve gene id and other attributes mentioned in 'attribs'
 tmp = NULL
-final = NULL
-
-# transcript_exon_intron: full transcript unspliced
-# coding_transcript_flank: flanking region of the transcript including the UTRs
-#attribs2 = attributes[c(1,3,8,14,15,16,17,21,200,201,202,203, 211,1694,1695,1702,1707,1676),1]
-print(paste0("START get 'final' table attribs"))
-
+metadata = NULL
 for(f in seq(length(split_files))){
   transcript_id = read.table(split_files[f])
   tmp = getBM(
@@ -51,7 +47,7 @@ for(f in seq(length(split_files))){
     values = transcript_id[,1],
     mart = mart
   )
-  final = rbind(final, tmp)
+  metadata = rbind(metadata, tmp)
   print(paste("done",f,"/",length(split_files)))
   #print(tmp)
   tmp = NULL
@@ -76,41 +72,7 @@ for(f in seq(length(split_files))){
 }
 
 # 2) get transcripts that are the longest ## 19 921 transcrits
-### sous forme de DF
-lisTranscriptId <- function(df){
-  list_id_max = NULL
-  id_max = NULL
-  for(gid in unique(df[,1])){
-    tmp_max = 0
-    #print("change gid")
-    #print(gid)
-    transcrt = unlist(unique(df[which(df[,1]==gid),2]))
-    for(t in transcrt){
-      if(length(unlist(strsplit(t, ";")))==1){
-        #print(t)
-        #print(paste0("TMP MAX ",tmp_max))
-        tmp = as.numeric(unique(df[which(df[,2]==t),3]))
-        #print(tmp)
-        if(tmp > tmp_max){
-          tmp_max = tmp
-          id_max = t
-        }
-      }
-    }
-    list_id_max = append(list_id_max, id_max)
-    #print(paste0("Hors de for t: tmp_max = ", tmp_max, " id_max = ", id_max))
-  }
-  l = as.data.frame(list_id_max)
-  return(l)
-}
-
-listeTrID = lisTranscriptId(trlength)
-
-
-#' OR
-
-
-### Ecriture dans un fichier txt (plus rapide)
+### Ecriture dans un fichier txt (Rapide)
 lisTranscriptId <- function(df, filename){
   list_id_max = NULL
   id_max = NULL
@@ -143,12 +105,12 @@ lisTranscriptId <- function(df, filename){
 # pas besoin de stocker dans une variable, sera écrit dans le fichier
 lisTranscriptId(trlength, "../results/listeTrIDs")
 
-system("split -l 4500 ../results/listeTrIDs.txt")
-split_listeTrIDs = system("ls ../results/x*", intern = TRUE)
+# split the big file into smaller ones (4,5k lines per file):
+#' system("split -l 4500 listeTrIDs.txt")
+split_listeTrIDs = system("ls x*", intern = TRUE)
 
 
-# 3) get attributes as in attribs2 dont 1676 == gene_exon ## exons
-#attribs2 = attributes[c(1676,1,3,8,17,21,200,201,202,203,211,1715,1694,1695),1]
+# 3) get attributes dont 1676 == gene_exon ## exons
 print(paste0("START get 'attribToMerge' table: attributes to merge"))
 
 tmp = NULL
@@ -185,36 +147,17 @@ for(f in seq(length(split_listeTrIDs))){
 # 4) Merge both table
 print(paste0("START get 'ToWrite' table: Merged table"))
 
-ToWrite =  merge.data.frame(final, attribToMerge, by = c("ensembl_transcript_id","ensembl_gene_id", "rank"))
+ToWrite =  merge.data.frame(metadata, attribToMerge, by = c("ensembl_transcript_id","ensembl_gene_id", "rank"))
 
-# 5) To write: should work :) 
-
-#' for(gid in unique(fifi[,2])){
-#' tmp_head = NULL
-#'  tmp_seq = NULL
-#'  #print(gid)
-#'  tim = fifi[which(fifi[,2]==gid),]
-#'  tam = tim[order(tim[,"rank"]),]
-#'  for(ligne in seq(dim(tam)[1])){
-#'    #print(ligne)
-#'    if(tam[ligne,"rank"]==1){
-#'      tmp_head = paste0(">",tam[ligne,2],"_",tam[ligne,1],"_",tam[ligne,9],"_",tam[ligne,10],"_",
-#'                        tam[ligne,11],"_",tam[ligne,12],"_",tam[ligne,13],"_",tam[ligne,14],"_",tam[ligne,15],"_")
-#'      tmp_seq = paste0(tam[ligne,16])
-#'    }
-#'    else{
-#'      tmp_head = paste(tmp_head, tam[ligne,10],tam[ligne,11],tam[ligne,12],tam[ligne,13],
-#'                       tam[ligne,14],tam[ligne,15], sep = "_")
-#'      tmp_seq = paste0(tmp_seq, tam[ligne,16])
-#'    }
-#'  }
-#'  #print(tmp_head)
-#'  #print(tmp_seq)
-#'  write(tmp_head, paste0(filename,".txt"), append = TRUE)
-#'  write(tmp_seq, paste0(filename,".txt"), append = TRUE)
-#'}
+# 5) To write: 
 
 writeMetagene <- function(df, filename){
+  #' @description 
+  #' Write sequence and header into txt or FASTA file from merged table 'ToWrite'
+  #' 
+  #' @usage 
+  #' writeMetagene(ToWrite, "../results/SeqMetagene")
+  
   for(gid in unique(df[,2])){
     tmp_head = NULL
     tmp_seq = NULL
@@ -242,4 +185,4 @@ writeMetagene <- function(df, filename){
   return("done writting")
 }
 
-writeMetagene(ToWrite, "SeqMetagene")
+#' writeMetagene(ToWrite, "../results/SeqMetagene")
