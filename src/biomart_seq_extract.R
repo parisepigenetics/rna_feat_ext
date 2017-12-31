@@ -44,6 +44,7 @@ final = NULL
 
 # transcript_exon_intron: full transcript unspliced
 # coding_transcript_flank: flanking region of the transcript including the UTRs
+#attribs2 = attributes[c(1,3,8,14,15,16,17,21,200,201,202,203, 211,1694,1695,1702,1707,1676),1]
 
 for(f in seq(length(split_files))){
   transcript_id = read.table(split_files[f])
