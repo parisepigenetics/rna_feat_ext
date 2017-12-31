@@ -167,13 +167,16 @@ writeMetagene <- function(df, filename){
     for(ligne in seq(dim(tam)[1])){
       #print(ligne)
       if(tam[ligne,"rank"]==1){
-        tmp_head = paste0(">",tam[ligne,2],"_",tam[ligne,1],"_",tam[ligne,9],"_",tam[ligne,10],"_",
-                          tam[ligne,11],"_",tam[ligne,12],"_",tam[ligne,13],"_",tam[ligne,14],"_",tam[ligne,15],"_")
+        tmp_head = paste0(">",tam[ligne,2],"_",tam[ligne,1],"_",tam[ligne,9],"_",
+                          tam[ligne,5],"_",tam[ligne,6],"_",tam[ligne,7],"_",
+                          tam[ligne,10],"_",tam[ligne,11])
         tmp_seq = paste0(tam[ligne,18])
       }
+      else if(tam[ligne,"rank"]==dim(tam)[1]){
+        tmp_head = paste(tmp_head, tam[ligne,12],tam[ligne,13],tam[ligne,15], sep = "_")
+        tmp_seq = paste0(tmp_seq, tam[ligne,18])
+      }
       else{
-        tmp_head = paste(tmp_head, tam[ligne,10],tam[ligne,11],tam[ligne,12],tam[ligne,13],
-                         tam[ligne,14],tam[ligne,15], sep = "_")
         tmp_seq = paste0(tmp_seq, tam[ligne,18])
       }
     }
