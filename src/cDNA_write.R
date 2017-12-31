@@ -49,18 +49,14 @@ ld = listDatasets(ensembl90)
 ld[which(ld[,]=="hsapiens_gene_ensembl"),1]
 mart = useDataset("hsapiens_gene_ensembl",mart=ensembl90)
 
-filters = listFilters(mart)
 attributes = listAttributes(mart)
 attribs = attributes[c(1,3,8,14,15,16,17,21,200,201,202,203, 211,1694,1695,1702),1]
 
 # split the big file into smaller ones (4,5k lines per file):
-#system("split -l 4500 ../results/10112017/Homo_sapiens.GRCh38.90_mARN_id.txt")
+#' system("split -l 4500 ../results/10112017/Homo_sapiens.GRCh38.90_mARN_id.txt")
 
 # Parsing the database to retrieve sequences :
 split_files = system("ls ../results/split_mRNA_file/x*", intern = TRUE)
-
-# Retrieve only exon sequences: # gene_exon for exon sequences only OR # cdna : coding + les UTRs
-# transcript_exon_intron : unspliced transcript 
 
 # METADATA Table:
 # for each transcript id, retrieve gene id and other attributes mentioned in 'attribs'
