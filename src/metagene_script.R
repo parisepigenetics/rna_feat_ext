@@ -109,25 +109,9 @@ lisTranscriptId(trlength, "../results/listeTrIDs")
 #' system("split -l 4500 listeTrIDs.txt")
 split_listeTrIDs = system("ls x*", intern = TRUE)
 
-
 # 3) get attributes dont 1676 == gene_exon ## exons
 print(paste0("START get 'attribToMerge' table: attributes to merge"))
 
-tmp = NULL
-attribToMerge = NULL
-for(id in seq(dim(listeTrID)[1])){
-  tmp = getBM(
-    attributes = attributes[c(1676,1,3,1715),1],
-    filters = 'ensembl_transcript_id', # order by (as in sql)
-    values = listeTrID[id,1],
-    mart = mart
-  )
-  attribToMerge = rbind(attribToMerge, tmp)
-  print(paste("done",id,"/",dim(listeTrID)[1]))
-  tmp = NULL
-}
-
-### IF READ FROM SPLIT FILE:
 tmp = NULL
 attribToMerge = NULL
 for(f in seq(length(split_listeTrIDs))){
@@ -142,7 +126,6 @@ for(f in seq(length(split_listeTrIDs))){
   print(paste("done",f,"/",length(split_listeTrIDs)))
   tmp = NULL
 }
-
 
 # 4) Merge both table
 print(paste0("START get 'ToWrite' table: Merged table"))
