@@ -154,10 +154,12 @@ ToWrite =  merge.data.frame(metadata, attribToMerge, by = c("ensembl_transcript_
 writeMetagene <- function(df, filename){
   #' @description 
   #' Write sequence and header into txt or FASTA file from merged table 'ToWrite'
+  #' + construct a dataframe with the concatenated sequence and its metadata
   #' 
   #' @usage 
-  #' writeMetagene(ToWrite, "../results/SeqMetagene")
+  #' METAGENE = writeMetagene(ToWrite, "../results/SeqMetagene")
   
+  final = NULL
   for(gid in unique(df[,2])){
     tmp_head = NULL
     tmp_seq = NULL
@@ -167,12 +169,16 @@ writeMetagene <- function(df, filename){
     for(ligne in seq(dim(tam)[1])){
       #print(ligne)
       if(tam[ligne,"rank"]==1){
+        geneid = tam[ligne,2]; trid = tam[ligne,1]; gename = tam[ligne,9]
+        trstart = tam[ligne,5]; trend = tam[ligne,6]; trss = tam[ligne,7]
+        p5start = tam[ligne,10]; p5end = tam[ligne,11]; cdnastart = tam[ligne,14]
         tmp_head = paste0(">",tam[ligne,2],"_",tam[ligne,1],"_",tam[ligne,9],"_",
                           tam[ligne,5],"_",tam[ligne,6],"_",tam[ligne,7],"_",
-                          tam[ligne,10],"_",tam[ligne,11])
+                          tam[ligne,10],"_",tam[ligne,11],"_",tam[ligne,14])
         tmp_seq = paste0(tam[ligne,18])
       }
       else if(tam[ligne,"rank"]==dim(tam)[1]){
+        p3start = tam[ligne,12]; p3end = tam[ligne,13]; cdnaend = tam[ligne,15]
         tmp_head = paste(tmp_head, tam[ligne,12],tam[ligne,13],tam[ligne,15], sep = "_")
         tmp_seq = paste0(tmp_seq, tam[ligne,18])
       }
@@ -184,8 +190,12 @@ writeMetagene <- function(df, filename){
     #print(tmp_seq)
     write(tmp_head, paste0(filename,".txt"), append = TRUE)
     write(tmp_seq, paste0(filename,".txt"), append = TRUE)
+    test = data.frame(tmp_seq, geneid, trid, gename, trstart, trend, trss, p5start,
+                      p5end, p3start, p3end, cdnastart, cdnaend)
+    metagene = rbind(metagene, test)
   }
-  return("done writting")
+  print("done writting")
+  return(metagene)
 }
 
-#' writeMetagene(ToWrite, "../results/SeqMetagene")
+#' METAGENE = writeMetagene(ToWrite, "../results/SeqMetagene")
