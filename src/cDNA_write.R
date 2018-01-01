@@ -165,5 +165,92 @@ write_cdna <- function(df, filename){
   return("writting done")
 }
 #############################################################################
+#' Create a dataframe as well as a txt/fasta file VERY LONG (6 hours)
+write_cdnaV2 <- function(df, filename){
+  #' @description 
+  #' Write a txt file (can be transformed as a .fasta or .fa file) containing each 
+  #' transcript sequence with their header
+  #' @usage
+  #' write_cdna(merge.cdna, "SequenceCdna")
+  
+  final = NULL
+  for(gid in unique(df[,2])){
+    #print(gid)
+    transcrt = unlist(unique(df[which(df[,2]==gid),1]))
+    for(t in transcrt){
+      FLAG = 1
+      nbtranscrits = length(which(df[,1]==t)) #pour un transcrit du gene
+      #print(t)
+      for(ligne in which(df[,1]==t)){
+        #print(ligne)
+        if(df[ligne,2] == gid){
+          if(nbtranscrits == 1){
+            geneid = df[ligne,2]; trid = df[ligne,1]; gename = df[ligne,8]
+            trstart = df[ligne,4]; trend = df[ligne,5]; trss = df[ligne,6]
+            p5start = df[ligne,9]; p5end = df[ligne,10]
+            p3start = df[ligne,11]; p3end = df[ligne,12]
+            cdnastart = df[ligne,14]; cdnaend = df[ligne,15]
+            trtype = df[ligne,16]
+            #
+            tmp_md = paste0(">", df[ligne,2], "_", df[ligne,1], "_", 
+                            df[ligne,8], "_", df[ligne,4], "_", df[ligne,5], "_",
+                            df[ligne,6], "_", df[ligne,7], "_", df[ligne,9], "_",
+                            df[ligne,10], "_", df[ligne,11], "_", df[ligne,12], "_",
+                            df[ligne,14], "_", df[ligne,15], "_", df[ligne,16])
+            #print(tmp_md)
+            write(tmp_md, paste0(filename,".txt"), append = TRUE)
+            #print(df[ligne, 18])
+            write(df[ligne, 18], paste0(filename,".txt"), append = TRUE)
+            #
+            tmp_seq = df[ligne,18]
+            test = data.frame(tmp_seq, geneid, trid, gename, trstart, trend, trss, trtype,
+                              p5start, p5end, p3start, p3end, cdnastart, cdnaend)
+            final = rbind(final, test)
+            break
+          }
+          if(nbtranscrits > 1){
+            if(FLAG == 1){
+              geneid = df[ligne,2]; trid = df[ligne,1]; gename = df[ligne,8]
+              trstart = df[ligne,4]; trend = df[ligne,5]; trss = df[ligne,6]
+              p5start = df[ligne,9]; p5end = df[ligne,10]; cdnastart = df[ligne,14]
+              trtype = df[ligne,16]
+              #
+              tmp_md = paste0(">", df[ligne,2], "_", df[ligne,1], "_", 
+                              df[ligne,8], "_", df[ligne,4], "_", df[ligne,5], "_",
+                              df[ligne,6], "_", df[ligne,9], "_", df[ligne,10], "_", 
+                              df[ligne,14], "_", df[ligne,16])
+              FLAG = FLAG + 1
+              #print(c("apres if(FLAG == 1): FLAG value = ", FLAG))
+              next
+            }else if(FLAG < nbtranscrits){
+              FLAG = FLAG + 1
+              #print(c("apres if(FLAG < nbtranscrits): FLAG value = ", FLAG))
+              next
+            }else if(FLAG == nbtranscrits){
+              p3start = df[ligne,11]; p3end = df[ligne,12]; cdnaend = df[ligne,15]
+              #
+              tmp_md = paste(tmp_md, df[ligne,11], df[ligne,12], df[ligne,15], sep = "_")
+              FLAG = FLAG + 1
+              #print(c("apres if(FLAG == nbtranscrits): FLAG value = ", FLAG))
+              #print(tmp_md)
+              #print(df[ligne, 18])
+              write(tmp_md, paste0(filename,".txt"), append = TRUE)
+              write(df[ligne, 18], paste0(filename,".txt"), append = TRUE)
+              #
+              tmp_seq = df[ligne,18]
+              #
+              test = data.frame(tmp_seq, geneid, trid, gename, trstart, trend, trss, trtype,
+                                p5start, p5end, p3start, p3end, cdnastart, cdnaend)
+              final = rbind(final, test)
+              next
+            }
+          }
+        }
+      }
+    }
+  }
+  print("writting done")
+  return(final)
+}
 
-
+#############################################################################
