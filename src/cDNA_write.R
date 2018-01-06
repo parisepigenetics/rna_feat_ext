@@ -8,7 +8,8 @@
 #https://www.tbi.univie.ac.at/RNA/tutorial/
 
 #' @description  
-#' This script takes as input the text file containing the transcript ids retrieved using python
+#' This script takes as input the text file containing the transcript ids retrieved using python 
+#' ../results/10112017/Homo_sapiens.GRCh38.90_mARN_id.txt"
 #' the text file is split into smaller files so they can be read and parse with R
 #'
 #'  The biomaRt library is used. Since the data used in the first place is the Human genome version 90,
@@ -16,9 +17,10 @@
 #'  
 #'  attribs: every metadata wanted in the HEADER of the FASTA sequences
 #'  
-#'  METADATA table : the getBM function is used and takes the variable "attribs" as an input to create
-#'  a dataframe with every metadata for each of the transcripts. Since exon features (rank, 5 prime and
-#'  3 prime UTRs) are retrieved, the table has this dimension : 843,569 lines and 15 columns
+#'  METADATA table (same table as in metagene_script.R): the getBM function is used and takes the variable
+#'  "attribs" as an input to create a dataframe with every metadata for each of the transcripts.
+#'  Since exon features (rank, 5 prime and 3 prime UTRs) are retrieved, the table has this dimension:
+#'  843,569 lines and 15 columns
 #'  
 #'  cDNA table: For each transcript id, the matching cDNA sequence is retrieved using the getSequence
 #'  function. cDNA : coding sequence (all exon) + UTRs 
@@ -166,7 +168,7 @@ write_cdna <- function(df, filename){
 }
 #############################################################################
 #' Create a dataframe as well as a txt/fasta file VERY LONG (6 hours)
-write_cdnaV2 <- function(df, filename){
+write_cdna <- function(df, filename){
   #' @description 
   #' Write a txt file (can be transformed as a .fasta or .fa file) containing each 
   #' transcript sequence with their header
