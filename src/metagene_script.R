@@ -8,17 +8,48 @@
 #https://www.tbi.univie.ac.at/RNA/tutorial/
 
 #' @description  
-#' This script aims to write a FASTA file of the "metagenes" of each gene
-#' (total of genes: 19 921)
-#' A metagene is the union of all the exon of one gene
+#' This script takes as input the text file containing the transcript ids retrieved using python
+#' ../results/10112017/Homo_sapiens.GRCh38.90_mARN_id.txt"
+#' the text file is split into smaller files so they can be read and parse with R
+#'
+#'  The biomaRt library is used. Since the data used in the first place is the Human genome version 90,
+#'  this mart will be used here.
+#'  
+#'  attribs: every metadata wanted in the HEADER of the FASTA sequences
+#'  
+#'  METADATA table (same table as in cDNA_write.R): the getBM function is used and takes the variable
+#'  "attribs" as an input to create a dataframe with every metadata for each of the transcripts.
+#'  Since exon features (rank, 5 prime and 3 prime UTRs) are retrieved, the table has this dimension:
+#'  843,569 lines and 15 columns
+#'  
+#'  DEFINITON: A metagene is the union of all the exon of one gene
+#'  
+#'  METAGENE table: For each transcript id, its length is retrieved using the getBM() function: trlength table.
+#'  Then, the listTranscriptId() function takes the previous table as an input (as well as a file name to contain
+#'  the results). This function fetches the longest sequences for a given gene_id. At the end: 1 transcript for 1
+#'  gene.
+#'  The returned txt file, is split in smaller files (4500 lines per file). Then parsed using the getBM sequence
+#'  in the attribToMerge() function: retrieves the gene_exon sequence, the gene_id, transcript_id and rank.
+#'  A new table is returned, named "ToWrite".
+#'      MERGED DF METAGENE: (variable named "ToWrite") : Combination of both previous data frames on the
+#'      "ensembl_transcript_id","ensembl_gene_id" and "rank" columns. 
+#'      Creates a new dataframe with 843,569 lines and 16 columns
 #' 
+#'  Finally, the previous table is use as input in the writeMetagene() function.
+#'  
+#'  OUTPUT:
+#'  Write a txt file (can be transformed as a .fasta or .fa file) containing each transcript sequence
+#'  with their header
+#'  
+#'  @usage 
+#'  write_cdna(ToWrite, "SequenceCdna")
 
 # library
 library("biomaRt")
 
 # Mart (show available marts): ## NEEDS INTERNET
 listMarts()
-listEnsembl(version=90) # version actuelle: 91/ 90: version du genome utilisé
+listEnsembl(version=90) # 90: Genome GRCh38.90.gff3 used
 # we want homo sapiens genes from ensembl database:
 ensembl90 = useEnsembl(biomart="ensembl",version=90)
 
@@ -53,7 +84,8 @@ for(f in seq(length(split_files))){
   tmp = NULL
 }
 
-# 1) get all transcrits and their length ## 95 274 transcrits
+#' 1) get all transcrits and their length ## 95 274 transcrits
+#' For each ID: retrieve gene_id, transcript_id, sequence length
 print(paste0("START get 'trlength' table: gene transcript length"))
 
 tmp = NULL
@@ -71,8 +103,11 @@ for(f in seq(length(split_files))){
   tmp = NULL
 }
 
-# 2) get transcripts that are the longest ## 19 921 transcrits
-### Ecriture dans un fichier txt (Rapide)
+#' 2) get transcripts that are the longest ## 19 921 transcrits
+#' Only keep the longest transcripts (which contains the smaller ones)
+#' --> the biggest overlaps the smaller spliced transcripts
+#' --> at the end 1 transcript representing 1 gene
+
 lisTranscriptId <- function(df, filename){
   list_id_max = NULL
   id_max = NULL
@@ -102,14 +137,14 @@ lisTranscriptId <- function(df, filename){
   return("writting done")
 }
 
-# pas besoin de stocker dans une variable, sera écrit dans le fichier
+# Write the selected IDs in a txt file
 lisTranscriptId(trlength, "../results/listeTrIDs")
 
-# split the big file into smaller ones (4,5k lines per file):
+# split the the selected IDs file into smaller ones (4,5k lines per file):
 #' system("split -l 4500 listeTrIDs.txt")
 split_listeTrIDs = system("ls x*", intern = TRUE)
 
-# 3) get attributes dont 1676 == gene_exon ## exons
+# 3) get attributes: 1676 == gene_exon ## exons sequences
 print(paste0("START get 'attribToMerge' table: attributes to merge"))
 
 tmp = NULL
