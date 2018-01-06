@@ -1,0 +1,24 @@
+05-01-2018 results
+
+05-01-2018:
+RNAfold results: 2 txt files containing the results of RNAfold tool
+>> Folding energy respectively for the 3'UTR and 5'UTR
+	- p5utr_rnafold.txt		(11.6 Mb, took 1 hour for 19921 sequences, input file: data/p5utrT.fasta: 18842 5' UTR sequences, the (19921-18842=)1079 not selected sequences have length = 0 (cdna starts at same position as 5'UTR start) (5.8 Mb))
+	- p3utr_rnafold.txt		(2.7 Mb, took 4 hours for 913 sequences, input file: data/p5utrT.fasta: 18845 3' UTR sequences (33.2 Mb))
+
+
+RNA Binding Protein, RBP: 103 csv files containing the results of motif_scan_projet_long.py (src/motif_scan/motif_scan_projet_long.py)
+>> Each csv file: list of list of RBP names
+> Why 103 files?
+- 19921 3'UTR sequences (some are empty, length = 0)
+- The script used originally comes from miha-skalic's method (https://github.com/miha-skalic/motif_scan), the output has been modified for this project.
+	>> personnal computer (MacBook Pro ealy 2011, OSX Yosemite 10.10.5) doesn't allow the openning of large number of files (realized during multiprocessing: 2 Errors encountered:
+		- IOError [Errno 24] Too many open files 
+			>> resolved using ulimit -n 5000 (instead of 256)
+		- IOError [Errno 35] Ressource temporarily unavailable	
+	)
+	>> 3'UTR sequences had to be split in smaller files (with less sequences) to avoid these messages
+
+1 file = 60 sequences: 6180 sequences / 19921
+First 20 files took approximately 7 hours (MacBook Pro ealy 2011, OSX Yosemite 10.10.5) [1 file/33 min]
+Last 83 files took approximately 5 hours (University computer) [1 file/5min]
