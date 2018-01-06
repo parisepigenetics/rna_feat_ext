@@ -2,10 +2,6 @@
 # Antoine LU              #
 # M2BI - Projet Long 2017 #
 ###########################
-# References
-# Folding energy calculator:
-#http://rna.urmc.rochester.edu/RNAstructureWeb/Servers/AllSub/AllSub.html
-#https://www.tbi.univie.ac.at/RNA/tutorial/
 
 #' @description  
 #' This script takes as input the text file containing the transcript ids retrieved using python
