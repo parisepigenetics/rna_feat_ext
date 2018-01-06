@@ -1,8 +1,9 @@
-###########################
-# Antoine LU              #
-# M2BI - Projet Long 2017 #
-###########################
+#!/usr/bin/env Rscript
+library("methods")
+library("biomaRt")
 
+#' @author Antoine Lu
+#' @title Projet Long M2 BI 2017
 #' @description  
 #' This script takes as input the text file containing the transcript ids retrieved using python
 #' ../results/10112017/Homo_sapiens.GRCh38.90_mARN_id.txt"
@@ -38,14 +39,14 @@
 #'  with their header
 #'  
 #'  @usage 
-#'  write_cdna(ToWrite, "SequenceCdna")
+#'  METAGENE = writeMetagene(ToWrite, paste0("../results/",myArgs[2]))
+#'  write.csv(METAGENE, paste0("../results/",myArgs[2],".csv"))
 
-# library
-library("biomaRt")
+myArgs <- commandArgs(trailingOnly = TRUE)
 
 # Mart (show available marts): ## NEEDS INTERNET
 listMarts()
-listEnsembl(version=90) # 90: Genome GRCh38.90.gff3 used
+listEnsembl(version=90) # version actuelle: 91/ 90: version du genome utilisé
 # we want homo sapiens genes from ensembl database:
 ensembl90 = useEnsembl(biomart="ensembl",version=90)
 
@@ -58,9 +59,14 @@ attribs = attributes[c(1,3,8,14,15,16,17,21,200,201,202,203, 211,1694,1695,1702,
 
 # split the big file into smaller ones (4,5k lines per file):
 #' system("split -l 4500 Homo_sapiens.GRCh38.90_mARN_id.txt")
+system(paste0("split -l 4500 ",myArgs[1],".txt"))
+system("mkdir ../results/split_mRNA3/")
+system("mv x* ../results/split_mRNA3/")
+
+split_files = system("ls ../results/split_mRNA3/x*", intern = TRUE)
 
 # Parsing the database to retrieve sequences :
-split_files = system("ls ../results/split_mRNA_file/x*", intern = TRUE)
+#split_files = system("ls ../results/split_mRNA_file/x*", intern = TRUE)
 
 # METADATA Table:
 # for each transcript id, retrieve gene id and other attributes mentioned in 'attribs'
@@ -80,8 +86,7 @@ for(f in seq(length(split_files))){
   tmp = NULL
 }
 
-#' 1) get all transcrits and their length ## 95 274 transcrits
-#' For each ID: retrieve gene_id, transcript_id, sequence length
+# 1) get all transcrits and their length ## 95 274 transcrits
 print(paste0("START get 'trlength' table: gene transcript length"))
 
 tmp = NULL
@@ -99,11 +104,8 @@ for(f in seq(length(split_files))){
   tmp = NULL
 }
 
-#' 2) get transcripts that are the longest ## 19 921 transcrits
-#' Only keep the longest transcripts (which contains the smaller ones)
-#' --> the biggest overlaps the smaller spliced transcripts
-#' --> at the end 1 transcript representing 1 gene
-
+# 2) get transcripts that are the longest ## 19 921 transcrits
+### Ecriture dans un fichier txt (Rapide)
 lisTranscriptId <- function(df, filename){
   list_id_max = NULL
   id_max = NULL
@@ -133,14 +135,16 @@ lisTranscriptId <- function(df, filename){
   return("writting done")
 }
 
-# Write the selected IDs in a txt file
+# pas besoin de stocker dans une variable, sera écrit dans le fichier
 lisTranscriptId(trlength, "../results/listeTrIDs")
 
-# split the the selected IDs file into smaller ones (4,5k lines per file):
-#' system("split -l 4500 listeTrIDs.txt")
-split_listeTrIDs = system("ls x*", intern = TRUE)
+# split the big file into smaller ones (4,5k lines per file):
+system("split -l 4500 ../results/listeTrIDs.txt")
+system("mkdir ../results/Metagene_listID/")
+system("mv x* ../results/Metagene_listID/")
+split_listeTrIDs = system("ls ../results/Metagene_listID/x*", intern = TRUE)
 
-# 3) get attributes: 1676 == gene_exon ## exons sequences
+# 3) get attributes dont 1676 == gene_exon ## exons
 print(paste0("START get 'attribToMerge' table: attributes to merge"))
 
 tmp = NULL
@@ -237,4 +241,5 @@ writeMetagene <- function(df, filename){
   return(metagene)
 }
 
-#' METAGENE = writeMetagene(ToWrite, "../results/SeqMetagene")
+METAGENE = writeMetagene(ToWrite, paste0("../results/",myArgs[2]))
+write.csv(METAGENE, paste0("../results/",myArgs[2],".csv"))
