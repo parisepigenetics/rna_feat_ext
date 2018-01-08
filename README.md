@@ -33,8 +33,8 @@ python extract_ids.py ../data/Homo_sapiens.GRCh38.90.gff3 ../results/Homo_sapien
 
 ### Dataset Preparation:
 Two executable Rscripts have been written for two types of datasets: 
-+ [cDNA_write.R] (rna_feat_ext/src/cDNA_write.R): for cDNA sequences (many transcripts sequences for each gene ID)
-+ [metagene_script.R] (rna_feat_ext/src/metagene_script.R): for 'metagene' sequences (one transcript sequence for each gene ID) We defined a metagene to be the union of every possible exons of a gene.
++ [`cDNA_write.R`] (rna_feat_ext/src/cDNA_write.R): for cDNA sequences (many transcripts sequences for each gene ID)
++ [`metagene_script.R`] (rna_feat_ext/src/metagene_script.R): for 'metagene' sequences (one transcript sequence for each gene ID) We defined a metagene to be the union of every possible exons of a gene.
 
 In a terminal, to create both a TEXT file containing the fetched sequences and a CSV table (that will be used next) do:
 For cDNA sequences: 
