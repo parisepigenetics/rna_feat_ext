@@ -11,5 +11,7 @@ The aim of the project is to develop a tool for RNA feature extraction. These fe
 + biomaRt
 
 (Tools and script)
-RNAfold, Vienna RNA Package (version 2.4.3)
-motif_scan.py (https://github.com/miha-skalic/motif_scan)
++ RNAfold, Vienna RNA Package (version 2.4.3)
++ motif_scan.py (https://github.com/miha-skalic/motif_scan)
+
+
