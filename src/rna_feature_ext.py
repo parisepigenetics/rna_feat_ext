@@ -262,6 +262,7 @@ if __name__ == '__main__':
     data['p3len'] = p3len
 
 	# 4) Folding Energy of 3' UTR
+    #TODO: useSubprocess
 	os.system("RNAfold < ../data/p3utrT.fasta --noPS > ../results/06012018/p3utr_rnafold.txt")
 
 	p3mfe = getFoldingEnergy("06012018/p3utr_rnafold.txt", metatable)
