@@ -9,8 +9,6 @@ import re
 import os
 import subprocess # doesn't work
 
-# DATA: Prerequis
-metatable = pd.read_csv('02012018/tableMetagene.csv')
 
 # FUCTIONS
 # 0.1) Function to get 5' UTR sequences
@@ -225,6 +223,9 @@ def getKozak(df, k, j):
 
 # MAIN
 if __name__ == '__main__':
+    # DATA: Prerequis
+    metatable = pd.read_csv('02012018/tableMetagene.csv')
+
     # Preparation of the concatenation of each feature:
     # select only gene id and transcript id of the metatable dataframe
     data = metatable.loc[:,['geneid','trid']]
