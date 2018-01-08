@@ -2,6 +2,15 @@
 # Projet Long M2BI - 2017-2018
 The aim of the project is to develop a tool for RNA feature extraction. These features might have a role in identifying commonly regulated mRNA.
 
+## Data
+Please unpack before use.
+(Required)
++ [`Homo_sapiens.GRCh38.90.gff3.gz`] Human annotated gene set, version 90, can be downloaded on Ensembl database
+(Compressed output, can be generated using scripts)
++ [`tableCdna.csv.zip`] 
++ [`tableMetagene.csv.zip`] 
++ [`UTR-FASTA.zip`] 
+
 ## Modules / Tools
 (Python 2.7)
 + [`Biopython`](http://biopython.org)
