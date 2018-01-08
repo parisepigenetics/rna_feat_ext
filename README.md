@@ -4,14 +4,14 @@ The aim of the project is to develop a tool for RNA feature extraction. These fe
 
 ## Modules / Tools
 (Python 2.7)
-+ Biopython
-+ Pandas
++ [`Biopython`](http://biopython.org)
++ [`Pandas`](http://pandas.pydata.org)
 
 (R 3.3.1)
-+ biomaRt
++ [`biomaRt`](http://bioconductor.org/packages/release/bioc/html/biomaRt.html)
 
 (Tools and script)
-+ RNAfold, Vienna RNA Package (version 2.4.3)
-+ motif_scan.py (https://github.com/miha-skalic/motif_scan)
++ [`RNAfold, Vienna RNA Package`](version 2.4.3)(https://www.tbi.univie.ac.at/RNA/index.html#download)
++ [`motif_scan.py`](https://github.com/miha-skalic/motif_scan)
 
 
