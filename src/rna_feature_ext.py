@@ -99,6 +99,7 @@ def get_dORF(df):
     '''
     
     # grande liste à retourner et à transformer en colone 6 dans le tableau final
+    # TODO: identification phase de lecture (idem pour uORF)
     dORFs = []
     for indice in range(len(df)):
         ind_dORF = []
