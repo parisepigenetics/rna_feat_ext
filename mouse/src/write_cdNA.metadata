@@ -1,0 +1,11 @@
+write_cdNA() 
+
+25/03/18
+Note: Connexion difficile à la base de donnée Biomart. Surtout à la database
+"ENSEMBL_MART_ENSEMBL" et la dataset="mmusculus_gene_ensembl".
+--> Les deux sont nécessaires pour trouver les identifiants du type:
+	'ENSMUSG00000000159' sous cette orthographe.
+
+La database 'mc57bl6nj_gene_ensembl' donne des identifiants différents
+	donc impossible de parser la base de donnée
+
