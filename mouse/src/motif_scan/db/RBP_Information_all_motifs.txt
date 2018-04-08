@@ -1,0 +1,750 @@
+RBP_ID	Family_ID	RSource_ID	Motif_ID	MSource_ID	DBID	RBP_Name	RBP_Species	RBP_Status	Family_Name	RBDs	RBD_Count	Cutoff	DBID	Motif_Type	MSource_Identifier	MSource_Type	MSource_Author	MSource_Year	PMID	MSource_Version	RBPSource_Name	RBPSource_URL	RBPSource_Year	RBPSource_Month	RBPSource_Day
+T00071_0.6	F09_0.6	TS19_0.6	.	.	ENSMUSG00000029625	Cpsf4	Mus_musculus	N	CCCH ZF,CCHC ZF	zf-CCCH,zf-CCHC	2	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T00564_0.6	F15_0.6	TS19_0.6	.	.	ENSMUSG00000022119	Rbm26	Mus_musculus	N	CCCH ZF,RRM	zf-CCCH,RRM_1	2	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T00565_0.6	F15_0.6	TS19_0.6	.	.	ENSMUSG00000024491	Rbm27	Mus_musculus	N	CCCH ZF,RRM	zf-CCCH,RRM_1	2	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T00566_0.6	F15_0.6	TS19_0.6	.	.	ENSMUSG00000024604	Rbm22	Mus_musculus	N	CCCH ZF,RRM	zf-CCCH,RRM_1	2	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T00567_0.6	F15_0.6	TS19_0.6	.	.	ENSMUSG00000031370	Zrsr2	Mus_musculus	N	CCCH ZF,RRM	zf-CCCH,RRM_1	2	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T00568_0.6	F15_0.6	TS19_0.6	.	.	ENSMUSG00000044068	Zrsr1	Mus_musculus	N	CCCH ZF,RRM	zf-CCCH,RRM_1	2	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T00569_0.6	F15_0.6	TS19_0.6	.	.	ENSMUSG00000061613	U2af1	Mus_musculus	N	CCCH ZF,RRM	zf-CCCH,RRM_1	2	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T00570_0.6	F15_0.6	TS19_0.6	.	.	ENSMUSG00000078765	U2af1l4	Mus_musculus	N	CCCH ZF,RRM	zf-CCCH,RRM_1	2	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T02978_0.6	F17_0.6	TS19_0.6	.	.	ENSMUSG00000000439	Mkrn2	Mus_musculus	N	CCCH ZF	zf-CCCH	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T02979_0.6	F17_0.6	TS19_0.6	.	.	ENSMUSG00000001909	Trmt1	Mus_musculus	N	CCCH ZF	zf-CCCH	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T02980_0.6	F17_0.6	TS19_0.6	.	.	ENSMUSG00000007603	Dus3l	Mus_musculus	N	CCCH ZF	zf-CCCH	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T02981_0.6	F17_0.6	TS19_0.6	.	.	ENSMUSG00000009076	Zmat5	Mus_musculus	N	CCCH ZF	zf-CCCH	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T02982_0.6	F17_0.6	TS19_0.6	.	.	ENSMUSG00000015127	Unkl	Mus_musculus	N	CCCH ZF	zf-CCCH	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T02983_0.6	F17_0.6	TS19_0.6	.	.	ENSMUSG00000017478	Zc3h18	Mus_musculus	N	CCCH ZF	zf-CCCH	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T02984_0.6	F17_0.6	TS19_0.6	.	.	ENSMUSG00000018727	Cpsf4l	Mus_musculus	N	CCCH ZF	zf-CCCH	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T02985_0.6	F17_0.6	TS19_0.6	.	.	ENSMUSG00000020721	Helz	Mus_musculus	N	CCCH ZF	zf-CCCH	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T02986_0.6	F17_0.6	TS19_0.6	.	.	ENSMUSG00000020770	Unk	Mus_musculus	N	CCCH ZF	zf-CCCH	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T02987_0.6	F17_0.6	TS19_0.6	M263_0.6	MS1_0.6	ENSMUSG00000021127	Zfp36l1	Mus_musculus	I	CCCH ZF	zf-CCCH	1	0.70	193_18367721	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T02987_0.6	F17_0.6	TS19_0.6	M264_0.6	MS1_0.6	ENSMUSG00000021127	Zfp36l1	Mus_musculus	I	CCCH ZF	zf-CCCH	1	0.70	193_18367721.1	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T02987_0.6	F17_0.6	TS19_0.6	M265_0.6	MS1_0.6	ENSMUSG00000021127	Zfp36l1	Mus_musculus	I	CCCH ZF	zf-CCCH	1	0.70	193_18367721.2	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T02987_0.6	F17_0.6	TS19_0.6	M266_0.6	MS1_0.6	ENSMUSG00000021127	Zfp36l1	Mus_musculus	I	CCCH ZF	zf-CCCH	1	0.70	193_18367721.3	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T02987_0.6	F17_0.6	TS19_0.6	M267_0.6	MS1_0.6	ENSMUSG00000021127	Zfp36l1	Mus_musculus	I	CCCH ZF	zf-CCCH	1	0.70	194_18256032	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T02987_0.6	F17_0.6	TS19_0.6	M268_0.6	MS1_0.6	ENSMUSG00000021127	Zfp36l1	Mus_musculus	I	CCCH ZF	zf-CCCH	1	0.70	194_18256032.1	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T02987_0.6	F17_0.6	TS19_0.6	M269_0.6	MS1_0.6	ENSMUSG00000021127	Zfp36l1	Mus_musculus	I	CCCH ZF	zf-CCCH	1	0.70	221_12324455	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T02987_0.6	F17_0.6	TS19_0.6	M350_0.6	MS1_0.6	ENSMUSG00000021127	Zfp36l1	Mus_musculus	I	CCCH ZF	zf-CCCH	1	0.70	951_12324455	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T02988_0.6	F17_0.6	TS19_0.6	.	.	ENSMUSG00000022000	Zc3h13	Mus_musculus	N	CCCH ZF	zf-CCCH	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T02989_0.6	F17_0.6	TS19_0.6	M037_0.6	MS2_0.6	ENSMUSG00000022139	Mbnl2	Mus_musculus	I	CCCH ZF	zf-CCCH	1	0.70	RNCMPT00038	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T02989_0.6	F17_0.6	TS19_0.6	M320_0.6	MS1_0.6	ENSMUSG00000022139	Mbnl2	Mus_musculus	I	CCCH ZF	zf-CCCH	1	0.70	669_20071745	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T02990_0.6	F17_0.6	TS19_0.6	.	.	ENSMUSG00000022390	Zc3h7b	Mus_musculus	N	CCCH ZF	zf-CCCH	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T02991_0.6	F17_0.6	TS19_0.6	.	.	ENSMUSG00000027091	Zc3h15	Mus_musculus	N	CCCH ZF	zf-CCCH	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T02992_0.6	F17_0.6	TS19_0.6	.	.	ENSMUSG00000027387	Zc3h8	Mus_musculus	N	CCCH ZF	zf-CCCH	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T02993_0.6	F17_0.6	TS19_0.6	.	.	ENSMUSG00000027582	Zgpat	Mus_musculus	N	CCCH ZF	zf-CCCH	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T02994_0.6	F17_0.6	TS19_0.6	M037_0.6	MS2_0.6	ENSMUSG00000027763	Mbnl1	Mus_musculus	I	CCCH ZF	zf-CCCH	1	0.70	RNCMPT00038	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T02994_0.6	F17_0.6	TS19_0.6	M320_0.6	MS1_0.6	ENSMUSG00000027763	Mbnl1	Mus_musculus	I	CCCH ZF	zf-CCCH	1	0.70	669_20071745	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T02995_0.6	F17_0.6	TS19_0.6	.	.	ENSMUSG00000028688	Toe1	Mus_musculus	N	CCCH ZF	zf-CCCH	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T02996_0.6	F17_0.6	TS19_0.6	.	.	ENSMUSG00000029922	Mkrn1	Mus_musculus	N	CCCH ZF	zf-CCCH	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T02997_0.6	F17_0.6	TS19_0.6	.	.	ENSMUSG00000035051	Dhx57	Mus_musculus	N	CCCH ZF	zf-CCCH	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T02998_0.6	F17_0.6	TS19_0.6	M037_0.6	MS2_0.6	ENSMUSG00000036109	Mbnl3	Mus_musculus	I	CCCH ZF	zf-CCCH	1	0.70	RNCMPT00038	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T02998_0.6	F17_0.6	TS19_0.6	M320_0.6	MS1_0.6	ENSMUSG00000036109	Mbnl3	Mus_musculus	I	CCCH ZF	zf-CCCH	1	0.70	669_20071745	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T02999_0.6	F17_0.6	TS19_0.6	.	.	ENSMUSG00000036537	Rnf113a1	Mus_musculus	N	CCCH ZF	zf-CCCH	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T03000_0.6	F17_0.6	TS19_0.6	.	.	ENSMUSG00000037965	Zc3h7a	Mus_musculus	N	CCCH ZF	zf-CCCH	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T03001_0.6	F17_0.6	TS19_0.6	.	.	ENSMUSG00000038500	Prr3	Mus_musculus	N	CCCH ZF	zf-CCCH	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T03002_0.6	F17_0.6	TS19_0.6	.	.	ENSMUSG00000038507	Parp12	Mus_musculus	N	CCCH ZF	zf-CCCH	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T03003_0.6	F17_0.6	TS19_0.6	.	.	ENSMUSG00000039220	Ppp1r10	Mus_musculus	N	CCCH ZF	zf-CCCH	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T03004_0.6	F17_0.6	TS19_0.6	M083_0.6	MS2_0.6	ENSMUSG00000039810	Zc3h10	Mus_musculus	I	CCCH ZF	zf-CCCH	1	0.70	RNCMPT00085	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T03005_0.6	F17_0.6	TS19_0.6	.	.	ENSMUSG00000040423	Rc3h1	Mus_musculus	N	CCCH ZF	zf-CCCH	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T03006_0.6	F17_0.6	TS19_0.6	.	.	ENSMUSG00000042851	Zc3h6	Mus_musculus	N	CCCH ZF	zf-CCCH	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T03007_0.6	F17_0.6	TS19_0.6	.	.	ENSMUSG00000043432	Leng9	Mus_musculus	N	CCCH ZF	zf-CCCH	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T03008_0.6	F17_0.6	TS19_0.6	M263_0.6	MS1_0.6	ENSMUSG00000044786	Zfp36	Mus_musculus	I	CCCH ZF	zf-CCCH	1	0.70	193_18367721	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T03008_0.6	F17_0.6	TS19_0.6	M264_0.6	MS1_0.6	ENSMUSG00000044786	Zfp36	Mus_musculus	I	CCCH ZF	zf-CCCH	1	0.70	193_18367721.1	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T03008_0.6	F17_0.6	TS19_0.6	M265_0.6	MS1_0.6	ENSMUSG00000044786	Zfp36	Mus_musculus	I	CCCH ZF	zf-CCCH	1	0.70	193_18367721.2	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T03008_0.6	F17_0.6	TS19_0.6	M266_0.6	MS1_0.6	ENSMUSG00000044786	Zfp36	Mus_musculus	I	CCCH ZF	zf-CCCH	1	0.70	193_18367721.3	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T03008_0.6	F17_0.6	TS19_0.6	M267_0.6	MS1_0.6	ENSMUSG00000044786	Zfp36	Mus_musculus	I	CCCH ZF	zf-CCCH	1	0.70	194_18256032	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T03008_0.6	F17_0.6	TS19_0.6	M268_0.6	MS1_0.6	ENSMUSG00000044786	Zfp36	Mus_musculus	I	CCCH ZF	zf-CCCH	1	0.70	194_18256032.1	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T03008_0.6	F17_0.6	TS19_0.6	M269_0.6	MS1_0.6	ENSMUSG00000044786	Zfp36	Mus_musculus	I	CCCH ZF	zf-CCCH	1	0.70	221_12324455	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T03008_0.6	F17_0.6	TS19_0.6	M350_0.6	MS1_0.6	ENSMUSG00000044786	Zfp36	Mus_musculus	I	CCCH ZF	zf-CCCH	1	0.70	951_12324455	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T03009_0.6	F17_0.6	TS19_0.6	M263_0.6	MS1_0.6	ENSMUSG00000045817	Zfp36l2	Mus_musculus	I	CCCH ZF	zf-CCCH	1	0.70	193_18367721	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T03009_0.6	F17_0.6	TS19_0.6	M264_0.6	MS1_0.6	ENSMUSG00000045817	Zfp36l2	Mus_musculus	I	CCCH ZF	zf-CCCH	1	0.70	193_18367721.1	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T03009_0.6	F17_0.6	TS19_0.6	M265_0.6	MS1_0.6	ENSMUSG00000045817	Zfp36l2	Mus_musculus	I	CCCH ZF	zf-CCCH	1	0.70	193_18367721.2	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T03009_0.6	F17_0.6	TS19_0.6	M266_0.6	MS1_0.6	ENSMUSG00000045817	Zfp36l2	Mus_musculus	I	CCCH ZF	zf-CCCH	1	0.70	193_18367721.3	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T03009_0.6	F17_0.6	TS19_0.6	M267_0.6	MS1_0.6	ENSMUSG00000045817	Zfp36l2	Mus_musculus	I	CCCH ZF	zf-CCCH	1	0.70	194_18256032	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T03009_0.6	F17_0.6	TS19_0.6	M268_0.6	MS1_0.6	ENSMUSG00000045817	Zfp36l2	Mus_musculus	I	CCCH ZF	zf-CCCH	1	0.70	194_18256032.1	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T03009_0.6	F17_0.6	TS19_0.6	M269_0.6	MS1_0.6	ENSMUSG00000045817	Zfp36l2	Mus_musculus	I	CCCH ZF	zf-CCCH	1	0.70	221_12324455	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T03009_0.6	F17_0.6	TS19_0.6	M350_0.6	MS1_0.6	ENSMUSG00000045817	Zfp36l2	Mus_musculus	I	CCCH ZF	zf-CCCH	1	0.70	951_12324455	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T03010_0.6	F17_0.6	TS19_0.6	.	.	ENSMUSG00000048439	Nupl2	Mus_musculus	N	CCCH ZF	zf-CCCH	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T03011_0.6	F17_0.6	TS19_0.6	.	.	ENSMUSG00000055452	Gm7353	Mus_musculus	N	CCCH ZF	zf-CCCH	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T03012_0.6	F17_0.6	TS19_0.6	.	.	ENSMUSG00000059273	Zc3h4	Mus_musculus	N	CCCH ZF	zf-CCCH	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T03013_0.6	F17_0.6	TS19_0.6	M263_0.6	MS1_0.6	ENSMUSG00000059334	Zfp36l3	Mus_musculus	I	CCCH ZF	zf-CCCH	1	0.70	193_18367721	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T03013_0.6	F17_0.6	TS19_0.6	M264_0.6	MS1_0.6	ENSMUSG00000059334	Zfp36l3	Mus_musculus	I	CCCH ZF	zf-CCCH	1	0.70	193_18367721.1	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T03013_0.6	F17_0.6	TS19_0.6	M265_0.6	MS1_0.6	ENSMUSG00000059334	Zfp36l3	Mus_musculus	I	CCCH ZF	zf-CCCH	1	0.70	193_18367721.2	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T03013_0.6	F17_0.6	TS19_0.6	M266_0.6	MS1_0.6	ENSMUSG00000059334	Zfp36l3	Mus_musculus	I	CCCH ZF	zf-CCCH	1	0.70	193_18367721.3	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T03013_0.6	F17_0.6	TS19_0.6	M267_0.6	MS1_0.6	ENSMUSG00000059334	Zfp36l3	Mus_musculus	I	CCCH ZF	zf-CCCH	1	0.70	194_18256032	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T03013_0.6	F17_0.6	TS19_0.6	M268_0.6	MS1_0.6	ENSMUSG00000059334	Zfp36l3	Mus_musculus	I	CCCH ZF	zf-CCCH	1	0.70	194_18256032.1	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T03013_0.6	F17_0.6	TS19_0.6	M269_0.6	MS1_0.6	ENSMUSG00000059334	Zfp36l3	Mus_musculus	I	CCCH ZF	zf-CCCH	1	0.70	221_12324455	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T03013_0.6	F17_0.6	TS19_0.6	M350_0.6	MS1_0.6	ENSMUSG00000059334	Zfp36l3	Mus_musculus	I	CCCH ZF	zf-CCCH	1	0.70	951_12324455	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T03014_0.6	F17_0.6	TS19_0.6	.	.	ENSMUSG00000070527	Mkrn3	Mus_musculus	N	CCCH ZF	zf-CCCH	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T03015_0.6	F17_0.6	TS19_0.6	.	.	ENSMUSG00000075376	Rc3h2	Mus_musculus	N	CCCH ZF	zf-CCCH	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T03016_0.6	F17_0.6	TS19_0.6	.	.	ENSMUSG00000075600	Zc3h3	Mus_musculus	N	CCCH ZF	zf-CCCH	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T06809_0.6	F20_0.6	TS19_0.6	M035_0.6	MS2_0.6	ENSMUSG00000050966	Lin28a	Mus_musculus	I	CCHC ZF,CSD	zf-CCHC,CSD	2	0.70	RNCMPT00036	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T06809_0.6	F20_0.6	TS19_0.6	M153_0.6	MS2_0.6	ENSMUSG00000050966	Lin28a	Mus_musculus	I	CCHC ZF,CSD	zf-CCHC,CSD	2	0.70	RNCMPT00162	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T06810_0.6	F20_0.6	TS19_0.6	M035_0.6	MS2_0.6	ENSMUSG00000063804	Lin28b	Mus_musculus	I	CCHC ZF,CSD	zf-CCHC,CSD	2	0.70	RNCMPT00036	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T06810_0.6	F20_0.6	TS19_0.6	M153_0.6	MS2_0.6	ENSMUSG00000063804	Lin28b	Mus_musculus	I	CCHC ZF,CSD	zf-CCHC,CSD	2	0.70	RNCMPT00162	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T07005_0.6	F23_0.6	TS19_0.6	.	.	ENSMUSG00000024949	Sf1	Mus_musculus	N	CCHC ZF,KH	zf-CCHC,KH_1	2	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T07287_0.6	F25_0.6	TS19_0.6	M085_0.6	MS2_0.6	ENSMUSG00000022635	Zcrb1	Mus_musculus	I	CCHC ZF,RRM	zf-CCHC,RRM_1	2	0.70	RNCMPT00087	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T07288_0.6	F25_0.6	TS19_0.6	M331_0.6	MS1_0.6	ENSMUSG00000024097	Srsf7	Mus_musculus	I	CCHC ZF,RRM	zf-CCHC,RRM_1	2	0.70	790_10094314	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T07288_0.6	F25_0.6	TS19_0.6	M353_0.6	MS1_0.6	ENSMUSG00000024097	Srsf7	Mus_musculus	I	CCHC ZF,RRM	zf-CCHC,RRM_1	2	0.70	954_10094314	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T07289_0.6	F25_0.6	TS19_0.6	M050_0.6	MS2_0.6	ENSMUSG00000033760	Rbm4b	Mus_musculus	I	CCHC ZF,RRM	zf-CCHC,RRM_1	2	0.70	RNCMPT00052	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T07289_0.6	F25_0.6	TS19_0.6	M109_0.6	MS2_0.6	ENSMUSG00000033760	Rbm4b	Mus_musculus	I	CCHC ZF,RRM	zf-CCHC,RRM_1	2	0.70	RNCMPT00113	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T07290_0.6	F25_0.6	TS19_0.6	M050_0.6	MS2_0.6	ENSMUSG00000056951	ENSMUSG00000056951	Mus_musculus	I	CCHC ZF,RRM	zf-CCHC,RRM_1	2	0.70	RNCMPT00052	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T07290_0.6	F25_0.6	TS19_0.6	M109_0.6	MS2_0.6	ENSMUSG00000056951	ENSMUSG00000056951	Mus_musculus	I	CCHC ZF,RRM	zf-CCHC,RRM_1	2	0.70	RNCMPT00113	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T07775_0.6	F27_0.6	TS19_0.6	.	.	ENSMUSG00000061410	Zcchc14	Mus_musculus	N	CCHC ZF,SAM	zf-CCHC,SAM_1	2	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T10321_0.6	F28_0.6	TS19_0.6	.	.	ENSMUSG00000021494	Ddx41	Mus_musculus	N	CCHC ZF	zf-CCHC	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T10322_0.6	F28_0.6	TS19_0.6	.	.	ENSMUSG00000021621	Zcchc9	Mus_musculus	N	CCHC ZF	zf-CCHC	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T10323_0.6	F28_0.6	TS19_0.6	.	.	ENSMUSG00000029179	Zcchc4	Mus_musculus	N	CCHC ZF	zf-CCHC	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T10324_0.6	F28_0.6	TS19_0.6	.	.	ENSMUSG00000029427	Zcchc8	Mus_musculus	N	CCHC ZF	zf-CCHC	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T10325_0.6	F28_0.6	TS19_0.6	.	.	ENSMUSG00000030057	Cnbp	Mus_musculus	N	CCHC ZF	zf-CCHC	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T10326_0.6	F28_0.6	TS19_0.6	.	.	ENSMUSG00000030779	Rbbp6	Mus_musculus	N	CCHC ZF	zf-CCHC	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T10327_0.6	F28_0.6	TS19_0.6	.	.	ENSMUSG00000031330	Zcchc13	Mus_musculus	N	CCHC ZF	zf-CCHC	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T10328_0.6	F28_0.6	TS19_0.6	.	.	ENSMUSG00000033762	Recql4	Mus_musculus	N	CCHC ZF	zf-CCHC	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T10329_0.6	F28_0.6	TS19_0.6	.	.	ENSMUSG00000034610	Zcchc11	Mus_musculus	N	CCHC ZF	zf-CCHC	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T10330_0.6	F28_0.6	TS19_0.6	.	.	ENSMUSG00000035248	Zcchc6	Mus_musculus	N	CCHC ZF	zf-CCHC	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T10331_0.6	F28_0.6	TS19_0.6	.	.	ENSMUSG00000035649	Zcchc7	Mus_musculus	N	CCHC ZF	zf-CCHC	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T10332_0.6	F28_0.6	TS19_0.6	.	.	ENSMUSG00000038866	Zcchc2	Mus_musculus	N	CCHC ZF	zf-CCHC	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T10333_0.6	F28_0.6	TS19_0.6	.	.	ENSMUSG00000047686	Zcchc5	Mus_musculus	N	CCHC ZF	zf-CCHC	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T10334_0.6	F28_0.6	TS19_0.6	.	.	ENSMUSG00000074682	Zcchc3	Mus_musculus	N	CCHC ZF	zf-CCHC	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T10335_0.6	F28_0.6	TS19_0.6	.	.	ENSMUSG00000090094	ENSMUSG00000090094	Mus_musculus	N	CCHC ZF	zf-CCHC	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T16520_0.6	F29_0.6	TS19_0.6	.	.	ENSMUSG00000030051	Aplf	Mus_musculus	N	CCHH ZF	zf-CCHH	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T16924_0.6	F30_0.6	TS19_0.6	.	.	ENSMUSG00000008393	Carhsp1	Mus_musculus	N	CSD	CSD	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T16925_0.6	F30_0.6	TS19_0.6	M081_0.6	MS2_0.6	ENSMUSG00000018554	Ybx2	Mus_musculus	I	CSD	CSD	1	0.70	RNCMPT00083	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T16925_0.6	F30_0.6	TS19_0.6	M082_0.6	MS2_0.6	ENSMUSG00000018554	Ybx2	Mus_musculus	I	CSD	CSD	1	0.70	RNCMPT00084	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T16925_0.6	F30_0.6	TS19_0.6	M111_0.6	MS2_0.6	ENSMUSG00000018554	Ybx2	Mus_musculus	I	CSD	CSD	1	0.70	RNCMPT00116	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T16925_0.6	F30_0.6	TS19_0.6	M250_0.6	MS1_0.6	ENSMUSG00000018554	Ybx2	Mus_musculus	I	CSD	CSD	1	0.70	114_7499328	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T16925_0.6	F30_0.6	TS19_0.6	M254_0.6	MS1_0.6	ENSMUSG00000018554	Ybx2	Mus_musculus	I	CSD	CSD	1	0.70	115_7499328	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T16925_0.6	F30_0.6	TS19_0.6	M260_0.6	MS1_0.6	ENSMUSG00000018554	Ybx2	Mus_musculus	I	CSD	CSD	1	0.70	130_11376140	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T16926_0.6	F30_0.6	TS19_0.6	M081_0.6	MS2_0.6	ENSMUSG00000028639	Ybx1	Mus_musculus	I	CSD	CSD	1	0.70	RNCMPT00083	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T16926_0.6	F30_0.6	TS19_0.6	M082_0.6	MS2_0.6	ENSMUSG00000028639	Ybx1	Mus_musculus	I	CSD	CSD	1	0.70	RNCMPT00084	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T16926_0.6	F30_0.6	TS19_0.6	M111_0.6	MS2_0.6	ENSMUSG00000028639	Ybx1	Mus_musculus	I	CSD	CSD	1	0.70	RNCMPT00116	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T16926_0.6	F30_0.6	TS19_0.6	M250_0.6	MS1_0.6	ENSMUSG00000028639	Ybx1	Mus_musculus	I	CSD	CSD	1	0.70	114_7499328	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T16926_0.6	F30_0.6	TS19_0.6	M254_0.6	MS1_0.6	ENSMUSG00000028639	Ybx1	Mus_musculus	I	CSD	CSD	1	0.70	115_7499328	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T16926_0.6	F30_0.6	TS19_0.6	M260_0.6	MS1_0.6	ENSMUSG00000028639	Ybx1	Mus_musculus	I	CSD	CSD	1	0.70	130_11376140	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T16927_0.6	F30_0.6	TS19_0.6	M081_0.6	MS2_0.6	ENSMUSG00000030189	Csda	Mus_musculus	I	CSD	CSD	1	0.70	RNCMPT00083	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T16927_0.6	F30_0.6	TS19_0.6	M082_0.6	MS2_0.6	ENSMUSG00000030189	Csda	Mus_musculus	I	CSD	CSD	1	0.70	RNCMPT00084	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T16927_0.6	F30_0.6	TS19_0.6	M111_0.6	MS2_0.6	ENSMUSG00000030189	Csda	Mus_musculus	I	CSD	CSD	1	0.70	RNCMPT00116	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T16927_0.6	F30_0.6	TS19_0.6	M250_0.6	MS1_0.6	ENSMUSG00000030189	Csda	Mus_musculus	I	CSD	CSD	1	0.70	114_7499328	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T16927_0.6	F30_0.6	TS19_0.6	M254_0.6	MS1_0.6	ENSMUSG00000030189	Csda	Mus_musculus	I	CSD	CSD	1	0.70	115_7499328	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T16927_0.6	F30_0.6	TS19_0.6	M260_0.6	MS1_0.6	ENSMUSG00000030189	Csda	Mus_musculus	I	CSD	CSD	1	0.70	130_11376140	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T16928_0.6	F30_0.6	TS19_0.6	.	.	ENSMUSG00000042109	Csdc2	Mus_musculus	N	CSD	CSD	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T16929_0.6	F30_0.6	TS19_0.6	.	.	ENSMUSG00000068823	Csde1	Mus_musculus	N	CSD	CSD	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19117_0.6	F35_0.6	TS19_0.6	M016_0.6	MS2_0.6	ENSMUSG00000000838	Fmr1	Mus_musculus	I	KH	KH_1	1	0.70	RNCMPT00016	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19117_0.6	F35_0.6	TS19_0.6	M304_0.6	MS1_0.6	ENSMUSG00000000838	Fmr1	Mus_musculus	I	KH	KH_1	1	0.70	471_15805463	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19117_0.6	F35_0.6	TS19_0.6	M305_0.6	MS1_0.6	ENSMUSG00000000838	Fmr1	Mus_musculus	I	KH	KH_1	1	0.70	471_15805463.1	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19118_0.6	F35_0.6	TS19_0.6	M188_0.6	MS2_0.6	ENSMUSG00000001120	Pcbp3	Mus_musculus	D	KH	KH_1	1	0.70	RNCMPT00215	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19119_0.6	F35_0.6	TS19_0.6	M339_0.6	MS1_0.6	ENSMUSG00000007670	Khsrp	Mus_musculus	I	KH	KH_1	1	0.70	906_17437629	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19119_0.6	F35_0.6	TS19_0.6	M340_0.6	MS1_0.6	ENSMUSG00000007670	Khsrp	Mus_musculus	I	KH	KH_1	1	0.70	906_17437629.1	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19119_0.6	F35_0.6	TS19_0.6	M341_0.6	MS1_0.6	ENSMUSG00000007670	Khsrp	Mus_musculus	I	KH	KH_1	1	0.70	906_17437629.2	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19119_0.6	F35_0.6	TS19_0.6	M342_0.6	MS1_0.6	ENSMUSG00000007670	Khsrp	Mus_musculus	I	KH	KH_1	1	0.70	906_17437629.3	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19120_0.6	F35_0.6	TS19_0.6	.	.	ENSMUSG00000018428	Akap1	Mus_musculus	N	KH	KH_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19121_0.6	F35_0.6	TS19_0.6	M020_0.6	MS2_0.6	ENSMUSG00000018765	Fxr2	Mus_musculus	I	KH	KH_1	1	0.70	RNCMPT00020	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19121_0.6	F35_0.6	TS19_0.6	M152_0.6	MS2_0.6	ENSMUSG00000018765	Fxr2	Mus_musculus	I	KH	KH_1	1	0.70	RNCMPT00161	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19122_0.6	F35_0.6	TS19_0.6	.	.	ENSMUSG00000020116	Pno1	Mus_musculus	N	KH	KH_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19123_0.6	F35_0.6	TS19_0.6	M323_0.6	MS1_0.6	ENSMUSG00000021047	Nova1	Mus_musculus	I	KH	KH_1	1	0.70	680_9789075	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19123_0.6	F35_0.6	TS19_0.6	M325_0.6	MS1_0.6	ENSMUSG00000021047	Nova1	Mus_musculus	I	KH	KH_1	1	0.70	682_10811881	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19123_0.6	F35_0.6	TS19_0.6	M326_0.6	MS1_0.6	ENSMUSG00000021047	Nova1	Mus_musculus	I	KH	KH_1	1	0.70	685_18978773	CLIP-seq	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19124_0.6	F35_0.6	TS19_0.6	M026_0.6	MS2_0.6	ENSMUSG00000021546	Hnrnpk	Mus_musculus	I	KH	KH_1	1	0.70	RNCMPT00026	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19125_0.6	F35_0.6	TS19_0.6	M033_0.6	MS2_0.6	ENSMUSG00000022332	Khdrbs3	Mus_musculus	I	KH	KH_1	1	0.70	RNCMPT00034	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19125_0.6	F35_0.6	TS19_0.6	M060_0.6	MS2_0.6	ENSMUSG00000022332	Khdrbs3	Mus_musculus	I	KH	KH_1	1	0.70	RNCMPT00062	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19125_0.6	F35_0.6	TS19_0.6	M160_0.6	MS2_0.6	ENSMUSG00000022332	Khdrbs3	Mus_musculus	I	KH	KH_1	1	0.70	RNCMPT00169	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19125_0.6	F35_0.6	TS19_0.6	M176_0.6	MS2_0.6	ENSMUSG00000022332	Khdrbs3	Mus_musculus	I	KH	KH_1	1	0.70	RNCMPT00185	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19126_0.6	F35_0.6	TS19_0.6	M043_0.6	MS2_0.6	ENSMUSG00000023495	Pcbp4	Mus_musculus	I	KH	KH_1	1	0.70	RNCMPT00044	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19126_0.6	F35_0.6	TS19_0.6	M177_0.6	MS2_0.6	ENSMUSG00000023495	Pcbp4	Mus_musculus	I	KH	KH_1	1	0.70	RNCMPT00186	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19126_0.6	F35_0.6	TS19_0.6	M188_0.6	MS2_0.6	ENSMUSG00000023495	Pcbp4	Mus_musculus	I	KH	KH_1	1	0.70	RNCMPT00215	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19126_0.6	F35_0.6	TS19_0.6	M207_0.6	MS2_0.6	ENSMUSG00000023495	Pcbp4	Mus_musculus	I	KH	KH_1	1	0.70	RNCMPT00239	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19126_0.6	F35_0.6	TS19_0.6	M211_0.6	MS2_0.6	ENSMUSG00000023495	Pcbp4	Mus_musculus	I	KH	KH_1	1	0.70	RNCMPT00246	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19127_0.6	F35_0.6	TS19_0.6	M002_0.6	MS2_0.6	ENSMUSG00000024483	Ankhd1	Mus_musculus	I	KH	KH_1	1	0.70	RNCMPT00002	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19128_0.6	F35_0.6	TS19_0.6	M033_0.6	MS2_0.6	ENSMUSG00000026058	Khdrbs2	Mus_musculus	I	KH	KH_1	1	0.70	RNCMPT00034	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19128_0.6	F35_0.6	TS19_0.6	M060_0.6	MS2_0.6	ENSMUSG00000026058	Khdrbs2	Mus_musculus	I	KH	KH_1	1	0.70	RNCMPT00062	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19128_0.6	F35_0.6	TS19_0.6	M160_0.6	MS2_0.6	ENSMUSG00000026058	Khdrbs2	Mus_musculus	I	KH	KH_1	1	0.70	RNCMPT00169	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19128_0.6	F35_0.6	TS19_0.6	M176_0.6	MS2_0.6	ENSMUSG00000026058	Khdrbs2	Mus_musculus	I	KH	KH_1	1	0.70	RNCMPT00185	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19129_0.6	F35_0.6	TS19_0.6	.	.	ENSMUSG00000026843	Fubp3	Mus_musculus	N	KH	KH_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19130_0.6	F35_0.6	TS19_0.6	M020_0.6	MS2_0.6	ENSMUSG00000027680	Fxr1	Mus_musculus	I	KH	KH_1	1	0.70	RNCMPT00020	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19130_0.6	F35_0.6	TS19_0.6	M152_0.6	MS2_0.6	ENSMUSG00000027680	Fxr1	Mus_musculus	I	KH	KH_1	1	0.70	RNCMPT00161	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19131_0.6	F35_0.6	TS19_0.6	M339_0.6	MS1_0.6	ENSMUSG00000028034	Fubp1	Mus_musculus	I	KH	KH_1	1	0.70	906_17437629	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19131_0.6	F35_0.6	TS19_0.6	M340_0.6	MS1_0.6	ENSMUSG00000028034	Fubp1	Mus_musculus	I	KH	KH_1	1	0.70	906_17437629.1	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19131_0.6	F35_0.6	TS19_0.6	M341_0.6	MS1_0.6	ENSMUSG00000028034	Fubp1	Mus_musculus	I	KH	KH_1	1	0.70	906_17437629.2	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19131_0.6	F35_0.6	TS19_0.6	M342_0.6	MS1_0.6	ENSMUSG00000028034	Fubp1	Mus_musculus	I	KH	KH_1	1	0.70	906_17437629.3	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19132_0.6	F35_0.6	TS19_0.6	M060_0.6	MS2_0.6	ENSMUSG00000028790	Khdrbs1	Mus_musculus	D	KH	KH_1	1	0.70	RNCMPT00062	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19133_0.6	F35_0.6	TS19_0.6	M326_0.6	MS1_0.6	ENSMUSG00000030411	Nova2	Mus_musculus	D	KH	KH_1	1	0.70	685_18978773	CLIP-seq	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19134_0.6	F35_0.6	TS19_0.6	.	.	ENSMUSG00000034088	Hdlbp	Mus_musculus	N	KH	KH_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19135_0.6	F35_0.6	TS19_0.6	M122_0.6	MS2_0.6	ENSMUSG00000037253	Mex3c	Mus_musculus	I	KH	KH_1	1	0.70	RNCMPT00129	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19136_0.6	F35_0.6	TS19_0.6	.	.	ENSMUSG00000041912	Tdrkh	Mus_musculus	N	KH	KH_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19137_0.6	F35_0.6	TS19_0.6	.	.	ENSMUSG00000044475	Ascc1	Mus_musculus	N	KH	KH_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19138_0.6	F35_0.6	TS19_0.6	M122_0.6	MS2_0.6	ENSMUSG00000048696	Mex3d	Mus_musculus	I	KH	KH_1	1	0.70	RNCMPT00129	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19139_0.6	F35_0.6	TS19_0.6	.	.	ENSMUSG00000049815	4921511C20Rik	Mus_musculus	N	KH	KH_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19140_0.6	F35_0.6	TS19_0.6	M207_0.6	MS2_0.6	ENSMUSG00000051695	Pcbp1	Mus_musculus	D	KH	KH_1	1	0.70	RNCMPT00239	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19141_0.6	F35_0.6	TS19_0.6	M002_0.6	MS2_0.6	ENSMUSG00000055204	Ankrd17	Mus_musculus	I	KH	KH_1	1	0.70	RNCMPT00002	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19142_0.6	F35_0.6	TS19_0.6	M043_0.6	MS2_0.6	ENSMUSG00000056851	Pcbp2	Mus_musculus	I	KH	KH_1	1	0.70	RNCMPT00044	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19142_0.6	F35_0.6	TS19_0.6	M177_0.6	MS2_0.6	ENSMUSG00000056851	Pcbp2	Mus_musculus	I	KH	KH_1	1	0.70	RNCMPT00186	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19142_0.6	F35_0.6	TS19_0.6	M188_0.6	MS2_0.6	ENSMUSG00000056851	Pcbp2	Mus_musculus	I	KH	KH_1	1	0.70	RNCMPT00215	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19142_0.6	F35_0.6	TS19_0.6	M207_0.6	MS2_0.6	ENSMUSG00000056851	Pcbp2	Mus_musculus	I	KH	KH_1	1	0.70	RNCMPT00239	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19142_0.6	F35_0.6	TS19_0.6	M211_0.6	MS2_0.6	ENSMUSG00000056851	Pcbp2	Mus_musculus	I	KH	KH_1	1	0.70	RNCMPT00246	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19143_0.6	F35_0.6	TS19_0.6	M122_0.6	MS2_0.6	ENSMUSG00000057706	Mex3b	Mus_musculus	I	KH	KH_1	1	0.70	RNCMPT00129	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19144_0.6	F35_0.6	TS19_0.6	.	.	ENSMUSG00000060461	Dppa5a	Mus_musculus	N	KH	KH_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19145_0.6	F35_0.6	TS19_0.6	M046_0.6	MS2_0.6	ENSMUSG00000062078	Qk	Mus_musculus	I	KH	KH_1	1	0.70	RNCMPT00047	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19145_0.6	F35_0.6	TS19_0.6	M113_0.6	MS2_0.6	ENSMUSG00000062078	Qk	Mus_musculus	I	KH	KH_1	1	0.70	RNCMPT00118	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19145_0.6	F35_0.6	TS19_0.6	M262_0.6	MS1_0.6	ENSMUSG00000062078	Qk	Mus_musculus	I	KH	KH_1	1	0.70	149_16041388	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19145_0.6	F35_0.6	TS19_0.6	M281_0.6	MS1_0.6	ENSMUSG00000062078	Qk	Mus_musculus	I	KH	KH_1	1	0.70	279_20371350	PAR-clip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19146_0.6	F35_0.6	TS19_0.6	.	.	ENSMUSG00000062791	Gm382	Mus_musculus	N	KH	KH_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19147_0.6	F35_0.6	TS19_0.6	.	.	ENSMUSG00000063334	Krr1	Mus_musculus	N	KH	KH_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19148_0.6	F35_0.6	TS19_0.6	M026_0.6	MS2_0.6	ENSMUSG00000063902	Gm7964	Mus_musculus	I	KH	KH_1	1	0.70	RNCMPT00026	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19149_0.6	F35_0.6	TS19_0.6	.	.	ENSMUSG00000070291	Ddx43	Mus_musculus	N	KH	KH_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19150_0.6	F35_0.6	TS19_0.6	.	.	ENSMUSG00000074480	Mex3a	Mus_musculus	N	KH	KH_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T19151_0.6	F35_0.6	TS19_0.6	M002_0.6	MS2_0.6	ENSMUSG00000089986	ENSMUSG00000089986	Mus_musculus	I	KH	KH_1	1	0.70	RNCMPT00002	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T22241_0.6	F38_0.6	TS19_0.6	M032_0.6	MS2_0.6	ENSMUSG00000013415	Igf2bp1	Mus_musculus	I	KH,RRM	KH_1,RRM_1	2	0.70	RNCMPT00033	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T22241_0.6	F38_0.6	TS19_0.6	M163_0.6	MS2_0.6	ENSMUSG00000013415	Igf2bp1	Mus_musculus	I	KH,RRM	KH_1,RRM_1	2	0.70	RNCMPT00172	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T22241_0.6	F38_0.6	TS19_0.6	M293_0.6	MS1_0.6	ENSMUSG00000013415	Igf2bp1	Mus_musculus	I	KH,RRM	KH_1,RRM_1	2	0.70	355_20371350	PAR-clip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T22241_0.6	F38_0.6	TS19_0.6	M294_0.6	MS1_0.6	ENSMUSG00000013415	Igf2bp1	Mus_musculus	I	KH,RRM	KH_1,RRM_1	2	0.70	356_20371350	PAR-clip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T22241_0.6	F38_0.6	TS19_0.6	M295_0.6	MS1_0.6	ENSMUSG00000013415	Igf2bp1	Mus_musculus	I	KH,RRM	KH_1,RRM_1	2	0.70	357_20371350	PAR-clip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T22241_0.6	F38_0.6	TS19_0.6	M296_0.6	MS1_0.6	ENSMUSG00000013415	Igf2bp1	Mus_musculus	I	KH,RRM	KH_1,RRM_1	2	0.70	359_12507992	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T22242_0.6	F38_0.6	TS19_0.6	M032_0.6	MS2_0.6	ENSMUSG00000029814	Igf2bp3	Mus_musculus	I	KH,RRM	KH_1,RRM_1	2	0.70	RNCMPT00033	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T22242_0.6	F38_0.6	TS19_0.6	M163_0.6	MS2_0.6	ENSMUSG00000029814	Igf2bp3	Mus_musculus	I	KH,RRM	KH_1,RRM_1	2	0.70	RNCMPT00172	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T22242_0.6	F38_0.6	TS19_0.6	M293_0.6	MS1_0.6	ENSMUSG00000029814	Igf2bp3	Mus_musculus	I	KH,RRM	KH_1,RRM_1	2	0.70	355_20371350	PAR-clip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T22242_0.6	F38_0.6	TS19_0.6	M294_0.6	MS1_0.6	ENSMUSG00000029814	Igf2bp3	Mus_musculus	I	KH,RRM	KH_1,RRM_1	2	0.70	356_20371350	PAR-clip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T22242_0.6	F38_0.6	TS19_0.6	M295_0.6	MS1_0.6	ENSMUSG00000029814	Igf2bp3	Mus_musculus	I	KH,RRM	KH_1,RRM_1	2	0.70	357_20371350	PAR-clip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T22242_0.6	F38_0.6	TS19_0.6	M296_0.6	MS1_0.6	ENSMUSG00000029814	Igf2bp3	Mus_musculus	I	KH,RRM	KH_1,RRM_1	2	0.70	359_12507992	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T22243_0.6	F38_0.6	TS19_0.6	M032_0.6	MS2_0.6	ENSMUSG00000033581	Igf2bp2	Mus_musculus	I	KH,RRM	KH_1,RRM_1	2	0.70	RNCMPT00033	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T22243_0.6	F38_0.6	TS19_0.6	M163_0.6	MS2_0.6	ENSMUSG00000033581	Igf2bp2	Mus_musculus	I	KH,RRM	KH_1,RRM_1	2	0.70	RNCMPT00172	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T22243_0.6	F38_0.6	TS19_0.6	M293_0.6	MS1_0.6	ENSMUSG00000033581	Igf2bp2	Mus_musculus	I	KH,RRM	KH_1,RRM_1	2	0.70	355_20371350	PAR-clip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T22243_0.6	F38_0.6	TS19_0.6	M294_0.6	MS1_0.6	ENSMUSG00000033581	Igf2bp2	Mus_musculus	I	KH,RRM	KH_1,RRM_1	2	0.70	356_20371350	PAR-clip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T22243_0.6	F38_0.6	TS19_0.6	M295_0.6	MS1_0.6	ENSMUSG00000033581	Igf2bp2	Mus_musculus	I	KH,RRM	KH_1,RRM_1	2	0.70	357_20371350	PAR-clip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T22243_0.6	F38_0.6	TS19_0.6	M296_0.6	MS1_0.6	ENSMUSG00000033581	Igf2bp2	Mus_musculus	I	KH,RRM	KH_1,RRM_1	2	0.70	359_12507992	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T22371_0.6	F39_0.6	TS19_0.6	.	.	ENSMUSG00000020464	Pnpt1	Mus_musculus	N	KH,S1	KH_1,S1	2	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T22500_0.6	F40_0.6	TS19_0.6	.	.	ENSMUSG00000014329	Bicc1	Mus_musculus	N	KH,SAM	KH_1,SAM_1	2	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T22798_0.6	F41_0.6	TS19_0.6	.	.	ENSMUSG00000023025	Larp4	Mus_musculus	N	La	La	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T22799_0.6	F41_0.6	TS19_0.6	.	.	ENSMUSG00000033499	Larp4b	Mus_musculus	N	La	La	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T22800_0.6	F41_0.6	TS19_0.6	.	.	ENSMUSG00000034839	Larp6	Mus_musculus	N	La	La	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T22801_0.6	F41_0.6	TS19_0.6	.	.	ENSMUSG00000037331	Larp1	Mus_musculus	N	La	La	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T22802_0.6	F41_0.6	TS19_0.6	.	.	ENSMUSG00000037814	Larp1b	Mus_musculus	N	La	La	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T23408_0.6	F42_0.6	TS19_0.6	.	.	ENSMUSG00000027968	Larp7	Mus_musculus	N	La,RRM	La,RRM_1	2	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T23409_0.6	F42_0.6	TS19_0.6	.	.	ENSMUSG00000068882	Ssb	Mus_musculus	N	La,RRM	La,RRM_1	2	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T24232_0.6	F44_0.6	TS19_0.6	.	.	ENSMUSG00000019297	2610027L16Rik	Mus_musculus	N	PUF	PUF	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T24233_0.6	F44_0.6	TS19_0.6	M286_0.6	MS1_0.6	ENSMUSG00000020594	Pum2	Mus_musculus	D	PUF	PUF	1	0.70	329_11780640	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T24233_0.6	F44_0.6	TS19_0.6	M287_0.6	MS1_0.6	ENSMUSG00000020594	Pum2	Mus_musculus	D	PUF	PUF	1	0.70	330_11780640	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T24234_0.6	F44_0.6	TS19_0.6	M045_0.6	MS2_0.6	ENSMUSG00000028580	Pum1	Mus_musculus	I	PUF	PUF	1	0.70	RNCMPT00046	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T24234_0.6	F44_0.6	TS19_0.6	M097_0.6	MS2_0.6	ENSMUSG00000028580	Pum1	Mus_musculus	I	PUF	PUF	1	0.70	RNCMPT00101	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T24234_0.6	F44_0.6	TS19_0.6	M098_0.6	MS2_0.6	ENSMUSG00000028580	Pum1	Mus_musculus	I	PUF	PUF	1	0.70	RNCMPT00102	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T24234_0.6	F44_0.6	TS19_0.6	M099_0.6	MS2_0.6	ENSMUSG00000028580	Pum1	Mus_musculus	I	PUF	PUF	1	0.70	RNCMPT00103	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T24234_0.6	F44_0.6	TS19_0.6	M100_0.6	MS2_0.6	ENSMUSG00000028580	Pum1	Mus_musculus	I	PUF	PUF	1	0.70	RNCMPT00104	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T24234_0.6	F44_0.6	TS19_0.6	M101_0.6	MS2_0.6	ENSMUSG00000028580	Pum1	Mus_musculus	I	PUF	PUF	1	0.70	RNCMPT00105	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T24234_0.6	F44_0.6	TS19_0.6	M249_0.6	MS1_0.6	ENSMUSG00000028580	Pum1	Mus_musculus	I	PUF	PUF	1	0.70	1147_18776931	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T24234_0.6	F44_0.6	TS19_0.6	M255_0.6	MS1_0.6	ENSMUSG00000028580	Pum1	Mus_musculus	I	PUF	PUF	1	0.70	1182_18411299	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T24234_0.6	F44_0.6	TS19_0.6	M280_0.6	MS1_0.6	ENSMUSG00000028580	Pum1	Mus_musculus	I	PUF	PUF	1	0.70	278_20371350	PAR-clip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T24234_0.6	F44_0.6	TS19_0.6	M283_0.6	MS1_0.6	ENSMUSG00000028580	Pum1	Mus_musculus	I	PUF	PUF	1	0.70	309_18776931	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T24234_0.6	F44_0.6	TS19_0.6	M284_0.6	MS1_0.6	ENSMUSG00000028580	Pum1	Mus_musculus	I	PUF	PUF	1	0.70	320_15607425	yeast three-hybrid screen	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T24234_0.6	F44_0.6	TS19_0.6	M285_0.6	MS1_0.6	ENSMUSG00000028580	Pum1	Mus_musculus	I	PUF	PUF	1	0.70	323_16537387	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T24234_0.6	F44_0.6	TS19_0.6	M286_0.6	MS1_0.6	ENSMUSG00000028580	Pum1	Mus_musculus	I	PUF	PUF	1	0.70	329_11780640	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T24234_0.6	F44_0.6	TS19_0.6	M287_0.6	MS1_0.6	ENSMUSG00000028580	Pum1	Mus_musculus	I	PUF	PUF	1	0.70	330_11780640	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T24235_0.6	F44_0.6	TS19_0.6	.	.	ENSMUSG00000041360	D19Bwg1357e	Mus_musculus	N	PUF	PUF	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T25605_0.6	F46_0.6	TS19_0.6	.	.	ENSMUSG00000009079	Ewsr1	Mus_musculus	N	RanBP ZF,RRM	zf-RanBP,RRM_1	2	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T25606_0.6	F46_0.6	TS19_0.6	M316_0.6	MS1_0.6	ENSMUSG00000020680	Taf15	Mus_musculus	I	RanBP ZF,RRM	zf-RanBP,RRM_1	2	0.70	637_11098054	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T25607_0.6	F46_0.6	TS19_0.6	M316_0.6	MS1_0.6	ENSMUSG00000030795	Fus	Mus_musculus	I	RanBP ZF,RRM	zf-RanBP,RRM_1	2	0.70	637_11098054	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T25608_0.6	F46_0.6	TS19_0.6	.	.	ENSMUSG00000031060	Rbm10	Mus_musculus	N	RanBP ZF,RRM	zf-RanBP,RRM_1	2	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T25609_0.6	F46_0.6	TS19_0.6	M053_0.6	MS2_0.6	ENSMUSG00000032580	Rbm5	Mus_musculus	I	RanBP ZF,RRM	zf-RanBP,RRM_1	2	0.70	RNCMPT00055	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T25609_0.6	F46_0.6	TS19_0.6	M145_0.6	MS2_0.6	ENSMUSG00000032580	Rbm5	Mus_musculus	I	RanBP ZF,RRM	zf-RanBP,RRM_1	2	0.70	RNCMPT00154	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T26616_0.6	F48_0.6	TS19_0.6	.	.	ENSMUSG00000003226	Ranbp2	Mus_musculus	N	RanBP ZF	zf-RanBP	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T26617_0.6	F48_0.6	TS19_0.6	.	.	ENSMUSG00000015755	Tab2	Mus_musculus	N	RanBP ZF	zf-RanBP	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T26618_0.6	F48_0.6	TS19_0.6	.	.	ENSMUSG00000020184	Mdm2	Mus_musculus	N	RanBP ZF	zf-RanBP	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T26619_0.6	F48_0.6	TS19_0.6	.	.	ENSMUSG00000021374	Nup153	Mus_musculus	N	RanBP ZF	zf-RanBP	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T26620_0.6	F48_0.6	TS19_0.6	.	.	ENSMUSG00000022552	Sharpin	Mus_musculus	N	RanBP ZF	zf-RanBP	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T26621_0.6	F48_0.6	TS19_0.6	.	.	ENSMUSG00000022634	Yaf2	Mus_musculus	N	RanBP ZF	zf-RanBP	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T26622_0.6	F48_0.6	TS19_0.6	.	.	ENSMUSG00000027466	Rbck1	Mus_musculus	N	RanBP ZF	zf-RanBP	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T26623_0.6	F48_0.6	TS19_0.6	M259_0.6	MS1_0.6	ENSMUSG00000028180	Zranb2	Mus_musculus	I	RanBP ZF	zf-RanBP	1	0.70	1285_19304800	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T26624_0.6	F48_0.6	TS19_0.6	.	.	ENSMUSG00000030967	Zranb1	Mus_musculus	N	RanBP ZF	zf-RanBP	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T26625_0.6	F48_0.6	TS19_0.6	.	.	ENSMUSG00000035476	Tab3	Mus_musculus	N	RanBP ZF	zf-RanBP	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T26626_0.6	F48_0.6	TS19_0.6	.	.	ENSMUSG00000036086	Zranb3	Mus_musculus	N	RanBP ZF	zf-RanBP	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T26627_0.6	F48_0.6	TS19_0.6	.	.	ENSMUSG00000037326	Solh	Mus_musculus	N	RanBP ZF	zf-RanBP	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T26628_0.6	F48_0.6	TS19_0.6	.	.	ENSMUSG00000039396	Neil3	Mus_musculus	N	RanBP ZF	zf-RanBP	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T26629_0.6	F48_0.6	TS19_0.6	.	.	ENSMUSG00000039703	Nploc4	Mus_musculus	N	RanBP ZF	zf-RanBP	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T26630_0.6	F48_0.6	TS19_0.6	.	.	ENSMUSG00000047098	Rnf31	Mus_musculus	N	RanBP ZF	zf-RanBP	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T26631_0.6	F48_0.6	TS19_0.6	.	.	ENSMUSG00000055763	ENSMUSG00000055763	Mus_musculus	N	RanBP ZF	zf-RanBP	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T26632_0.6	F48_0.6	TS19_0.6	.	.	ENSMUSG00000071686	Tex13a	Mus_musculus	N	RanBP ZF	zf-RanBP	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T26633_0.6	F48_0.6	TS19_0.6	.	.	ENSMUSG00000072872	Rybp	Mus_musculus	N	RanBP ZF	zf-RanBP	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39226_0.6	F49_0.6	TS19_0.6	M301_0.6	MS1_0.6	ENSMUSG00000000568	Hnrnpd	Mus_musculus	I	RRM	RRM_1	1	0.70	39_12419250	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39227_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000002107	Celf2	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39228_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000002524	Puf60	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39229_0.6	F49_0.6	TS19_0.6	M031_0.6	MS2_0.6	ENSMUSG00000003410	Elavl3	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00032	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39229_0.6	F49_0.6	TS19_0.6	M108_0.6	MS2_0.6	ENSMUSG00000003410	Elavl3	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00112	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39229_0.6	F49_0.6	TS19_0.6	M112_0.6	MS2_0.6	ENSMUSG00000003410	Elavl3	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00117	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39229_0.6	F49_0.6	TS19_0.6	M124_0.6	MS2_0.6	ENSMUSG00000003410	Elavl3	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00132	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39229_0.6	F49_0.6	TS19_0.6	M127_0.6	MS2_0.6	ENSMUSG00000003410	Elavl3	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00136	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39229_0.6	F49_0.6	TS19_0.6	M232_0.6	MS2_0.6	ENSMUSG00000003410	Elavl3	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00274	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39229_0.6	F49_0.6	TS19_0.6	M313_0.6	MS1_0.6	ENSMUSG00000003410	Elavl3	Mus_musculus	I	RRM	RRM_1	1	0.70	619_19846595	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39229_0.6	F49_0.6	TS19_0.6	M314_0.6	MS1_0.6	ENSMUSG00000003410	Elavl3	Mus_musculus	I	RRM	RRM_1	1	0.70	619_19846595.1	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39229_0.6	F49_0.6	TS19_0.6	M315_0.6	MS1_0.6	ENSMUSG00000003410	Elavl3	Mus_musculus	I	RRM	RRM_1	1	0.70	619_19846595.2	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39229_0.6	F49_0.6	TS19_0.6	M327_0.6	MS1_0.6	ENSMUSG00000003410	Elavl3	Mus_musculus	I	RRM	RRM_1	1	0.70	714_14981256	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39229_0.6	F49_0.6	TS19_0.6	M328_0.6	MS1_0.6	ENSMUSG00000003410	Elavl3	Mus_musculus	I	RRM	RRM_1	1	0.70	782_8497264	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39229_0.6	F49_0.6	TS19_0.6	M329_0.6	MS1_0.6	ENSMUSG00000003410	Elavl3	Mus_musculus	I	RRM	RRM_1	1	0.70	783_7972035	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39229_0.6	F49_0.6	TS19_0.6	M330_0.6	MS1_0.6	ENSMUSG00000003410	Elavl3	Mus_musculus	I	RRM	RRM_1	1	0.70	784_7972035	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39230_0.6	F49_0.6	TS19_0.6	M022_0.6	MS2_0.6	ENSMUSG00000004980	Hnrnpa2b1	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00022	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39230_0.6	F49_0.6	TS19_0.6	M023_0.6	MS2_0.6	ENSMUSG00000004980	Hnrnpa2b1	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00023	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39230_0.6	F49_0.6	TS19_0.6	M024_0.6	MS2_0.6	ENSMUSG00000004980	Hnrnpa2b1	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00024	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39230_0.6	F49_0.6	TS19_0.6	M271_0.6	MS1_0.6	ENSMUSG00000004980	Hnrnpa2b1	Mus_musculus	I	RRM	RRM_1	1	0.70	23_7510636	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39230_0.6	F49_0.6	TS19_0.6	M312_0.6	MS1_0.6	ENSMUSG00000004980	Hnrnpa2b1	Mus_musculus	I	RRM	RRM_1	1	0.70	560_17925491	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39231_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000005506	Celf1	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39232_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000006456	Rbm14	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39233_0.6	F49_0.6	TS19_0.6	M227_0.6	MS2_0.6	ENSMUSG00000006498	Ptbp1	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00268	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39233_0.6	F49_0.6	TS19_0.6	M228_0.6	MS2_0.6	ENSMUSG00000006498	Ptbp1	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00269	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39233_0.6	F49_0.6	TS19_0.6	M303_0.6	MS1_0.6	ENSMUSG00000006498	Ptbp1	Mus_musculus	I	RRM	RRM_1	1	0.70	46_9214659	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39234_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000007836	Hnrnpa0	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39235_0.6	F49_0.6	TS19_0.6	M151_0.6	MS2_0.6	ENSMUSG00000007850	Hnrnph1	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00160	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39236_0.6	F49_0.6	TS19_0.6	M069_0.6	MS2_0.6	ENSMUSG00000008333	Snrpb2	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00071	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39236_0.6	F49_0.6	TS19_0.6	M136_0.6	MS2_0.6	ENSMUSG00000008333	Snrpb2	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00145	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39236_0.6	F49_0.6	TS19_0.6	M317_0.6	MS1_0.6	ENSMUSG00000008333	Snrpb2	Mus_musculus	I	RRM	RRM_1	1	0.70	661_1717938	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39236_0.6	F49_0.6	TS19_0.6	M318_0.6	MS1_0.6	ENSMUSG00000008333	Snrpb2	Mus_musculus	I	RRM	RRM_1	1	0.70	662_1717938	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39236_0.6	F49_0.6	TS19_0.6	M319_0.6	MS1_0.6	ENSMUSG00000008333	Snrpb2	Mus_musculus	I	RRM	RRM_1	1	0.70	663_1717938	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39236_0.6	F49_0.6	TS19_0.6	M345_0.6	MS1_0.6	ENSMUSG00000008333	Snrpb2	Mus_musculus	I	RRM	RRM_1	1	0.70	946_10094314	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39236_0.6	F49_0.6	TS19_0.6	M346_0.6	MS1_0.6	ENSMUSG00000008333	Snrpb2	Mus_musculus	I	RRM	RRM_1	1	0.70	947_10094314	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39236_0.6	F49_0.6	TS19_0.6	M347_0.6	MS1_0.6	ENSMUSG00000008333	Snrpb2	Mus_musculus	I	RRM	RRM_1	1	0.70	948_10094314	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39236_0.6	F49_0.6	TS19_0.6	M348_0.6	MS1_0.6	ENSMUSG00000008333	Snrpb2	Mus_musculus	I	RRM	RRM_1	1	0.70	949_10094314	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39237_0.6	F49_0.6	TS19_0.6	M031_0.6	MS2_0.6	ENSMUSG00000008489	Elavl2	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00032	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39237_0.6	F49_0.6	TS19_0.6	M108_0.6	MS2_0.6	ENSMUSG00000008489	Elavl2	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00112	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39237_0.6	F49_0.6	TS19_0.6	M112_0.6	MS2_0.6	ENSMUSG00000008489	Elavl2	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00117	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39237_0.6	F49_0.6	TS19_0.6	M124_0.6	MS2_0.6	ENSMUSG00000008489	Elavl2	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00132	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39237_0.6	F49_0.6	TS19_0.6	M127_0.6	MS2_0.6	ENSMUSG00000008489	Elavl2	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00136	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39237_0.6	F49_0.6	TS19_0.6	M232_0.6	MS2_0.6	ENSMUSG00000008489	Elavl2	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00274	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39237_0.6	F49_0.6	TS19_0.6	M313_0.6	MS1_0.6	ENSMUSG00000008489	Elavl2	Mus_musculus	I	RRM	RRM_1	1	0.70	619_19846595	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39237_0.6	F49_0.6	TS19_0.6	M314_0.6	MS1_0.6	ENSMUSG00000008489	Elavl2	Mus_musculus	I	RRM	RRM_1	1	0.70	619_19846595.1	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39237_0.6	F49_0.6	TS19_0.6	M315_0.6	MS1_0.6	ENSMUSG00000008489	Elavl2	Mus_musculus	I	RRM	RRM_1	1	0.70	619_19846595.2	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39237_0.6	F49_0.6	TS19_0.6	M327_0.6	MS1_0.6	ENSMUSG00000008489	Elavl2	Mus_musculus	I	RRM	RRM_1	1	0.70	714_14981256	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39237_0.6	F49_0.6	TS19_0.6	M328_0.6	MS1_0.6	ENSMUSG00000008489	Elavl2	Mus_musculus	I	RRM	RRM_1	1	0.70	782_8497264	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39237_0.6	F49_0.6	TS19_0.6	M329_0.6	MS1_0.6	ENSMUSG00000008489	Elavl2	Mus_musculus	I	RRM	RRM_1	1	0.70	783_7972035	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39237_0.6	F49_0.6	TS19_0.6	M330_0.6	MS1_0.6	ENSMUSG00000008489	Elavl2	Mus_musculus	I	RRM	RRM_1	1	0.70	784_7972035	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39238_0.6	F49_0.6	TS19_0.6	M017_0.6	MS2_0.6	ENSMUSG00000008658	Rbfox1	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00017	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39238_0.6	F49_0.6	TS19_0.6	M118_0.6	MS2_0.6	ENSMUSG00000008658	Rbfox1	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00123	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39238_0.6	F49_0.6	TS19_0.6	M159_0.6	MS2_0.6	ENSMUSG00000008658	Rbfox1	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00168	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39238_0.6	F49_0.6	TS19_0.6	M297_0.6	MS1_0.6	ENSMUSG00000008658	Rbfox1	Mus_musculus	I	RRM	RRM_1	1	0.70	36_12574126	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39238_0.6	F49_0.6	TS19_0.6	M298_0.6	MS1_0.6	ENSMUSG00000008658	Rbfox1	Mus_musculus	I	RRM	RRM_1	1	0.70	37_16537540	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39239_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000010205	Raver1	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39240_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000010362	Rdm1	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39241_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000010592	Dazl	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39242_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000010608	Rbm25	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39243_0.6	F49_0.6	TS19_0.6	M042_0.6	MS2_0.6	ENSMUSG00000011257	Pabpc4	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00043	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39243_0.6	F49_0.6	TS19_0.6	M144_0.6	MS2_0.6	ENSMUSG00000011257	Pabpc4	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00153	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39243_0.6	F49_0.6	TS19_0.6	M146_0.6	MS2_0.6	ENSMUSG00000011257	Pabpc4	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00155	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39243_0.6	F49_0.6	TS19_0.6	M275_0.6	MS1_0.6	ENSMUSG00000011257	Pabpc4	Mus_musculus	I	RRM	RRM_1	1	0.70	24_7908267	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39243_0.6	F49_0.6	TS19_0.6	M349_0.6	MS1_0.6	ENSMUSG00000011257	Pabpc4	Mus_musculus	I	RRM	RRM_1	1	0.70	950_7908267	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39244_0.6	F49_0.6	TS19_0.6	M027_0.6	MS2_0.6	ENSMUSG00000015165	Hnrnpl	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00027	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39244_0.6	F49_0.6	TS19_0.6	M089_0.6	MS2_0.6	ENSMUSG00000015165	Hnrnpl	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00091	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39245_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000015757	Ppil4	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39246_0.6	F49_0.6	TS19_0.6	M126_0.6	MS2_0.6	ENSMUSG00000016921	Srsf6	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00134	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39246_0.6	F49_0.6	TS19_0.6	M334_0.6	MS1_0.6	ENSMUSG00000016921	Srsf6	Mus_musculus	I	RRM	RRM_1	1	0.70	802_9111335	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39247_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000018040	Rrp7a	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39248_0.6	F49_0.6	TS19_0.6	M065_0.6	MS2_0.6	ENSMUSG00000018379	Srsf1	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00067	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39248_0.6	F49_0.6	TS19_0.6	M072_0.6	MS2_0.6	ENSMUSG00000018379	Srsf1	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00074	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39248_0.6	F49_0.6	TS19_0.6	M102_0.6	MS2_0.6	ENSMUSG00000018379	Srsf1	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00106	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39248_0.6	F49_0.6	TS19_0.6	M103_0.6	MS2_0.6	ENSMUSG00000018379	Srsf1	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00107	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39248_0.6	F49_0.6	TS19_0.6	M104_0.6	MS2_0.6	ENSMUSG00000018379	Srsf1	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00108	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39248_0.6	F49_0.6	TS19_0.6	M105_0.6	MS2_0.6	ENSMUSG00000018379	Srsf1	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00109	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39248_0.6	F49_0.6	TS19_0.6	M106_0.6	MS2_0.6	ENSMUSG00000018379	Srsf1	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00110	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39248_0.6	F49_0.6	TS19_0.6	M154_0.6	MS2_0.6	ENSMUSG00000018379	Srsf1	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00163	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39248_0.6	F49_0.6	TS19_0.6	M270_0.6	MS1_0.6	ENSMUSG00000018379	Srsf1	Mus_musculus	I	RRM	RRM_1	1	0.70	229_19116412	CLIP-seq	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39248_0.6	F49_0.6	TS19_0.6	M272_0.6	MS1_0.6	ENSMUSG00000018379	Srsf1	Mus_musculus	I	RRM	RRM_1	1	0.70	242_7543047	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39248_0.6	F49_0.6	TS19_0.6	M273_0.6	MS1_0.6	ENSMUSG00000018379	Srsf1	Mus_musculus	I	RRM	RRM_1	1	0.70	243_7543047	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39248_0.6	F49_0.6	TS19_0.6	M333_0.6	MS1_0.6	ENSMUSG00000018379	Srsf1	Mus_musculus	I	RRM	RRM_1	1	0.70	797_17548433	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39248_0.6	F49_0.6	TS19_0.6	M351_0.6	MS1_0.6	ENSMUSG00000018379	Srsf1	Mus_musculus	I	RRM	RRM_1	1	0.70	952_7543047	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39249_0.6	F49_0.6	TS19_0.6	M302_0.6	MS1_0.6	ENSMUSG00000018583	G3bp1	Mus_musculus	I	RRM	RRM_1	1	0.70	432_11604510	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39250_0.6	F49_0.6	TS19_0.6	M062_0.6	MS2_0.6	ENSMUSG00000018974	Sart3	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00064	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39251_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000020069	Hnrnph3	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39252_0.6	F49_0.6	TS19_0.6	M012_0.6	MS2_0.6	ENSMUSG00000020300	Cpeb4	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00012	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39252_0.6	F49_0.6	TS19_0.6	M120_0.6	MS2_0.6	ENSMUSG00000020300	Cpeb4	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00126	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39252_0.6	F49_0.6	TS19_0.6	M149_0.6	MS2_0.6	ENSMUSG00000020300	Cpeb4	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00158	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39253_0.6	F49_0.6	TS19_0.6	M210_0.6	MS2_0.6	ENSMUSG00000020358	Hnrnpab	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00245	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39253_0.6	F49_0.6	TS19_0.6	M301_0.6	MS1_0.6	ENSMUSG00000020358	Hnrnpab	Mus_musculus	I	RRM	RRM_1	1	0.70	39_12419250	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39254_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000021040	1810035L17Rik	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39255_0.6	F49_0.6	TS19_0.6	M126_0.6	MS2_0.6	ENSMUSG00000021134	Srsf5	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00134	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39255_0.6	F49_0.6	TS19_0.6	M334_0.6	MS1_0.6	ENSMUSG00000021134	Srsf5	Mus_musculus	I	RRM	RRM_1	1	0.70	802_9111335	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39255_0.6	F49_0.6	TS19_0.6	M355_0.6	MS1_0.6	ENSMUSG00000021134	Srsf5	Mus_musculus	I	RRM	RRM_1	1	0.70	983_9037021	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39255_0.6	F49_0.6	TS19_0.6	M356_0.6	MS1_0.6	ENSMUSG00000021134	Srsf5	Mus_musculus	I	RRM	RRM_1	1	0.70	984_9037021	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39255_0.6	F49_0.6	TS19_0.6	M357_0.6	MS1_0.6	ENSMUSG00000021134	Srsf5	Mus_musculus	I	RRM	RRM_1	1	0.70	985_9037021	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39256_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000021392	Nol8	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39257_0.6	F49_0.6	TS19_0.6	M022_0.6	MS2_0.6	ENSMUSG00000021927	ENSMUSG00000021927	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00022	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39257_0.6	F49_0.6	TS19_0.6	M023_0.6	MS2_0.6	ENSMUSG00000021927	ENSMUSG00000021927	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00023	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39257_0.6	F49_0.6	TS19_0.6	M024_0.6	MS2_0.6	ENSMUSG00000021927	ENSMUSG00000021927	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00024	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39257_0.6	F49_0.6	TS19_0.6	M271_0.6	MS1_0.6	ENSMUSG00000021927	ENSMUSG00000021927	Mus_musculus	I	RRM	RRM_1	1	0.70	23_7510636	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39257_0.6	F49_0.6	TS19_0.6	M312_0.6	MS1_0.6	ENSMUSG00000021927	ENSMUSG00000021927	Mus_musculus	I	RRM	RRM_1	1	0.70	560_17925491	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39258_0.6	F49_0.6	TS19_0.6	M168_0.6	MS2_0.6	ENSMUSG00000021938	Pspc1	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00177	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39258_0.6	F49_0.6	TS19_0.6	M308_0.6	MS1_0.6	ENSMUSG00000021938	Pspc1	Mus_musculus	I	RRM	RRM_1	1	0.70	489_12403470	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39259_0.6	F49_0.6	TS19_0.6	M140_0.6	MS2_0.6	ENSMUSG00000022012	Enox1	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00149	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39260_0.6	F49_0.6	TS19_0.6	M148_0.6	MS2_0.6	ENSMUSG00000022194	Pabpn1	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00157	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39261_0.6	F49_0.6	TS19_0.6	M042_0.6	MS2_0.6	ENSMUSG00000022283	Pabpc1	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00043	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39261_0.6	F49_0.6	TS19_0.6	M144_0.6	MS2_0.6	ENSMUSG00000022283	Pabpc1	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00153	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39261_0.6	F49_0.6	TS19_0.6	M146_0.6	MS2_0.6	ENSMUSG00000022283	Pabpc1	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00155	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39261_0.6	F49_0.6	TS19_0.6	M275_0.6	MS1_0.6	ENSMUSG00000022283	Pabpc1	Mus_musculus	I	RRM	RRM_1	1	0.70	24_7908267	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39261_0.6	F49_0.6	TS19_0.6	M349_0.6	MS1_0.6	ENSMUSG00000022283	Pabpc1	Mus_musculus	I	RRM	RRM_1	1	0.70	950_7908267	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39262_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000022721	Trmt2a	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39263_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000022774	Ncbp2	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39264_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000022858	Tra2b	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39265_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000022983	Scaf4	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39266_0.6	F49_0.6	TS19_0.6	M169_0.6	MS2_0.6	ENSMUSG00000024095	Hnrpll	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00178	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39267_0.6	F49_0.6	TS19_0.6	M004_0.6	MS2_0.6	ENSMUSG00000024268	Celf4	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00004	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39267_0.6	F49_0.6	TS19_0.6	M079_0.6	MS2_0.6	ENSMUSG00000024268	Celf4	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00081	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39267_0.6	F49_0.6	TS19_0.6	M117_0.6	MS2_0.6	ENSMUSG00000024268	Celf4	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00122	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39267_0.6	F49_0.6	TS19_0.6	M157_0.6	MS2_0.6	ENSMUSG00000024268	Celf4	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00166	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39267_0.6	F49_0.6	TS19_0.6	M178_0.6	MS2_0.6	ENSMUSG00000024268	Celf4	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00187	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39268_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000024369	Rdbp	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39269_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000025134	Thoc4	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39270_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000025571	Tnrc6c	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39271_0.6	F49_0.6	TS19_0.6	M017_0.6	MS2_0.6	ENSMUSG00000025576	Rbfox3	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00017	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39271_0.6	F49_0.6	TS19_0.6	M118_0.6	MS2_0.6	ENSMUSG00000025576	Rbfox3	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00123	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39271_0.6	F49_0.6	TS19_0.6	M159_0.6	MS2_0.6	ENSMUSG00000025576	Rbfox3	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00168	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39271_0.6	F49_0.6	TS19_0.6	M297_0.6	MS1_0.6	ENSMUSG00000025576	Rbfox3	Mus_musculus	I	RRM	RRM_1	1	0.70	36_12574126	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39271_0.6	F49_0.6	TS19_0.6	M298_0.6	MS1_0.6	ENSMUSG00000025576	Rbfox3	Mus_musculus	I	RRM	RRM_1	1	0.70	37_16537540	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39272_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000025586	Cpeb1	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39273_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000025899	Alkbh8	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39274_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000025977	Boll	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39275_0.6	F49_0.6	TS19_0.6	M245_0.6	MS1_0.6	ENSMUSG00000026234	Ncl	Mus_musculus	I	RRM	RRM_1	1	0.70	1004_8676391	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39276_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000026377	Mki67ip	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39277_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000026519	Tmem63a	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39278_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000026667	Uhmk1	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39279_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000026889	Rbm18	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39280_0.6	F49_0.6	TS19_0.6	M055_0.6	MS2_0.6	ENSMUSG00000026970	Rbms1	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00057	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39280_0.6	F49_0.6	TS19_0.6	M143_0.6	MS2_0.6	ENSMUSG00000026970	Rbms1	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00152	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39280_0.6	F49_0.6	TS19_0.6	M164_0.6	MS2_0.6	ENSMUSG00000026970	Rbms1	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00173	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39281_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000027201	Myef2	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39282_0.6	F49_0.6	TS19_0.6	M049_0.6	MS2_0.6	ENSMUSG00000027510	Rbm38	Mus_musculus	D	RRM	RRM_1	1	0.70	RNCMPT00051	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39283_0.6	F49_0.6	TS19_0.6	M025_0.6	MS2_0.6	ENSMUSG00000027593	Raly	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00025	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39283_0.6	F49_0.6	TS19_0.6	M150_0.6	MS2_0.6	ENSMUSG00000027593	Raly	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00159	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39283_0.6	F49_0.6	TS19_0.6	M158_0.6	MS2_0.6	ENSMUSG00000027593	Raly	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00167	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39284_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000027620	Rbm39	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39285_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000027981	Rnpc3	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39286_0.6	F49_0.6	TS19_0.6	M227_0.6	MS2_0.6	ENSMUSG00000028134	Ptbp2	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00268	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39286_0.6	F49_0.6	TS19_0.6	M228_0.6	MS2_0.6	ENSMUSG00000028134	Ptbp2	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00269	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39286_0.6	F49_0.6	TS19_0.6	M303_0.6	MS1_0.6	ENSMUSG00000028134	Ptbp2	Mus_musculus	I	RRM	RRM_1	1	0.70	46_9214659	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39287_0.6	F49_0.6	TS19_0.6	M004_0.6	MS2_0.6	ENSMUSG00000028137	Celf3	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00004	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39287_0.6	F49_0.6	TS19_0.6	M079_0.6	MS2_0.6	ENSMUSG00000028137	Celf3	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00081	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39287_0.6	F49_0.6	TS19_0.6	M157_0.6	MS2_0.6	ENSMUSG00000028137	Celf3	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00166	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39287_0.6	F49_0.6	TS19_0.6	M178_0.6	MS2_0.6	ENSMUSG00000028137	Celf3	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00187	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39288_0.6	F49_0.6	TS19_0.6	M227_0.6	MS2_0.6	ENSMUSG00000028382	Rod1	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00268	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39288_0.6	F49_0.6	TS19_0.6	M228_0.6	MS2_0.6	ENSMUSG00000028382	Rod1	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00269	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39288_0.6	F49_0.6	TS19_0.6	M303_0.6	MS1_0.6	ENSMUSG00000028382	Rod1	Mus_musculus	I	RRM	RRM_1	1	0.70	46_9214659	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39289_0.6	F49_0.6	TS19_0.6	M031_0.6	MS2_0.6	ENSMUSG00000028546	Elavl4	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00032	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39289_0.6	F49_0.6	TS19_0.6	M108_0.6	MS2_0.6	ENSMUSG00000028546	Elavl4	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00112	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39289_0.6	F49_0.6	TS19_0.6	M112_0.6	MS2_0.6	ENSMUSG00000028546	Elavl4	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00117	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39289_0.6	F49_0.6	TS19_0.6	M124_0.6	MS2_0.6	ENSMUSG00000028546	Elavl4	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00132	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39289_0.6	F49_0.6	TS19_0.6	M127_0.6	MS2_0.6	ENSMUSG00000028546	Elavl4	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00136	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39289_0.6	F49_0.6	TS19_0.6	M232_0.6	MS2_0.6	ENSMUSG00000028546	Elavl4	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00274	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39289_0.6	F49_0.6	TS19_0.6	M313_0.6	MS1_0.6	ENSMUSG00000028546	Elavl4	Mus_musculus	I	RRM	RRM_1	1	0.70	619_19846595	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39289_0.6	F49_0.6	TS19_0.6	M314_0.6	MS1_0.6	ENSMUSG00000028546	Elavl4	Mus_musculus	I	RRM	RRM_1	1	0.70	619_19846595.1	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39289_0.6	F49_0.6	TS19_0.6	M315_0.6	MS1_0.6	ENSMUSG00000028546	Elavl4	Mus_musculus	I	RRM	RRM_1	1	0.70	619_19846595.2	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39289_0.6	F49_0.6	TS19_0.6	M327_0.6	MS1_0.6	ENSMUSG00000028546	Elavl4	Mus_musculus	I	RRM	RRM_1	1	0.70	714_14981256	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39289_0.6	F49_0.6	TS19_0.6	M328_0.6	MS1_0.6	ENSMUSG00000028546	Elavl4	Mus_musculus	I	RRM	RRM_1	1	0.70	782_8497264	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39289_0.6	F49_0.6	TS19_0.6	M329_0.6	MS1_0.6	ENSMUSG00000028546	Elavl4	Mus_musculus	I	RRM	RRM_1	1	0.70	783_7972035	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39289_0.6	F49_0.6	TS19_0.6	M330_0.6	MS1_0.6	ENSMUSG00000028546	Elavl4	Mus_musculus	I	RRM	RRM_1	1	0.70	784_7972035	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39290_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000028651	Ppie	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39291_0.6	F49_0.6	TS19_0.6	M019_0.6	MS2_0.6	ENSMUSG00000028676	Srsf10	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00019	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39291_0.6	F49_0.6	TS19_0.6	M086_0.6	MS2_0.6	ENSMUSG00000028676	Srsf10	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00088	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39291_0.6	F49_0.6	TS19_0.6	M087_0.6	MS2_0.6	ENSMUSG00000028676	Srsf10	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00089	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39291_0.6	F49_0.6	TS19_0.6	M088_0.6	MS2_0.6	ENSMUSG00000028676	Srsf10	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00090	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39292_0.6	F49_0.6	TS19_0.6	M168_0.6	MS2_0.6	ENSMUSG00000028820	Sfpq	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00177	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39292_0.6	F49_0.6	TS19_0.6	M307_0.6	MS1_0.6	ENSMUSG00000028820	Sfpq	Mus_musculus	I	RRM	RRM_1	1	0.70	488_9001221	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39292_0.6	F49_0.6	TS19_0.6	M308_0.6	MS1_0.6	ENSMUSG00000028820	Sfpq	Mus_musculus	I	RRM	RRM_1	1	0.70	489_12403470	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39292_0.6	F49_0.6	TS19_0.6	M309_0.6	MS1_0.6	ENSMUSG00000028820	Sfpq	Mus_musculus	I	RRM	RRM_1	1	0.70	490_12403470	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39293_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000028898	Trnau1ap	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39294_0.6	F49_0.6	TS19_0.6	M126_0.6	MS2_0.6	ENSMUSG00000028911	Srsf4	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00134	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39294_0.6	F49_0.6	TS19_0.6	M334_0.6	MS1_0.6	ENSMUSG00000028911	Srsf4	Mus_musculus	I	RRM	RRM_1	1	0.70	802_9111335	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39295_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000029167	Ppargc1a	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39296_0.6	F49_0.6	TS19_0.6	M210_0.6	MS2_0.6	ENSMUSG00000029328	Hnrpdl	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00245	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39296_0.6	F49_0.6	TS19_0.6	M301_0.6	MS1_0.6	ENSMUSG00000029328	Hnrpdl	Mus_musculus	I	RRM	RRM_1	1	0.70	39_12419250	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39297_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000029402	Snrnp35	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39298_0.6	F49_0.6	TS19_0.6	M021_0.6	MS2_0.6	ENSMUSG00000029405	G3bp2	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00021	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39299_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000029458	Brap	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39300_0.6	F49_0.6	TS19_0.6	M065_0.6	MS2_0.6	ENSMUSG00000029538	Srsf9	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00067	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39300_0.6	F49_0.6	TS19_0.6	M072_0.6	MS2_0.6	ENSMUSG00000029538	Srsf9	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00074	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39300_0.6	F49_0.6	TS19_0.6	M102_0.6	MS2_0.6	ENSMUSG00000029538	Srsf9	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00106	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39300_0.6	F49_0.6	TS19_0.6	M103_0.6	MS2_0.6	ENSMUSG00000029538	Srsf9	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00107	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39300_0.6	F49_0.6	TS19_0.6	M104_0.6	MS2_0.6	ENSMUSG00000029538	Srsf9	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00108	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39300_0.6	F49_0.6	TS19_0.6	M105_0.6	MS2_0.6	ENSMUSG00000029538	Srsf9	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00109	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39300_0.6	F49_0.6	TS19_0.6	M106_0.6	MS2_0.6	ENSMUSG00000029538	Srsf9	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00110	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39300_0.6	F49_0.6	TS19_0.6	M154_0.6	MS2_0.6	ENSMUSG00000029538	Srsf9	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00163	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39300_0.6	F49_0.6	TS19_0.6	M270_0.6	MS1_0.6	ENSMUSG00000029538	Srsf9	Mus_musculus	I	RRM	RRM_1	1	0.70	229_19116412	CLIP-seq	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39300_0.6	F49_0.6	TS19_0.6	M272_0.6	MS1_0.6	ENSMUSG00000029538	Srsf9	Mus_musculus	I	RRM	RRM_1	1	0.70	242_7543047	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39300_0.6	F49_0.6	TS19_0.6	M273_0.6	MS1_0.6	ENSMUSG00000029538	Srsf9	Mus_musculus	I	RRM	RRM_1	1	0.70	243_7543047	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39300_0.6	F49_0.6	TS19_0.6	M333_0.6	MS1_0.6	ENSMUSG00000029538	Srsf9	Mus_musculus	I	RRM	RRM_1	1	0.70	797_17548433	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39300_0.6	F49_0.6	TS19_0.6	M351_0.6	MS1_0.6	ENSMUSG00000029538	Srsf9	Mus_musculus	I	RRM	RRM_1	1	0.70	952_7543047	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39301_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000029594	Rbm19	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39302_0.6	F49_0.6	TS19_0.6	M047_0.6	MS2_0.6	ENSMUSG00000029701	Rbm28	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00049	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39303_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000029817	Tra2a	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39304_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000030016	Zfml	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39305_0.6	F49_0.6	TS19_0.6	M077_0.6	MS2_0.6	ENSMUSG00000030435	U2af2	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00079	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39305_0.6	F49_0.6	TS19_0.6	M078_0.6	MS2_0.6	ENSMUSG00000030435	U2af2	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00080	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39306_0.6	F49_0.6	TS19_0.6	M075_0.6	MS2_0.6	ENSMUSG00000030846	Tial1	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00077	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39306_0.6	F49_0.6	TS19_0.6	M156_0.6	MS2_0.6	ENSMUSG00000030846	Tial1	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00165	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39307_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000030924	2610020H08Rik	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39308_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000031107	Rbmx2	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39309_0.6	F49_0.6	TS19_0.6	M140_0.6	MS2_0.6	ENSMUSG00000031109	Enox2	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00149	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39310_0.6	F49_0.6	TS19_0.6	M246_0.6	MS1_0.6	ENSMUSG00000031134	Rbmx	Mus_musculus	I	RRM	RRM_1	1	0.70	1052_17318228	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39310_0.6	F49_0.6	TS19_0.6	M247_0.6	MS1_0.6	ENSMUSG00000031134	Rbmx	Mus_musculus	I	RRM	RRM_1	1	0.70	1053_17318228	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39310_0.6	F49_0.6	TS19_0.6	M344_0.6	MS1_0.6	ENSMUSG00000031134	Rbmx	Mus_musculus	I	RRM	RRM_1	1	0.70	922_19282290	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39311_0.6	F49_0.6	TS19_0.6	M048_0.6	MS2_0.6	ENSMUSG00000031167	Rbm3	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00050	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39312_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000031256	Cstf2	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39313_0.6	F49_0.6	TS19_0.6	M168_0.6	MS2_0.6	ENSMUSG00000031311	Nono	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00177	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39313_0.6	F49_0.6	TS19_0.6	M307_0.6	MS1_0.6	ENSMUSG00000031311	Nono	Mus_musculus	I	RRM	RRM_1	1	0.70	488_9001221	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39313_0.6	F49_0.6	TS19_0.6	M308_0.6	MS1_0.6	ENSMUSG00000031311	Nono	Mus_musculus	I	RRM	RRM_1	1	0.70	489_12403470	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39313_0.6	F49_0.6	TS19_0.6	M309_0.6	MS1_0.6	ENSMUSG00000031311	Nono	Mus_musculus	I	RRM	RRM_1	1	0.70	490_12403470	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39314_0.6	F49_0.6	TS19_0.6	M051_0.6	MS2_0.6	ENSMUSG00000031433	Rbm41	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00053	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39315_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000031586	Rbpms	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39316_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000031816	Mthfsd	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39317_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000032212	Sltm	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39318_0.6	F49_0.6	TS19_0.6	M004_0.6	MS2_0.6	ENSMUSG00000032297	Celf6	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00004	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39318_0.6	F49_0.6	TS19_0.6	M079_0.6	MS2_0.6	ENSMUSG00000032297	Celf6	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00081	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39318_0.6	F49_0.6	TS19_0.6	M117_0.6	MS2_0.6	ENSMUSG00000032297	Celf6	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00122	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39318_0.6	F49_0.6	TS19_0.6	M157_0.6	MS2_0.6	ENSMUSG00000032297	Celf6	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00166	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39318_0.6	F49_0.6	TS19_0.6	M178_0.6	MS2_0.6	ENSMUSG00000032297	Celf6	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00187	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39319_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000032387	Rbpms2	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39320_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000032407	2610101N10Rik	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39321_0.6	F49_0.6	TS19_0.6	M236_0.6	MS2_0.6	ENSMUSG00000032423	Syncrip	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00281	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39321_0.6	F49_0.6	TS19_0.6	M242_0.6	MS2_0.6	ENSMUSG00000032423	Syncrip	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00288	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39321_0.6	F49_0.6	TS19_0.6	M243_0.6	MS2_0.6	ENSMUSG00000032423	Syncrip	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00289	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39322_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000032582	Rbm6	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39323_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000032621	Srek1	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39324_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000032940	Rbm11	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39325_0.6	F49_0.6	TS19_0.6	M017_0.6	MS2_0.6	ENSMUSG00000033565	Rbfox2	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00017	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39325_0.6	F49_0.6	TS19_0.6	M118_0.6	MS2_0.6	ENSMUSG00000033565	Rbfox2	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00123	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39325_0.6	F49_0.6	TS19_0.6	M159_0.6	MS2_0.6	ENSMUSG00000033565	Rbfox2	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00168	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39325_0.6	F49_0.6	TS19_0.6	M297_0.6	MS1_0.6	ENSMUSG00000033565	Rbfox2	Mus_musculus	I	RRM	RRM_1	1	0.70	36_12574126	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39325_0.6	F49_0.6	TS19_0.6	M298_0.6	MS1_0.6	ENSMUSG00000033565	Rbfox2	Mus_musculus	I	RRM	RRM_1	1	0.70	37_16537540	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39326_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000033871	Ppargc1b	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39327_0.6	F49_0.6	TS19_0.6	M052_0.6	MS2_0.6	ENSMUSG00000033882	Rbm46	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00054	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39327_0.6	F49_0.6	TS19_0.6	M234_0.6	MS2_0.6	ENSMUSG00000033882	Rbm46	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00279	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39327_0.6	F49_0.6	TS19_0.6	M235_0.6	MS2_0.6	ENSMUSG00000033882	Rbm46	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00280	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39328_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000033931	Rbm34	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39329_0.6	F49_0.6	TS19_0.6	M070_0.6	MS2_0.6	ENSMUSG00000034120	Srsf2	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00072	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39329_0.6	F49_0.6	TS19_0.6	M274_0.6	MS1_0.6	ENSMUSG00000034120	Srsf2	Mus_musculus	I	RRM	RRM_1	1	0.70	244_7543047	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39329_0.6	F49_0.6	TS19_0.6	M332_0.6	MS1_0.6	ENSMUSG00000034120	Srsf2	Mus_musculus	I	RRM	RRM_1	1	0.70	791_10094314	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39329_0.6	F49_0.6	TS19_0.6	M352_0.6	MS1_0.6	ENSMUSG00000034120	Srsf2	Mus_musculus	I	RRM	RRM_1	1	0.70	953_7543047	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39330_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000034278	Dnajc17	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39331_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000034681	Rnps1	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39332_0.6	F49_0.6	TS19_0.6	M162_0.6	MS2_0.6	ENSMUSG00000034732	Pabpc5	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00171	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39333_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000034818	Celf5	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39334_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000034820	Cpsf7	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39335_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000035275	Raver2	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39336_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000036249	Rbm43	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39337_0.6	F49_0.6	TS19_0.6	M138_0.6	MS2_0.6	ENSMUSG00000036733	Rbm42	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00147	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39337_0.6	F49_0.6	TS19_0.6	M142_0.6	MS2_0.6	ENSMUSG00000036733	Rbm42	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00151	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39337_0.6	F49_0.6	TS19_0.6	M237_0.6	MS2_0.6	ENSMUSG00000036733	Rbm42	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00282	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39338_0.6	F49_0.6	TS19_0.6	M246_0.6	MS1_0.6	ENSMUSG00000037070	Rbmxrt	Mus_musculus	I	RRM	RRM_1	1	0.70	1052_17318228	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39338_0.6	F49_0.6	TS19_0.6	M247_0.6	MS1_0.6	ENSMUSG00000037070	Rbmxrt	Mus_musculus	I	RRM	RRM_1	1	0.70	1053_17318228	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39338_0.6	F49_0.6	TS19_0.6	M344_0.6	MS1_0.6	ENSMUSG00000037070	Rbmxrt	Mus_musculus	I	RRM	RRM_1	1	0.70	922_19282290	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39339_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000037197	Rbm17	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39340_0.6	F49_0.6	TS19_0.6	M036_0.6	MS2_0.6	ENSMUSG00000037236	Matr3	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00037	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39341_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000037361	0610009D07Rik	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39342_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000037364	Srrt	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39343_0.6	F49_0.6	TS19_0.6	M049_0.6	MS2_0.6	ENSMUSG00000038132	Rbm24	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00051	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39343_0.6	F49_0.6	TS19_0.6	M170_0.6	MS2_0.6	ENSMUSG00000038132	Rbm24	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00179	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39343_0.6	F49_0.6	TS19_0.6	M175_0.6	MS2_0.6	ENSMUSG00000038132	Rbm24	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00184	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39343_0.6	F49_0.6	TS19_0.6	M238_0.6	MS2_0.6	ENSMUSG00000038132	Rbm24	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00283	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39343_0.6	F49_0.6	TS19_0.6	M240_0.6	MS2_0.6	ENSMUSG00000038132	Rbm24	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00285	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39344_0.6	F49_0.6	TS19_0.6	M054_0.6	MS2_0.6	ENSMUSG00000038374	Rbm8a	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00056	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39345_0.6	F49_0.6	TS19_0.6	M008_0.6	MS2_0.6	ENSMUSG00000038784	Cnot4	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00008	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39345_0.6	F49_0.6	TS19_0.6	M147_0.6	MS2_0.6	ENSMUSG00000038784	Cnot4	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00156	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39345_0.6	F49_0.6	TS19_0.6	M233_0.6	MS2_0.6	ENSMUSG00000038784	Cnot4	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00278	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39346_0.6	F49_0.6	TS19_0.6	M055_0.6	MS2_0.6	ENSMUSG00000039607	Rbms3	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00057	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39346_0.6	F49_0.6	TS19_0.6	M143_0.6	MS2_0.6	ENSMUSG00000039607	Rbms3	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00152	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39346_0.6	F49_0.6	TS19_0.6	M164_0.6	MS2_0.6	ENSMUSG00000039607	Rbms3	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00173	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39347_0.6	F49_0.6	TS19_0.6	M012_0.6	MS2_0.6	ENSMUSG00000039652	Cpeb3	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00012	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39347_0.6	F49_0.6	TS19_0.6	M120_0.6	MS2_0.6	ENSMUSG00000039652	Cpeb3	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00126	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39347_0.6	F49_0.6	TS19_0.6	M149_0.6	MS2_0.6	ENSMUSG00000039652	Cpeb3	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00158	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39348_0.6	F49_0.6	TS19_0.6	M025_0.6	MS2_0.6	ENSMUSG00000039717	Ralyl	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00025	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39348_0.6	F49_0.6	TS19_0.6	M150_0.6	MS2_0.6	ENSMUSG00000039717	Ralyl	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00159	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39348_0.6	F49_0.6	TS19_0.6	M158_0.6	MS2_0.6	ENSMUSG00000039717	Ralyl	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00167	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39349_0.6	F49_0.6	TS19_0.6	M012_0.6	MS2_0.6	ENSMUSG00000039782	Cpeb2	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00012	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39349_0.6	F49_0.6	TS19_0.6	M120_0.6	MS2_0.6	ENSMUSG00000039782	Cpeb2	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00126	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39349_0.6	F49_0.6	TS19_0.6	M149_0.6	MS2_0.6	ENSMUSG00000039782	Cpeb2	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00158	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39350_0.6	F49_0.6	TS19_0.6	M031_0.6	MS2_0.6	ENSMUSG00000040028	Elavl1	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00032	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39350_0.6	F49_0.6	TS19_0.6	M108_0.6	MS2_0.6	ENSMUSG00000040028	Elavl1	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00112	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39350_0.6	F49_0.6	TS19_0.6	M112_0.6	MS2_0.6	ENSMUSG00000040028	Elavl1	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00117	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39350_0.6	F49_0.6	TS19_0.6	M127_0.6	MS2_0.6	ENSMUSG00000040028	Elavl1	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00136	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39350_0.6	F49_0.6	TS19_0.6	M232_0.6	MS2_0.6	ENSMUSG00000040028	Elavl1	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00274	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39350_0.6	F49_0.6	TS19_0.6	M313_0.6	MS1_0.6	ENSMUSG00000040028	Elavl1	Mus_musculus	I	RRM	RRM_1	1	0.70	619_19846595	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39350_0.6	F49_0.6	TS19_0.6	M314_0.6	MS1_0.6	ENSMUSG00000040028	Elavl1	Mus_musculus	I	RRM	RRM_1	1	0.70	619_19846595.1	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39350_0.6	F49_0.6	TS19_0.6	M315_0.6	MS1_0.6	ENSMUSG00000040028	Elavl1	Mus_musculus	I	RRM	RRM_1	1	0.70	619_19846595.2	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39350_0.6	F49_0.6	TS19_0.6	M327_0.6	MS1_0.6	ENSMUSG00000040028	Elavl1	Mus_musculus	I	RRM	RRM_1	1	0.70	714_14981256	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39350_0.6	F49_0.6	TS19_0.6	M328_0.6	MS1_0.6	ENSMUSG00000040028	Elavl1	Mus_musculus	I	RRM	RRM_1	1	0.70	782_8497264	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39350_0.6	F49_0.6	TS19_0.6	M329_0.6	MS1_0.6	ENSMUSG00000040028	Elavl1	Mus_musculus	I	RRM	RRM_1	1	0.70	783_7972035	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39350_0.6	F49_0.6	TS19_0.6	M330_0.6	MS1_0.6	ENSMUSG00000040028	Elavl1	Mus_musculus	I	RRM	RRM_1	1	0.70	784_7972035	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39351_0.6	F49_0.6	TS19_0.6	M055_0.6	MS2_0.6	ENSMUSG00000040043	Rbms2	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00057	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39351_0.6	F49_0.6	TS19_0.6	M143_0.6	MS2_0.6	ENSMUSG00000040043	Rbms2	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00152	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39351_0.6	F49_0.6	TS19_0.6	M164_0.6	MS2_0.6	ENSMUSG00000040043	Rbms2	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00173	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39352_0.6	F49_0.6	TS19_0.6	M141_0.6	MS2_0.6	ENSMUSG00000040728	Esrp1	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00150	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39353_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000040731	Eif4h	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39354_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000040761	Spen	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39355_0.6	F49_0.6	TS19_0.6	M074_0.6	MS2_0.6	ENSMUSG00000041459	Tardbp	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00076	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39356_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000041815	Poldip3	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39357_0.6	F49_0.6	TS19_0.6	M151_0.6	MS2_0.6	ENSMUSG00000042079	Hnrnpf	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00160	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39358_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000042308	Setd1a	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39359_0.6	F49_0.6	TS19_0.6	M209_0.6	MS2_0.6	ENSMUSG00000042369	Rbm45	Mus_musculus	D	RRM	RRM_1	1	0.70	RNCMPT00241	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39360_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000042396	Rbm7	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39361_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000042625	Safb2	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39362_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000044221	Grsf1	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39363_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000044595	Dnd1	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39364_0.6	F49_0.6	TS19_0.6	M048_0.6	MS2_0.6	ENSMUSG00000045193	Cirbp	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00050	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39365_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000045365	Rbm15b	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39366_0.6	F49_0.6	TS19_0.6	M151_0.6	MS2_0.6	ENSMUSG00000045427	Hnrnph2	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00160	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39367_0.6	F49_0.6	TS19_0.6	M042_0.6	MS2_0.6	ENSMUSG00000046173	Pabpc6	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00043	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39367_0.6	F49_0.6	TS19_0.6	M144_0.6	MS2_0.6	ENSMUSG00000046173	Pabpc6	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00153	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39367_0.6	F49_0.6	TS19_0.6	M146_0.6	MS2_0.6	ENSMUSG00000046173	Pabpc6	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00155	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39367_0.6	F49_0.6	TS19_0.6	M275_0.6	MS1_0.6	ENSMUSG00000046173	Pabpc6	Mus_musculus	I	RRM	RRM_1	1	0.70	24_7908267	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39367_0.6	F49_0.6	TS19_0.6	M349_0.6	MS1_0.6	ENSMUSG00000046173	Pabpc6	Mus_musculus	I	RRM	RRM_1	1	0.70	950_7908267	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39368_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000046201	Scaf8	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39369_0.6	F49_0.6	TS19_0.6	M022_0.6	MS2_0.6	ENSMUSG00000046434	Hnrnpa1	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00022	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39369_0.6	F49_0.6	TS19_0.6	M023_0.6	MS2_0.6	ENSMUSG00000046434	Hnrnpa1	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00023	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39369_0.6	F49_0.6	TS19_0.6	M024_0.6	MS2_0.6	ENSMUSG00000046434	Hnrnpa1	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00024	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39369_0.6	F49_0.6	TS19_0.6	M271_0.6	MS1_0.6	ENSMUSG00000046434	Hnrnpa1	Mus_musculus	I	RRM	RRM_1	1	0.70	23_7510636	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39369_0.6	F49_0.6	TS19_0.6	M312_0.6	MS1_0.6	ENSMUSG00000046434	Hnrnpa1	Mus_musculus	I	RRM	RRM_1	1	0.70	560_17925491	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39370_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000046667	Rbm12b	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39371_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000047888	Tnrc6b	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39372_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000048109	Rbm15	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39373_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000048271	Rbm33	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39374_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000048704	Rbm31y	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39375_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000049230	Gm9833	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39376_0.6	F49_0.6	TS19_0.6	M246_0.6	MS1_0.6	ENSMUSG00000049235	ENSMUSG00000049235	Mus_musculus	I	RRM	RRM_1	1	0.70	1052_17318228	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39376_0.6	F49_0.6	TS19_0.6	M247_0.6	MS1_0.6	ENSMUSG00000049235	ENSMUSG00000049235	Mus_musculus	I	RRM	RRM_1	1	0.70	1053_17318228	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39376_0.6	F49_0.6	TS19_0.6	M344_0.6	MS1_0.6	ENSMUSG00000049235	ENSMUSG00000049235	Mus_musculus	I	RRM	RRM_1	1	0.70	922_19282290	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39377_0.6	F49_0.6	TS19_0.6	M042_0.6	MS2_0.6	ENSMUSG00000051732	Pabpc2	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00043	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39377_0.6	F49_0.6	TS19_0.6	M144_0.6	MS2_0.6	ENSMUSG00000051732	Pabpc2	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00153	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39377_0.6	F49_0.6	TS19_0.6	M146_0.6	MS2_0.6	ENSMUSG00000051732	Pabpc2	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00155	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39377_0.6	F49_0.6	TS19_0.6	M275_0.6	MS1_0.6	ENSMUSG00000051732	Pabpc2	Mus_musculus	I	RRM	RRM_1	1	0.70	24_7908267	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39377_0.6	F49_0.6	TS19_0.6	M349_0.6	MS1_0.6	ENSMUSG00000051732	Pabpc2	Mus_musculus	I	RRM	RRM_1	1	0.70	950_7908267	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39378_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000052137	C430048L16Rik	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39379_0.6	F49_0.6	TS19_0.6	M001_0.6	MS2_0.6	ENSMUSG00000052595	A1cf	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00001	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39379_0.6	F49_0.6	TS19_0.6	M052_0.6	MS2_0.6	ENSMUSG00000052595	A1cf	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00054	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39379_0.6	F49_0.6	TS19_0.6	M235_0.6	MS2_0.6	ENSMUSG00000052595	A1cf	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00280	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39379_0.6	F49_0.6	TS19_0.6	M244_0.6	MS2_0.6	ENSMUSG00000052595	A1cf	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00291	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39380_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000052707	Tnrc6a	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39381_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000052831	Rbmy1a1	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39382_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000053536	Cstf2t	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39383_0.6	F49_0.6	TS19_0.6	M040_0.6	MS2_0.6	ENSMUSG00000054256	Msi1	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00041	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39383_0.6	F49_0.6	TS19_0.6	M167_0.6	MS2_0.6	ENSMUSG00000054256	Msi1	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00176	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39384_0.6	F49_0.6	TS19_0.6	M042_0.6	MS2_0.6	ENSMUSG00000054582	Pabpc1l	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00043	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39384_0.6	F49_0.6	TS19_0.6	M146_0.6	MS2_0.6	ENSMUSG00000054582	Pabpc1l	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00155	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39384_0.6	F49_0.6	TS19_0.6	M275_0.6	MS1_0.6	ENSMUSG00000054582	Pabpc1l	Mus_musculus	I	RRM	RRM_1	1	0.70	24_7908267	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39384_0.6	F49_0.6	TS19_0.6	M349_0.6	MS1_0.6	ENSMUSG00000054582	Pabpc1l	Mus_musculus	I	RRM	RRM_1	1	0.70	950_7908267	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39385_0.6	F49_0.6	TS19_0.6	M019_0.6	MS2_0.6	ENSMUSG00000054679	Srsf12	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00019	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39385_0.6	F49_0.6	TS19_0.6	M086_0.6	MS2_0.6	ENSMUSG00000054679	Srsf12	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00088	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39385_0.6	F49_0.6	TS19_0.6	M087_0.6	MS2_0.6	ENSMUSG00000054679	Srsf12	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00089	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39385_0.6	F49_0.6	TS19_0.6	M088_0.6	MS2_0.6	ENSMUSG00000054679	Srsf12	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00090	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39386_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000055436	Srsf11	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39387_0.6	F49_0.6	TS19_0.6	M044_0.6	MS2_0.6	ENSMUSG00000055491	Pprc1	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00045	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39388_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000055531	Cpsf6	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39389_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000056076	Eif3b	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39390_0.6	F49_0.6	TS19_0.6	M290_0.6	MS1_0.6	ENSMUSG00000058655	Eif4b	Mus_musculus	I	RRM	RRM_1	1	0.70	350_8846295	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39390_0.6	F49_0.6	TS19_0.6	M291_0.6	MS1_0.6	ENSMUSG00000058655	Eif4b	Mus_musculus	I	RRM	RRM_1	1	0.70	351_8846295	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39390_0.6	F49_0.6	TS19_0.6	M292_0.6	MS1_0.6	ENSMUSG00000058655	Eif4b	Mus_musculus	I	RRM	RRM_1	1	0.70	352_8846295	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39391_0.6	F49_0.6	TS19_0.6	M022_0.6	MS2_0.6	ENSMUSG00000059005	Hnrnpa3	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00022	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39391_0.6	F49_0.6	TS19_0.6	M023_0.6	MS2_0.6	ENSMUSG00000059005	Hnrnpa3	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00023	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39391_0.6	F49_0.6	TS19_0.6	M024_0.6	MS2_0.6	ENSMUSG00000059005	Hnrnpa3	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00024	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39391_0.6	F49_0.6	TS19_0.6	M271_0.6	MS1_0.6	ENSMUSG00000059005	Hnrnpa3	Mus_musculus	I	RRM	RRM_1	1	0.70	23_7510636	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39391_0.6	F49_0.6	TS19_0.6	M312_0.6	MS1_0.6	ENSMUSG00000059005	Hnrnpa3	Mus_musculus	I	RRM	RRM_1	1	0.70	560_17925491	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39392_0.6	F49_0.6	TS19_0.6	M022_0.6	MS2_0.6	ENSMUSG00000059179	Gm8991	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00022	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39392_0.6	F49_0.6	TS19_0.6	M023_0.6	MS2_0.6	ENSMUSG00000059179	Gm8991	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00023	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39392_0.6	F49_0.6	TS19_0.6	M024_0.6	MS2_0.6	ENSMUSG00000059179	Gm8991	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00024	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39392_0.6	F49_0.6	TS19_0.6	M271_0.6	MS1_0.6	ENSMUSG00000059179	Gm8991	Mus_musculus	I	RRM	RRM_1	1	0.70	23_7510636	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39392_0.6	F49_0.6	TS19_0.6	M312_0.6	MS1_0.6	ENSMUSG00000059179	Gm8991	Mus_musculus	I	RRM	RRM_1	1	0.70	560_17925491	RIP-chip	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39393_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000059208	Hnrnpm	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39394_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000059708	Akap17b	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39395_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000060244	Refbp2	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39396_0.6	F49_0.6	TS19_0.6	M025_0.6	MS2_0.6	ENSMUSG00000060373	Hnrnpc	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00025	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39396_0.6	F49_0.6	TS19_0.6	M150_0.6	MS2_0.6	ENSMUSG00000060373	Hnrnpc	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00159	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39396_0.6	F49_0.6	TS19_0.6	M158_0.6	MS2_0.6	ENSMUSG00000060373	Hnrnpc	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00167	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39397_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000060657	4921513D23Rik	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39398_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000060673	4930595M18Rik	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39399_0.6	F49_0.6	TS19_0.6	M069_0.6	MS2_0.6	ENSMUSG00000061479	Snrpa	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00071	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39399_0.6	F49_0.6	TS19_0.6	M136_0.6	MS2_0.6	ENSMUSG00000061479	Snrpa	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00145	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39399_0.6	F49_0.6	TS19_0.6	M317_0.6	MS1_0.6	ENSMUSG00000061479	Snrpa	Mus_musculus	I	RRM	RRM_1	1	0.70	661_1717938	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39399_0.6	F49_0.6	TS19_0.6	M318_0.6	MS1_0.6	ENSMUSG00000061479	Snrpa	Mus_musculus	I	RRM	RRM_1	1	0.70	662_1717938	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39399_0.6	F49_0.6	TS19_0.6	M319_0.6	MS1_0.6	ENSMUSG00000061479	Snrpa	Mus_musculus	I	RRM	RRM_1	1	0.70	663_1717938	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39399_0.6	F49_0.6	TS19_0.6	M345_0.6	MS1_0.6	ENSMUSG00000061479	Snrpa	Mus_musculus	I	RRM	RRM_1	1	0.70	946_10094314	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39399_0.6	F49_0.6	TS19_0.6	M346_0.6	MS1_0.6	ENSMUSG00000061479	Snrpa	Mus_musculus	I	RRM	RRM_1	1	0.70	947_10094314	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39399_0.6	F49_0.6	TS19_0.6	M347_0.6	MS1_0.6	ENSMUSG00000061479	Snrpa	Mus_musculus	I	RRM	RRM_1	1	0.70	948_10094314	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39399_0.6	F49_0.6	TS19_0.6	M348_0.6	MS1_0.6	ENSMUSG00000061479	Snrpa	Mus_musculus	I	RRM	RRM_1	1	0.70	949_10094314	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39400_0.6	F49_0.6	TS19_0.6	M042_0.6	MS2_0.6	ENSMUSG00000062093	Gm10110	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00043	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39400_0.6	F49_0.6	TS19_0.6	M144_0.6	MS2_0.6	ENSMUSG00000062093	Gm10110	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00153	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39400_0.6	F49_0.6	TS19_0.6	M146_0.6	MS2_0.6	ENSMUSG00000062093	Gm10110	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00155	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39400_0.6	F49_0.6	TS19_0.6	M275_0.6	MS1_0.6	ENSMUSG00000062093	Gm10110	Mus_musculus	I	RRM	RRM_1	1	0.70	24_7908267	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39400_0.6	F49_0.6	TS19_0.6	M349_0.6	MS1_0.6	ENSMUSG00000062093	Gm10110	Mus_musculus	I	RRM	RRM_1	1	0.70	950_7908267	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39401_0.6	F49_0.6	TS19_0.6	M068_0.6	MS2_0.6	ENSMUSG00000063511	Snrnp70	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00070	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39401_0.6	F49_0.6	TS19_0.6	M134_0.6	MS2_0.6	ENSMUSG00000063511	Snrnp70	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00143	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39402_0.6	F49_0.6	TS19_0.6	M236_0.6	MS2_0.6	ENSMUSG00000066037	Hnrnpr	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00281	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39402_0.6	F49_0.6	TS19_0.6	M242_0.6	MS2_0.6	ENSMUSG00000066037	Hnrnpr	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00288	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39402_0.6	F49_0.6	TS19_0.6	M243_0.6	MS2_0.6	ENSMUSG00000066037	Hnrnpr	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00289	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39403_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000066107	Gm12666	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39404_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000067873	Htatsf1	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39405_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000068480	Gm7551	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39406_0.6	F49_0.6	TS19_0.6	M195_0.6	MS2_0.6	ENSMUSG00000068856	Sf3b4	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00224	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39406_0.6	F49_0.6	TS19_0.6	M201_0.6	MS2_0.6	ENSMUSG00000068856	Sf3b4	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00232	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39406_0.6	F49_0.6	TS19_0.6	M205_0.6	MS2_0.6	ENSMUSG00000068856	Sf3b4	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00237	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39406_0.6	F49_0.6	TS19_0.6	M261_0.6	MS1_0.6	ENSMUSG00000068856	Sf3b4	Mus_musculus	I	RRM	RRM_1	1	0.70	145_9163526	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39407_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000069031	Gm10256	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39408_0.6	F49_0.6	TS19_0.6	M013_0.6	MS2_0.6	ENSMUSG00000069565	Dazap1	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00013	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39409_0.6	F49_0.6	TS19_0.6	M040_0.6	MS2_0.6	ENSMUSG00000069769	Msi2	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00041	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39409_0.6	F49_0.6	TS19_0.6	M167_0.6	MS2_0.6	ENSMUSG00000069769	Msi2	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00176	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39410_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000069867	Pabpn1l	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39411_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000070319	Eif3g	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39412_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000070732	Rbm44	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39413_0.6	F49_0.6	TS19_0.6	M052_0.6	MS2_0.6	ENSMUSG00000070780	Rbm47	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00054	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39413_0.6	F49_0.6	TS19_0.6	M234_0.6	MS2_0.6	ENSMUSG00000070780	Rbm47	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00279	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39413_0.6	F49_0.6	TS19_0.6	M235_0.6	MS2_0.6	ENSMUSG00000070780	Rbm47	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00280	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39414_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000071054	Safb	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39415_0.6	F49_0.6	TS19_0.6	M056_0.6	MS2_0.6	ENSMUSG00000071172	Srsf3	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00058	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39415_0.6	F49_0.6	TS19_0.6	M121_0.6	MS2_0.6	ENSMUSG00000071172	Srsf3	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00127	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39415_0.6	F49_0.6	TS19_0.6	M335_0.6	MS1_0.6	ENSMUSG00000071172	Srsf3	Mus_musculus	I	RRM	RRM_1	1	0.70	804_7664738	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39415_0.6	F49_0.6	TS19_0.6	M336_0.6	MS1_0.6	ENSMUSG00000071172	Srsf3	Mus_musculus	I	RRM	RRM_1	1	0.70	804_7664738.1	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39416_0.6	F49_0.6	TS19_0.6	M069_0.6	MS2_0.6	ENSMUSG00000071273	Gm5145	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00071	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39416_0.6	F49_0.6	TS19_0.6	M136_0.6	MS2_0.6	ENSMUSG00000071273	Gm5145	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00145	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39416_0.6	F49_0.6	TS19_0.6	M317_0.6	MS1_0.6	ENSMUSG00000071273	Gm5145	Mus_musculus	I	RRM	RRM_1	1	0.70	661_1717938	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39416_0.6	F49_0.6	TS19_0.6	M318_0.6	MS1_0.6	ENSMUSG00000071273	Gm5145	Mus_musculus	I	RRM	RRM_1	1	0.70	662_1717938	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39416_0.6	F49_0.6	TS19_0.6	M319_0.6	MS1_0.6	ENSMUSG00000071273	Gm5145	Mus_musculus	I	RRM	RRM_1	1	0.70	663_1717938	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39416_0.6	F49_0.6	TS19_0.6	M345_0.6	MS1_0.6	ENSMUSG00000071273	Gm5145	Mus_musculus	I	RRM	RRM_1	1	0.70	946_10094314	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39416_0.6	F49_0.6	TS19_0.6	M346_0.6	MS1_0.6	ENSMUSG00000071273	Gm5145	Mus_musculus	I	RRM	RRM_1	1	0.70	947_10094314	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39416_0.6	F49_0.6	TS19_0.6	M347_0.6	MS1_0.6	ENSMUSG00000071273	Gm5145	Mus_musculus	I	RRM	RRM_1	1	0.70	948_10094314	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39416_0.6	F49_0.6	TS19_0.6	M348_0.6	MS1_0.6	ENSMUSG00000071273	Gm5145	Mus_musculus	I	RRM	RRM_1	1	0.70	949_10094314	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39417_0.6	F49_0.6	TS19_0.6	M075_0.6	MS2_0.6	ENSMUSG00000071337	Tia1	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00077	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39417_0.6	F49_0.6	TS19_0.6	M156_0.6	MS2_0.6	ENSMUSG00000071337	Tia1	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00165	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39418_0.6	F49_0.6	TS19_0.6	M073_0.6	MS2_0.6	ENSMUSG00000071645	Tut1	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00075	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39419_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000071960	Gm10352	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39420_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000072629	ENSMUSG00000072629	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39421_0.6	F49_0.6	TS19_0.6	M246_0.6	MS1_0.6	ENSMUSG00000073894	Rbmxl2	Mus_musculus	I	RRM	RRM_1	1	0.70	1052_17318228	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39421_0.6	F49_0.6	TS19_0.6	M247_0.6	MS1_0.6	ENSMUSG00000073894	Rbmxl2	Mus_musculus	I	RRM	RRM_1	1	0.70	1053_17318228	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39421_0.6	F49_0.6	TS19_0.6	M344_0.6	MS1_0.6	ENSMUSG00000073894	Rbmxl2	Mus_musculus	I	RRM	RRM_1	1	0.70	922_19282290	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39422_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000074643	Cpne1	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39423_0.6	F49_0.6	TS19_0.6	M056_0.6	MS2_0.6	ENSMUSG00000078134	Gm12355	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00058	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39423_0.6	F49_0.6	TS19_0.6	M121_0.6	MS2_0.6	ENSMUSG00000078134	Gm12355	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00127	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39423_0.6	F49_0.6	TS19_0.6	M335_0.6	MS1_0.6	ENSMUSG00000078134	Gm12355	Mus_musculus	I	RRM	RRM_1	1	0.70	804_7664738	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39423_0.6	F49_0.6	TS19_0.6	M336_0.6	MS1_0.6	ENSMUSG00000078134	Gm12355	Mus_musculus	I	RRM	RRM_1	1	0.70	804_7664738.1	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39424_0.6	F49_0.6	TS19_0.6	M054_0.6	MS2_0.6	ENSMUSG00000078184	B020018G12Rik	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00056	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39425_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000078305	Gm3436	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39426_0.6	F49_0.6	TS19_0.6	M141_0.6	MS2_0.6	ENSMUSG00000084128	Esrp2	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00150	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39427_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000086151	Gm5698	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39428_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000087346	Gm5699	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39429_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000089721	ENSMUSG00000089721	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39430_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000089824	Rbm12	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39431_0.6	F49_0.6	TS19_0.6	.	.	ENSMUSG00000089913	ENSMUSG00000089913	Mus_musculus	N	RRM	RRM_1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39432_0.6	F49_0.6	TS19_0.6	M065_0.6	MS2_0.6	ENSMUSG00000090049	ENSMUSG00000090049	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00067	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39432_0.6	F49_0.6	TS19_0.6	M072_0.6	MS2_0.6	ENSMUSG00000090049	ENSMUSG00000090049	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00074	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39432_0.6	F49_0.6	TS19_0.6	M102_0.6	MS2_0.6	ENSMUSG00000090049	ENSMUSG00000090049	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00106	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39432_0.6	F49_0.6	TS19_0.6	M103_0.6	MS2_0.6	ENSMUSG00000090049	ENSMUSG00000090049	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00107	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39432_0.6	F49_0.6	TS19_0.6	M104_0.6	MS2_0.6	ENSMUSG00000090049	ENSMUSG00000090049	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00108	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39432_0.6	F49_0.6	TS19_0.6	M105_0.6	MS2_0.6	ENSMUSG00000090049	ENSMUSG00000090049	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00109	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39432_0.6	F49_0.6	TS19_0.6	M106_0.6	MS2_0.6	ENSMUSG00000090049	ENSMUSG00000090049	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00110	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39432_0.6	F49_0.6	TS19_0.6	M154_0.6	MS2_0.6	ENSMUSG00000090049	ENSMUSG00000090049	Mus_musculus	I	RRM	RRM_1	1	0.70	RNCMPT00163	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39432_0.6	F49_0.6	TS19_0.6	M270_0.6	MS1_0.6	ENSMUSG00000090049	ENSMUSG00000090049	Mus_musculus	I	RRM	RRM_1	1	0.70	229_19116412	CLIP-seq	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39432_0.6	F49_0.6	TS19_0.6	M272_0.6	MS1_0.6	ENSMUSG00000090049	ENSMUSG00000090049	Mus_musculus	I	RRM	RRM_1	1	0.70	242_7543047	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39432_0.6	F49_0.6	TS19_0.6	M273_0.6	MS1_0.6	ENSMUSG00000090049	ENSMUSG00000090049	Mus_musculus	I	RRM	RRM_1	1	0.70	243_7543047	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39432_0.6	F49_0.6	TS19_0.6	M333_0.6	MS1_0.6	ENSMUSG00000090049	ENSMUSG00000090049	Mus_musculus	I	RRM	RRM_1	1	0.70	797_17548433	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T39432_0.6	F49_0.6	TS19_0.6	M351_0.6	MS1_0.6	ENSMUSG00000090049	ENSMUSG00000090049	Mus_musculus	I	RRM	RRM_1	1	0.70	952_7543047	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T60450_0.6	F52_0.6	TS19_0.6	.	.	ENSMUSG00000002052	Supt6h	Mus_musculus	N	S1	S1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T60451_0.6	F52_0.6	TS19_0.6	M231_0.6	MS2_0.6	ENSMUSG00000021116	Eif2s1	Mus_musculus	I	S1	S1	1	0.70	RNCMPT00273	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T60452_0.6	F52_0.6	TS19_0.6	.	.	ENSMUSG00000024135	Srbd1	Mus_musculus	N	S1	S1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T60453_0.6	F52_0.6	TS19_0.6	.	.	ENSMUSG00000025047	Pdcd11	Mus_musculus	N	S1	S1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T60454_0.6	F52_0.6	TS19_0.6	.	.	ENSMUSG00000027677	Ttc14	Mus_musculus	N	S1	S1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T60455_0.6	F52_0.6	TS19_0.6	.	.	ENSMUSG00000028772	Zcchc17	Mus_musculus	N	S1	S1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T60456_0.6	F52_0.6	TS19_0.6	.	.	ENSMUSG00000034931	Dhx8	Mus_musculus	N	S1	S1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T60457_0.6	F52_0.6	TS19_0.6	.	.	ENSMUSG00000071662	Polr2g	Mus_musculus	N	S1	S1	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T61803_0.6	F53_0.6	TS19_0.6	M061_0.6	MS2_0.6	ENSMUSG00000021838	Samd4	Mus_musculus	I	SAM	SAM_1	1	0.70	RNCMPT00063	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T61804_0.6	F53_0.6	TS19_0.6	M061_0.6	MS2_0.6	ENSMUSG00000037513	Samd4b	Mus_musculus	I	SAM	SAM_1	1	0.70	RNCMPT00063	RNAcompete	RNA_Zoo	RNAcompete	Ray	2013	NULL	NULL	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T62081_0.6	F55_0.6	TS19_0.6	.	.	ENSMUSG00000034653	Ythdc2	Mus_musculus	N	YTH	YTH	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T62082_0.6	F55_0.6	TS19_0.6	M354_0.6	MS1_0.6	ENSMUSG00000035851	Ythdc1	Mus_musculus	I	YTH	YTH	1	0.70	969_20167602	SELEX	RBPDB	RBPDB	Cook	2011	21036867	v1.2.1	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T62083_0.6	F55_0.6	TS19_0.6	.	.	ENSMUSG00000038848	Ythdf1	Mus_musculus	N	YTH	YTH	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T62084_0.6	F55_0.6	TS19_0.6	.	.	ENSMUSG00000040025	Ythdf2	Mus_musculus	N	YTH	YTH	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
+T62085_0.6	F55_0.6	TS19_0.6	.	.	ENSMUSG00000047213	Ythdf3	Mus_musculus	N	YTH	YTH	1	0.70	.	.	.	.	.	.	.	.	Ensembl	http://www.ensembl.org/	2011	Oct	26
