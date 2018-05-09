@@ -20,24 +20,20 @@ import rnaFeaturesLib
 import argparse
 
 
-#parser
+#Options/Arguments parser
 parser = argparse.ArgumentParser(description = "Getting Features from a cDNAtable")
 #Positionnal Arguments
-parser.add_argument('cdnaTable_Pathway', metavar = "Source", type = str, help = 'Pathway to the cDna_table')
-parser.add_argument('Output_FeaturesTab_Pathway', nargs="?", default = sys.stdout, metavar = "Output", type = str,
- help = 'Pathway to the cdnaFeaturesTable ; by default -> returning in the Stdout')
+parser.add_argument('infile', metavar = "input_file", type = argparse.FileType('r'), help = 'Path (name) of the cDna_table.')
+parser.add_argument('outfile', default = sys.stdout, metavar = "output_file", type = argparse.FileType('w'), help = 'Path (name) of the cdnaFeaturesTable. Default: writing to the Stdout')
 
 args = parser.parse_args()
 
-
-
 #Loading Data
-cdna = pd.read_csv(args.cdnaTable_Pathway)
+cdna = pd.read_csv(args.infile)
 
 #deleting NaN_Rows
-cdna.dropna().shape #(17485,15)
+#cdna.dropna().shape #(17485,15)
 cdna = cdna.dropna()
-cdna = cdna.iloc[:200,:]
 cdna = cdna.reset_index()
 
 #P3utr_Len
@@ -45,12 +41,10 @@ cdna = cdna.reset_index()
 #utr3_len = pd.DataFrame(p3len, columns = ['utr3_len']).astype(int)
 utr3_len = pd.DataFrame(rnaFeaturesLib.writeP3utr_fa(cdna), columns = ['utr3_len']).astype(int) #saving p3utrDEMO.fasta
 
-
 #P5utr length
 #p5len = cdna['p5end']-cdna['p5start']
 #utr5_len = pd.DataFrame(p5len, columns = ['utr5_len']).astype(int)
 utr5_len = pd.DataFrame(rnaFeaturesLib.writeP5utr_fa(cdna),columns = ['utr5_len']).astype(int) #saving p5utrDEMO.fasta
-
 
 #Kozak_Context # TODO perhaps we will want to keep the Kozak sequence itself not only the context.
 res = rnaFeaturesLib.getKozak(cdna, 10, 20)
@@ -64,7 +58,6 @@ uORFs = pd.Series(rnaFeaturesLib.get_uORF(cdna))
 
 #get_dORF
 dORFs = pd.Series(rnaFeaturesLib.get_dORF(cdna))
-
 
 #Get_Folding Energy
 #P5UTR
@@ -88,7 +81,5 @@ features_tab['dORFs'] = dORFs
 features_tab['Kozak_Context'] = contKozak
 features_tab['Kozak_sequence'] = sequKozak
 
-
-
 #Sauvegarde
-features_tab.to_csv(args.Output_FeaturesTab_Pathway, sep="\t", index = False)
+features_tab.to_csv(args.outfile, sep="\t", index = False)

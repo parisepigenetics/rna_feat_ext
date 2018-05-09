@@ -118,7 +118,6 @@ def writeP5utr_fa(df):
     print("Creating p5UTR_seq ... Done !")
     return(p5len)
 
-
 def writeP3utr_fa(df):
     '''
     Write every 3'UTR sequence in a fasta file named "p3utr.fasta".
@@ -136,11 +135,10 @@ def writeP3utr_fa(df):
     print("Creating p3UTR_seq ...Done")
     return(p3len)
 
-
 def RNAfold_calcul(inputfile, output_name_file):
     print("RNAfold_Calcul ...")
     output=open(output_name_file, "w+")
-    subprocess.call("RNAfold --noPS --jobs", stdin=inputfile, stdout = output, shell = True)
+    subprocess.call("RNAfold --noPS --jobs", stdin = inputfile, stdout = output, shell = True)
     output.close()
     print("RNAfold_Calcul ... Done !")
     return(output_name_file)
@@ -148,18 +146,14 @@ def RNAfold_calcul(inputfile, output_name_file):
 def getFoldingEnergy(filename, df):
     with open(str(filename), "r") as rnafoldfile:
         tot = rnafoldfile.readlines()
-
+    #TODO use the delimiter of the RNAFold output file to extract the folding energy (the split function). Remove the REGEXPs.
     foldrex = re.compile('(-[0-9]+\.[0-9]+|\s0\.0)')
     foldinf = re.compile('>[0-9]+')
-
     strtot = ' '.join(tot) # convertion liste en string
-
     mfe = foldrex.findall(strtot)
     indice = foldinf.findall(strtot)
-
     real_indice = [None] * len(df) # remplacer 4 par len(cdd)
     for i in range(len(indice)):
         new_id = int(indice[i][1:])
         real_indice[new_id] = float(mfe[i])
-
     return(real_indice)
