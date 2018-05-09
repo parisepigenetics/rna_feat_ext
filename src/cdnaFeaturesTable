@@ -1,40 +1,63 @@
 #!/usr/bin/env python
 
 # Take a cDNA csv file and return a table with the RNA features.
-#
-# Written by Arnold Franz AKE aerod7710@gmail.com in April 2018 @UMR7216 Paris Diderot.
+
+# Written by Arnold Franz AKE
+#aerod7710@gmail.com in April 2018
+#@UMR7216 Paris Diderot
 
 # -*- coding: utf-8 *-*-
 
 #Loading packages
+from multiprocessing import Pool, Process
 import numpy as np
 import pandas as pd
 import math
 import re
-import os
+import sys
 import subprocess
 import rnaFeaturesLib
+import argparse
+
+
+#parser
+parser = argparse.ArgumentParser(description = "Getting Features from a cDNAtable")
+#Positionnal Arguments
+parser.add_argument('cdnaTable_Pathway', metavar = "Source", type = str, help = 'Pathway to the cDna_table')
+parser.add_argument('Output_FeaturesTab_Pathway', nargs="?", default = sys.stdout, metavar = "Output", type = str,
+ help = 'Pathway to the cdnaFeaturesTable ; by default -> returning in the Stdout')
+
+args = parser.parse_args()
+
+
 
 #Loading Data
-cdna = pd.read_csv("../data/tableCdna.csv") #TODO NEVER hardcode filenamesm the input file MUST come as a positional argument! For example look the optparse python module (or use something simp0ler for a small script like that parser.add_argument("infh", type = argparse.FileType('r'), metavar ="input_file", help =  "A fasta file containing the m(or other)RNA sequences.")
-#parser.add_argument("outfh", type = argparse.FileType('w'), metavar = "output_file", default = sys.stdout, help = "A table with the results. (or STDOUT)"))
+cdna = pd.read_csv(args.cdnaTable_Pathway)
 
+#deleting NaN_Rows
 cdna.dropna().shape #(17485,15)
 cdna = cdna.dropna()
-cdna = cdna.iloc[:20,:]
+cdna = cdna.iloc[:200,:]
 cdna = cdna.reset_index()
 
 #P3utr_Len
-p3len = cdna['p3end']-cdna['p3start']
-utr3_len = pd.DataFrame(p3len, columns = ['utr3_len']).astype(int)
+#p3len = cdna['p3end']-cdna['p3start']
+#utr3_len = pd.DataFrame(p3len, columns = ['utr3_len']).astype(int)
+utr3_len = pd.DataFrame(rnaFeaturesLib.writeP3utr_fa(cdna), columns = ['utr3_len']).astype(int) #saving p3utrDEMO.fasta
+
 
 #P5utr length
-p5len = cdna['p5end']-cdna['p5start']
-utr5_len = pd.DataFrame(p5len, columns = ['utr5_len']).astype(int)
+#p5len = cdna['p5end']-cdna['p5start']
+#utr5_len = pd.DataFrame(p5len, columns = ['utr5_len']).astype(int)
+utr5_len = pd.DataFrame(rnaFeaturesLib.writeP5utr_fa(cdna),columns = ['utr5_len']).astype(int) #saving p5utrDEMO.fasta
+
 
 #Kozak_Context # TODO perhaps we will want to keep the Kozak sequence itself not only the context.
-kozak = rnaFeaturesLib.getKozak(cdna, 10, 20)
-contKozak = pd.DataFrame(kozak, columns = ['contextKozak'])	#(17485)
+res = rnaFeaturesLib.getKozak(cdna, 10, 20)
+kozak = res[0]
+kozakseq = res[1]
+contKozak = pd.DataFrame(kozak, columns = ['contextKozak'])	#(17485)    #Kozak_Context
+sequKozak = pd.DataFrame(kozakseq, columns = ['sequenceKozak'])         #Kozak_Sequence
 
 #get_uORF
 uORFs = pd.Series(rnaFeaturesLib.get_uORF(cdna))
@@ -42,17 +65,17 @@ uORFs = pd.Series(rnaFeaturesLib.get_uORF(cdna))
 #get_dORF
 dORFs = pd.Series(rnaFeaturesLib.get_dORF(cdna))
 
-#Get_Folding Energy
-#TODO search a python package and ask me for qorking with multiple cores for the RNAFlod task.
-#P5UTR
-rnaFeaturesLib.writeP5utr_fa(cdna)
-subprocess.call("RNAfold < ../data/p5utrDEMO.fasta --noPS > ../results/mfep5.txt", shell = True)
-p5mfe = rnaFeaturesLib.getFoldingEnergy("../results/mfep5.txt", cdna)
 
-#P3UTR
-rnaFeaturesLib.writeP3utr_fa(cdna)
-subprocess.call("RNAfold < ../data/p3utrDEMO.fasta --noPS > ../results/mfep3.txt", shell = True)
-p3mfe = rnaFeaturesLib.getFoldingEnergy("../results/mfep3.txt", cdna)
+#Get_Folding Energy
+#P5UTR
+input_p5utr=open("../results/p5utrDEMO.fasta", "r+")   #recuperation fichier sotcke precedemment
+input_p3utr=open("../results/p3utrDEMO.fasta", "r+")
+rnaFeaturesLib.RNAfold_calcul(input_p5utr,"../results/mfep5.txt")
+rnaFeaturesLib.RNAfold_calcul(input_p3utr,"../results/mfep3.txt")
+p5mfe = rnaFeaturesLib.getFoldingEnergy("../results/mfep5.txt",cdna)
+p3mfe = rnaFeaturesLib.getFoldingEnergy("../results/mfep3.txt",cdna)
+input_p3utr.close()
+input_p5utr.close()
 
 #Concatenation des variables
 features_tab = cdna.loc[:,['geneid','trid']]
@@ -63,10 +86,9 @@ features_tab['p5mfe'] = p5mfe
 features_tab['uORFs'] = uORFs
 features_tab['dORFs'] = dORFs
 features_tab['Kozak_Context'] = contKozak
+features_tab['Kozak_sequence'] = sequKozak
 
-#Screening
-#print features_tab
+
+
 #Sauvegarde
-features_tab.to_csv("../data/cdna_features_tab.txt", sep="\t", index = False) #TODO the same here, do not hardcode but rather take the outfile as an positional argument.
-
-#print contKozak
+features_tab.to_csv(args.Output_FeaturesTab_Pathway, sep="\t", index = False)
