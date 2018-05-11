@@ -52,12 +52,10 @@ if args.n != None:
 
 #P3utr_Len
 #p3len = cdna['p3end']-cdna['p3start']
-#utr3_len = pd.DataFrame(p3len, columns = ['utr3_len']).astype(int)
 utr3_len = pd.DataFrame(rnaFeaturesLib.writeP3utr_fa(cdna), columns = ['utr3_len']).astype(int) #saving p3utrDEMO.fasta
 
 #P5utr length
 #p5len = cdna['p5end']-cdna['p5start']
-#utr5_len = pd.DataFrame(p5len, columns = ['utr5_len']).astype(int)
 utr5_len = pd.DataFrame(rnaFeaturesLib.writeP5utr_fa(cdna),columns = ['utr5_len']).astype(int) #saving p5utrDEMO.fasta
 
 #Kozak_Context # TODO perhaps we will want to keep the Kozak sequence itself not only the context.
@@ -78,16 +76,16 @@ dORFs = pd.Series(rnaFeaturesLib.get_dORF(cdna))
 input_p5utr=open("../results/p5utrDEMO.fasta", "r+")   #recuperation fichier sotcke precedemment
 input_p3utr=open("../results/p3utrDEMO.fasta", "r+")
 rnaFeaturesLib.RNAfold_calcul(input_p5utr,"../results/mfep5.txt")
-#rnaFeaturesLib.RNAfold_calcul(input_p3utr,"../results/mfep3.txt")
+rnaFeaturesLib.RNAfold_calcul(input_p3utr,"../results/mfep3.txt")
 p5mfe = rnaFeaturesLib.getFoldingEnergy("../results/mfep5.txt",cdna)
-#p3mfe = rnaFeaturesLib.getFoldingEnergy("../results/mfep3.txt",cdna)
+p3mfe = rnaFeaturesLib.getFoldingEnergy("../results/mfep3.txt",cdna)
 input_p3utr.close()
 input_p5utr.close()
 
 #Concatenation des variables
 features_tab = cdna.loc[:,['geneid','trid']]
 features_tab['p3len'] = utr3_len
-#features_tab['p3mfe'] = p3mfe
+features_tab['p3mfe'] = p3mfe
 features_tab['p5len'] = utr5_len
 features_tab['p5mfe'] = p5mfe
 features_tab['uORFs'] = uORFs
