@@ -23,18 +23,32 @@ import argparse
 #Options/Arguments parser
 parser = argparse.ArgumentParser(description = "Getting Features from a cDNAtable")
 #Positionnal Arguments
-parser.add_argument('infile', metavar = "input_file", type = argparse.FileType('r'), help = 'Path (name) of the cDna_table.')
-parser.add_argument('outfile', default = sys.stdout, metavar = "output_file", type = argparse.FileType('w'), help = 'Path (name) of the cdnaFeaturesTable. Default: writing to the Stdout')
+parser.add_argument('infile', metavar = "input_file",
+ type = argparse.FileType('r'), help = 'Path (name) of the cDna_table.')
+parser.add_argument('outfile', nargs = "?", default = sys.stdout, metavar = "output_file",
+ type = argparse.FileType('w'), help = 'Path (name) of the cdnaFeaturesTable. Default: writing to the Stdout')
+
+#Optional Argument
+parser.add_argument('-n',
+ type = int,
+  help = 'specify a number of rows (random selected) to analyse from the input_file (after drop Nan rows)')
 
 args = parser.parse_args()
 
 #Loading Data
 cdna = pd.read_csv(args.infile)
 
+
 #deleting NaN_Rows
 #cdna.dropna().shape #(17485,15)
 cdna = cdna.dropna()
-cdna = cdna.reset_index()
+if args.n != None:
+	cdna = cdna.sample(args.n)
+	reindex = cdna.index.tolist()
+	reindex = [str(i) for i in reindex]
+	cdna = cdna.reset_index()
+
+
 
 #P3utr_Len
 #p3len = cdna['p3end']-cdna['p3start']
@@ -64,22 +78,24 @@ dORFs = pd.Series(rnaFeaturesLib.get_dORF(cdna))
 input_p5utr=open("../results/p5utrDEMO.fasta", "r+")   #recuperation fichier sotcke precedemment
 input_p3utr=open("../results/p3utrDEMO.fasta", "r+")
 rnaFeaturesLib.RNAfold_calcul(input_p5utr,"../results/mfep5.txt")
-rnaFeaturesLib.RNAfold_calcul(input_p3utr,"../results/mfep3.txt")
+#rnaFeaturesLib.RNAfold_calcul(input_p3utr,"../results/mfep3.txt")
 p5mfe = rnaFeaturesLib.getFoldingEnergy("../results/mfep5.txt",cdna)
-p3mfe = rnaFeaturesLib.getFoldingEnergy("../results/mfep3.txt",cdna)
+#p3mfe = rnaFeaturesLib.getFoldingEnergy("../results/mfep3.txt",cdna)
 input_p3utr.close()
 input_p5utr.close()
 
 #Concatenation des variables
 features_tab = cdna.loc[:,['geneid','trid']]
 features_tab['p3len'] = utr3_len
-features_tab['p3mfe'] = p3mfe
+#features_tab['p3mfe'] = p3mfe
 features_tab['p5len'] = utr5_len
 features_tab['p5mfe'] = p5mfe
 features_tab['uORFs'] = uORFs
 features_tab['dORFs'] = dORFs
 features_tab['Kozak_Context'] = contKozak
 features_tab['Kozak_sequence'] = sequKozak
+
+features_tab.index = reindex
 
 #Sauvegarde
 features_tab.to_csv(args.outfile, sep="\t", index = False)
