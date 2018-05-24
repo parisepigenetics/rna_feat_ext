@@ -25,12 +25,12 @@ def getKozak(df, k, j):
     print("extracting Kozak_Context ...")
     kozak = []
     kozakseq = []
-    for indice in range(len(df['tmp_seq'])):
-        seq = df.iloc[indice, df.columns.get_loc('tmp_seq')]
+    for indice in range(len(df['cdna_seq'])):
+        seq = df.iloc[indice, df.columns.get_loc('cdna_seq')]
         #Nan supprimes prealablement du dataset df
 
-        startM1 = int(df.iloc[indice, df.columns.get_loc('cdnastart')]) - 1 # position start-1
-        startP1 = int(df.iloc[indice, df.columns.get_loc('cdnastart')]) + 1 # position start+1
+        startM1 = int(df.iloc[indice, df.columns.get_loc('cdna_coding_start')]) - 1 # position start-1
+        startP1 = int(df.iloc[indice, df.columns.get_loc('cdna_coding_start')]) + 1 # position start+1
         #kozak = seq[(startM1 - k):(startP1 + k)]
         contextM1 = (startM1 - k) - j
         contextP1 = (startP1 + k) + j
@@ -49,8 +49,8 @@ def get_uORF(df):			#avec uORFs chevauchantes
     uORFs_TOT = []
     for indice in range(len(df)):
     	ind_uORF=[]
-    	seq=df.iloc[indice,df.columns.get_loc('tmp_seq')]
-    	p5UTR=seq[0:int(df.iloc[indice,df.columns.get_loc("cdnastart")])-1]
+    	seq=df.iloc[indice,df.columns.get_loc('cdna_seq')]
+    	p5UTR=seq[0:int(df.iloc[indice,df.columns.get_loc("cdna_coding_start")])-1]
     	#print p5UTR,len(p5UTR),len(seq),"seq-current\n"
     	reg=re.compile('ATG')
     	for m_ATG in reg.finditer(p5UTR):
@@ -79,8 +79,8 @@ def get_dORF(df):
     dORFs = []
     for indice in range(len(df)):
         ind_dORF = []
-       	seq=df.iloc[indice,df.columns.get_loc('tmp_seq')]
-        p3UTR= seq[int(df.iloc[indice,df.columns.get_loc('cdnaend')]):]
+       	seq=df.iloc[indice,df.columns.get_loc('cdna_seq')]
+        p3UTR= seq[int(df.iloc[indice,df.columns.get_loc('cdna_coding_end')]):]
         reg = re.compile('ATG')
         for m_ATG in reg.finditer(p3UTR):
             if m_ATG.start() % 3 == 0:
@@ -109,8 +109,8 @@ def writeP5utr_fa(df):
     p5len = []
     with open("../results/p5utrDEMO.fasta", "w+") as p5utr_fasta:
         for indice in range(len(df)):
-        	seq=df.iloc[indice,df.columns.get_loc('tmp_seq')]
-        	p5UTR=seq[0:int(df.iloc[indice,df.columns.get_loc("cdnastart")])-1]
+        	seq=df.iloc[indice,df.columns.get_loc('cdna_seq')]
+        	p5UTR=seq[0:int(df.iloc[indice,df.columns.get_loc("cdna_coding_start")])-1]
         	if len(p5UTR)>0:
 				p5utr_fasta.write("{}\n".format(">" + str(indice)))
 				p5utr_fasta.write("{}\n".format(p5UTR))
@@ -126,8 +126,8 @@ def writeP3utr_fa(df):
     p3len = []
     with open("../results/p3utrDEMO.fasta", "w+") as p3utr_fasta:
         for indice in range(len(df)):
-        	seq=df.iloc[indice,df.columns.get_loc('tmp_seq')]
-        	p3UTR= seq[int(df.iloc[indice,df.columns.get_loc('cdnaend')]):]
+        	seq=df.iloc[indice,df.columns.get_loc('cdna_seq')]
+        	p3UTR= seq[int(df.iloc[indice,df.columns.get_loc('cdna_coding_end')]):]
         	if len(p3UTR)>0:
 				p3utr_fasta.write("{}\n".format(">" + str(indice)))
 				p3utr_fasta.write("{}\n".format(p3UTR))

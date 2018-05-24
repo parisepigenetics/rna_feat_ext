@@ -9,7 +9,6 @@
 # -*- coding: utf-8 *-*-
 
 #Loading packages
-from multiprocessing import Pool, Process
 import numpy as np
 import pandas as pd
 import math
@@ -36,12 +35,14 @@ parser.add_argument('-n',
 args = parser.parse_args()
 
 #Loading Data
-cdna = pd.read_csv(args.infile)
+cdna = pd.read_csv(args.infile, sep="\t")
+
 
 
 #deleting NaN_Rows
 #cdna.dropna().shape #(17485,15)
 cdna = cdna.dropna()
+
 if args.n != None:
 	cdna = cdna.sample(args.n)
 	reindex = cdna.index.tolist()
@@ -49,14 +50,13 @@ if args.n != None:
 	cdna = cdna.reset_index()
 
 
-
 #P3utr_Len
 #p3len = cdna['p3end']-cdna['p3start']
-utr3_len = pd.DataFrame(rnaFeaturesLib.writeP3utr_fa(cdna), columns = ['utr3_len']).astype(int) #saving p3utrDEMO.fasta
+utr3_len = pd.DataFrame(rnaFeaturesLib.writeP3utr_fa(cdna), columns = ['utr3_len']).astype(float) #saving p3utrDEMO.fasta
 
 #P5utr length
 #p5len = cdna['p5end']-cdna['p5start']
-utr5_len = pd.DataFrame(rnaFeaturesLib.writeP5utr_fa(cdna),columns = ['utr5_len']).astype(int) #saving p5utrDEMO.fasta
+utr5_len = pd.DataFrame(rnaFeaturesLib.writeP5utr_fa(cdna),columns = ['utr5_len']).astype(float) #saving p5utrDEMO.fasta
 
 #Kozak_Context # TODO perhaps we will want to keep the Kozak sequence itself not only the context.
 res = rnaFeaturesLib.getKozak(cdna, 10, 20)
@@ -75,25 +75,34 @@ dORFs = pd.Series(rnaFeaturesLib.get_dORF(cdna))
 #P5UTR
 input_p5utr=open("../results/p5utrDEMO.fasta", "r+")   #recuperation fichier sotcke precedemment
 input_p3utr=open("../results/p3utrDEMO.fasta", "r+")
-rnaFeaturesLib.RNAfold_calcul(input_p5utr,"../results/mfep5.txt")
-rnaFeaturesLib.RNAfold_calcul(input_p3utr,"../results/mfep3.txt")
-p5mfe = rnaFeaturesLib.getFoldingEnergy("../results/mfep5.txt",cdna)
-p3mfe = rnaFeaturesLib.getFoldingEnergy("../results/mfep3.txt",cdna)
+#rnaFeaturesLib.RNAfold_calcul(input_p5utr,"../results/mfep5.txt")
+#rnaFeaturesLib.RNAfold_calcul(input_p3utr,"../results/mfep3.txt")
+p5mfe = pd.Series(rnaFeaturesLib.getFoldingEnergy("../results/mfep5.txt",cdna))
+p3mfe = pd.Series(rnaFeaturesLib.getFoldingEnergy("../results/mfep3.txt",cdna))
 input_p3utr.close()
 input_p5utr.close()
 
+#Getting Energy/Base
+#mfe_base_utr = p5mfe / utr5_len
+utr5_len = utr5_len['utr5_len']
+utr3_len = utr3_len['utr3_len']
+mfe_base_5utr = p5mfe.divide(utr5_len)
+mfe_base_3utr = p3mfe.divide(utr3_len)
+
 #Concatenation des variables
-features_tab = cdna.loc[:,['geneid','trid']]
+features_tab = cdna.loc[:,['ensembl_gene_id','ensembl_transcript_id']]
 features_tab['p3len'] = utr3_len
 features_tab['p3mfe'] = p3mfe
 features_tab['p5len'] = utr5_len
 features_tab['p5mfe'] = p5mfe
 features_tab['uORFs'] = uORFs
 features_tab['dORFs'] = dORFs
+features_tab['5UTR_mfe_Base'] = mfe_base_5utr
+features_tab['3UTR_mfe_Base'] = mfe_base_3utr
 features_tab['Kozak_Context'] = contKozak
 features_tab['Kozak_sequence'] = sequKozak
 
-features_tab.index = reindex
+
 
 #Sauvegarde
 features_tab.to_csv(args.outfile, sep="\t", index = False)
