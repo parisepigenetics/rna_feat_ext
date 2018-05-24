@@ -12,11 +12,22 @@
 from Bio import SeqIO
 import pandas as pd
 import numpy as np
+import argparse
 
+#Options/Arguments parser
+parser = argparse.ArgumentParser(description = "Getting Features from a cDNAtable")
+#Positionnal Arguments
+parser.add_argument('infile', metavar = "input_file",
+ type = argparse.FileType('r'), help = 'Path (name) of the cDna_table.')
+parser.add_argument('outfile', nargs = "?", default = sys.stdout, metavar = "output_file",
+ type = argparse.FileType('w'), help = 'Path (name) of the cdnaFeaturesTable. Default: writing to the Stdout')
+
+
+args = parser.parse_args()
 
 list_param = []
 list_seq = []
-with open("../data/mart_export.txt", "rU") as handle:
+with open(args.infile, "rU") as handle:
 	i=0
 	for record in SeqIO.parse(handle, "fasta"):
 		if(len(record.id.split("|"))==13):
@@ -163,4 +174,4 @@ cdna_feat = cdna_feat.replace('',np.NaN)
 cdna_feat = cdna_feat.dropna()
 
 #Sauvegarde cdnaFeature_Table
-cdna_feat.to_csv("../data/cdnaTable_extract.csv", sep = "\t", index = False)
+cdna_feat.to_csv(args.outfile, sep = "\t", index = False)
