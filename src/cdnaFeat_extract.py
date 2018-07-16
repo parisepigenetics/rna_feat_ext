@@ -207,7 +207,11 @@ for geneid in np.unique(tmp2.ensembl_gene_id):
 
 cdna_feat = cdna_feat.iloc[new_tab.index,:].reset_index().iloc[:,2:]
 
-print cdna_feat
-
+'''
+with open("bioMartGRCh38_92_RBPx_Random.fasta","w") as handle2:
+	for i in range(cdna_feat.shape[0]):	
+		handle2.write(">%s|%s\n%s\n" % (cdna_feat['ensembl_gene_id'][i],
+			cdna_feat['ensembl_transcript_id'][i],cdna_feat['cdna_seq'][i]))
+'''
 cdna_feat.to_csv("BertrandandRandom_Mart_Export_EXTRACT.txt",
  sep= "\t", index=False)

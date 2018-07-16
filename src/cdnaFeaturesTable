@@ -75,8 +75,8 @@ dORFs = pd.Series(rnaFeaturesLib.get_dORF(cdna))
 #P5UTR
 input_p5utr=open("../results/p5utrDEMO.fasta", "r+")   #recuperation fichier sotcke precedemment
 input_p3utr=open("../results/p3utrDEMO.fasta", "r+")
-#rnaFeaturesLib.RNAfold_calcul(input_p5utr,"../results/mfep5.txt")
-#rnaFeaturesLib.RNAfold_calcul(input_p3utr,"../results/mfep3.txt")
+rnaFeaturesLib.RNAfold_calcul(input_p5utr,"../results/mfep5.txt")
+rnaFeaturesLib.RNAfold_calcul(input_p3utr,"../results/mfep3.txt")
 p5mfe = pd.Series(rnaFeaturesLib.getFoldingEnergy("../results/mfep5.txt",cdna))
 p3mfe = pd.Series(rnaFeaturesLib.getFoldingEnergy("../results/mfep3.txt",cdna))
 input_p3utr.close()
