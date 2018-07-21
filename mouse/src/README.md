@@ -13,3 +13,10 @@ python geneIDs2Fasta input_IDs_file output_FASTA_filename
 ```   
 
 # rnaFeaturesLib.py
+
+Python file containing all the called functions
+
+
+## ISSUES:
+When lauching the python command line (see previous) nothing happens: it seems like no connection is estabished to biomart ensembl server? 
+
