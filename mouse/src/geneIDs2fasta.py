@@ -92,13 +92,12 @@ def geneIDs2Fasta(id_list, out_fasta):
 
     return(0)
 
-    if __name__ == '__main__':
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(prog='geneIDs2Fasta')
+    parser = argparse.ArgumentParser(description='Fetch features for an ensembl gene ID list and output a multi FASTA file', epilog="Author: Franz-Arnold Ake and Antoine Lu, 2018")
+    parser.add_argument('--version', action='version', version='{} {}'.format('geneIDs2Fasta', 0.1))
+    parser.add_argument("id_file", help="input id file", type=str)
+    parser.add_argument("fasta_out", help="output FASTA file name, the suffix '.fasta' is automatically added", type=str)
 
-        parser = argparse.ArgumentParser(prog='geneIDs2Fasta')
-        parser = argparse.ArgumentParser(description='Fetch features for an ensembl gene ID list and output a multi FASTA file', epilog="Author: Franz-Arnold Ake and Antoine Lu, 2018")
-        parser.add_argument('--version', action='version', version='{} {}'.format('geneIDs2Fasta', 0.1))
-        parser.add_argument("input", help="input id file", type=str)
-        parser.add_argument("output", help="output FASTA file name, the suffix '.fasta' is automatically added", type=str)
-
-        args = parser.parse_args()
-        test = geneIDs2Fasta(args.input, args.output)
+    args = parser.parse_args()
+    test = geneIDs2Fasta(args.id_file, args.fasta_out)
