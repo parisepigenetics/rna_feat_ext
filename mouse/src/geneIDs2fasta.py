@@ -24,7 +24,7 @@ def geneIDs2Fasta(id_list, out_fasta):
     with open(id_list, "r") as filin:
         listID = filin.read().splitlines()
 
-    filout = open("tmp", "w")
+    filout = open("tmp.tsv", "w")
 
     response = dt.search({
     'filters': {
@@ -60,20 +60,31 @@ def geneIDs2Fasta(id_list, out_fasta):
             cdna.iloc[i:i+1,9:10] = indices[1]
             cdna.iloc[i:i+1,10:11] = indices[0]
 
-    # Features calculations:
+    # select longest cDNA
+    for i in range(cdna.shape[0]):
+        ligne = pd.DataFrame(cdna.loc[i,:]).transpose()
+        # smallest cDNA start value
+        min_cdna_start = rnaFeaturesLib.get_cDNAstartMIN(ligne)
+        # therefore: biggest cDNA end value
+        max_cdna_end = rnaFeaturesLib.get_cDNAendMAX(ligne)
+        cdna.iloc[i, cdna.columns.get_loc('cDNA coding start')] = min_cdna_start
+        cdna.iloc[i, cdna.columns.get_loc('cDNA coding end')] = max_cdna_end
+
+    # Exportation to FASTA format
+    rnaFeaturesLib.txt2fasta(cdna, out_fasta)
+
+    return(0)
 
     if __name__ == '__main__':
 
-    program = 'geneIDs2Fasta'
-    version = 0.1
-    description = 'Fetch features for an ensembl gene ID list and output a multi FASTA file'
-    parser = argparse.ArgumentParser(prog=program)
-    parser = argparse.ArgumentParser(description=description, epilog="Author: Franz-Arnold Ake and Antoine Lu, 2018")
-    parser.add_argument('--version', action='version', version='{} {}'.format(program, version))
-    parser.add_argument("i", help="input id file", type=str)
-    parser.add_argument("o", help="output file name", type=int)
-    parser.add_argument("overlap", help="overlap between window", type=int)
-    parser.add_argument("exportR", help="To export data in formated R text", type=bool, choices=[True, False])
+        program = 'geneIDs2Fasta'
+        version = 0.1
+        description = 'Fetch features for an ensembl gene ID list and output a multi FASTA file'
+        parser = argparse.ArgumentParser(prog=program)
+        parser = argparse.ArgumentParser(description=description, epilog="Author: Franz-Arnold Ake and Antoine Lu, 2018")
+        parser.add_argument('--version', action='version', version='{} {}'.format(program, version))
+        parser.add_argument("i", help="input id file", type=str)
+        parser.add_argument("o", help="output FASTA file name, the suffix '.fasta' is automatically added", type=int)
 
-    args = parser.parse_args()
-
+        args = parser.parse_args()
+        geneIDs2Fasta(args.i, args.o)

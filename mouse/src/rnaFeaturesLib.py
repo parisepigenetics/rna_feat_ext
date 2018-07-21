@@ -61,7 +61,7 @@ def get_cDNAendMAX(cdna_feat_row):
     return(max_cDNA_end)
 
 def txt2fasta(cdna_feat_table, fastaOut):
-    with open(fastaOut, "w+") as ff:
+    with open(fastaOut + ".fasta", "w+") as ff:
         for i in range(cdna_feat_table.shape[0]):
             ligne = pd.DataFrame(cdna_feat_table.loc[i,:]).transpose()
             ff.write(">GeneID:{}|TranscriptID:{}|GeneName:{}|5P_UTR_end:{}|5P_UTR_start:{}|3P_UTR_end:{}|3P_UTR_end:{}|cDNAstart:{}|cDNAend:{}\n".format(
