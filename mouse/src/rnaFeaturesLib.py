@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 *-*
 
 #lots de fonction à inclure pour l'execution du script test
@@ -75,154 +76,167 @@ def txt2fasta(cdna_feat_table, fastaOut):
 
 
 
-# PART 2: Computation of the feature table
-def getKozak(df, k, j):
-    '''
-    Retrieve the context of the Kozak of each sequence in a dataframe
-    IMPORTANT: if no cdna start (codon START position) is given, doesn't
-    work --> amelioration, chercher A/GccATGG
-    Input:
-    df: Pandas dataframe, read from a csv file
-    k: default, k = 10: number of nucleotide before START-1 (A)
-        and after START+1 (G) of the START codon (ATG)
-        >> k---START---k is the Kozak sequence
-    j: default, j = 20: number of nucleotide to select around
-        the kozak sequence
-    Output:
-    kozak: which is the sequence of the context of the Kozak
-    '''
-    print("extracting Kozak_Context ...")
-    kozak = []
-    kozakseq = []
-    for indice in range(len(df['cDNA sequences'])):
-        seq = df.iloc[indice, df.columns.get_loc('cDNA sequences')]
-        #Nan supprimes prealablement du dataset df
+# PART 2: Computation of the feature table 
 
-        startM1 = int(df.iloc[indice, df.columns.get_loc('cDNA coding start')]) - 1 # position start-1
-        startP1 = int(df.iloc[indice, df.columns.get_loc('cDNA coding start')]) + 1 # position start+1
-        #kozak = seq[(startM1 - k):(startP1 + k)]
-        contextM1 = (startM1 - k) - j
-        contextP1 = (startP1 + k) + j
-        #Cas ou cadre du context_kozak dépasse l'indice de début de sequence
-        contextM1=abs(contextM1)
-        contextKozak = seq[contextM1:contextP1]
-        #print len(contextKozak),contextKozak,contextM1,contextP1, startM1
-        kozak.append(contextKozak)
-        kozakseq.append(seq[(startM1-k):(startP1+k)])
-
-    print("extracting Kozak_Context ... Done !")
-    return([kozak,kozakseq])
-
-def get_uORF(df):			#avec uORFs chevauchantes
-    print("getting uORFs_sequence ...")
-    uORFs_TOT = []
-    for indice in range(len(df)):
-    	ind_uORF=[]
-    	seq=df.iloc[indice,df.columns.get_loc('cDNA sequences')]
-    	p5UTR=seq[0:int(df.iloc[indice,df.columns.get_loc('cDNA coding start')])-1]
-    	#print p5UTR,len(p5UTR),len(seq),"seq-current\n"
-    	reg=re.compile('ATG')
-    	for m_ATG in reg.finditer(p5UTR):
-    		if m_ATG.start() % 3 == 0:
-    			ATG=m_ATG.start()
-    			rex=re.compile('ATG([ATGC]{3}){1,}T(AG|AA|GA)')
-    			research_zone=p5UTR[ATG:]
-    			while(len(research_zone)>=9):
-    				m_rex=rex.search(research_zone)
-    				if m_rex is not None:
-    					match=m_rex.group()
-    					start=m_rex.start()
-    					end=m_rex.end()
-    					uORF=(ATG+start,ATG+end)
-    					ind_uORF.append(uORF)
-    					#print p5UTR[ATG+start:ATG+end],len(p5UTR[ATG+start:ATG+end])
-    					research_zone=match[start:end - 3]
-
-    				else: break
-    	uORFs_TOT.append(ind_uORF)
-    print("getting uORFs_sequence ... Done !")
-    return(uORFs_TOT)
-
-def get_dORF(df):
-    print("getting dORFs_sequence ...")
-    dORFs = []
-    for indice in range(len(df)):
-        ind_dORF = []
-       	seq=df.iloc[indice,df.columns.get_loc('cDNA sequences')]
-        p3UTR= seq[int(df.iloc[indice,df.columns.get_loc('cDNA coding end')]):]
-        reg = re.compile('ATG')
-        for m_ATG in reg.finditer(p3UTR):
-            if m_ATG.start() % 3 == 0:
-                ATG = m_ATG.start()
-                rex = re.compile('ATG([ATGC]{3}){1,}T(AG|AA|GA)')
-                research_zone=p3UTR[ATG:]
-                while(len(research_zone)>=9):
-                    m_rex = rex.search(research_zone)
-                    if m_rex is not None:
-                        match = m_rex.group()
-                        start = m_rex.start()
-                        end = m_rex.end()
-                        dORF = (ATG + start, ATG + end)
-                        ind_dORF.append(dORF)
-                        research_zone=match[start:end-3]
-                    else: break
-        dORFs.append(ind_dORF)
-    print("getting dORFs_sequence ... Done !")
-    return(dORFs)
-
-def writeP5utr_fa(df):
-    '''
-    Write every 5'UTR sequence in a fasta file named "p3utr.fasta".
-    '''
-    print("Creating p5UTR_seq ...")
-    p5len = []
-    with open("p5utrDEMO.fasta", "w+") as p5utr_fasta:
-        for indice in range(len(df)):
-        	seq=df.iloc[indice,df.columns.get_loc('cDNA sequences')]
-        	p5UTR=seq[0:int(df.iloc[indice,df.columns.get_loc("cDNA coding start")])-1]
-        	if len(p5UTR)>0:
-				p5utr_fasta.write("{}\n".format(">" + str(indice)))
-				p5utr_fasta.write("{}\n".format(p5UTR))
-                p5len.append(len(p5UTR))
-    print("Creating p5UTR_seq ... Done !")
-    return(p5len)
-
-def writeP3utr_fa(df):
-    '''
-    Write every 3'UTR sequence in a fasta file named "p3utr.fasta".
-    '''
-    print("Creating p3UTR_seq ...")
-    p3len = []
-    with open("p3utrDEMO.fasta", "w+") as p3utr_fasta:
-        for indice in range(len(df)):
-        	seq=df.iloc[indice,df.columns.get_loc('cDNA sequences')]
-        	p3UTR= seq[int(df.iloc[indice,df.columns.get_loc('cDNA coding end')]):]
-        	if len(p3UTR)>0:
-				p3utr_fasta.write("{}\n".format(">" + str(indice)))
-				p3utr_fasta.write("{}\n".format(p3UTR))
-                p3len.append(len(p3UTR))
-    print("Creating p3UTR_seq ...Done")
-    return(p3len)
-
-def RNAfold_calcul(inputfile, output_name_file):
-    print("RNAfold_Calcul ...")
-    output=open(output_name_file, "w+")
-    subprocess.call("RNAfold --noPS --jobs", stdin = inputfile, stdout = output, shell = True)
-    output.close()
+def RNAfold_calcul(utr_fasta, out_mfe):
+    #print("RNAfold_Calcul ...")
+    with open(utr_fasta, "r") as inputfile, open(out_mfe + ".mfe", "w+") as output:
+        subprocess.call("RNAfold --noPS --jobs", stdin = inputfile, stdout = output, shell = True)
     print("RNAfold_Calcul ... Done !")
-    return(output_name_file)
+    return(output)
 
-def getFoldingEnergy(filename, df):
-    with open(str(filename), "r") as rnafoldfile:
+def getFoldingEnergy(input_mfe):
+    with open(str(input_mfe), "r") as rnafoldfile:
         tot = rnafoldfile.readlines()
     #TODO use the delimiter of the RNAFold output file to extract the folding energy (the split function). Remove the REGEXPs.
     foldrex = re.compile('(-[0-9]+\.[0-9]+|\s0\.0)')
     foldinf = re.compile('>[0-9]+')
     strtot = ' '.join(tot) # convertion liste en string
     mfe = foldrex.findall(strtot)
-    indice = foldinf.findall(strtot)
-    real_indice = [None] * len(df) # remplacer 4 par len(cdd)
-    for i in range(len(indice)):
-        new_id = int(indice[i][1:])
-        real_indice[new_id] = float(mfe[i])
-    return(real_indice)
+    return(float(mfe[0]))
+
+class FastaReader(object):
+    # Read Fasta input sequence, store each seq in a generator
+    def __init__(self, fastaFile):
+        """Constructor"""
+        self.fastaFile = fastaFile
+    #
+    def readSeqs(self):
+        mySeq = []
+        currentSeq = ''
+        with open(self.fastaFile, 'r') as f:
+            for line in f:
+                if line == '\n':
+                    next
+                m = re.match('^>.*',line)
+                if m:
+                    if currentSeq:
+                        yield Seq(currentSeq, ''.join(mySeq))
+                    #
+                    #currentSeq = re.split('[\s\|]+',m.group(1))[0]
+                    currentSeq = m.group(0)
+                    mySeq = []
+                else:
+                    mySeq.append(line.replace('\n',''))
+            yield Seq(currentSeq, ''.join(mySeq))
+
+
+class Seq(object):
+    # Sequence define by its name and its bases sequence
+    def __init__(self, name, bases):
+        """Constructor"""
+        self.name = name
+        self.bases = bases
+
+class Job(object):
+    def __init__(self, SeqObj):
+        self.SeqObj = SeqObj
+        
+    def getAttributes(self):
+        # TODO get the attibute names dirrectly from the fasta header. Minimise hard coding.
+        attributes = self.SeqObj.name.split(">")[1].split("|")
+        self.geneID = attributes[0].split(":")[1]
+        self.transcriptID = attributes[1].split(":")[1]
+        self.geneName = attributes[2].split(":")[1]
+        self.UTR5PEnd = attributes[3].split(":")[1]
+        self.UTR5PStart = attributes[4].split(":")[1]
+        self.UTR3PEnd = attributes[5].split(":")[1]
+        self.UTR3PStart = attributes[6].split(":")[1]
+        self.cDNAStart = attributes[7].split(":")[1]
+        self.cDNAEnd = attributes[8].split(":")[1]
+        self.bases = self.SeqObj.bases
+    
+    def getKozak(self, s, c):
+        """ Get both Kozak sequence and context:
+        If ATG is located near the 5'UTR, it is most likely probable that
+        either seq to fetch will not be retrieved as seld.base[-5:10] returns blank.
+        
+        In this case, we test whether the value left to ':' is negative or not
+        If it is < 0, we simply take the seq from 0 as : self.bases[0:self.cDNAStart) + 2) + s]
+        """
+        # Kozak sequence
+        if int(self.cDNAStart) - 1 - s < 0:
+            kozakSeq = self.bases[0:(int(self.cDNAStart) + 2) + s]
+        else:
+            kozakSeq = self.bases[(int(self.cDNAStart) - 1 - s):(int(self.cDNAStart) + 2)+ s]
+        
+        # Kozak context
+        if int(self.cDNAStart) -1 - s - c < 0:
+            kozakContext = self.bases[0:(int(self.cDNAStart) + 2)+ s + c]
+        else:
+            kozakContext = self.bases[((int(self.cDNAStart) - 1 - s) - c):(int(self.cDNAStart) + 2) + s + c]
+        return(kozakSeq, kozakContext)
+    
+    # NO need to create files rnafold can read/write to stdin and stdout.
+    def write3PUTR(self, out_3putr):
+        """Fetch 3PUTR sequence, write in external fasta file and return its length"""
+        with open(out_3putr + ".fasta", "w") as UTR3P:
+            UTR3P.write(">{}_3PUTR\n{}".format(self.geneID,self.bases[int(self.cDNAEnd):]))
+        #print("Creating p3UTR_seq ...Done")
+        return(len(self.bases[int(self.cDNAEnd):]))
+    
+    def write5PUTR(self, out_5putr):
+        """Fetch 5PUTR sequence, write in external fasta file and return its length"""
+        with open(out_5putr + ".fasta", "w") as UTR5P:
+            UTR5P.write(">{}_5PUTR\n{}".format(self.geneID,self.bases[0:int(self.cDNAStart)-1]))
+        #print("Creating p5UTR_seq ...Done")
+        return(len(self.bases[0:int(self.cDNAStart)-1]))
+        
+class FeatExtract(object):
+    
+    def __init__(self, fastaFile):
+        self.fastaFile = fastaFile
+    
+    def getFeatures(self):
+        ff = FastaReader(self.fastaFile)
+        for seq in ff.readSeqs():
+            # yield
+            job = Job(seq)
+            # for job in toto
+            job.getAttributes()
+            seqKozak, contKozak = job.getKozak(10,20)
+            #print "{}\n{}".format(seqKozak, contKozak)
+            job_3UTRlen = job.write3PUTR("job3utr")
+            #print job_3UTRlen
+            job_5UTRlen = job.write5PUTR("job5utr")
+            #print job_5UTRlen
+            # 3 UTR
+            filin = "job3utr.fasta"
+            filout = "job3utr"
+            RNAfold_calcul(filin, filout)
+            p3mfe = getFoldingEnergy(filout + ".mfe")
+            engBase_3utr = p3mfe / job_3UTRlen
+            #print engBase_3utr
+            # 5 UTR
+            filin = "job5utr.fasta"
+            filout = "job5utr"
+            RNAfold_calcul(filin, filout)
+            p5mfe = getFoldingEnergy(filout + ".mfe")
+            engBase_5utr = p5mfe / job_5UTRlen
+            # dico
+            features = {
+               'ensembl_gene_id':job.geneID,
+                'ensembl_transcript_id':job.transcriptID,
+                '3PLen':job_3UTRlen,
+                '3PMfe':p3mfe,
+                '5PLen':job_5UTRlen,
+                '5PMfe':p5mfe,
+                '5UTR_mfe_Base':engBase_5utr,
+                '3UTR_mfe_Base':engBase_3utr,
+                'Kozak_Context':contKozak,
+                'Kozak_sequence':seqKozak
+            }
+            yield features
+            
+    def dicos2table(self):
+        """When treating the first yield dictionary, create the final table df_feat
+        Each yield dictonaries is transformed into an entry of the table and concatenated to the final table"""
+        i = 0
+        for yieldFeature in self.getFeatures():
+            if i == 0:
+                df_feat = pd.DataFrame(columns=yieldFeature.keys())
+                i = 1
+            df  = pd.DataFrame([yieldFeature],columns=yieldFeature.keys())
+            df_feat = pd.concat([df_feat, df], axis=0).reset_index(drop=True)
+
+        return(df_feat)
