@@ -1,6 +1,6 @@
 # README
 
-authors: Arnold AKE and Antoine LU
+authors: Antoine LU
 
 # geneIDs2fasta.py
 
@@ -10,11 +10,33 @@ This script takes a text list of ENSEMBL gene IDs and returns a FASTA formated f
 
 ```python
 python geneIDs2fasta.py input_IDs_file output_FASTA_filename
-```   
+```
+
+For example:
+
+```python
+python geneIDs2fasta.py bics10Ids.txt bics10Ids
+```
+> returns: bics10Ids.fasta
+
+# fasta2table.py
+
+This script takes the previously returned FASTA file and transforms it into a tabulation separated dataframe (CSV format).
+
+```python
+pyhton fasta2table.py input_FASTA_file output_CSV_filename
+```
+
+For example:
+
+```python
+python fasta2table.py bics10Ids.fasta bics10Ids
+```
+> returns: bics10Ids.csv
 
 # rnaFeaturesLib.py
 
-Python file containing all the called functions
+Python file containing all the called functions for the two main scripts
 
 
 ## ISSUES:
