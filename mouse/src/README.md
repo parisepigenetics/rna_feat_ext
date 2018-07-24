@@ -1,8 +1,8 @@
 # README
 
-authors: Antoine LU
-
 # geneIDs2fasta.py
+
+	authors: Antoine LU and Arnold AKE 
 
 This script takes a text list of ENSEMBL gene IDs and returns a FASTA formated file of the corresponding cDNA sequences. The header is formatted and contains various metadata ordered as:
 
@@ -20,6 +20,8 @@ python geneIDs2fasta.py bics10Ids.txt bics10Ids
 > returns: bics10Ids.fasta
 
 # fasta2table.py
+
+	author: Antoine LU
 
 This script takes the previously returned FASTA file and transforms it into a tabulation separated dataframe (CSV format).
 
