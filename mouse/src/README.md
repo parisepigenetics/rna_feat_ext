@@ -38,6 +38,10 @@ For example:
 ```python
 python fasta2table.py bics10Ids.fasta bics10Ids
 ```
+or:
+```python
+python scriptB.py bics10Ids.txt bics10Ids
+```
 > returns: bics10Ids.csv
 
 # rnaFeaturesLib.py
