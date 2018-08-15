@@ -2,7 +2,7 @@
 
 # geneIDs2fasta.py
 
-	authors: Antoine LU and Arnold AKE 
+	authors: Antoine LU and Arnold AKE
 
 This script takes a text list of ENSEMBL gene IDs and returns a FASTA formated file of the corresponding cDNA sequences. The header is formatted and contains various metadata ordered as:
 
@@ -10,6 +10,10 @@ This script takes a text list of ENSEMBL gene IDs and returns a FASTA formated f
 
 ```python
 python geneIDs2fasta.py input_IDs_file output_FASTA_filename
+```
+or:
+```Python
+python scriptA.py input_IDs_file output_FASTA_filename
 ```
 
 For example:
