@@ -1,5 +1,29 @@
 # README
 
+These scripts are part of a project supervised by the PTER Team (@parisepigenetics, @cbouyio) at Paris Diderot. This collaboration now involves two students: **Antoine LU @antoinezl** who started the project as part of a project during his second year of Master's degree and **Franz-Arnold AKE @franzx5** a first year Master's degree student who mainly worked on the clustering aspect of the project (see clustering branch).
+
+## Development of a computational tool for RNA feature extraction
+
+The aim of the project is to develop a tool for RNA feature extraction. These features might have a role in identifying commonly regulated mRNA.
+
+## Data
++ /bics/best_bics_id.txt: Best BICS IDs determined by a post-doc student (Mohamed MACHAT).
+
+## Modules / Tools
+(Python 2.7)
++ [`Biopython`](http://biopython.org)
++ [`Pandas`](http://pandas.pydata.org)
++ [`biomart`API](https://pypi.org/project/biomart/)
+
+(Tools and script)
++ [`RNAfold, Vienna RNA Package`](https://www.tbi.univie.ac.at/RNA/index.html#download)(version 2.4.3)
++ [`motif_scan.py`](https://github.com/miha-skalic/motif_scan)
+
+## Installation
++ [`motif_scan.py`](https://github.com/miha-skalic/motif_scan): Please follow the link, the procedure is well detailed.
++ [`RNAfold, Vienna RNA Package`](https://www.tbi.univie.ac.at/RNA/index.html#download): Please follow the link, the procedure is well detailed.
+
+## Usage and descriptions
 # geneIDs2fasta.py
 
 	authors: Antoine LU and Arnold AKE
