@@ -72,6 +72,13 @@ python scriptB.py bics10Ids.txt  Motif_TXT_file bics10Ids
 
 Python file containing all the called functions for the two main scripts
 
+# Searching motif
+
+we use for searching motif_id per for each transcript the tool FIMO(find individual motif occurences) of the MEME Suite.
+we have to install this tool before to execute the scriptB.py which use it.
+
+Check this link -> + ['fimo'](http://meme-suite.org/doc/fimo.html)
+
 
 ## ISSUES:
 NONE for now..
