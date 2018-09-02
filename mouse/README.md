@@ -24,7 +24,7 @@ The aim of the project is to develop a tool for RNA feature extraction. These fe
 + [`RNAfold, Vienna RNA Package`](https://www.tbi.univie.ac.at/RNA/index.html#download): Please follow the link, the procedure is well detailed.
 
 ## Usage and descriptions
-# geneIDs2fasta.py
+# geneIDs2fasta.py or scriptA.py
 
 	authors: Antoine LU and Arnold AKE
 
@@ -47,9 +47,9 @@ python geneIDs2fasta.py bics10Ids.txt bics10Ids
 ```
 > returns: bics10Ids.fasta
 
-# fasta2table.py
+# fasta2table.py or scriptB.py
 
-	author: Antoine LU
+	author: Antoine LU and Franz-Arnold AKE
 
 This script takes the previously returned FASTA file, MOTIF file, and transforms it into a tabulation separated dataframe (CSV format).
 
@@ -68,7 +68,7 @@ python scriptB.py bics10Ids.txt  Motif_TXT_file bics10Ids
 ```
 > returns: bics10Ids.tab
 
-# rnaFeaturesLib.py
+# rnaFeaturesLib.py or library.py
 
 Python file containing all the called functions for the two main scripts
 
