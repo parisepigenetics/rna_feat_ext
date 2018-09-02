@@ -10,12 +10,12 @@
 
 
 # Loading Packages
-import library
-import pandas as pd
-import numpy as np
 import subprocess
 import argparse
 import sys
+import pandas as pd
+import library
+from biomart import BiomartServer
 
 
 # Options/Arguments parser
@@ -31,6 +31,7 @@ parser.add_argument('outfile', nargs="?", default=sys.stdout, metavar="output_fi
 parser.add_argument('--dataset', nargs="?", default='mmusculus_gene_ensembl', metavar="Dataset for collecting informations",
                     type=str, help="Choice of Ensembl Dataset -- hsapiens_gene_ensembl Or mmusculus_gene_ensembl -- Default : Mouse_dataset")
 
+
 args = parser.parse_args()
 
 
@@ -43,9 +44,8 @@ listAttrib = ['ensembl_gene_id', 'ensembl_transcript_id',
               'cdna_coding_start', 'cdna_coding_end', 'start_position', 'cdna']
 
 # Step_1
-print("\nChargement des Données sur Biomart ...")
+print "\nChargement des Données sur Biomart ..."
 # Loading Data from Biomart
-from biomart import BiomartServer
 server = BiomartServer("http://www.ensembl.org/biomart/")
 hsapiens_dataset = server.datasets[args.dataset]
 
@@ -66,55 +66,53 @@ mais de le réaliser directement but how ?
 filout = open("temp.tsv", "w")
 filout.write(response.text)
 filout.close()
-print("Done")
+print "Done"
 
 # Step_2
-print("\nRecupération des Données...")
+print "\nRecupération des Données..."
 # Reading temp_1 for getting preloaded data
 with open("temp.tsv", "r") as preloaded_data:
     cdna = pd.read_csv(preloaded_data, sep="\t")
     subprocess.call("rm -f", stdin=preloaded_data, shell=True)
-print("Done")
+    print "Done"
+subprocess.call("rm -f temp.tsv", shell=True)
 ##################################################################
 
 print("Dimension_Data :", cdna.shape)
 
-print("Elimination des NaN values...")
+print "Elimination des NaN values..."
 cdna = cdna.dropna()
 cdna = cdna.reset_index()
-print("Done")
+print "Done"
 
 print("Dimension_Data :", cdna.shape)
 
-
 # Step3
-print("\nElimination des 5utr start et End multiples...")
-print("Elimination des Cdna coding start et end multiples...")
+print "\nElimination des 5utr start et End multiples..."
+print "Elimination des Cdna coding start et end multiples..."
 for i in range(cdna.shape[0]):
     ligne = pd.DataFrame(cdna.loc[i, :]).transpose()
-    #print ligne
 
     # For 5_UTRs
-    if(len(cdna.iloc[i:i+1, :]["5' UTR start"].values[0].split(";")) > 1):
+    if len(cdna.iloc[i:i+1, :]["5' UTR start"].values[0].split(";")) > 1:
         indices = library.get_utr5MAX(ligne)
         cdna.iloc[i:i+1, 7:8] = indices[1]
         cdna.iloc[i:i+1, 8:9] = indices[0]
 
     # For 3_UTRs
-    if(len(str(cdna.iloc[i:i+1, :]["3' UTR start"].values[0]).split(";")) > 1):
+    if len(str(cdna.iloc[i:i+1, :]["3' UTR start"].values[0]).split(";")) > 1:
         indices = library.get_utr3MAX(ligne)
         cdna.iloc[i:i+1, 9:10] = indices[1]
         cdna.iloc[i:i+1, 10:11] = indices[0]
 
     # For cDNA
-    if(len(cdna.iloc[i:i+1, :]["cDNA coding start"].values[0].split(";")) > 1):
+    if len(cdna.iloc[i:i+1, :]["cDNA coding start"].values[0].split(";")) > 1:
         indices = library.get_cDNAMIN(ligne)
         cdna.iloc[i:i+1, 13:14] = indices[0]
         cdna.iloc[i:i+1, 14:15] = indices[1]
-print("Done")
-
+        print "Done"
 
 # Step4
-print("\nSauvegarde fasta_file...")
+print "\nSauvegarde fasta_file..."
 library.txt2fasta(cdna, args.outfile)
-print("Done\n")
+print "Done\n"
