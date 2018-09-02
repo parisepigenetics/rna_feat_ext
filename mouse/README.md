@@ -51,7 +51,7 @@ python geneIDs2fasta.py bics10Ids.txt bics10Ids
 
 	author: Antoine LU
 
-This script takes the previously returned FASTA file and transforms it into a tabulation separated dataframe (CSV format).
+This script takes the previously returned FASTA file, MOTIF file, and transforms it into a tabulation separated dataframe (CSV format).
 
 ```python
 pyhton fasta2table.py input_FASTA_file output_CSV_filename
@@ -64,9 +64,9 @@ python fasta2table.py bics10Ids.fasta bics10Ids
 ```
 or:
 ```python
-python scriptB.py bics10Ids.txt bics10Ids
+python scriptB.py bics10Ids.txt  Motif_TXT_file bics10Ids
 ```
-> returns: bics10Ids.csv
+> returns: bics10Ids.tab
 
 # rnaFeaturesLib.py
 
