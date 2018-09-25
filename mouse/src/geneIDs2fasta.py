@@ -18,7 +18,7 @@ def geneIDs2Fasta(id_list, out_fasta):
     server = BiomartServer( "http://www.ensembl.org/biomart/")
     #server.show_datasets()
     print("....done!")
-
+#FIXME We NEVER hardcoding parameters!!!
     datasets = 'mmusculus_gene_ensembl'
     dt = server.datasets[datasets]
     # remplacer par 'hsapiens_gene_ensembl'
@@ -41,7 +41,7 @@ def geneIDs2Fasta(id_list, out_fasta):
         'ensembl_gene_id': listID
     },
     'attributes': [
-        'ensembl_gene_id', 'ensembl_transcript_id','external_gene_name','transcript_start', 
+        'ensembl_gene_id', 'ensembl_transcript_id','external_gene_name','transcript_start',
         'transcript_end', '5_utr_end', '5_utr_start', '3_utr_end', '3_utr_start',
         'transcription_start_site', 'transcript_biotype', 'cdna_coding_start',
         'cdna_coding_end','cdna'
@@ -53,6 +53,7 @@ def geneIDs2Fasta(id_list, out_fasta):
     filout.close()
     print("....data written in tmp.tsv...")
 
+#FIXME why we need to print to an output tmp file???
     # reading data
     print("..reading tmp.tsv...")
     cdna = pd.read_csv("tmp.tsv", sep="\t")
