@@ -1,4 +1,4 @@
-#Development ~ Computational tool for RNA feature extraction
+# Development ~ Computational tool for RNA feature extraction
 
     authors: Antoine LU and Arnold Franz AKE
 
@@ -54,7 +54,7 @@ Theses package are required for the correct execution of the scripts:
 
 ## Usage and descriptions (How to ...)
 
-###geneIDs2fasta.py or geneIDsfasta_2.py (Franz)
+### geneIDs2fasta.py or geneIDsfasta_2.py (Franz)
 
 `Unix Environment`
 
@@ -67,7 +67,7 @@ For example (*in Unix Terminal*):
 > returns: bicsIds.fasta
 
 
-###fasta2table.py or fasta2table_2.py (Franz)
+### fasta2table.py or fasta2table_2.py (Franz)
 
 `Unix Environment`
 
