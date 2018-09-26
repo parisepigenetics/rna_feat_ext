@@ -19,17 +19,13 @@ from biomart import BiomartServer
 
 
 # Options/Arguments parser
-parser = argparse.ArgumentParser(description='Fetch features for an ensembl gene ID list and output a multi FASTA file',
-                                 epilog="Author: Franz-Arnold Ake and Antoine Lu, 2018")
+parser = argparse.ArgumentParser(description='Fetch features for an ensembl gene ID list and output a multi FASTA file',  epilog="Author: Franz-Arnold Ake and Antoine Lu, 2018")
 # Positional Arguments
-parser.add_argument('infile', metavar="input_file",
-                    type=argparse.FileType('r'), help='Path for Ensembl Gene_ID file')
-parser.add_argument('outfile', nargs="?", default=sys.stdout, metavar="output_file",
-                    type=argparse.FileType('w'), help='Path for saving Output Fasta file (Default: output in Stdout)')
+parser.add_argument('infile', metavar="input_file", type=argparse.FileType('r'), help='Path for Ensembl Gene_ID file')
+parser.add_argument('outfile', nargs="?", default=sys.stdout, metavar="output_file", type=argparse.FileType('w'), help='Path for saving Output Fasta file (Default: output in Stdout)')
 
 # Optionnal Arguments
-parser.add_argument('--dataset', nargs="?", default='mmusculus_gene_ensembl', metavar="Dataset for collecting informations",
-                    type=str, help="Choice of Ensembl Dataset -- hsapiens_gene_ensembl Or mmusculus_gene_ensembl -- Default : Mouse_dataset")
+parser.add_argument('-d, --dataset', nargs="?", default='mmusculus_gene_ensembl', metavar="Dataset for collecting informations", type=str, help="Choice of Ensembl Dataset -- hsapiens_gene_ensembl Or mmusculus_gene_ensembl -- Default : Mouse_dataset")
 
 
 args = parser.parse_args()
@@ -48,6 +44,7 @@ print "\nChargement des Données sur Biomart ..."
 # Loading Data from Biomart
 server = BiomartServer("http://www.ensembl.org/biomart/")
 hsapiens_dataset = server.datasets[args.dataset]
+#FIXME is it human or mouse...???
 
 response = hsapiens_dataset.search({
     'filters': {listAttrib[0]: listID},
@@ -56,17 +53,15 @@ response = hsapiens_dataset.search({
 
 # A améliorer !
 ################################################################
-'''
-l'idéal serait de ne pas stocker dans un fichier
+'''l'idéal serait de ne pas stocker dans un fichier
 puis relire pour avoir les datas
 mais de le réaliser directement but how ?
 '''
-
-
 filout = open("temp.tsv", "w")
 filout.write(response.text)
 filout.close()
 print "Done"
+#FIXME what is the need for a tmp file?
 
 # Step_2
 print "\nRecupération des Données..."

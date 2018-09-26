@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-
 # From a fasta file ..getting Feature's Table
 
 # Author: AKE Franz-Arnold - Antoine LU
@@ -20,23 +19,19 @@ import re
 from Bio import SeqIO
 
 # Options/Arguments parser
-parser = argparse.ArgumentParser(description='Fetch features from an Fasta file and output a Feature Tab for Clustering',
-                                 epilog="Author: Franz-Arnold Ake and Antoine Lu, 2018")
+parser = argparse.ArgumentParser(description='Fetch features from an Fasta file and output a Feature Tab for Clustering', epilog="Author: Franz-Arnold Ake and Antoine Lu, 2018")
 
 # Positional Arguments
-parser.add_argument('infile', metavar="input_file",
-                    type=argparse.FileType('r'), help='Path for Fasta file')
-parser.add_argument('mtfile', nargs="?", metavar="motif_file",
-                    type=argparse.FileType('r'), help='Motif file for determining RBPs')
-parser.add_argument('outfile', nargs="?", default=sys.stdout, metavar="output_file",
-                    type=argparse.FileType('w'), help='Path for saving Output Feature table file (Default: output in Stdout)')
-
+parser.add_argument('infile', metavar="input_file", type=argparse.FileType('r'), help='Path for Fasta file')
+parser.add_argument('mtfile', nargs="?", metavar="motif_file", type=argparse.FileType('r'), help='Motif file for determining RBPs')
+parser.add_argument('outfile', nargs="?", default=sys.stdout, metavar="output_file", type=argparse.FileType('w'), help='Path for saving Output Feature table file (Default: output in Stdout)')
 
 args = parser.parse_args()
 
 # Delete these files
 subprocess.call("rm -f P3UTR", shell=True)
 subprocess.call("rm -f P5UTR", shell=True)
+#FIXME WHY we have these files in the first place I think you delete them later (code duplication.)
 
 # First Loop
 Gene_list = []
