@@ -8,6 +8,7 @@ import re
 import pandas as pd
 import numpy as np
 
+#FIXME we need to do a bit of refactoring in names and objects!
 
 #***************************************
 # Sequence class and Functions Associated

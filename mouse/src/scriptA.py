@@ -49,8 +49,8 @@ hsapiens_dataset = server.datasets[args.dataset]
 response = hsapiens_dataset.search({
     'filters': {listAttrib[0]: listID},
     'attributes': listAttrib}, header=1)
-
-
+#FIXME convert directly the database responce object to a pandas data table.
+#FIXME no need of a TMP file then.
 # A améliorer !
 ################################################################
 '''l'idéal serait de ne pas stocker dans un fichier

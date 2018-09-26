@@ -2,7 +2,7 @@
 # -*- coding: UTF-8 -*-
 
 #Loading packages
-print("import packages")
+print("import packages") # No need to print that! :)
 import numpy as np
 import pandas as pd
 import math
@@ -18,8 +18,8 @@ def geneIDs2Fasta(id_list, out_fasta):
     server = BiomartServer( "http://www.ensembl.org/biomart/")
     #server.show_datasets()
     print("....done!")
-#FIXME We NEVER hardcoding parameters!!!
-    datasets = 'mmusculus_gene_ensembl'
+#FIXME We NEVER hardcoding parameters!!! dataset MUST be a parameter.
+    datasets = 'hsapiens_gene_ensembl'
     dt = server.datasets[datasets]
     # remplacer par 'hsapiens_gene_ensembl'
     print("connexion to mmusculus_gene_ensembl")
