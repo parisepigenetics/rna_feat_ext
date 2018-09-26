@@ -68,9 +68,8 @@ tab2 = library.RBPs_Motif(fimo_tab)
 tab = tab.join(tab2, lsuffix='_tab', rsuffix='_tab2')
 
 # Delete these files
-subprocess.call("rm -f P3UTR", shell=True)
-subprocess.call("rm -f P5UTR", shell=True)
-
+# subprocess.call("rm -f P3UTR", shell=True)
+# subprocess.call("rm -f P5UTR", shell=True)
 
 # Sauvegarde
 tab = tab.reset_index(drop=True)
