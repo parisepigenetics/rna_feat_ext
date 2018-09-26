@@ -1,5 +1,0 @@
-25/03/2018
-
-bics_cDNA.txt : sequence of each cDNA extracted from biomart from Machat's ENSEMBL ids
-bics_cDNA.csv : cDNA metadata table corresponding to the previous txt file.
-				will be used to calculate the features
