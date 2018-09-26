@@ -1,9 +1,0 @@
-Mus musculus genome annotation file
-
-file name: Mus_musculus.GRCm38.91.gff3
-version: GRCm38.91
-format: gff3
-downloaded: 14/03/2018
-from: https://www.ensembl.org/info/data/ftp/index.html
-
-context: M2 BI project long continuation, by Antoine Lu 
