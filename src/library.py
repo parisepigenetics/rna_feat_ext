@@ -129,90 +129,15 @@ class Seq(object):
         tab = pd.DataFrame()
         tab["ensembl_gene_id"] = pd.Series(self.geneID).astype(str)
         tab["ensembl_transcript_id"] = pd.Series(self.transcriptID).astype(str)
-        tab["uORF"] = pd.Series(self.get_uORF()[1])
+        #tab["uORF"] = pd.Series(self.get_uORF()[1])
         tab["5PLen"] = pd.Series(self.writeP5UTR()).astype(float)
-        tab["dORF"] = pd.Series(self.get_dORF()[1])
+        #tab["dORF"] = pd.Series(self.get_dORF()[1])
         tab["3PLen"] = pd.Series(self.writeP3UTR()).astype(float)
         tab["Kozak_Context"] = pd.Series(self.getKozak(10, 20)[0]).astype(str)
         tab["Kozak_Sequence"] = pd.Series(self.getKozak(10, 20)[1]).astype(str)
         return(tab)
 
 
-#****************
-# Others functions
-#****************
-# For ScriptA
-#***********
-def get_utr5MAX(cdna_feat_row):
-    #print("getting UtrMax...")
-    # take the cdna_feat-row with multiples utrs
-
-    utr5s_start = cdna_feat_row["5' UTR start"].values[0].split(";")
-    utr5s_end = cdna_feat_row["5' UTR end"].values[0].split(";")
-
-    size_liste = []
-    for i in range(len(utr5s_start)):
-        size = int(utr5s_end[i])-int(utr5s_start[i])
-        size_liste.append(size)
-        indice_max = size_liste.index(max(size_liste))
-        max_utr5_start = int(utr5s_start[indice_max])
-        max_utr5_end = int(utr5s_end[indice_max])
-    return([max_utr5_start, max_utr5_end])
-
-
-def get_utr3MAX(cdna_feat_row):
-    #print("getting UtrMax...")
-    utr3s_start = cdna_feat_row["3' UTR start"].values[0].split(";")
-    utr3s_end = cdna_feat_row["3' UTR end"].values[0].split(";")
-
-    size_liste = []
-    for i in range(len(utr3s_start)):
-        size = int(utr3s_end[i])-int(utr3s_start[i])
-        size_liste.append(size)
-        indice_max = size_liste.index(max(size_liste))
-        max_utr3_start = int(utr3s_start[indice_max])
-        max_utr3_end = int(utr3s_end[indice_max])
-
-    return([max_utr3_start, max_utr3_end])
-
-
-def get_cDNAMIN(cdna_feat_row):
-    #print("getting cDNA_Start_Min...")
-    # take the cdna_feat-row with multiples utrs
-    cDNA_start = cdna_feat_row["cDNA coding start"].values[0].split(";")
-    cDNA_end = cdna_feat_row["cDNA coding end"].values[0].split(";")
-
-    min_cDNA_start = min(map(int, cDNA_start))
-    min_CDNA_end = max(map(int, cDNA_end))
-
-    return([min_cDNA_start, min_CDNA_end])
-
-
-def txt2fasta(cdna_feat_table, fastaOut):
-    for i in range(cdna_feat_table.shape[0]):
-        ligne = pd.DataFrame(cdna_feat_table.loc[i, :]).transpose()
-        fastaOut.write(">GeneID:{}|TranscriptID:{}|GeneName:{}|5P_UTR_end:{}|5P_UTR_start:{}|3P_UTR_end:{}|3P_UTR_end:{}|cDNAstart:{}|cDNAend:{}\n".format(
-            ligne["Gene stable ID"].values[0], ligne["Transcript stable ID"].values[0],
-            ligne["Gene name"].values[0], ligne["5' UTR end"].values[0], ligne["5' UTR start"].values[0],
-            ligne["3' UTR end"].values[0], ligne["3' UTR start"].values[0],
-            ligne["cDNA coding start"].values[0], ligne["cDNA coding end"].values[0]
-        ))
-        fastaOut.write("{}\n".format(ligne["cDNA sequences"].values[0]))
-    print("txt to Fasta conversion done!")
-
-
-def txt2fasta_bis(cdna_feat_table, fastaOut):
-    for i in range(cdna_feat_table.shape[0]):
-        ligne = pd.DataFrame(cdna_feat_table.loc[i, :]).transpose()
-        fastaOut.write(">TranscriptID:{}\n".format(
-            ligne["Transcript stable ID"].values[0]))
-        fastaOut.write("{}\n".format(ligne["cDNA sequences"].values[0]))
-    print("txt to Fasta conversion bis done!")
-
-
-#***********
-# For ScriptB
-#***********
 def RNAfold_calcul(inputA):
     with open(inputA, "r") as input:
         sortie = subprocess.check_output('RNAfold --noPS --verbose --jobs', stdin=input, shell=True)

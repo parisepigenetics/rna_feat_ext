@@ -1,54 +1,51 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# From a fasta file ..getting Feature's Table
+"""Calculate feature's Table from a fasta file with the appropriate header.
 
-# Author: AKE Franz-Arnold - Antoine LU
-# mail: aerod7710@gmail.com
-# 17 Juillet 2018
-# UMR7216 Paris Diderot
+Authors: AKE Franz-Arnold - LU Antoine
+mail: aerod7710@gmail.com lu.zhao.antoine@gmail.com
+Juillet 2018
+UMR7216 Paris Diderot"""
+
+__version__ = "0.1a01"
 
 # Loading Packages
-import library
 import pandas as pd
-import numpy as np
 import subprocess
 import argparse
 import sys
-import re
 from Bio import SeqIO
 
-# Options/Arguments parser
-parser = argparse.ArgumentParser(description='Fetch features from an Fasta file and output a Feature Tab for Clustering', epilog="Author: Franz-Arnold Ake and Antoine Lu, 2018")
+import library
+import rnaFeaturesLib
 
-# Positional Arguments
-parser.add_argument('infile', metavar="input_file", type=argparse.FileType('r'), help='Path for Fasta file')
-parser.add_argument('mtfile', nargs="?", metavar="motif_file", type=argparse.FileType('r'), help='Motif file for determining RBPs')
-parser.add_argument('outfile', nargs="?", default=sys.stdout, metavar="output_file", type=argparse.FileType('w'), help='Path for saving Output Feature table file (Default: output in Stdout)')
+
+# Options/Arguments parser
+parser = argparse.ArgumentParser(prog='fasta2table', description='Calculate features from a fasta file (ENSEML header) and output a featurs table for clustering', epilog="Authors: Arnold-Franz AKE, Antoine LU, 2018")
+parser.add_argument("infile", help = "input FASTA file", type=str)
+parser.add_argument("outfile", help = "output CSV filename; add .csv", type = str)
+parser.add_argument("motifs_file", help = "MEME motifs file", default = "", type = str)
+parser.add_argument('-v', '--version', action='version', version='%(prog)s {version}'.format(version=__version__))
+
 
 args = parser.parse_args()
 
-# Delete these files
-subprocess.call("rm -f P3UTR", shell=True)
-subprocess.call("rm -f P5UTR", shell=True)
-#FIXME WHY we have these files in the first place I think you delete them later (code duplication.)
-
-# First Loop
 Gene_list = []
-print("collecting data...")
+print("Collecting data...")
 for record in SeqIO.parse(args.infile, "fasta"):
     new_seq = library.Seq(record)
     Gene_list.append(new_seq)
 print("done")
 
-
-# 2nd Loop (Minimum Folding Energy and Features)
-print("Calcul features...")
 tab = pd.DataFrame()
 for feat in Gene_list:
     res = tab.append(feat.getFeatures())
     tab = res
 tab.index = tab["ensembl_transcript_id"]
+
+# Minimum Folding Energy and Features)
+print("Calculate features...")
 
 # Calcul RNAFold and MFE_per Base
 print("RNAfolding calcul... P3UTR")
