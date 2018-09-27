@@ -1,13 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 
-# From a list of ENSEMBL Gene_IDs get a fasta file with metadata as header.
+"""From a list of ENSEMBL Gene_IDs get a fasta file with metadata as header.
 
-# Author: AKE Franz-Arnold - Antoine LU
-# mail: aerod7710@gmail.com lu.zhao.antoine@gmail.com
-# Juillet 2018
-# UMR7216 Paris Diderot
+Author: AKE Franz-Arnold - Antoine LU
+mail: aerod7710@gmail.com lu.zhao.antoine@gmail.com
+Juillet 2018
+UMR7216 Paris Diderot"""
 
+__version__ = "0.1a01"
 
 #Loading packages
 import argparse
@@ -17,35 +18,24 @@ from pandas.compat import StringIO
 
 import rnaFeaturesLib
 
-
+# Functions
 def geneIDs2Fasta(listID, out_fasta, dataset):
-    print("connection to server....")
+    print("Connection to server....")
     server = BiomartServer( "http://www.ensembl.org/biomart/")
-    #server.show_datasets()
     print("....done!")
     dt = server.datasets[dataset]
-    print("connexion to ENSEMBL dataset.")
+    print("Connexion to ENSEMBL dataset.")
 
-    # print("reading id list......")
-    # with open(id_list, "r") as filin:
-    #     listID = filin.read().splitlines()
-
+    #TODO provide the required attributes in an external parameters file.
     listAttrib = ['ensembl_gene_id', 'ensembl_transcript_id',
-              'external_gene_name', 'transcript_start', 'transcript_end',
-              '5_utr_end', '5_utr_start', '3_utr_end', '3_utr_start',
-              'transcription_start_site', 'transcript_biotype',
-              'cdna_coding_start', 'cdna_coding_end', 'cdna']
+                  'external_gene_name', 'transcript_start', 'transcript_end',
+                  '5_utr_end', '5_utr_start', '3_utr_end', '3_utr_start',
+                  'transcription_start_site', 'transcript_biotype',
+                  'cdna_coding_start', 'cdna_coding_end', 'cdna']
 
-    # print("creating tmp.tsv file....")
-    # filout = open("tmp.tsv", "w")
-
-    print("fetching data.....")
-    response = dt.search({'filters': {'ensembl_gene_id': listID}, 'attributes' : listAttrib}, header = 1 )
-
+    print("Fetching data.....")
+    response = dt.search({'filters': {'ensembl_gene_id': listID}, 'attributes' : listAttrib}, header = 1)
     print("...fetching done!")
-    # filout.write(response.text)
-    # filout.close()
-    # print("....data written in tmp.tsv...")
 
     # Convert stringIO to pandas data frame.
     print("...Convert string to PD.data.frame.")
@@ -56,6 +46,7 @@ def geneIDs2Fasta(listID, out_fasta, dataset):
     cdna = cdna.dropna()
     cdna = cdna.reset_index()
 
+    #TODO TO TEST all these before publishing anything!
     # select only longest 5'UTR and 3'UTR
     print("...Select the longest UTRs!")
     for i in range(cdna.shape[0]):
@@ -81,7 +72,7 @@ def geneIDs2Fasta(listID, out_fasta, dataset):
         cdna.iloc[i, cdna.columns.get_loc('cDNA coding end')] = max_cdna_end
 
     # Exportat to FASTA format
-    print("..returned FASTA file!")
+    print("Return FASTA file!")
     rnaFeaturesLib.txt2fasta(cdna, out_fasta)
 
 
@@ -90,12 +81,10 @@ if __name__ == '__main__':
     parser.add_argument('infile', metavar="input_file", type=argparse.FileType('r'), help='Path for Ensembl Gene_ID file')
     parser.add_argument("fasta_out", help="output FASTA file name, the suffix '.fasta' is automatically added", type=str)
     parser.add_argument('-d', '--dataset', nargs="?", default='hsapiens_gene_ensembl', metavar="ENSEMBL Dataset for collecting information", type=str, help="Choice from Ensembl Datasets (taken from the web API of ENSEMBL) -- Default : hsapiens_gene_ensembl")
-    #TODO use the bult in versioningof argparse.
-    parser.add_argument('--version', action='version', version='{} {}'.format('geneIDs2Fasta', 0.1))
+    parser.add_argument('-v', '--version', action='version', version='%(prog)s {version}'.format(version=__version__))
 
 
     args = parser.parse_args()
-    print(args)
     #This is the function wich does all the job.
     listID = args.infile.read().splitlines()
     geneIDs2Fasta(listID, args.fasta_out, args.dataset)
