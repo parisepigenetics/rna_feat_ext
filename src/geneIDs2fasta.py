@@ -5,7 +5,7 @@
 
 Author: AKE Franz-Arnold - Antoine LU
 mail: aerod7710@gmail.com lu.zhao.antoine@gmail.com
-Juillet 2018
+July 2018
 UMR7216 Paris Diderot"""
 
 __version__ = "0.1a01"
@@ -31,8 +31,7 @@ def geneIDs2Fasta(listID, out_fasta, dataset):
                   'external_gene_name', 'transcript_start', 'transcript_end',
                   '5_utr_end', '5_utr_start', '3_utr_end', '3_utr_start',
                   'transcription_start_site', 'transcript_biotype',
-                  'cdna_coding_start', 'cdna_coding_end', 'cdna']
-
+                  'cdna_coding_start', 'cdna_coding_end', 'cdna', 'description']
     print("Fetching data.....")
     response = dt.search({'filters': {'ensembl_gene_id': listID}, 'attributes' : listAttrib}, header = 1)
     print("...fetching done!")
