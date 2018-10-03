@@ -8,13 +8,10 @@ mail: aerod7710@gmail.com lu.zhao.antoine@gmail.com
 July 2018
 UMR7216 Paris Diderot"""
 
-__version__ = "0.2a02"
+__version__ = "0.3a01"
 
-#Loading packages
-import pandas as pd
 import argparse
-import subprocess
-import sys
+import pandas as pd
 from Bio import SeqIO
 
 import rnaFeaturesLib as rnalib
@@ -22,9 +19,9 @@ import rnaFeaturesLib as rnalib
 
 parser = argparse.ArgumentParser(prog='fasta2table', description='Calculate features from a fasta file (ENSEML header) and output a featurs table for clustering', epilog="Authors: Arnold-Franz AKE, Antoine LU, 2018")
 parser.add_argument('-v', '--version', action='version', version='%(prog)s {version}'.format(version=__version__))
-parser.add_argument("infile", help = "input FASTA file", type=str)
-parser.add_argument("outfile", help = "output CSV filename; add .csv", type = str)
-parser.add_argument("motifs_file", help = "MEME motifs file", default = "", type = str)
+parser.add_argument("infile", help="input FASTA file", type=str)
+parser.add_argument("outfile", help="output CSV filename; add .csv", type=str)
+parser.add_argument("motifs_file", help="MEME motifs file", default="", type=str)
 
 args = parser.parse_args()
 
@@ -40,7 +37,7 @@ dc = ensFeat.calculateFeatures()
 # Concatenate the results
 dd = pd.concat([de, dc], axis=1, sort=False)
 # Re-arrange the columns.
-dd = dd[['ensembl_gene_id', 'gene_name', 'coding_len', '5pUTR_len', '5pUTR_GC', '5pUTR_MFE', '5pUTR_MfeBP', '3pUTR_len', '3pUTR_GC', '3pUTR_MFE',  '3pUTR_MfeBP', 'Kozak_Sequence', 'Kozak_Context']]
-# Sort and Print!
-#dd.sort_values(by = ['ensembl_gene_id', 'coding_len'])
-print(dd.to_string())
+dd = dd[['ensembl_gene_id', 'gene_name', 'coding_len', '5pUTR_len', '5pUTR_GC', '5pUTR_MFE', '5pUTR_MfeBP', '3pUTR_len', '3pUTR_GC', '3pUTR_MFE', '3pUTR_MfeBP', 'Kozak_Sequence', 'Kozak_Context']]
+# Sort and print to csv file.
+dd.sort_values(by=['ensembl_gene_id', 'coding_len'])
+dd.to_csv(args.outfile, sep=";")
