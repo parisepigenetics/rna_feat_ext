@@ -6,14 +6,12 @@
 
 __version__ = "0.1a01"
 
-import os
-import math
 import re
 import subprocess
 import pandas as pd
-import Bio
 from Bio import SeqIO
 from Bio.SeqUtils import GC
+import tempfile
 
 
 class ENSEMBLSeqs(object):
@@ -49,40 +47,26 @@ class FeaturesExtract(object):
     def __init__(self, bioSeqRecs):
         """Initialise with a list of SeqIO records."""
         self.bioSeqRecs = bioSeqRecs
+        # Temporary files of the UTRs
+        self.tf5p = tempfile.NamedTemporaryFile(mode="a", delete=False)
+        self.tf3p = tempfile.NamedTemporaryFile(mode="a", delete=False)
 
     def collectFeatures(self):
         """Collect the features that do not need external computations."""
-        # Check if files exist and delete them
-        try:
-            os.remove("3pUTRs.fasta")
-        except OSError:
-            pass
-        utr3p_f = "3pUTRs.fasta"
-        try:
-            os.remove("5pUTRs.fasta")
-        except OSError:
-            pass
-        utr5p_f = "5pUTRs.fasta"
+        # Initialise a pabdas data frame.
+        pdf = pd.DataFrame(columns = ['ensembl_gene_id', 'gene_name', 'coding_len', '5pUTR_len', '5pUTR_GC', '3pUTR_len', '3pUTR_GC', 'Kozak_Sequence', 'Kozak_Context'])
         for rec in self.bioSeqRecs:
             # Get Koxaks
             seqKozak, contKozak = self.getKozak(rec)
             # Fetch UTRs, lenghts and GCs
-            utr3len, utr3gc = self.get3PUTR(rec, utr3p_f)
-            utr5len, utr5gc = self.get5PUTR(rec, utr5p_f)
+            utr3len, utr3gc = self.get3PUTR(rec, self.tf3p)
+            utr5len, utr5gc = self.get5PUTR(rec, self.tf5p)
             # Length of coding region.
             codeLen = int(rec.features["cDNAend"]) - int(rec.features["cDNAstart"])
-            # dico
-            features = {'ensembl_gene_id':rec.features["GeneID"],
-                        'ensembl_transcript_id':rec.id,
-                        'gene_name':rec.name,
-                        'coding_len':codeLen,
-                        '3pUTR_len':utr3len,
-                        '5pUTR_len':utr5len,
-                        '5pUTR_GC':"{0:.2f}".format(utr5gc),
-                        '3pUTR_GC':"{0:.2f}".format(utr3gc),
-                        'Kozak_Context':contKozak,
-                        'Kozak_sequence':seqKozak}
-            yield features
+            # Add to pandas data frame.
+            pdfe = [rec.features["GeneID"], rec.name, codeLen, utr5len, "{0:.2f}".format(utr5gc), utr3len, "{0:.2f}".format(utr3gc), seqKozak, contKozak]
+            pdf.loc[rec.id] = pdfe
+        return pdf
 
     def getKozak(self, rec, s = 10, c = 20):
         """Extract both Kozak sequence and context from a SeqIO record.
@@ -107,31 +91,72 @@ class FeaturesExtract(object):
             kozakContext = seq[((int(feat["cDNAstart"]) - 1 - s) - c):(int(feat["cDNAstart"]) + 2) + s + c]
         return(str(kozakSeq), str(kozakContext))
 
-    def get3PUTR(self, rec, file):
+    def calculateFeatures(self):
+        """Method to perfom all feature calculation.
+
+        Basically invokes external software to make calculations."""
+        # Calculates 5pUTR folding etc.
+        fe5p = self.calculateFreeEnergy(self.tf5p.name, "5pUTR")
+        fe3p = self.calculateFreeEnergy(self.tf3p.name, "3pUTR")
+        #motifs = self.predictBinding()
+        # Merge data frames and return.
+        return pd.concat([fe5p, fe3p], axis=1, sort=False)
+
+    def calculateFreeEnergy(self, ffile, col):
+        """Method to perform the free energy calculation by RNAfold and parsing of the results.
+
+        Needs the RNA Vienna package to be installed."""
+        pdf = pd.DataFrame(columns = ['{}_MFE'.format(col), '{}_MfeBP'.format(col)])
+        out = subprocess.check_output('RNAfold --noPS --verbose --jobs -i %s' % ffile, shell=True)
+        outList = out.split("\n")[:-1] # Remove the trailing empty entry.
+        for i in xrange(0, len(outList), 3):
+            #if outList[i] == "": break
+            idt = outList[i][1:-6] # To exclude the _UTR suffix.
+            print(idt)
+            seq = outList[i+1]
+            print(seq)
+            fold = outList[i+2]
+            print(fold)
+            print(i)
+            mfeRE = re.compile('-[0-9]+\.[0-9]+')
+            mfe = float(mfeRE.search(fold).group())
+            mfeBp = mfe / float(len(seq))
+            pdf.loc[idt] = [mfe, mfeBp]
+        return pdf
+
+    def predictBinding(self, ffile, motifs):
+        """Method to run a FIMO search and parse and collect the results.
+
+        Requires the intallation of the MEME suite."""
+        #TODO implement the method!!!
+        subprocess.call('fimo --verbosity 1 ' + motifs + ' ' + ffile.name, shell=True)
+        fimo_tab = pd.read_csv("fimo_out/fimo.tsv", sep="\t")
+        fimo_tab = fimo_tab.reset_index(drop = True)
+        return None
+
+    def get3PUTR(self, rec, tf3p):
         """Fetch 3PUTR sequence, append it to fasta file and return its length and GC content."""
         utr3p = rec.seq[int(rec.features["cDNAend"]):]
-        with open(file, "a") as UTR3P:
-            UTR3P.write(">{}_3PUTR\n{}\n".format(rec.id, utr3p))
+        tf3p.write(">{}_3PUTR\n{}\n".format(rec.id, utr3p))
         return(len(utr3p), GC(utr3p))
 
-    def get5PUTR(self, rec, file):
+    def get5PUTR(self, rec, tf5p):
         """Fetch 5PUTR sequence, append it to fasta file and return its length and GC content."""
         utr5p = rec.seq[0:int(rec.features["cDNAstart"])-1]
-        with open(file, "a") as UTR5P:
-            UTR5P.write(">{}_5PUTR\n{}\n".format(rec.id, utr5p))
+        tf5p.write(">{}_5PUTR\n{}\n".format(rec.id, utr5p))
         return(len(utr5p), GC(utr5p))
 
-    def dicos2table(self):
-        """When treating the first yield dictionary, create the final table df_feat
-        Each yield dictonaries is transformed into an entry of the table and concatenated to the final table"""
-        i = 0
-        for yieldFeature in self.getFeatures():
-            if i == 0:
-                df_feat = pd.DataFrame(columns=yieldFeature.keys())
-                i = 1
-            df  = pd.DataFrame([yieldFeature],columns=yieldFeature.keys())
-            df_feat = pd.concat([df_feat, df], axis=0).reset_index(drop=True)
-        return(df_feat)
+    # def dicos2table(self):
+    #     """When treating the first yield dictionary, create the final table df_feat
+    #     Each yield dictonaries is transformed into an entry of the table and concatenated to the final table"""
+    #     i = 0
+    #     for yieldFeature in self.getFeatures():
+    #         if i == 0:
+    #             df_feat = pd.DataFrame(columns=yieldFeature.keys())
+    #             i = 1
+    #         df  = pd.DataFrame([yieldFeature],columns=yieldFeature.keys())
+    #         df_feat = pd.concat([df_feat, df], axis=0).reset_index(drop=True)
+    #     return(df_feat)
 
 
 def get_utr5MAX(cdna_feat_row):
@@ -202,7 +227,6 @@ def getFoldingEnergy(input_mfe):
         tot = rnafoldfile.readlines()
     #TODO use the delimiter of the RNAFold output file to extract the folding energy (the split function). Remove the REGEXPs.
     foldrex = re.compile('(-[0-9]+\.[0-9]+|\s0\.0)')
-    foldinf = re.compile('>[0-9]+')
     strtot = ' '.join(tot) # convertion liste en string
     mfe = foldrex.findall(strtot)
     return(float(mfe[0]))

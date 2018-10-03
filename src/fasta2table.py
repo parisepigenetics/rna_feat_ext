@@ -31,15 +31,16 @@ args = parser.parse_args()
 # Populate the Seq.Record generator.
 seqRecs = SeqIO.parse(args.infile, "fasta")
 # Instantiate the ensebl class.
-ensRecs = rnalib.ENSEMBLSeqs(seqRecs)
-print(ensRecs.bioSeqRecs[0].features)
-ensFeat = rnalib.FeaturesExtract(ensRecs.bioSeqRecs)
-for i in ensFeat.collectFeatures():
-    print(i)
-sys.exit()
-
-featExt = rnaFeaturesLib.FeatExtract(args.fasta_file)
-feaTable = featExt.dicos2table()
-columns = ['ensembl_gene_id', 'ensembl_transcript_id', '3PLen', '3PMfe', '5PLen', '5PMfe', '5UTR_mfe_Base', '3UTR_mfe_Base', 'Kozak_Context', 'Kozak_sequence']
-feaTable.reindex_axis(columns, axis=1)
-feaTable.to_csv(args.out_csv + ".csv", sep="\t", index = False)
+ensRecs = rnalib.ENSEMBLSeqs(seqRecs).bioSeqRecs
+# Extract the features from ENSEMBL.
+ensFeat = rnalib.FeaturesExtract(ensRecs)
+de = ensFeat.collectFeatures()
+# Calculate features by using external programs.
+dc = ensFeat.calculateFeatures()
+# Concatenate the results
+dd = pd.concat([de, dc], axis=1, sort=False)
+# Re-arrange the columns.
+dd = dd[['ensembl_gene_id', 'gene_name', 'coding_len', '5pUTR_len', '5pUTR_GC', '5pUTR_MFE', '5pUTR_MfeBP', '3pUTR_len', '3pUTR_GC', '3pUTR_MFE',  '3pUTR_MfeBP', 'Kozak_Sequence', 'Kozak_Context']]
+# Sort and Print!
+#dd.sort_values(by = ['ensembl_gene_id', 'coding_len'])
+print(dd.to_string())
