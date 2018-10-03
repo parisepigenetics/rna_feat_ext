@@ -1,17 +1,17 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 *-*
-
 """Python module for RNA fetures extraction from ENSEMBL derived fasta files.
 """
 
-__version__ = "0.2a01"
+__version__ = "0.2a02"
 
+import os
 import re
 import subprocess
 import pandas as pd
 from Bio import SeqIO
 from Bio.SeqUtils import GC
 import tempfile
+import shlex
 
 
 # CLASSES Interface.
@@ -67,6 +67,8 @@ class FeaturesExtract(object):
             # Add to pandas data frame.
             pdfe = [rec.features["GeneID"], rec.name, codeLen, utr5len, "{0:.2f}".format(utr5gc), utr3len, "{0:.2f}".format(utr3gc), seqKozak, contKozak]
             pdf.loc[rec.id] = pdfe
+        self.tf5p.close()
+        self.tf3p.close()
         return pdf
 
     def getKozak(self, rec, s = 10, c = 20):
@@ -92,6 +94,18 @@ class FeaturesExtract(object):
             kozakContext = seq[((int(feat["cDNAstart"]) - 1 - s) - c):(int(feat["cDNAstart"]) + 2) + s + c]
         return(str(kozakSeq), str(kozakContext))
 
+    def get3PUTR(self, rec, tf3p):
+        """Fetch 3PUTR sequence, append it to fasta file and return its length and GC content."""
+        utr3p = rec.seq[int(rec.features["cDNAend"]):]
+        tf3p.write(">{}_3PUTR\n{}\n".format(rec.id, utr3p))
+        return(len(utr3p), GC(utr3p))
+
+    def get5PUTR(self, rec, tf5p):
+        """Fetch 5PUTR sequence, append it to fasta file and return its length and GC content."""
+        utr5p = rec.seq[0:int(rec.features["cDNAstart"])-1]
+        tf5p.write(">{}_5PUTR\n{}\n".format(rec.id, utr5p))
+        return(len(utr5p), GC(utr5p))
+
     def calculateFeatures(self):
         """Method to perfom all feature calculation.
 
@@ -108,17 +122,14 @@ class FeaturesExtract(object):
 
         Needs the RNA Vienna package to be installed."""
         pdf = pd.DataFrame(columns = ['{}_MFE'.format(col), '{}_MfeBP'.format(col)])
-        out = subprocess.check_output('RNAfold --noPS --verbose --jobs -i %s' % ffile, shell=True)
-        outList = out.split("\n")[:-1] # Remove the trailing empty entry.
-        for i in xrange(0, len(outList), 3):
-            #if outList[i] == "": break
+        cmd = 'RNAfold --verbose --noPS --jobs -i {}'.format(ffile)
+        proc = subprocess.check_output(shlex.split(cmd))
+        proc = proc.decode() # Convert it to proper string.
+        outList = proc.splitlines() # Retrieve STDOUT.
+        for i in range(0, len(outList), 3):
             idt = outList[i][1:-6] # To exclude the _UTR suffix.
-            print(idt)
             seq = outList[i+1]
-            print(seq)
             fold = outList[i+2]
-            print(fold)
-            print(i)
             mfeRE = re.compile('-[0-9]+\.[0-9]+')
             mfe = float(mfeRE.search(fold).group())
             mfeBp = mfe / float(len(seq))
@@ -135,29 +146,11 @@ class FeaturesExtract(object):
         fimo_tab = fimo_tab.reset_index(drop = True)
         return None
 
-    def get3PUTR(self, rec, tf3p):
-        """Fetch 3PUTR sequence, append it to fasta file and return its length and GC content."""
-        utr3p = rec.seq[int(rec.features["cDNAend"]):]
-        tf3p.write(">{}_3PUTR\n{}\n".format(rec.id, utr3p))
-        return(len(utr3p), GC(utr3p))
+    def __del__(self):
+        """Cleanup the temp files"""
+        os.remove(self.tf5p.name)
+        os.remove(self.tf3p.name)
 
-    def get5PUTR(self, rec, tf5p):
-        """Fetch 5PUTR sequence, append it to fasta file and return its length and GC content."""
-        utr5p = rec.seq[0:int(rec.features["cDNAstart"])-1]
-        tf5p.write(">{}_5PUTR\n{}\n".format(rec.id, utr5p))
-        return(len(utr5p), GC(utr5p))
-
-    # def dicos2table(self):
-    #     """When treating the first yield dictionary, create the final table df_feat
-    #     Each yield dictonaries is transformed into an entry of the table and concatenated to the final table"""
-    #     i = 0
-    #     for yieldFeature in self.getFeatures():
-    #         if i == 0:
-    #             df_feat = pd.DataFrame(columns=yieldFeature.keys())
-    #             i = 1
-    #         df  = pd.DataFrame([yieldFeature],columns=yieldFeature.keys())
-    #         df_feat = pd.concat([df_feat, df], axis=0).reset_index(drop=True)
-    #     return(df_feat)
 
 
 # FUNCTIONS

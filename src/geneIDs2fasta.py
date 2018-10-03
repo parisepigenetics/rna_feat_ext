@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python3
 # -*- coding: UTF-8 -*-
 
 """From a list of ENSEMBL Gene_IDs get a fasta file with metadata as header.
@@ -8,13 +8,10 @@ mail: aerod7710@gmail.com lu.zhao.antoine@gmail.com
 July 2018
 UMR7216 Paris Diderot"""
 
-__version__ = "0.2a01"
+__version__ = "0.2a02"
 
-#Loading packages
 import argparse
-
 import rnaFeaturesLib
-
 
 parser = argparse.ArgumentParser(prog='geneIDs2Fasta', description='Fetch features for an ENSEMBL gene ID list and output a multi FASTA file.', epilog="Authors: Franz-Arnold Ake and Antoine Lu, 2018")
 parser.add_argument('infile', metavar="input_file", type=argparse.FileType('r'), help='Path for Ensembl Gene_ID file')
@@ -24,6 +21,6 @@ parser.add_argument('-v', '--version', action='version', version='%(prog)s {vers
 
 args = parser.parse_args()
 
-#This is the function wich does all the job.
+# This is the function wich does all the job.
 listID = args.infile.read().splitlines()
 rnaFeaturesLib.geneIDs2Fasta(listID, args.fasta_out, args.dataset)
