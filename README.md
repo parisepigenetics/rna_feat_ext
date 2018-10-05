@@ -6,8 +6,10 @@ A set of computational tools to extract uder defined mRNA features from a list o
 
 
 ## Installation.
-
-    setup.py install --user=$HOME
+```python
+setup.py install --user=$HOME
+```
+    
 Add the --user flag to install it on your personal account (no root priviledges required).
 
 ### Requirements.
@@ -40,8 +42,7 @@ This script takes a file text of ENSEMBL gene IDs and returns a FASTA formated f
 ### fasta2table.py
 This script takes the fasta formated file returned by the previous script geneIDs2fasta in input, and return a semicolon separated table with the following header:
 
-`ensembl_gene_id;gene_name;coding_len;5pUTR_len;5pUTR_GC;5pUTR_MFE;5pUTR_MfeBP;3pUTR_len;3pUTR_GC;3pUTR_MFE;3pUTR_MfeBP;Kozak_Sequence;Kozak_Context`
-
+` ensembl_gene_id; gene_name; coding_len; 5pUTR_len; 5pUTR_GC; 5pUTR_MFE; 5pUTR_MfeBP; 3pUTR_len; 3pUTR_GC; 3pUTR_MFE; 3pUTR_MfeBP; Kozak_Sequence; Kozak_Context`
 
 #TODO Clean up data directory and rewrite this section.
 ## Data
@@ -51,4 +52,4 @@ This script takes the fasta formated file returned by the previous script geneID
 
 + data/motif_databases
 
-  (**Motif_file Database for MEME Suite**) can be also downloaded [`here`](http://meme-suite.org/meme-software/Databases/motifs/motif_databases.12.18.tgz)
+(**Motif_file Database for MEME Suite**) can be also downloaded [`here`](http://meme-suite.org/meme-software/Databases/motifs/motif_databases.12.18.tgz)
