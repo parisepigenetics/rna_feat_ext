@@ -6,7 +6,7 @@ A set of computational tools to extract uder defined mRNA features from a list o
 
 
 ## Installation.
-```python
+```shell
 setup.py install --user=$HOME
 ```
     
