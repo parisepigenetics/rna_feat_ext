@@ -26,16 +26,16 @@ For external tools please follow the installation guidelines in the provided lin
 
 
 ## Main Usage.
-`geneIDs2fasta.py ENSEMBL_geneIDs.txt fasta_file_prefix`
+    geneIDs2fasta.py ENSEMBL_geneIDs.txt fasta_file_prefix
 
-and 
+and
 
-`fasta2table.py fasta.fasta features_table.csv RNA_MEME_motifs`
+    fasta2table.py fasta.fasta features_table.csv RNA_MEME_motifs
 
 ### geneIDs2fasta.py
 This script takes a file text of ENSEMBL gene IDs and returns a FASTA formated file of the corresponding cDNA sequences. The header is formatted and contains various metadata ordered as:
 
-> Gene stable ID, Transcript stable ID, Gene name, 5' UTR end, 5' UTR start, "3' UTR end, "3' UTR start, cDNA coding start, cDNA coding end, gene description
+`> Gene stable ID, Transcript stable ID, Gene name, 5' UTR end, 5' UTR start, "3' UTR end, "3' UTR start, cDNA coding start, cDNA coding end, gene description`
 
 ### fasta2table.py
 This script takes the fasta formated file returned by the previous script geneIDs2fasta in input, and return a semicolon separated table with the following header:
