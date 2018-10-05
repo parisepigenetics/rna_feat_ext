@@ -2,7 +2,7 @@
 """Python module for RNA fetures extraction from ENSEMBL derived fasta files.
 """
 
-__version__ = "0.3a01"
+__version__ = "0.3a02"
 
 import os
 import io
@@ -173,15 +173,23 @@ def geneIDs2Fasta(listID, out_fasta, dataset):
                   'transcription_start_site', 'transcript_biotype',
                   'cdna_coding_start', 'cdna_coding_end', 'cdna', 'description']
     print("Fetching data.....")
-    response = dt.search({'filters': {'ensembl_gene_id': listID}, 'attributes': listAttrib}, header=1)
-    print("...fetching done!")
-    # Convert stringIO to pandas data frame.
-    print("...Convert string to PD.data.frame.")
-    stream = io.StringIO(response.text)
-    cdna = pd.read_table(stream, sep="\t")
+    # Collect data from the ENSEMBL datasets.
+    dataf = pd.DataFrame()
+    for chunk in chunks(listID, 300):
+        res = dt.search({'filters': {'ensembl_gene_id': chunk}, 'attributes': listAttrib}, header=1)
+        # Reading stream to a pandas data frame.
+        dfTMP = pd.read_table(io.StringIO(res.text), sep='\t', encoding='utf-8')
+        # Concatenate data frames.
+        dataf = pd.concat([dataf, dfTMP], axis=0, sort=False)
+        print('Fetching...')
+    print("...fetch done!")
+    print(dataf.shape)
+    # Cleanup data frame lines that do not correspond to protein coding genes.
+    cdna = dataf[dataf['Transcript type'] == 'protein_coding']
     # remove NA and reset index
     cdna = cdna.dropna()
-    cdna = cdna.reset_index()
+    cdna = cdna.reset_index(drop=True)
+    print(cdna.shape)
     # TODO TO TEST all these before publishing anything!
     # select only longest 5'UTR and 3'UTR
     print("...Select the longest UTRs!")
@@ -260,3 +268,8 @@ def txt2fasta(cdna_feat_table, fastaOut):
             ff.write(">{} |GeneID:{}|GeneName:{}|5P_UTR_end:{}|5P_UTR_start:{}|3P_UTR_end:{}|3P_UTR_end:{}|cDNAstart:{}|cDNAend:{}|{}\n".format(ligne["Transcript stable ID"].values[0], ligne["Gene stable ID"].values[0], ligne["Gene name"].values[0], ligne["5' UTR end"].values[0], ligne["5' UTR start"].values[0], ligne["3' UTR end"].values[0], ligne["3' UTR start"].values[0], ligne["cDNA coding start"].values[0], ligne["cDNA coding end"].values[0], ligne["Gene description"].values[0]))
             ff.write("{}\n".format(ligne["cDNA sequences"].values[0]))
     print("txt to Fasta conversion done!")
+
+def chunks(l, n):
+    """Yield successive n-sized chunks from a list l."""
+    for i in range(0, len(l), n):
+        yield l[i:i + n]
