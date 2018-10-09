@@ -58,11 +58,16 @@ class FeaturesExtract(object):
         # Initialise a pabdas data frame.
         pdf = pd.DataFrame(columns=['ensembl_gene_id', 'gene_name', 'coding_len', '5pUTR_len', '5pUTR_GC', '3pUTR_len', '3pUTR_GC', 'Kozak_Sequence', 'Kozak_Context'])
         for rec in self.bioSeqRecs:
-            # Get Koxaks
-            seqKozak, contKozak = getKozak(rec)
             # Fetch UTRs, lenghts and GCs
-            utr3len, utr3gc = get3PUTR(rec, self.tf3p)
+            #TODO needs a try except loop, and fix it for 5'UTR also.
+            res3 = get3PUTR(rec, self.tf3p)
+            if res3 :
+                utr3len, utr3gc = res3
+            else :
+                break
             utr5len, utr5gc = get5PUTR(rec, self.tf5p)
+            # Get Kozaks
+            seqKozak, contKozak = getKozak(rec)
             # Length of coding region.
             codeLen = int(rec.features["cDNAend"]) - int(rec.features["cDNAstart"])
             # Add to pandas data frame.
@@ -81,7 +86,7 @@ class FeaturesExtract(object):
         fe3p = calculateFreeEnergy(self.tf3p.name, "3pUTR")
         # motifs = self.predictBinding()
         # Merge data frames and return.
-        return pd.concat([fe5p, fe3p], axis=1, sort=False)
+        return pd.concat([fe5p, fe3p], axis=1)
 
     def __del__(self):
         """Cleanup the temp files"""
@@ -115,10 +120,16 @@ def getKozak(rec, s=10, c=20):
 
 
 def get3PUTR(rec, tf3p):
-    """Fetch 3PUTR sequence, append it to fasta file and return its length and GC content."""
+    """Fetch 3PUTR sequence, append it to fasta file and return its length and GC content.
+
+    Impose limits to UTRs as RNAfold takes from 8 to 10000bp"""
     utr3p = rec.seq[int(rec.features["cDNAend"]):]
-    tf3p.write(">{}_3PUTR\n{}\n".format(rec.id, utr3p))
-    return(len(utr3p), GC(utr3p))
+    utr3plen = len(utr3p)
+    if utr3plen < 8 or utr3plen >= 10000 :
+        return 0
+    else :
+        tf3p.write(">{}_3PUTR\n{}\n".format(rec.id, utr3p))
+        return(utr3plen, GC(utr3p))
 
 
 def get5PUTR(rec, tf5p):
@@ -175,12 +186,12 @@ def geneIDs2Fasta(listID, out_fasta, dataset):
     print("Fetching data.....")
     # Collect data from the ENSEMBL datasets.
     dataf = pd.DataFrame()
-    for chunk in chunks(listID, 300):
+    for chunk in chunks(listID, 100):
         res = dt.search({'filters': {'ensembl_gene_id': chunk}, 'attributes': listAttrib}, header=1)
         # Reading stream to a pandas data frame.
         dfTMP = pd.read_table(io.StringIO(res.text), sep='\t', encoding='utf-8')
         # Concatenate data frames.
-        dataf = pd.concat([dataf, dfTMP], axis=0, sort=False)
+        dataf = pd.concat([dataf, dfTMP], axis=0)
         print('Fetching...')
     print("...fetch done!")
     print(dataf.shape)

@@ -35,7 +35,7 @@ de = ensFeat.collectFeatures()
 # Calculate features by using external programs.
 dc = ensFeat.calculateFeatures()
 # Concatenate the results
-dd = pd.concat([de, dc], axis=1, sort=False)
+dd = pd.concat([de, dc], axis=1)
 # Re-arrange the columns.
 dd = dd[['ensembl_gene_id', 'gene_name', 'coding_len', '5pUTR_len', '5pUTR_GC', '5pUTR_MFE', '5pUTR_MfeBP', '3pUTR_len', '3pUTR_GC', '3pUTR_MFE', '3pUTR_MfeBP', 'Kozak_Sequence', 'Kozak_Context']]
 # Sort and print to csv file.
