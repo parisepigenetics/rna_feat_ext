@@ -22,37 +22,54 @@ class ENSEMBLSeqs(object):
 
     Needs a Bio.Seq.Record generator object to initialise."""
 
-    def __init__(self, bioSeqRecsGen):
+    def __init__(self, bioSeqRecsGen, exprTrans):
         self.gen = bioSeqRecsGen
+        if exprTrans:
+            self.exprTranscripts = self.parse_expressed_transcripts(exprTrans)
+        else:
+            self.exprTranscripts = None
         self.bioSeqRecs = self.getbioSeqRecs()
 
     def getbioSeqRecs(self):
         """Expands the Bio.Seq.Rec generator to a list of Bio.Record objects.
 
         Also puts some SeqIO.record member variables in place, namely the id, the gene name the description and the features."""
-        recs = []
-        for rec in self.gen:
+
+        def _construct_bio_seq(recs, rec):
+            """Auxiiary function to construct a Bio.Seq object."""
             # Extract the gene name.
             rec.name = rec.description.split("|")[2].split(":")[1]
             descr = rec.description.split("|")[-1]
             # Extract all the features as a dictionary (apart from the last one which was the description.).
             feat = dict(item.split(":") for item in rec.description.split("|")[1:-1])
-            rec.features = feat
-            # TODO for the moment all the features are stored as a dictionary and not as proper SeqFeature objects. (perhaps we can stick with that and there is no need to change it.)
+            rec.features = feat  # TODO for the moment all the features are stored as a dictionary and not as proper SeqFeature objects. (perhaps we can stick with that and there is no need to change it.)
             rec.description = descr
             recs.append(rec)
+
+        recs = []
+        for rec in self.gen:
+            if self.exprTranscripts is None:
+                _construct_bio_seq(recs, rec)
+            if self.exprTranscripts and (rec.id in self.exprTranscripts):
+                _construct_bio_seq(recs, rec)
         return recs
+
+    def parse_expressed_transcripts(self, exprTrans):
+        """Parses the given transcript expression file and returns a set of the expressed transcripts for quicker lookup."""
+        trDf = pd.read_table(exprTrans, header=None)  # We do not really care about headers we only need the first column.
+        return set(trDf[0])
 
 
 class FeaturesExtract(object):
     """Claas to extract features."""
 
-    def __init__(self, bioSeqRecs):
+    def __init__(self, bioSeqRecs, utr3len):
         """Initialise with a list of SeqIO records."""
         self.bioSeqRecs = bioSeqRecs
         # Temporary files of the UTRs
         self.tf5p = tempfile.NamedTemporaryFile(mode="a", delete=False)
         self.tf3p = tempfile.NamedTemporaryFile(mode="a", delete=False)
+        self.utr3len = utr3len
 
     def collectFeatures(self):
         """Collect the features that do not need external computations."""
@@ -60,8 +77,8 @@ class FeaturesExtract(object):
         pdf = pd.DataFrame(columns=['ensembl_gene_id', 'gene_name', 'coding_len', '5pUTR_len', '5pUTR_GC', '3pUTR_len', '3pUTR_GC', 'Kozak_Sequence', 'Kozak_Context'])
         for rec in self.bioSeqRecs:
             # Fetch UTRs, lenghts and GCs
-            res3 = get3PUTR(rec, self.tf3p, 8000) #TODO parse properly the command line argument.
-            if res3: # Conditon of 3pUTR length.
+            res3 = get3PUTR(rec, self.tf3p, self.utr3len)
+            if res3:  # Conditon for 3pUTR length.
                 utr3len, utr3gc = res3
                 utr5len, utr5gc = get5PUTR(rec, self.tf5p)
                 # Get Kozaks
@@ -72,7 +89,7 @@ class FeaturesExtract(object):
                 pdfe = [rec.features["GeneID"], rec.name, codeLen, utr5len, "{0:.2f}".format(utr5gc), utr3len, "{0:.2f}".format(utr3gc), seqKozak, contKozak]
                 pdf.loc[rec.id] = pdfe
             else:
-                break
+                continue
         self.tf5p.close()
         self.tf3p.close()
         return pdf
@@ -173,10 +190,8 @@ def geneIDs2Fasta(listID, out_fasta, dataset):
     """Function to connect to ENSEBL and retrieve data."""
     print("Connection to server....", file=sys.stderr)
     server = BiomartServer("http://www.ensembl.org/biomart/")
-    print("....done!", file=sys.stderr)
     dt = server.datasets[dataset]
     print("Connexion to ENSEMBL dataset.", file=sys.stderr)
-    # TODO provide the required attributes in an external parameters file.
     listAttrib = ['ensembl_gene_id', 'ensembl_transcript_id',
                   'external_gene_name', 'transcript_start', 'transcript_end',
                   '5_utr_end', '5_utr_start', '3_utr_end', '3_utr_start',
@@ -193,15 +208,13 @@ def geneIDs2Fasta(listID, out_fasta, dataset):
         dataf = pd.concat([dataf, dfTMP], axis=0)
         print('Fetching...', file=sys.stderr)
     print("...fetch done!", file=sys.stderr)
-    print(dataf.shape)
     # Cleanup data frame lines that do not correspond to protein coding genes.
     cdna = dataf[dataf['Transcript type'] == 'protein_coding']
     # remove NA and reset index
     cdna = cdna.dropna()
     cdna = cdna.reset_index(drop=True)
-    # TODO TO TEST all these before publishing anything. Refactoring to avoid extraneous looping!!!
+    # TODO TEST all these before publishing anything. Refactoring to avoid extraneous looping!!!
     # select only longest 5'UTR and 3'UTR
-    print("...Select the longest UTRs!", file=sys.stderr)
     for i in range(cdna.shape[0]):
         ligne = pd.DataFrame(cdna.loc[i, :]).transpose()
         # For 5_UTR_start
@@ -213,7 +226,6 @@ def geneIDs2Fasta(listID, out_fasta, dataset):
             cdna.iloc[i:i+1, 9:10] = indices[1]
             cdna.iloc[i:i+1, 10:11] = indices[0]
     # select longest cDNA
-    print("...Select the longest cDNA", file=sys.stderr)
     for i in range(cdna.shape[0]):
         ligne = pd.DataFrame(cdna.loc[i, :]).transpose()
         # smallest cDNA start value
@@ -224,7 +236,6 @@ def geneIDs2Fasta(listID, out_fasta, dataset):
         cdna.iloc[i, cdna.columns.get_loc('cDNA coding end')] = max_cdna_end
     # Exportat to FASTA format
     txt2fasta(cdna, out_fasta)
-    print("text to Fasta conversion done!", file=sys.stderr)
 
 
 def get_utr5MAX(cdna_feat_row):
@@ -273,7 +284,7 @@ def txt2fasta(cdna_feat_table, fastaOut):
     """Write the ENSEMBL features to a fasta file with the appropriate first fasta line."""
     with fastaOut as ff:
         for i in range(cdna_feat_table.shape[0]):
-            #TODO iterate over the data frame in a more straightforward way.
+            # TODO iterate over the data frame in a more straightforward way.
             l = pd.DataFrame(cdna_feat_table.loc[i, :]).transpose()
             ff.write(">{} |GeneID:{}|GeneName:{}|5pUTR_start:{}|5pUTR_end:{}|3pUTR_start:{}|3pUTR_end:{}|cDNA_start:{}|cDNA_end:{}|{}\n".format(l["Transcript stable ID"].values[0], l["Gene stable ID"].values[0], l["Gene name"].values[0], l["5' UTR start"].values[0], l["5' UTR end"].values[0], l["3' UTR start"].values[0], l["3' UTR end"].values[0], l["cDNA coding start"].values[0], l["cDNA coding end"].values[0], l["Gene description"].values[0]))
             ff.write("{}\n".format(l["cDNA sequences"].values[0]))
