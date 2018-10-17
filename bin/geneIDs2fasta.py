@@ -23,4 +23,4 @@ args = parser.parse_args()
 
 listID = args.infile.read().splitlines()
 # This is the function wich does all the job.
-rnaFeaturesLib.geneIDs2Fasta(listID, args.outfile, args.dataset)
+rnaFeaturesLib.get_gene_ids(listID, args.outfile, args.dataset)

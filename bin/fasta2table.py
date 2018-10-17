@@ -8,7 +8,7 @@ mail: aerod7710@gmail.com lu.zhao.antoine@gmail.com
 July 2018
 UMR7216 Paris Diderot"""
 
-__version__ = "0.3a01"
+__version__ = "0.3a03"
 
 import argparse
 import pandas as pd
@@ -25,7 +25,7 @@ parser.add_argument("outfile", nargs='?', default='-', type=argparse.FileType('w
 parser.add_argument('-e', '--expressed-transcripts', help="An expressed transcripts file. It can contain an arbitrary number of columns but the first MUST be the transcript IDs. (Default=None).", type=argparse.FileType('r'), default=None, dest="exprTrans")
 parser.add_argument('-l', '--length-3pUTR', help="The maximum allowed length of a 3'UTR. (Default=8000)", type=int, default=10000, dest="utr3len")
 parser.add_argument('-u', '--utr-files', nargs=2, help="Return two files containing the 5' and 3' UTRs. (Default=None)", type=str, dest="utrFiles")
-#TODO add FIMO MEME motifs. parser.add_argument("motifs_file", help="MEME motifs file", default="", type=str)
+# TODO add FIMO MEME motifs. parser.add_argument("motifs_file", help="MEME motifs file", default="", type=str)
 
 args = parser.parse_args()
 
@@ -37,14 +37,14 @@ ensRecs = rnalib.ENSEMBLSeqs(seqRecs, args.exprTrans).bioSeqRecs
 
 # Extract the features from ENSEMBL.
 ensFeat = rnalib.FeaturesExtract(ensRecs, args.utr3len)
-de = ensFeat.collectFeatures()
+de = ensFeat.collect_features()
 
 # Calculate features by using external programs.
-dc = ensFeat.calculateFeatures()
+dc = ensFeat.calculate_features()
 
-#TODO include all these last steps to a ninalise function in the FeaturesExtract class.
+# TODO include all these last steps to a ninalise function in the FeaturesExtract class.
 # Concatenate the results
-dd = pd.concat([de, dc], axis=1)
+dd = pd.concat([de, dc], axis=1, sort=False)
 
 # Re-arrange data frame columns.
 dd = dd[['ensembl_gene_id', 'gene_name', 'coding_len', '5pUTR_len', '5pUTR_GC', '5pUTR_MFE', '5pUTR_MfeBP', '3pUTR_len', '3pUTR_GC', '3pUTR_MFE', '3pUTR_MfeBP', 'Kozak_Sequence', 'Kozak_Context']]
