@@ -1,8 +1,8 @@
 # -*- coding: utf-8 *-*
 """Python module for RNA fetures extraction from ENSEMBL derived fasta files.
 """
-
 __version__ = "0.3a05"
+
 
 import os
 import sys
@@ -10,6 +10,7 @@ import io
 import re
 import tempfile
 import shlex
+import shutil
 import subprocess
 from biomart import BiomartServer
 import pandas as pd
@@ -63,13 +64,14 @@ class ENSEMBLSeqs(object):
 class FeaturesExtract(object):
     """Claas to extract features."""
 
-    def __init__(self, bioSeqRecs, utr3len):
+    def __init__(self, bioSeqRecs, utr3len, utrFiles):
         """Initialise with a list of SeqIO records."""
         self.bioSeqRecs = bioSeqRecs
         # Temporary files of the UTRs
         self.tf5p = tempfile.NamedTemporaryFile(mode="a", delete=False)
         self.tf3p = tempfile.NamedTemporaryFile(mode="a", delete=False)
         self.utr3len = utr3len
+        self.utrFiles = utrFiles
 
     def collect_features(self):
         """Collect the features that do not need external computations."""
@@ -107,8 +109,12 @@ class FeaturesExtract(object):
 
     def __del__(self):
         """Cleanup the temp files"""
-        os.remove(self.tf5p.name)
-        os.remove(self.tf3p.name)
+        if self.utrFiles:
+            shutil.move(self.tf5p.name, self.utrFiles[0])
+            shutil.move(self.tf3p.name, self.utrFiles[1])
+        else:
+            os.remove(self.tf5p.name)
+            os.remove(self.tf3p.name)
 
 
 # FUNCTIONS
@@ -217,19 +223,22 @@ def get_gene_ids(listID, out_fasta, dataset):
     # Cleanup data frame lines that do not correspond to protein coding genes.
     cdna = dataf[dataf['Transcript type'] == 'protein_coding']
     # remove NA from DF and reset index
-    cdna = cdna.dropna(subset=['cDNA coding start', 'cDNA coding end'])
+    cdna.dropna(inplace=True)
+    # FIXME TODO CAREFULL with the commenting of the following line as we need to keep that and remove the above if we do a transcription selection together with the geneID.
+    #cdna = cdna.dropna(subset=['cDNA coding start', 'cDNA coding end'])
     cdna.reset_index(drop=True, inplace=True)
-    # # select only longest 5'UTR and 3'UTR
-    # for i in range(cdna.shape[0]):
-    #     ligne = pd.DataFrame(cdna.loc[i, :]).transpose()
-    #     # For 5_UTR_start
-    #     indices = get_utr5MAX(ligne)
-    #     if len(cdna.iloc[i:i+1, :]["5' UTR start"].values[0].split(";")) > 1:
-    #         cdna.iloc[i:i+1, 7:8] = indices[1]
-    #         cdna.iloc[i:i+1, 8:9] = indices[0]
-    #     if len(cdna.iloc[i:i+1, :]["3' UTR start"].values[0].split(";")) > 1:
-    #         cdna.iloc[i:i+1, 9:10] = indices[1]
-    #         cdna.iloc[i:i+1, 10:11] = indices[0]
+    # select only longest 5'UTR and 3'UTR
+    # FIXME also this must be integrated with the fixme before.
+    for i in range(cdna.shape[0]):
+        ligne = pd.DataFrame(cdna.loc[i, :]).transpose()
+        # For 5_UTR_start
+        indices = get_utr5MAX(ligne)
+        if len(cdna.iloc[i:i+1, :]["5' UTR start"].values[0].split(";")) > 1:
+            cdna.iloc[i:i+1, 7:8] = indices[1]
+            cdna.iloc[i:i+1, 8:9] = indices[0]
+        if len(cdna.iloc[i:i+1, :]["3' UTR start"].values[0].split(";")) > 1:
+            cdna.iloc[i:i+1, 9:10] = indices[1]
+            cdna.iloc[i:i+1, 10:11] = indices[0]
     # select longest cDNA
     for index, row in cdna.iterrows():
         # If there is multiple annotation for cDNA start/end we take the longest possible.!!!
@@ -240,6 +249,48 @@ def get_gene_ids(listID, out_fasta, dataset):
         cdna.at[index, 'cDNA coding end'] = max_cdna_end
     # Exportat to FASTA format
     txt2fasta(cdna, out_fasta)
+
+
+def get_utr5MAX(cdna_feat_row):
+    """Select the longest 5'UTR from a cdna_feat-row with multiples utrs."""
+    utr5s_start = cdna_feat_row["5' UTR start"].values[0].split(";")
+    utr5s_end = cdna_feat_row["5' UTR end"].values[0].split(";")
+    size_liste = []
+    for i in range(len(utr5s_start)):
+        size = int(utr5s_end[i])-int(utr5s_start[i])
+        size_liste.append(size)
+    indice_max = size_liste.index(max(size_liste))
+    max_utr5_start = int(utr5s_start[indice_max])
+    max_utr5_end = int(utr5s_end[indice_max])
+    return([max_utr5_start, max_utr5_end])
+
+
+def get_utr3MAX(cdna_feat_row):
+    """Select the longest 3'UTR from a cdna_feat-row with multiples utrs."""
+    utr3s_start = cdna_feat_row["3' UTR start"].values[0].split(";")
+    utr3s_end = cdna_feat_row["3' UTR end"].values[0].split(";")
+    size_liste = []
+    for i in range(len(utr3s_start)):
+        size = int(utr3s_end[i])-int(utr3s_start[i])
+        size_liste.append(size)
+    indice_max = size_liste.index(max(size_liste))
+    max_utr3_start = int(utr3s_start[indice_max])
+    max_utr3_end = int(utr3s_end[indice_max])
+    return([max_utr3_start, max_utr3_end])
+
+
+def get_cDNAstartMIN_OBSOLETE(cdna_feat_row):
+    """Select the minimum cdna_start feature from multiples cDNA starts."""
+    cDNA_start = cdna_feat_row["cDNA coding start"].values[0].split(";")
+    min_cDNA_start = min(map(int, cDNA_start))
+    return min_cDNA_start
+
+
+def get_cDNAendMAX_OBSOLETE(cdna_feat_row):
+    """Select the maximum cdna_end feature from multiples cDNA ends."""
+    cDNA_end = cdna_feat_row["cDNA coding end"].values[0].split(";")
+    max_cDNA_end = max(map(int, cDNA_end))
+    return max_cDNA_end
 
 
 def txt2fasta(cdna_feat_table, fastaOut):

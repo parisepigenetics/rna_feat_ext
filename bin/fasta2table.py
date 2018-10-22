@@ -10,7 +10,9 @@ UMR7216 Paris Diderot"""
 
 __version__ = "0.3a03"
 
+import sys
 import argparse
+import datetime
 import pandas as pd
 from Bio import SeqIO
 
@@ -23,7 +25,7 @@ parser.add_argument('-v', '--version', action='version', version='%(prog)s {vers
 parser.add_argument("infile", nargs='?', default='-', type=argparse.FileType('r'), metavar="input_file", help="Path to input FASTA file. (or STDIN).")
 parser.add_argument("outfile", nargs='?', default='-', type=argparse.FileType('w'), metavar="output_file", help="Path to output CSV filename. (or STDOUT).")
 parser.add_argument('-e', '--expressed-transcripts', help="An expressed transcripts file. It can contain an arbitrary number of columns but the first MUST be the transcript IDs. (Default=None).", type=argparse.FileType('r'), default=None, dest="exprTrans")
-parser.add_argument('-l', '--length-3pUTR', help="The maximum allowed length of a 3'UTR. (Default=8000)", type=int, default=10000, dest="utr3len")
+parser.add_argument('-l', '--length-3pUTR', help="The maximum allowed length of a 3'UTR. (Default=10000)", type=int, default=10000, dest="utr3len")
 parser.add_argument('-u', '--utr-files', nargs=2, help="Return two files containing the 5' and 3' UTRs. (Default=None)", type=str, dest="utrFiles")
 # TODO add FIMO MEME motifs. parser.add_argument("motifs_file", help="MEME motifs file", default="", type=str)
 
@@ -36,7 +38,7 @@ seqRecs = SeqIO.parse(args.infile, "fasta")
 ensRecs = rnalib.ENSEMBLSeqs(seqRecs, args.exprTrans).bioSeqRecs
 
 # Extract the features from ENSEMBL.
-ensFeat = rnalib.FeaturesExtract(ensRecs, args.utr3len)
+ensFeat = rnalib.FeaturesExtract(ensRecs, args.utr3len, args.utrFiles)
 de = ensFeat.collect_features()
 
 # Calculate features by using external programs.
@@ -52,3 +54,5 @@ dd = dd[['ensembl_gene_id', 'gene_name', 'coding_len', '5pUTR_len', '5pUTR_GC', 
 # Sort and print to csv file.
 dd.sort_values(by=['ensembl_gene_id', 'coding_len'])
 dd.to_csv(args.outfile, sep=";")
+# Print the command line arguments in the csv file.
+print('# {}\n# {}'.format(str(sys.argv), datetime.datetime.now().strftime("%Y/%m/%d at %H:%M:%S")), file=outfile)
