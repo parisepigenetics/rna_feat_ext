@@ -3,7 +3,6 @@
 """
 __version__ = "0.3a05"
 
-
 import os
 import sys
 import io

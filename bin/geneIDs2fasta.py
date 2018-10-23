@@ -19,8 +19,8 @@ parser.add_argument("outfile", nargs='?', default='-', type=argparse.FileType('w
 parser.add_argument('-d', '--dataset', nargs="?", default='hsapiens_gene_ensembl', metavar="ENSEMBL Dataset for collecting information", type=str, help="Choice from Ensembl Datasets (taken from the web API of ENSEMBL) -- Default : hsapiens_gene_ensembl")
 parser.add_argument('-v', '--version', action='version', version='%(prog)s {version}'.format(version=__version__))
 
-args = parser.parse_args()
+optArgs = parser.parse_args()
 
-listID = args.infile.read().splitlines()
+listID = optArgs.infile.read().splitlines()
 # This is the function wich does all the job.
-rnaFeaturesLib.get_gene_ids(listID, args.outfile, args.dataset)
+rnaFeaturesLib.get_gene_ids(listID, optArgs.outfile, optArgs.dataset)

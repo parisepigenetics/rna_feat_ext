@@ -29,16 +29,16 @@ parser.add_argument('-l', '--length-3pUTR', help="The maximum allowed length of 
 parser.add_argument('-u', '--utr-files', nargs=2, help="Return two files containing the 5' and 3' UTRs. (Default=None)", type=str, dest="utrFiles")
 # TODO add FIMO MEME motifs. parser.add_argument("motifs_file", help="MEME motifs file", default="", type=str)
 
-args = parser.parse_args()
+optArgs = parser.parse_args()
 
 # Populate the Seq.Record generator.
-seqRecs = SeqIO.parse(args.infile, "fasta")
+seqRecs = SeqIO.parse(optArgs.infile, "fasta")
 
 # Instantiate the ensebl class.
-ensRecs = rnalib.ENSEMBLSeqs(seqRecs, args.exprTrans).bioSeqRecs
+ensRecs = rnalib.ENSEMBLSeqs(seqRecs, optArgs.exprTrans).bioSeqRecs
 
 # Extract the features from ENSEMBL.
-ensFeat = rnalib.FeaturesExtract(ensRecs, args.utr3len, args.utrFiles)
+ensFeat = rnalib.FeaturesExtract(ensRecs, optArgs.utr3len, optArgs.utrFiles)
 de = ensFeat.collect_features()
 
 # Calculate features by using external programs.
@@ -53,6 +53,6 @@ dd = dd[['ensembl_gene_id', 'gene_name', 'coding_len', '5pUTR_len', '5pUTR_GC', 
 
 # Sort and print to csv file.
 dd.sort_values(by=['ensembl_gene_id', 'coding_len'])
-dd.to_csv(args.outfile, sep=";")
+dd.to_csv(optArgs.outfile, sep=";")
 # Print the command line arguments in the csv file.
-print('# {}\n# {}'.format(str(sys.argv), datetime.datetime.now().strftime("%Y/%m/%d at %H:%M:%S")), file=outfile)
+print('# {}\n# {}'.format(str(sys.argv), datetime.datetime.now().strftime("%d/%m/%Y at %H:%M:%S")), file=optArgs.outfile)
