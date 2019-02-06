@@ -15,6 +15,8 @@ from biomart import BiomartServer
 import pandas as pd
 from Bio import SeqIO
 from Bio.SeqUtils import GC
+from Bio.SeqUtils import CodonUsage
+from Bio.SeqUtils.CodonUsage import CodonAdaptationIndex
 
 import local_score
 
@@ -72,6 +74,7 @@ class FeaturesExtract(object):
         # Temporary files of the UTRs
         self.tf5p = tempfile.NamedTemporaryFile(mode="a", delete=False)
         self.tf3p = tempfile.NamedTemporaryFile(mode="a", delete=False)
+        self.coding = tempfile.NamedTemporaryFile(mode="a", delete=False)
         self.utr3len = utr3len
         self.utrFiles = utrFiles
 
@@ -89,6 +92,7 @@ class FeaturesExtract(object):
                 seqKozak, contKozak = get_kozak(rec)
                 # Length of coding region.
                 codeLen = int(rec.features["cDNA_end"]) - int(rec.features["cDNA_start"])
+                get_coding(rec, self.coding)
                 # Add to pandas data frame.
                 pdfe = [rec.features["GeneID"], rec.name, codeLen, utr5len, "{0:.2f}".format(utr5gc), utr3len, "{0:.2f}".format(utr3gc), seqKozak, contKozak]
                 pdf.loc[rec.id] = pdfe
@@ -96,6 +100,7 @@ class FeaturesExtract(object):
                 continue
         self.tf5p.close()
         self.tf3p.close()
+        self.coding.close()
         return pdf
 
     def calculate_features(self):
@@ -109,10 +114,12 @@ class FeaturesExtract(object):
         scoring = {'A':-1, 'C':1, 'G':-1, 'T':1}
         cliping = 50
         ls5p = calculate_local_score(self.tf5p.name, scoring, cliping)
+        # Calculate CAI
+        caiCod = calculate_CAI(self.coding.name)
         # Calculate bind motifs
         # motifs = predictBinding()
         # Merge data frames and return.
-        return pd.concat([fe5p, fe3p, ls5p], axis=1, sort=False)
+        return pd.concat([fe5p, fe3p, ls5p, caiCod], axis=1, sort=False)
 
     def __del__(self):
         """Cleanup the temp files"""
@@ -174,6 +181,12 @@ def get_5utr(rec, tf5p):
     return(len(utr5p), GC(utr5p))
 
 
+def get_coding(rec, codf):
+    """Fetch 5PUTR sequence, append it to fasta file. Return: None"""
+    cds = rec.seq[int(rec.features["cDNA_start"]):int(rec.features["cDNA_end"])+1]
+    codf.write(">{}_CDS\n{}\n".format(rec.id, cds))
+
+
 def calculate_free_energy(ffile, col):
     """Method to perform the free energy calculation by RNAfold and parsing of the results.
 
@@ -205,6 +218,35 @@ def calculate_local_score(file, scoring, cliping):
         idt = seq.id[0:-6]  # To exclude the _UTR suffix.
         lsdf.loc[idt] = [ls]
     return lsdf
+
+
+def calculate_CAI(file):
+    """Calculate the Codon Adaptation Index."""
+    caidf = pd.DataFrame(columns=["CAI"])
+    SeqCai = CodonUsage.CodonAdaptationIndex()
+    cd = {"TTT": 0.46, "TCT": 0.19, "TAT": 0.44, "TGT": 0.46,
+          "TTC": 0.54, "TCC": 0.22, "TAC": 0.56, "TGC": 0.54,
+          "TTA": 0.08, "TCA": 0.15, "TAA": 0.30, "TGA": 0.47,
+          "TTG": 0.13, "TCG": 0.05, "TAG": 0.24, "TGG": 1.00,
+          "CTT": 0.13, "CCT": 0.29, "CAT": 0.42, "CGT": 0.08,
+          "CTC": 0.20, "CCC": 0.32, "CAC": 0.58, "CGC": 0.18,
+          "CTA": 0.07, "CCA": 0.28, "CAA": 0.27, "CGA": 0.11,
+          "CTG": 0.40, "CCG": 0.11, "CAG": 0.73, "CGG": 0.20,
+          "ATT": 0.36, "ACT": 0.25, "AAT": 0.47, "AGT": 0.15,
+          "ATC": 0.47, "ACC": 0.36, "AAC": 0.53, "AGC": 0.24,
+          "ATA": 0.17, "ACA": 0.28, "AAA": 0.43, "AGA": 0.21,
+          "ATG": 1.00, "ACG": 0.11, "AAG": 0.57, "AGG": 0.21,
+          "GTT": 0.18, "GCT": 0.27, "GAT": 0.46, "GGT": 0.16,
+          "GTC": 0.24, "GCC": 0.40, "GAC": 0.54, "GGC": 0.34,
+          "GTA": 0.12, "GCA": 0.23, "GAA": 0.42, "GGA": 0.25,
+          "GTG": 0.46, "GCG": 0.11, "GAG": 0.58, "GGG": 0.25}
+    SeqCai.set_cai_index(cd)
+    for seq in SeqIO.parse(file, "fasta"):
+        cai = SeqCai.cai_for_gene(str(seq.seq))
+        idt = seq.id[0:-4]  # To exclude the _Coding suffix.
+        caidf.loc[idt] = [cai]
+    return caidf
+
 
 
 def predict_binding(ffile, motifs):
