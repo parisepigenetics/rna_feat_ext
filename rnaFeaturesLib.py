@@ -1,7 +1,7 @@
 # -*- coding: utf-8 *-*
 """Python module for RNA fetures extraction from ENSEMBL derived fasta files.
 """
-__version__ = "0.3a05"
+__version__ = "0.3a07"
 
 import os
 import sys
@@ -112,7 +112,7 @@ class FeaturesExtract(object):
         fe3p = calculate_free_energy(self.tf3p.name, "3pUTR")
         # Calculate local score
         scoring = {'A':-1, 'C':1, 'G':-1, 'T':1}
-        cliping = 50
+        cliping = 25
         ls5p = calculate_local_score(self.tf5p.name, scoring, cliping)
         # Calculate CAI
         caiCod = calculate_CAI(self.coding.name)
