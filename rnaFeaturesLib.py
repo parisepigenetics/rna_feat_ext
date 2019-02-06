@@ -13,7 +13,10 @@ import shutil
 import subprocess
 from biomart import BiomartServer
 import pandas as pd
+from Bio import SeqIO
 from Bio.SeqUtils import GC
+
+import local_score
 
 
 # CLASSES Interface.
@@ -102,9 +105,14 @@ class FeaturesExtract(object):
         # Calculates 5pUTR folding etc.
         fe5p = calculate_free_energy(self.tf5p.name, "5pUTR")
         fe3p = calculate_free_energy(self.tf3p.name, "3pUTR")
-        # motifs = self.predictBinding()
+        # Calculate local score
+        scoring = {'A':-1, 'C':1, 'G':-1, 'T':1}
+        cliping = 50
+        ls5p = calculate_local_score(self.tf5p.name, scoring, cliping)
+        # Calculate bind motifs
+        # motifs = predictBinding()
         # Merge data frames and return.
-        return pd.concat([fe5p, fe3p], axis=1, sort=False)
+        return pd.concat([fe5p, fe3p, ls5p], axis=1, sort=False)
 
     def __del__(self):
         """Cleanup the temp files"""
@@ -184,6 +192,19 @@ def calculate_free_energy(ffile, col):
         mfeBp = mfe / float(len(seq))
         pdf.loc[idt] = [mfe, mfeBp]
     return pdf
+
+
+def calculate_local_score(file, scoring, cliping):
+    """Calculate the local score for a given scoring functionself.
+
+    Here we use a scoring for TOP mRNAs and we clip at 50nts."""
+    lsdf = pd.DataFrame(columns=["TOP_localScore"])
+    for seq in SeqIO.parse(file, "fasta"):
+        lss = local_score.local_score(seq.seq, scoring, cliping)
+        ls = max(lss)
+        idt = seq.id[0:-6]  # To exclude the _UTR suffix.
+        lsdf.loc[idt] = [ls]
+    return lsdf
 
 
 def predict_binding(ffile, motifs):
