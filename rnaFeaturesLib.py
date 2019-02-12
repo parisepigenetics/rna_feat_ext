@@ -270,7 +270,9 @@ def get_gene_ids(listID, out_fasta, dataset):
                   'external_gene_name', 'transcript_start', 'transcript_end',
                   '5_utr_end', '5_utr_start', '3_utr_end', '3_utr_start',
                   'transcription_start_site', 'transcript_biotype',
-                  'cdna_coding_start', 'cdna_coding_end', 'cdna', 'description']
+                  'cdna_coding_start', 'cdna_coding_end', 'cdna', 'description', 'APPRIS']
+    print(listAttrib)
+    sys.exit()
     print("Fetching data...", file=sys.stderr)
     # Collect data from the ENSEMBL datasets.
     dataf = pd.DataFrame()
