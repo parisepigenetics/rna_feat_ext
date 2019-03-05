@@ -2,6 +2,8 @@
 
 from distutils.core import setup
 
+import rnaFeaturesLib
+
 config = {
   'name': 'rnaFeaturesLib',
   'version': rnaFeaturesLib.__version__,
