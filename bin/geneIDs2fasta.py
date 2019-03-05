@@ -8,7 +8,7 @@ mail: aerod7710@gmail.com lu.zhao.antoine@gmail.com
 July 2018
 UMR7216 Paris Diderot"""
 
-__version__ = "0.3a01"
+__version__ = "0.3a02"
 
 import argparse
 import rnaFeaturesLib

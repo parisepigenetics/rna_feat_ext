@@ -1,5 +1,5 @@
 # -*- coding: utf-8 *-*
-"""Python module for RNA fetures extraction from ENSEMBL derived fasta files.
+"""rnaFeaturesLib : Python module for RNA fetures extraction from ENSEMBL derived fasta files.
 """
 __version__ = "0.3a07"
 
@@ -7,6 +7,7 @@ import os
 import sys
 import io
 import re
+import math
 import tempfile
 import shlex
 import shutil
@@ -17,8 +18,11 @@ from Bio import SeqIO
 from Bio.SeqUtils import GC
 from Bio.SeqUtils import CodonUsage
 from Bio.SeqUtils.CodonUsage import CodonAdaptationIndex
+from collections import namedtuple
 
 import local_score
+
+import pprint
 
 
 # CLASSES Interface.
@@ -131,13 +135,141 @@ class FeaturesExtract(object):
             os.remove(self.tf3p.name)
 
 
-# FUNCTIONS
+
+## FUNCTIONS
+def get_gene_ids(listID, out_fasta, dataset):
+    """Function to connect to ENSEBL and retrieve data.
+
+    Return a data frame of the transcripts and their ENSEMBL features.
+    """
+    print("Connection to ENSEMBL server.", file=sys.stderr)
+    server = BiomartServer("http://www.ensembl.org/biomart/")
+    dt = server.datasets[dataset]
+    print(f"Retrieve the dataset...", file=sys.stderr)
+    listAttrib = ['ensembl_gene_id', 'ensembl_transcript_id',
+                  'external_gene_name', 'transcript_length', 'transcript_biotype', 'cdna_coding_start', 'cdna_coding_end', 'cdna', 'description']
+    listAttrib2 = ['ensembl_gene_id', 'ensembl_transcript_id', 'transcript_tsl',
+                   'transcript_appris', 'transcript_source', 'transcript_length',
+                   'transcript_biotype']
+    print("Fetch data from: {}".format(server), file=sys.stderr)
+    # Collect data from the ENSEMBL datasets.
+    dfFeat = pd.DataFrame()
+    dfTrans = pd.DataFrame()
+    for chunk in chunks(listID, 100):
+        print('Fetching...', file=sys.stderr)
+        res1 = dt.search({'filters': {'ensembl_gene_id': chunk}, 'attributes': listAttrib}, header=1)
+        res2 = dt.search({'filters': {'ensembl_gene_id': chunk}, 'attributes': listAttrib2}, header=1)
+        # Reading stream to a pandas data frame.
+        dataf = pd.read_table(io.StringIO(res1.text), sep='\t', encoding='utf-8')
+        datat = pd.read_table(io.StringIO(res2.text), sep='\t', encoding='utf-8')
+        # Cleanup data frame lines that do not correspond to protein coding genes.
+        dataf = dataf[dataf['Transcript type'] == 'protein_coding']
+        datat = datat[datat['Transcript type'] == 'protein_coding']
+        # Concatenate data frames.
+        dfFeat = pd.concat([dfFeat, dataf], axis=0, sort=False)
+        dfTrans = pd.concat([dfTrans, datat], axis=0, sort=False)
+    print("...fetch done!", file=sys.stderr)
+    #TODO Here we can integrate later the selection step based on gene expression!
+    # The trascript selection step.
+    trans_sorted = transcript_classification(dfTrans)
+    transcripts = pd.DataFrame()
+    # Set the index to the transcript ID
+    dfFeat.set_index('Transcript stable ID', inplace=True)
+    dfTrans.set_index('Transcript stable ID', inplace=True)
+    # Concatenate the two data frames by setting the index to the outer product.
+    dfENSEMBL = pd.concat([dfFeat, dfTrans], axis=1, join='inner')
+    #dfENSEMBL.reset_index(inplace=True)
+    dfENSEMBL = dfENSEMBL.T.drop_duplicates().T
+    # The actual selction loop
+    for gene in trans_sorted.keys():
+        for trans in trans_sorted[gene]:
+            row = dfENSEMBL.loc[trans.trans_id]
+            if row.isnull().any(): continue
+            else:
+                row = pd.DataFrame(row).T
+                row.reset_index(inplace=True)
+                transcripts = transcripts.append(row, ignore_index=True)  # Strange way to concatenate a data frame.
+                break
+    transcripts.set_index('index', inplace=True)
+    # Remove the transcript type column.
+    transcripts.drop('Transcript type', axis=1, inplace=True)
+    # Set the size of the UTRs and the CDS by using the information of the coding exon.
+    for index, row in transcripts.iterrows():
+        # For 5'UTR end take the smallest coordinate in the coding exons.
+        coding_start = min([int(x) for x in row["cDNA coding start"].split(";")])
+        coding_end = max([int(x) for x in row["cDNA coding end"].split(";")])
+        # REPLACE the right CDS start and end
+        transcripts.at[index, "cDNA coding start"] = coding_start
+        transcripts.at[index, "cDNA coding end"] = coding_end
+        # Clean up the TSL value.
+        tsl = row["Transcript support level (TSL)"].split()[0]
+        transcripts.at[index, "Transcript support level (TSL)"] = tsl
+    # Export transcripts to FASTA format
+    txt2fasta(transcripts, out_fasta)
+
+
+def transcript_classification(ensemblTable):
+    """Return a dictionary of transcripts per gene, sorted by the ENSEMBL classification based on the Havana-APPRIS-TSL (with this order) criteria.
+
+    ensemblTable: A pandas dataframe with the ENSEMBL transcript classification. It must contain 5 columns.
+    return: A dicitonary of key=geneID : value:[sorted list of transcripts]
+    """
+    # Declare the namedtuple.
+    Transcript = namedtuple('Transcript', "trans_id, havana, appris, tsl, length, sort")
+    genes_transcripts = {}
+    havanaDict = {"ensembl_havana" : 0, "ensembl" : 1, "havana" : 2}
+    for i in range(len(ensemblTable)):
+        # Collect the attributes
+        cid = ensemblTable.iloc[i, 0]
+        tr_id = ensemblTable.iloc[i, 1]
+        tsl = ensemblTable.iloc[i, 2]
+        appris = ensemblTable.iloc[i, 3]
+        havana = ensemblTable.iloc[i, 4]
+        tr_len = ensemblTable.iloc[i, 5]
+        # Generate the sorting tuple.
+        # Deal with the transcript source.
+        if havana in havanaDict:
+            h = havanaDict[havana]
+        else:
+            h = math.inf
+        # Deal with the APPRIS characterisation.
+        mm = re.match(r"^([a-z]+)([0-9]+)", str(appris))
+        if mm:
+            a = ""
+            if mm.group(1) == "principal":
+                a = a + "a"
+            elif mm.group(1) == "alternative":
+                a = a + "b"
+            a = a + mm.group(2)
+        else:
+            a = "z"
+        # Take the TSL order (Inf if NA)
+        tt = re.match(r"^[a-z]{3}([0-9]+)", str(tsl))
+        if tt:
+            t = int(tt.group(1))
+        else:
+            t = math.inf
+        # reverse Length
+        l = -int(tr_len)
+        # Form the sorting tuple.
+        sort_tuple = (h, a, t, l)
+        # Form the namedtuple
+        tr_namedtuple = Transcript(tr_id, havana, appris, tsl, tr_len, sort_tuple)
+        genes_transcripts.setdefault(cid, [])
+        genes_transcripts[cid].append(tr_namedtuple)
+    # Sort each list of nametuples in the dict.
+    for gene, transcript_list in genes_transcripts.items():
+        trListSorted = sorted(transcript_list, key=lambda t: t.sort)
+        genes_transcripts[gene] = trListSorted
+    return genes_transcripts
+
+
 def get_kozak(rec, s=10, c=20):
     """Extract both Kozak sequence and context from a SeqIO record.
     (s and c define the extremeties of a Koxak sequence and are chosen by convention.)
     return a tuple of Kozak sequence and Kozak context.
 
-    If ATG is located near the 5'UTR start, it is most likely that either seqs will not be retrieved as seld.base[-5:10] returns blank.
+    If ATG is located near the 5'UTR start, it is most likely that either seqs will not be retrieved as self.base[-5:10] returns blank.
 
     In this case, we test whether the value left to ':' is negative or not.
     If it is < 0, we simply take the seq from 0 as : self.bases[0:self.cDNA_start) + 2) + s]"""
@@ -260,59 +392,6 @@ def predict_binding(ffile, motifs):
     return None
 
 
-def get_gene_ids(listID, out_fasta, dataset):
-    """Function to connect to ENSEBL and retrieve data."""
-    print("Connection to server.", file=sys.stderr)
-    server = BiomartServer("http://www.ensembl.org/biomart/")
-    dt = server.datasets[dataset]
-    print("Connexion to ENSEMBL dataset...", file=sys.stderr)
-    listAttrib = ['ensembl_gene_id', 'ensembl_transcript_id',
-                  'external_gene_name', 'transcript_start', 'transcript_end',
-                  '5_utr_end', '5_utr_start', '3_utr_end', '3_utr_start',
-                  'transcription_start_site', 'transcript_biotype',
-                  'cdna_coding_start', 'cdna_coding_end', 'cdna', 'description']
-    print("Fetching data...", file=sys.stderr)
-    # Collect data from the ENSEMBL datasets.
-    dataf = pd.DataFrame()
-    for chunk in chunks(listID, 100):
-        res = dt.search({'filters': {'ensembl_gene_id': chunk}, 'attributes': listAttrib}, header=1)
-        # Reading stream to a pandas data frame.
-        dfTMP = pd.read_table(io.StringIO(res.text), sep='\t', encoding='utf-8')
-        # Concatenate data frames.
-        dataf = pd.concat([dataf, dfTMP], axis=0, sort=False)
-        print('Fetching...', file=sys.stderr)
-    print("...fetch done!", file=sys.stderr)
-    # Cleanup data frame lines that do not correspond to protein coding genes.
-    cdna = dataf[dataf['Transcript type'] == 'protein_coding']
-    # remove NA from DF and reset index
-    cdna.dropna(inplace=True)
-    # FIXME TODO CAREFULL with the commenting of the following line as we need to keep that and remove the above if we do a transcription selection together with the geneID.
-    #cdna = cdna.dropna(subset=['cDNA coding start', 'cDNA coding end'])
-    cdna.reset_index(drop=True, inplace=True)
-    # select only longest 5'UTR and 3'UTR
-    # FIXME also this must be integrated with the fixme before.
-    for i in range(cdna.shape[0]):
-        ligne = pd.DataFrame(cdna.loc[i, :]).transpose()
-        # For 5_UTR_start
-        indices = get_utr5MAX(ligne)
-        if len(cdna.iloc[i:i+1, :]["5' UTR start"].values[0].split(";")) > 1:
-            cdna.iloc[i:i+1, 7:8] = indices[1]
-            cdna.iloc[i:i+1, 8:9] = indices[0]
-        if len(cdna.iloc[i:i+1, :]["3' UTR start"].values[0].split(";")) > 1:
-            cdna.iloc[i:i+1, 9:10] = indices[1]
-            cdna.iloc[i:i+1, 10:11] = indices[0]
-    # select longest cDNA
-    for index, row in cdna.iterrows():
-        # If there is multiple annotation for cDNA start/end we take the longest possible.!!!
-        min_cdna_start = min(map(int, row['cDNA coding start'].split(";")))
-        max_cdna_end = max(map(int, row['cDNA coding end'].split(";")))
-        # Put them back to the original data frame.
-        cdna.at[index, 'cDNA coding start'] = min_cdna_start
-        cdna.at[index, 'cDNA coding end'] = max_cdna_end
-    # Exportat to FASTA format
-    txt2fasta(cdna, out_fasta)
-
-
 def get_utr5MAX(cdna_feat_row):
     """Select the longest 5'UTR from a cdna_feat-row with multiples utrs."""
     utr5s_start = cdna_feat_row["5' UTR start"].values[0].split(";")
@@ -359,7 +438,7 @@ def txt2fasta(cdna_feat_table, fastaOut):
     """Write the ENSEMBL features to a fasta file with the appropriate first fasta line."""
     with fastaOut as ff:
         for i, r in cdna_feat_table.iterrows():
-            ff.write(">{} |GeneID:{}|GeneName:{}|5pUTR_start:{}|5pUTR_end:{}|3pUTR_start:{}|3pUTR_end:{}|cDNA_start:{}|cDNA_end:{}|{}\n".format(r["Transcript stable ID"], r["Gene stable ID"], r["Gene name"], r["5' UTR start"], r["5' UTR end"], r["3' UTR start"], r["3' UTR end"], r["cDNA coding start"], r["cDNA coding end"], r["Gene description"]))
+            ff.write(">{} |GeneID:{}|GeneName:{}|cDNA_start:{}|cDNA_end:{}|TSL:{}|APPRIS:{}|Source:{}|{}\n".format(i, r["Gene stable ID"], r["Gene name"], r["cDNA coding start"], r["cDNA coding end"], r["Transcript support level (TSL)"], r["APPRIS annotation"], r["Source (transcript)"], r["Gene description"]))
             ff.write("{}\n".format(r["cDNA sequences"]))
 
 
