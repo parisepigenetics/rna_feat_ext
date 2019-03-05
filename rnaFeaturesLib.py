@@ -151,12 +151,12 @@ def get_gene_ids(listID, out_fasta, dataset):
     listAttrib2 = ['ensembl_gene_id', 'ensembl_transcript_id', 'transcript_tsl',
                    'transcript_appris', 'transcript_source', 'transcript_length',
                    'transcript_biotype']
-    print("Fetching data...", file=sys.stderr)
-    #dt.show_attributes()
+    print("Fetch data from: {}".format(server), file=sys.stderr)
     # Collect data from the ENSEMBL datasets.
     dfFeat = pd.DataFrame()
     dfTrans = pd.DataFrame()
     for chunk in chunks(listID, 100):
+        print('Fetching...', file=sys.stderr)
         res1 = dt.search({'filters': {'ensembl_gene_id': chunk}, 'attributes': listAttrib}, header=1)
         res2 = dt.search({'filters': {'ensembl_gene_id': chunk}, 'attributes': listAttrib2}, header=1)
         # Reading stream to a pandas data frame.
@@ -168,9 +168,8 @@ def get_gene_ids(listID, out_fasta, dataset):
         # Concatenate data frames.
         dfFeat = pd.concat([dfFeat, dataf], axis=0, sort=False)
         dfTrans = pd.concat([dfTrans, datat], axis=0, sort=False)
-        print('Fetching...', file=sys.stderr)
     print("...fetch done!", file=sys.stderr)
-    #FIXME Here we can integrate later the selection step based on gene expression!!!.
+    #TODO Here we can integrate later the selection step based on gene expression!
     # The trascript selection step.
     trans_sorted = transcript_classification(dfTrans)
     transcripts = pd.DataFrame()
@@ -192,29 +191,21 @@ def get_gene_ids(listID, out_fasta, dataset):
                 transcripts = transcripts.append(row, ignore_index=True)  # Strange way to concatenate a data frame.
                 break
     transcripts.set_index('index', inplace=True)
-    print(transcripts)
-    sys.exit()
-    # FIXME also this must be integrated with the fixme before.
-    for i in range(cdna.shape[0]):
-        ligne = pd.DataFrame(cdna.loc[i, :]).transpose()
-        # For 5_UTR_start
-        indices = get_utr5MAX(ligne)
-        if len(cdna.iloc[i:i+1, :]["5' UTR start"].values[0].split(";")) > 1:
-            cdna.iloc[i:i+1, 7:8] = indices[1]
-            cdna.iloc[i:i+1, 8:9] = indices[0]
-        if len(cdna.iloc[i:i+1, :]["3' UTR start"].values[0].split(";")) > 1:
-            cdna.iloc[i:i+1, 9:10] = indices[1]
-            cdna.iloc[i:i+1, 10:11] = indices[0]
-    # select longest cDNA
-    for index, row in cdna.iterrows():
-        # If there are multiple annotation for cDNA start/end we take the longest possible.
-        min_cdna_start = min(map(int, row['cDNA coding start'].split(";")))
-        max_cdna_end = max(map(int, row['cDNA coding end'].split(";")))
-        # Put them back to the original data frame.
-        cdna.at[index, 'cDNA coding start'] = min_cdna_start
-        cdna.at[index, 'cDNA coding end'] = max_cdna_end
-    # Exportat to FASTA format
-    txt2fasta(cdna, out_fasta)
+    # Remove the transcript type column.
+    transcripts.drop('Transcript type', axis=1, inplace=True)
+    # Set the size of the UTRs and the CDS by using the information of the coding exon.
+    for index, row in transcripts.iterrows():
+        # For 5'UTR end take the smallest coordinate in the coding exons.
+        coding_start = min([int(x) for x in row["cDNA coding start"].split(";")])
+        coding_end = max([int(x) for x in row["cDNA coding end"].split(";")])
+        # REPLACE the right CDS start and end
+        transcripts.at[index, "cDNA coding start"] = coding_start
+        transcripts.at[index, "cDNA coding end"] = coding_end
+        # Clean up the TSL value.
+        tsl = row["Transcript support level (TSL)"].split()[0]
+        transcripts.at[index, "Transcript support level (TSL)"] = tsl
+    # Export transcripts to FASTA format
+    txt2fasta(transcripts, out_fasta)
 
 
 def transcript_classification(ensemblTable):
@@ -447,7 +438,7 @@ def txt2fasta(cdna_feat_table, fastaOut):
     """Write the ENSEMBL features to a fasta file with the appropriate first fasta line."""
     with fastaOut as ff:
         for i, r in cdna_feat_table.iterrows():
-            ff.write(">{} |GeneID:{}|GeneName:{}|5pUTR_start:{}|5pUTR_end:{}|3pUTR_start:{}|3pUTR_end:{}|cDNA_start:{}|cDNA_end:{}|{}\n".format(r["Transcript stable ID"], r["Gene stable ID"], r["Gene name"], r["5' UTR start"], r["5' UTR end"], r["3' UTR start"], r["3' UTR end"], r["cDNA coding start"], r["cDNA coding end"], r["Gene description"]))
+            ff.write(">{} |GeneID:{}|GeneName:{}|cDNA_start:{}|cDNA_end:{}|TSL:{}|APPRIS:{}|Source:{}|{}\n".format(i, r["Gene stable ID"], r["Gene name"], r["cDNA coding start"], r["cDNA coding end"], r["Transcript support level (TSL)"], r["APPRIS annotation"], r["Source (transcript)"], r["Gene description"]))
             ff.write("{}\n".format(r["cDNA sequences"]))
 
 
