@@ -4,7 +4,7 @@ from distutils.core import setup
 
 config = {
   'name': 'rnaFeaturesLib',
-  'version': '0.3a1',
+  'version': rnaFeaturesLib.__version__,
   'author': 'Costas Bouyioukos',
   'author_email': 'costas.bouyioukos@univ-paris-diderot.fr',
   'url': 'github.com/parisepigenetics/rna_feat_ext',
