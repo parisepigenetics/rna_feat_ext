@@ -18,14 +18,16 @@ from Bio import SeqIO
 
 import rnaFeaturesLib as rnalib
 
-parser = argparse.ArgumentParser(prog='fasta2table', description='Calculate features from a fasta file (ENSEMBL header) and output a featurs table for clustering', epilog="Authors: Arnold-Franz AKE, Antoine LU & Costas Bouyioukos, UMR7216, Jul-Oct 2018")
+parser = argparse.ArgumentParser(prog='fasta2table', description='Calculate features from a fasta file (ENSEMBL header) and output a featurs table for clustering', epilog="Authors: Arnold-Franz AKE, Antoine LU & Costas Bouyioukos, UMR7216, 2018-19")
 
-parser.add_argument('-v', '--version', action='version', version='%(prog)s {version}'.format(version=__version__))
+parser.add_argument('-v', '--version', action='version', version='%(prog)s  v. {version}'.format(version=__version__))
 parser.add_argument("infile", nargs='?', default='-', type=argparse.FileType('r'), metavar="input_file", help="Path to input FASTA file. (or STDIN).")
 parser.add_argument("outfile", nargs='?', default='-', type=argparse.FileType('w'), metavar="output_file", help="Path to output CSV filename. (or STDOUT).")
-parser.add_argument('-e', '--expressed-transcripts', help="An expressed transcripts file. It can contain an arbitrary number of columns but the first MUST be the transcript IDs. (Default=None).", type=argparse.FileType('r'), default=None, dest="exprTrans")
 parser.add_argument('-l', '--length-3pUTR', help="The maximum allowed length of a 3'UTR. (Default=5000)", type=int, default=5000, dest="utr3len")
 parser.add_argument('-u', '--utr-files', nargs=2, help="Return two files containing the 5' and 3' UTRs. (Default=None)", type=str, dest="utrFiles")
+parser.add_argument('-c', '--clip', help="The 5' UTR segment size to calulate theTOP mRNA score. (Default=20)", type=int, default=20, dest="clip")
+parser.add_argument('-e', '--expressed-transcripts', help="An expressed transcripts file. It can contain an arbitrary number of columns but the first MUST be the transcript IDs. (Default=None).", type=argparse.FileType('r'), default=None, dest="exprTrans")
+
 # TODO add FIMO MEME motifs. parser.add_argument("motifs_file", help="MEME motifs file", default="", type=str)
 
 optArgs = parser.parse_args()
@@ -37,7 +39,7 @@ seqRecs = SeqIO.parse(optArgs.infile, "fasta")
 ensRecs = rnalib.ENSEMBLSeqs(seqRecs, optArgs.exprTrans).bioSeqRecs
 
 # Extract the features from ENSEMBL.
-ensFeat = rnalib.FeaturesExtract(ensRecs, optArgs.utr3len, optArgs.utrFiles)
+ensFeat = rnalib.FeaturesExtract(ensRecs, optArgs)
 de = ensFeat.collect_features()
 
 # Calculate features by using external programs.
