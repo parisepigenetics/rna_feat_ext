@@ -22,12 +22,11 @@ from collections import namedtuple
 
 import local_score
 
-import pprint
 
 
 # CLASSES Interface.
 class ENSEMBLSeqs(object):
-    """Class to represent RNA related sequence features from ENSEMBLself.
+    """Class to represent RNA related sequence features from ENSEMBL.
 
     Needs a Bio.Seq.Record generator object to initialise."""
 
@@ -72,18 +71,21 @@ class ENSEMBLSeqs(object):
 class FeaturesExtract(object):
     """Claas to extract features."""
 
-    def __init__(self, bioSeqRecs, utr3len, utrFiles):
+    def __init__(self, bioSeqRecs, options):
         """Initialise with a list of SeqIO records."""
         self.bioSeqRecs = bioSeqRecs
         # Temporary files of the UTRs
         self.tf5p = tempfile.NamedTemporaryFile(mode="a", delete=False)
         self.tf3p = tempfile.NamedTemporaryFile(mode="a", delete=False)
-        self.coding = tempfile.NamedTemporaryFile(mode="a", delete=False)
-        self.utr3len = utr3len
-        self.utrFiles = utrFiles
+        self.tfCoding = tempfile.NamedTemporaryFile(mode="a", delete=False)
+        self.utr3len = options.utr3len
+        self.utrFiles = options.utrFiles
+        self.clip = options.clip
 
     def collect_features(self):
-        """Collect the features that do not need external computations."""
+        """Collect the features that do not need external computations.
+
+        Return a pandas data frame."""
         # Initialise a pabdas data frame.
         pdf = pd.DataFrame(columns=['ensembl_gene_id', 'gene_name', 'coding_len', '5pUTR_len', '5pUTR_GC', '3pUTR_len', '3pUTR_GC', 'Kozak_Sequence', 'Kozak_Context'])
         for rec in self.bioSeqRecs:
@@ -96,7 +98,7 @@ class FeaturesExtract(object):
                 seqKozak, contKozak = get_kozak(rec)
                 # Length of coding region.
                 codeLen = int(rec.features["cDNA_end"]) - int(rec.features["cDNA_start"])
-                get_coding(rec, self.coding)
+                get_coding(rec, self.tfCoding)
                 # Add to pandas data frame.
                 pdfe = [rec.features["GeneID"], rec.name, codeLen, utr5len, "{0:.2f}".format(utr5gc), utr3len, "{0:.2f}".format(utr3gc), seqKozak, contKozak]
                 pdf.loc[rec.id] = pdfe
@@ -104,23 +106,24 @@ class FeaturesExtract(object):
                 continue
         self.tf5p.close()
         self.tf3p.close()
-        self.coding.close()
+        self.tfCoding.close()
         return pdf
 
     def calculate_features(self):
-        """Method to perfom all feature calculation.
+        """Method to perfom feature calculation.
+        Invokes external software to make calculations that separates it from the previous method.
 
-        Basically invokes external software to make calculations."""
+        Return a pandas data frame with the calculations."""
         # Calculates 5pUTR folding etc.
         fe5p = calculate_free_energy(self.tf5p.name, "5pUTR")
         fe3p = calculate_free_energy(self.tf3p.name, "3pUTR")
         # Calculate local score
-        scoring = {'A':-1, 'C':1, 'G':-1, 'T':1}
-        cliping = 20
-        ls5p = calculate_local_score(self.tf5p.name, scoring, cliping)
+        scoring = {'A':-1, 'C':1, 'G':-1, 'T':1, "N":0}  # Specify a local score in such a way that will endorse TOP mRNAs.
+        # Compute teh local score for TOP mRNAs.
+        ls5p = calculate_local_score(self.tf5p.name, scoring, self.clip)
         # Calculate CAI
-        caiCod = calculate_CAI(self.coding.name)
-        # Calculate bind motifs
+        caiCod = calculate_CAI(self.tfCoding.name)
+        #TODO Calculate bind motifs
         # motifs = predictBinding()
         # Merge data frames and return.
         return pd.concat([fe5p, fe3p, ls5p, caiCod], axis=1, sort=False)
@@ -139,9 +142,9 @@ class FeaturesExtract(object):
 ## FUNCTIONS
 def get_gene_ids(listID, out_fasta, dataset):
     """Function to connect to ENSEBL and retrieve data.
+    The functions follows a transcript selection scheme acording to ENSEMBL/HAVANA, TSL and APPRIS.
 
-    Return a data frame of the transcripts and their ENSEMBL features.
-    """
+    Return a data frame of the transcripts and their ENSEMBL features."""
     print("Connection to ENSEMBL server.", file=sys.stderr)
     server = BiomartServer("http://www.ensembl.org/biomart/")
     dt = server.datasets[dataset]
@@ -151,7 +154,7 @@ def get_gene_ids(listID, out_fasta, dataset):
     listAttrib2 = ['ensembl_gene_id', 'ensembl_transcript_id', 'transcript_tsl',
                    'transcript_appris', 'transcript_source', 'transcript_length',
                    'transcript_biotype']
-    print("Fetch data from: {}".format(server), file=sys.stderr)
+    print("Fetch data from: {}".format(str(server)), file=sys.stderr)
     # Collect data from the ENSEMBL datasets.
     dfFeat = pd.DataFrame()
     dfTrans = pd.DataFrame()
@@ -289,9 +292,10 @@ def get_kozak(rec, s=10, c=20):
 
 
 def get_3utr(rec, tf3p, lim):
-    """Fetch 3PUTR sequence, append it to fasta file and return its length and GC content.
+    """Fetch 3PUTR sequence, append it to fasta file.
+    Impose limits to UTRs to upto <lim> nucleotides.
 
-    Impose limits to UTRs to upto <lim> nucleotides."""
+    Return its length and GC content."""
     utr3p = rec.seq[int(rec.features["cDNA_end"]):]
     utr3plen = len(utr3p)
     if utr3plen >= lim:
@@ -304,7 +308,9 @@ def get_3utr(rec, tf3p, lim):
 
 
 def get_5utr(rec, tf5p):
-    """Fetch 5PUTR sequence, append it to fasta file and return its length and GC content."""
+    """Fetch 5PUTR sequence, append it to fasta file.
+
+    Return its length and GC content."""
     utr5p = rec.seq[0:int(rec.features["cDNA_start"])-1]
     if utr5p:
         tf5p.write(">{}_5PUTR\n{}\n".format(rec.id, utr5p))
@@ -314,8 +320,13 @@ def get_5utr(rec, tf5p):
 
 
 def get_coding(rec, codf):
-    """Fetch 5PUTR sequence, append it to fasta file. Return: None"""
-    cds = rec.seq[int(rec.features["cDNA_start"]):int(rec.features["cDNA_end"])+1]
+    """Fetch coding sequence, append it to fasta file.
+
+    Return: None"""
+    cds = rec.seq[int(rec.features["cDNA_start"])-1:int(rec.features["cDNA_end"])]
+    if len(cds)%3 != 0:
+        #raise StandardError('Coding sequence not a multiple of 3!')
+        write("Coding sequence not a multiple of 3!", sys.stderr)
     codf.write(">{}_CDS\n{}\n".format(rec.id, cds))
 
 
@@ -356,6 +367,8 @@ def calculate_CAI(file):
     """Calculate the Codon Adaptation Index."""
     caidf = pd.DataFrame(columns=["CAI"])
     SeqCai = CodonUsage.CodonAdaptationIndex()
+    # This is a hardcoded dictionary of Human Codon Usage.
+    # TODO add the dictionary as an extrenal file.
     cd = {"TTT": 0.46, "TCT": 0.19, "TAT": 0.44, "TGT": 0.46,
           "TTC": 0.54, "TCC": 0.22, "TAC": 0.56, "TGC": 0.54,
           "TTA": 0.08, "TCA": 0.15, "TAA": 0.30, "TGA": 0.47,
@@ -380,7 +393,6 @@ def calculate_CAI(file):
     return caidf
 
 
-
 def predict_binding(ffile, motifs):
     """Method to run a FIMO search and parse and collect the results.
 
@@ -392,7 +404,23 @@ def predict_binding(ffile, motifs):
     return None
 
 
-def get_utr5MAX(cdna_feat_row):
+def txt2fasta(cdna_feat_table, fastaOut):
+    """Write the ENSEMBL features to a fasta file with the appropriate first fasta line."""
+    with fastaOut as ff:
+        for i, r in cdna_feat_table.iterrows():
+            ff.write(">{} |GeneID:{}|GeneName:{}|cDNA_start:{}|cDNA_end:{}|TSL:{}|APPRIS:{}|Source:{}|{}\n".format(i, r["Gene stable ID"], r["Gene name"], r["cDNA coding start"], r["cDNA coding end"], r["Transcript support level (TSL)"], r["APPRIS annotation"], r["Source (transcript)"], r["Gene description"]))
+            ff.write("{}\n".format(r["cDNA sequences"]))
+
+
+def chunks(l, n):
+    """Yield successive n-sized chunks from a list l."""
+    for i in range(0, len(l), n):
+        yield l[i:i + n]
+
+
+
+## OBSOLETE functions
+def get_utr5MAX_OBSOLETE(cdna_feat_row):
     """Select the longest 5'UTR from a cdna_feat-row with multiples utrs."""
     utr5s_start = cdna_feat_row["5' UTR start"].values[0].split(";")
     utr5s_end = cdna_feat_row["5' UTR end"].values[0].split(";")
@@ -406,7 +434,7 @@ def get_utr5MAX(cdna_feat_row):
     return([max_utr5_start, max_utr5_end])
 
 
-def get_utr3MAX(cdna_feat_row):
+def get_utr3MAX_OBSOLETE(cdna_feat_row):
     """Select the longest 3'UTR from a cdna_feat-row with multiples utrs."""
     utr3s_start = cdna_feat_row["3' UTR start"].values[0].split(";")
     utr3s_end = cdna_feat_row["3' UTR end"].values[0].split(";")
@@ -432,17 +460,3 @@ def get_cDNAendMAX_OBSOLETE(cdna_feat_row):
     cDNA_end = cdna_feat_row["cDNA coding end"].values[0].split(";")
     max_cDNA_end = max(map(int, cDNA_end))
     return max_cDNA_end
-
-
-def txt2fasta(cdna_feat_table, fastaOut):
-    """Write the ENSEMBL features to a fasta file with the appropriate first fasta line."""
-    with fastaOut as ff:
-        for i, r in cdna_feat_table.iterrows():
-            ff.write(">{} |GeneID:{}|GeneName:{}|cDNA_start:{}|cDNA_end:{}|TSL:{}|APPRIS:{}|Source:{}|{}\n".format(i, r["Gene stable ID"], r["Gene name"], r["cDNA coding start"], r["cDNA coding end"], r["Transcript support level (TSL)"], r["APPRIS annotation"], r["Source (transcript)"], r["Gene description"]))
-            ff.write("{}\n".format(r["cDNA sequences"]))
-
-
-def chunks(l, n):
-    """Yield successive n-sized chunks from a list l."""
-    for i in range(0, len(l), n):
-        yield l[i:i + n]
