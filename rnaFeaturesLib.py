@@ -1,5 +1,7 @@
 # -*- coding: utf-8 *-*
-"""rnaFeaturesLib : Python module for RNA fetures extraction from ENSEMBL derived fasta files.
+"""rnaFeaturesLib: A pure Python module for transcripts RNA fetures extraction from ENSEMBL derived from a list of ENSEMBL gene IDs.
+
+Authors: Costas Bouyioukos, Franz-Arnold Ake and Antoine Lu, 2018-19, Paris UMR7216."
 """
 __version__ = "0.3a08"
 
@@ -140,9 +142,12 @@ class FeaturesExtract(object):
 
 
 ## FUNCTIONS
-def get_gene_ids(listID, out_fasta, dataset):
+def get_ENSEMBL_data(listID, dataset, transctip_expr_file = None):
     """Function to connect to ENSEBL and retrieve data.
-    The functions follows a transcript selection scheme acording to ENSEMBL/HAVANA, TSL and APPRIS.
+
+    The functions follows two modes of working:
+    1) Transcript selection scheme acording to ENSEMBL/HAVANA, TSL and APPRIS. (Default)
+    2) Transcript selection is based on the best expressed transcript from the externaly provided file.
 
     Return a data frame of the transcripts and their ENSEMBL features."""
     print("Connection to ENSEMBL server.", file=sys.stderr)
@@ -207,8 +212,7 @@ def get_gene_ids(listID, out_fasta, dataset):
         # Clean up the TSL value.
         tsl = row["Transcript support level (TSL)"].split()[0]
         transcripts.at[index, "Transcript support level (TSL)"] = tsl
-    # Export transcripts to FASTA format
-    txt2fasta(transcripts, out_fasta)
+    return transcripts
 
 
 def transcript_classification(ensemblTable):

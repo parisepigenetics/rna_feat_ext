@@ -3,24 +3,32 @@
 
 """From a list of ENSEMBL Gene_IDs get a fasta file with metadata as header.
 
-Author: AKE Franz-Arnold - Antoine LU
-mail: aerod7710@gmail.com lu.zhao.antoine@gmail.com
-July 2018
-UMR7216 Paris Diderot"""
+Authors: Costas Bouyioukos, AKE Franz-Arnold and LU Antoine
+mail: costas.bouyioukso@univ-paris-diderot.fr aerod7710@gmail.com lu.zhao.antoine@gmail.com
+2018-19
+@UMR7216 Paris Diderot
+"""
 
 __version__ = "0.3a08"
 
 import argparse
 import rnaFeaturesLib
 
-parser = argparse.ArgumentParser(prog='geneIDs2Fasta', description='Fetch features for an ENSEMBL gene ID list and output a multi FASTA file.', epilog="Authors: Franz-Arnold Ake and Antoine Lu, 2018")
-parser.add_argument('infile', nargs='?', default='-', type=argparse.FileType('r'), metavar="input_file", help='Path of the Ensembl Gene_ID file. (or STDIN)')
+parser = argparse.ArgumentParser(prog='geneIDs2Fasta', description='Fetch features (sequence and data) from ENSEMBL, for each gene ID in a list and output a multi FASTA file.', epilog="Authors: Costas Bouyioukos, Franz-Arnold Ake and Antoine Lu, 2018-19, Paris UMR7216.")
+parser.add_argument('infile', nargs='?', default='-', type=argparse.FileType('r'), metavar="input_file", help='Path of the Ensembl Gene_ID list file. (or STDIN)')
 parser.add_argument("outfile", nargs='?', default='-', type=argparse.FileType('w'), metavar='output_file', help="Path of the output FASTA file. (or STDOUT)")
-parser.add_argument('-d', '--dataset', nargs="?", default='hsapiens_gene_ensembl', metavar="ENSEMBL Dataset for collecting information", type=str, help="Choice from Ensembl Datasets (taken from the web API of ENSEMBL) -- Default : hsapiens_gene_ensembl")
+parser.add_argument('-d', '--dataset', nargs="?", default='hsapiens_gene_ensembl', metavar="ENSEMBL Dataset for collecting information", type=str, help="Chose for the Ensembl Datasets (taken from the web API of ENSEMBL) -- Default : hsapiens_gene_ensembl")
+parser.add_argument('-e', '--expressed-transcripts', help="An expressed transcripts file. It can contain an arbitrary number of columns but the first MUST be the gene name, the second the transcript IDs and the third the transcription estimate of the transcript. (Default=None).", type=argparse.FileType('r'), default=None, dest="exprTrans")
 parser.add_argument('-v', '--version', action='version', version='%(prog)s  v. {version}'.format(version=__version__))
 
+# Parse the command line arguments.
 optArgs = parser.parse_args()
 
+# Quickly take the genes of interest from the file.
 listID = optArgs.infile.read().splitlines()
-# This is the function wich does all the job.
-rnaFeaturesLib.get_gene_ids(listID, optArgs.outfile, optArgs.dataset)
+
+# Connect to ENSEBL and select sequences and data.
+transcripts = rnaFeaturesLib.get_ENSEMBL_data(listID, optArgs.dataset, optArgs.exprTrans)
+
+# Print transcript sequences and data to a FASTA file.
+rnaFeaturesLib.txt2fasta(transcripts, optArgs.outfile)
