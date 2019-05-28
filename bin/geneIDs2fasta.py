@@ -14,11 +14,11 @@ __version__ = "0.3a08"
 import argparse
 import rnaFeaturesLib
 
-parser = argparse.ArgumentParser(prog='geneIDs2Fasta', description='Fetch features (sequence and data) from ENSEMBL, for each gene ID in a list and output a multi FASTA file.', epilog="Authors: Costas Bouyioukos, Franz-Arnold Ake and Antoine Lu, 2018-19, Paris UMR7216.")
-parser.add_argument('infile', nargs='?', default='-', type=argparse.FileType('r'), metavar="input_file", help='Path of the Ensembl Gene_ID list file. (or STDIN)')
-parser.add_argument("outfile", nargs='?', default='-', type=argparse.FileType('w'), metavar='output_file', help="Path of the output FASTA file. (or STDOUT)")
-parser.add_argument('-d', '--dataset', nargs="?", default='hsapiens_gene_ensembl', metavar="ENSEMBL Dataset for collecting information", type=str, help="Chose for the Ensembl Datasets (taken from the web API of ENSEMBL) -- Default : hsapiens_gene_ensembl")
-parser.add_argument('-e', '--expressed-transcripts', help="An expressed transcripts file. It can contain an arbitrary number of columns but the first MUST be the gene name, the second the transcript IDs and the third the transcription estimate of the transcript. (Default=None).", type=argparse.FileType('r'), default=None, dest="exprTrans")
+parser = argparse.ArgumentParser(prog='geneIDs2Fasta', description='Fetch transcript features (sequence and data) from ENSEMBL, for each gene ID in a list and output a multi FASTA file.', epilog="Authors: Costas Bouyioukos, Franz-Arnold Ake and Antoine Lu, 2018-19, Paris UMR7216.")
+parser.add_argument('infile', nargs='?', default='-', type=argparse.FileType('r'), metavar="input_file", help='Path of the Ensembl Gene_ID list file. (or STDIN).')
+parser.add_argument("outfile", nargs='?', default='-', type=argparse.FileType('w'), metavar='output_file', help="Path of the output FASTA file. (or STDOUT).")
+parser.add_argument('-d', '--dataset', nargs="?", default='hsapiens_gene_ensembl', metavar="ENSEMBL Dataset Name", type=str, help="Choise of the Ensembl Dataset, taken from the web API of ENSEMBL. (Default='hsapiens_gene_ensembl').")
+parser.add_argument('-e', '--expressed-transcripts', help="An expressed transcripts file. It can contain an arbitrary number of columns but the first MUST be the gene name, the second the transcript ID and the third the transcription level estimate of the transcript. (Default=None).", type=argparse.FileType('r'), default=None, dest="exprTrans", metavar = "EXPTRANSFile")
 parser.add_argument('-v', '--version', action='version', version='%(prog)s  v. {version}'.format(version=__version__))
 
 # Parse the command line arguments.

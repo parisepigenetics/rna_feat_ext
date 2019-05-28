@@ -23,10 +23,10 @@ parser = argparse.ArgumentParser(prog='fasta2table', description="Calculate feat
 
 parser.add_argument('-v', '--version', action='version', version='%(prog)s  v. {version}'.format(version=__version__))
 parser.add_argument("infile", nargs='?', default='-', type=argparse.FileType('r'), metavar="input_file", help="Path to input FASTA file. (or STDIN).")
-parser.add_argument("outfile", nargs='?', default='-', type=argparse.FileType('w'), metavar="output_file", help="Path to output CSV filename. (or STDOUT).")
-parser.add_argument('-l', '--length-3pUTR', help="The maximum allowed length of a 3'UTR. (Default=5000)", type=int, default=5000, dest="utr3len")
-parser.add_argument('-u', '--utr-files', nargs=2, help="Return two files containing the 5' and 3' UTRs. (Default=None)", type=str, dest="utrFiles")
-parser.add_argument('-c', '--clip', help="The 5' UTR segment size to calulate theTOP mRNA score. (Default=20)", type=int, default=20, dest="clip")
+parser.add_argument("outfile", nargs='?', default='-', type=argparse.FileType('w'), metavar="output_file", help="Path to output CSV file. (or STDOUT).")
+parser.add_argument('-l', '--length-3pUTR', help="The maximum allowed length of a 3'UTR. (Default=5000).", type=int, default=5000, dest="utr3len", metavar = "3'UTRLength")
+parser.add_argument('-u', '--utr-files', nargs=2, help="Return two seperate fasta files containing the 5' and 3' UTRs. (Default=None).", type=str, dest="utrFiles", metavar = ("5'UTRFile", "3'UTRFile"))
+parser.add_argument('-c', '--clip', help="The 5'UTR segment size to calulate the TOP mRNA local score. (Default=20).", type=int, default=20, dest="clip", metavar = "5'UTRclip")
 # TODO add FIMO MEME motifs. parser.add_argument("motifs_file", help="MEME motifs file", default="", type=str)
 
 # Parse the command line arguments.

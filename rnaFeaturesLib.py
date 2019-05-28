@@ -32,18 +32,14 @@ class ENSEMBLSeqs(object):
 
     Needs a Bio.Seq.Record generator object to initialise."""
 
-    def __init__(self, bioSeqRecsGen, exprTrans):
+    def __init__(self, bioSeqRecsGen):
         self.gen = bioSeqRecsGen
-        if exprTrans:
-            self.exprTranscripts = self.parse_expressed_transcripts(exprTrans)
-        else:
-            self.exprTranscripts = None
         self.bioSeqRecs = self.get_bio_seqrec()
 
     def get_bio_seqrec(self):
         """Expands the Bio.Seq.Rec generator to a list of Bio.Record objects.
 
-        Also puts some SeqIO.record member variables in place, namely the id, the gene name the description and the features."""
+        Also puts some SeqIO.record member variables in place, namely the id, the gene name, the description and the features."""
 
         def _construct_bio_seq(recs, rec):
             """Auxiiary function to construct a Bio.Seq object."""
@@ -58,16 +54,9 @@ class ENSEMBLSeqs(object):
 
         recs = []
         for rec in self.gen:
-            if self.exprTranscripts is None:
-                _construct_bio_seq(recs, rec)
-            if self.exprTranscripts and (rec.id in self.exprTranscripts):
-                _construct_bio_seq(recs, rec)
+            _construct_bio_seq(recs, rec)
         return recs
 
-    def parse_expressed_transcripts(self, exprTrans):
-        """Parses the given transcript expression file and returns a set of the expressed transcripts for quicker lookup."""
-        trDf = pd.read_table(exprTrans, header=None)  # We do not really care about headers we only need the first column.
-        return set(trDf[0])
 
 
 class FeaturesExtract(object):
@@ -87,7 +76,8 @@ class FeaturesExtract(object):
     def collect_features(self):
         """Collect the features that do not need external computations.
 
-        Return a pandas data frame."""
+        Return: Pandas data frame with the ENSEMBL features.
+        """
         # Initialise a pabdas data frame.
         pdf = pd.DataFrame(columns=['ensembl_gene_id', 'gene_name', 'coding_len', '5pUTR_len', '5pUTR_GC', '3pUTR_len', '3pUTR_GC', 'Kozak_Sequence', 'Kozak_Context'])
         for rec in self.bioSeqRecs:
@@ -115,7 +105,7 @@ class FeaturesExtract(object):
         """Method to perfom feature calculation.
         Invokes external software to make calculations that separates it from the previous method.
 
-        Return a pandas data frame with the calculations."""
+        Return: Pandas data frame with the calculated features."""
         # Calculates 5pUTR folding etc.
         fe5p = calculate_free_energy(self.tf5p.name, "5pUTR")
         fe3p = calculate_free_energy(self.tf3p.name, "3pUTR")
@@ -142,14 +132,15 @@ class FeaturesExtract(object):
 
 
 ## FUNCTIONS
-def get_ENSEMBL_data(listID, dataset, transctip_expr_file = None):
+def get_ENSEMBL_data(listID, dataset, transcr_expr_file = None):
     """Function to connect to ENSEBL and retrieve data.
 
     The functions follows two modes of working:
     1) Transcript selection scheme acording to ENSEMBL/HAVANA, TSL and APPRIS. (Default)
-    2) Transcript selection is based on the best expressed transcript from the externaly provided file.
+    2) Transcript selection by the best expressed transcript if ther is an externaly provided file.
 
-    Return a data frame of the transcripts and their ENSEMBL features."""
+    Return: Pandas data frame of the transcripts and their ENSEMBL features.
+    """
     print("Connection to ENSEMBL server.", file=sys.stderr)
     server = BiomartServer("http://www.ensembl.org/biomart/")
     dt = server.datasets[dataset]
@@ -168,8 +159,8 @@ def get_ENSEMBL_data(listID, dataset, transctip_expr_file = None):
         res1 = dt.search({'filters': {'ensembl_gene_id': chunk}, 'attributes': listAttrib}, header=1)
         res2 = dt.search({'filters': {'ensembl_gene_id': chunk}, 'attributes': listAttrib2}, header=1)
         # Reading stream to a pandas data frame.
-        dataf = pd.read_table(io.StringIO(res1.text), sep='\t', encoding='utf-8')
-        datat = pd.read_table(io.StringIO(res2.text), sep='\t', encoding='utf-8')
+        dataf = pd.read_csv(io.StringIO(res1.text), sep='\t', encoding='utf-8')
+        datat = pd.read_csv(io.StringIO(res2.text), sep='\t', encoding='utf-8')
         # Cleanup data frame lines that do not correspond to protein coding genes.
         dataf = dataf[dataf['Transcript type'] == 'protein_coding']
         datat = datat[datat['Transcript type'] == 'protein_coding']
@@ -177,30 +168,8 @@ def get_ENSEMBL_data(listID, dataset, transctip_expr_file = None):
         dfFeat = pd.concat([dfFeat, dataf], axis=0, sort=False)
         dfTrans = pd.concat([dfTrans, datat], axis=0, sort=False)
     print("...fetch done!", file=sys.stderr)
-    #TODO Here we can integrate later the selection step based on gene expression!
-    # The trascript selection step.
-    trans_sorted = transcript_classification(dfTrans)
-    transcripts = pd.DataFrame()
-    # Set the index to the transcript ID
-    dfFeat.set_index('Transcript stable ID', inplace=True)
-    dfTrans.set_index('Transcript stable ID', inplace=True)
-    # Concatenate the two data frames by setting the index to the outer product.
-    dfENSEMBL = pd.concat([dfFeat, dfTrans], axis=1, join='inner')
-    #dfENSEMBL.reset_index(inplace=True)
-    dfENSEMBL = dfENSEMBL.T.drop_duplicates().T
-    # The actual selction loop
-    for gene in trans_sorted.keys():
-        for trans in trans_sorted[gene]:
-            row = dfENSEMBL.loc[trans.trans_id]
-            if row.isnull().any(): continue
-            else:
-                row = pd.DataFrame(row).T
-                row.reset_index(inplace=True)
-                transcripts = transcripts.append(row, ignore_index=True)  # Strange way to concatenate a data frame.
-                break
-    transcripts.set_index('index', inplace=True)
-    # Remove the transcript type column.
-    transcripts.drop('Transcript type', axis=1, inplace=True)
+    # Function to select transcripts.
+    transcripts = select_transcripts(dfTrans, dfFeat, transcr_expr_file)
     # Set the size of the UTRs and the CDS by using the information of the coding exon.
     for index, row in transcripts.iterrows():
         # For 5'UTR end take the smallest coordinate in the coding exons.
@@ -219,6 +188,7 @@ def transcript_classification(ensemblTable):
     """Return a dictionary of transcripts per gene, sorted by the ENSEMBL classification based on the Havana-APPRIS-TSL (with this order) criteria.
 
     ensemblTable: A pandas dataframe with the ENSEMBL transcript classification. It must contain 5 columns.
+
     return: A dicitonary of key=geneID : value:[sorted list of transcripts]
     """
     # Declare the namedtuple.
@@ -227,6 +197,7 @@ def transcript_classification(ensemblTable):
     havanaDict = {"ensembl_havana" : 0, "ensembl" : 1, "havana" : 2}
     for i in range(len(ensemblTable)):
         # Collect the attributes
+        print(ensemblTable.iloc[i,])
         cid = ensemblTable.iloc[i, 0]
         tr_id = ensemblTable.iloc[i, 1]
         tsl = ensemblTable.iloc[i, 2]
@@ -269,6 +240,49 @@ def transcript_classification(ensemblTable):
         trListSorted = sorted(transcript_list, key=lambda t: t.sort)
         genes_transcripts[gene] = trListSorted
     return genes_transcripts
+
+
+def parse_transcripts_expression(transExprFile):
+    """Parse a transcript expression file and sorts each transcript per gene by its expression level.
+
+    return: A dicitonary of key=geneID : value:[sorted list of transcripts]
+    """
+    pass
+
+
+def select_transcripts(dfTrans, dfFeat, transcr_expr_file):
+    """Selects the transcripts according to the ENSEMBL classification, or according to a expression levels file.
+
+    Return a data frame with the transcripts info.
+    """
+    # Perform the transcript selection with the two ways
+    if transcr_expr_file == None:
+        trans_sorted = transcript_classification(dfTrans)
+    else:
+        trans_sorted = parse_transcripts_expression(transcr_expr_file)
+    # Initialise the return data frame.
+    transcripts = pd.DataFrame()
+    # Set the index to the transcript ID
+    dfFeat.set_index('Transcript stable ID', inplace=True)
+    dfTrans.set_index('Transcript stable ID', inplace=True)
+    # Concatenate the two data frames by setting the index to the inner product.
+    dfENSEMBL = pd.concat([dfFeat, dfTrans], axis=1, join='inner')
+    #dfENSEMBL.reset_index(inplace=True)
+    dfENSEMBL = dfENSEMBL.T.drop_duplicates().T
+    # Here is the actual population of the final transcripts data frame.
+    for gene in trans_sorted.keys():
+        for trans in trans_sorted[gene]:
+            row = dfENSEMBL.loc[trans.trans_id]
+            if row.isnull().any(): continue
+            else:
+                row = pd.DataFrame(row).T
+                row.reset_index(inplace=True)
+                transcripts = transcripts.append(row, ignore_index=True)  # Strange way to concatenate a data frame.
+                break
+    transcripts.set_index('index', inplace=True)
+    # Remove the transcript type column.
+    transcripts.drop('Transcript type', axis=1, inplace=True)
+    return transcripts
 
 
 def get_kozak(rec, s=10, c=20):
@@ -420,6 +434,7 @@ def chunks(l, n):
     """Yield successive n-sized chunks from a list l."""
     for i in range(0, len(l), n):
         yield l[i:i + n]
+
 
 
 
