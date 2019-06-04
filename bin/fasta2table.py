@@ -24,9 +24,9 @@ parser = argparse.ArgumentParser(prog='fasta2table', description="Calculate feat
 parser.add_argument('-v', '--version', action='version', version='%(prog)s  v. {version}'.format(version=__version__))
 parser.add_argument("infile", nargs='?', default='-', type=argparse.FileType('r'), metavar="input_file", help="Path to input FASTA file. (or STDIN).")
 parser.add_argument("outfile", nargs='?', default='-', type=argparse.FileType('w'), metavar="output_file", help="Path to output CSV file. (or STDOUT).")
-parser.add_argument('-l', '--length-3pUTR', help="The maximum allowed length of a 3'UTR. (Default=5000).", type=int, default=5000, dest="utr3len", metavar = "3'UTRLength")
-parser.add_argument('-u', '--utr-files', nargs=2, help="Return two seperate fasta files containing the 5' and 3' UTRs. (Default=None).", type=str, dest="utrFiles", metavar = ("5'UTRFile", "3'UTRFile"))
-parser.add_argument('-c', '--clip', help="The 5'UTR segment size to calulate the TOP mRNA local score. (Default=20).", type=int, default=20, dest="clip", metavar = "5'UTRclip")
+parser.add_argument('-l', '--length-3pUTR', help="The maximum allowed length of a 3'UTR. (Default=5000).", type=int, default=5000, dest="utr3len", metavar="3'UTRLength")
+parser.add_argument('-u', '--utr-files', nargs=2, help="Return two seperate fasta files containing the 5' and 3' UTRs. (Default=None).", type=str, dest="utrFiles", metavar=("5'UTRFile", "3'UTRFile"))
+parser.add_argument('-c', '--clip', help="The 5'UTR segment size to calulate the TOP mRNA local score. (Default=20).", type=int, default=20, dest="clip", metavar="5'UTRclip")
 # TODO add FIMO MEME motifs. parser.add_argument("motifs_file", help="MEME motifs file", default="", type=str)
 
 # Parse the command line arguments.
@@ -56,4 +56,4 @@ dd = dd[['ensembl_gene_id', 'gene_name', 'coding_len', '5pUTR_len', '5pUTR_GC', 
 dd.sort_values(by=['ensembl_gene_id', 'coding_len'])
 dd.to_csv(optArgs.outfile, sep=";")
 # Print the command line arguments in the csv file.
-print('# {}\n# {}'.format(str(sys.argv), datetime.datetime.now().strftime("%d/%m/%Y at %H:%M:%S")), file=optArgs.outfile)
+optArgs.outfile.write('# {}\n# {}'.format(str(sys.argv), datetime.datetime.now().strftime("%d/%m/%Y at %H:%M:%S")))

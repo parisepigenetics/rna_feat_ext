@@ -14,13 +14,12 @@ import tempfile
 import shlex
 import shutil
 import subprocess
-from biomart import BiomartServer
+from collections import namedtuple
 import pandas as pd
+from biomart import BiomartServer
 from Bio import SeqIO
 from Bio.SeqUtils import GC
 from Bio.SeqUtils import CodonUsage
-from Bio.SeqUtils.CodonUsage import CodonAdaptationIndex
-from collections import namedtuple
 
 import local_score
 
@@ -56,7 +55,6 @@ class ENSEMBLSeqs(object):
         for rec in self.gen:
             _construct_bio_seq(recs, rec)
         return recs
-
 
 
 class FeaturesExtract(object):
@@ -110,12 +108,12 @@ class FeaturesExtract(object):
         fe5p = calculate_free_energy(self.tf5p.name, "5pUTR")
         fe3p = calculate_free_energy(self.tf3p.name, "3pUTR")
         # Calculate local score
-        scoring = {'A':-1, 'C':1, 'G':-1, 'T':1, "N":0}  # Specify a local score in such a way that will endorse TOP mRNAs.
+        scoring = {'A': -1, 'C': 1, 'G': -1, 'T': 1, "N": 0}  # Specify a local score in such a way that will endorse TOP mRNAs.
         # Compute teh local score for TOP mRNAs.
         ls5p = calculate_local_score(self.tf5p.name, scoring, self.clip)
         # Calculate CAI
         caiCod = calculate_CAI(self.tfCoding.name)
-        #TODO Calculate bind motifs
+        # TODO Calculate bind motifs
         # motifs = predictBinding()
         # Merge data frames and return.
         return pd.concat([fe5p, fe3p, ls5p, caiCod], axis=1, sort=False)
@@ -131,8 +129,8 @@ class FeaturesExtract(object):
 
 
 
-## FUNCTIONS
-def get_ENSEMBL_data(listID, dataset, transcr_expr_file = None):
+# FUNCTIONS
+def get_ENSEMBL_data(listID, dataset, transcr_expr_file=None):
     """Function to connect to ENSEBL and retrieve data.
 
     The functions follows two modes of working:
@@ -144,7 +142,7 @@ def get_ENSEMBL_data(listID, dataset, transcr_expr_file = None):
     print("Connection to ENSEMBL server.", file=sys.stderr)
     server = BiomartServer("http://www.ensembl.org/biomart/")
     dt = server.datasets[dataset]
-    print(f"Retrieve the dataset...", file=sys.stderr)
+    print("Retrieve the dataset...", file=sys.stderr)
     listAttrib = ['ensembl_gene_id', 'ensembl_transcript_id',
                   'external_gene_name', 'transcript_length', 'transcript_biotype', 'cdna_coding_start', 'cdna_coding_end', 'cdna', 'description']
     listAttrib2 = ['ensembl_gene_id', 'ensembl_transcript_id', 'transcript_tsl',
@@ -184,21 +182,57 @@ def get_ENSEMBL_data(listID, dataset, transcr_expr_file = None):
     return transcripts
 
 
+def select_transcripts(dfTrans, dfFeat, transcr_expr_file):
+    """Selects the transcripts according to the ENSEMBL classification, or according to a expression levels file.
+
+    Return a data frame with the transcripts info.
+    """
+    # Perform the transcript selection with the two ways
+    if transcr_expr_file is None:
+        trans_sorted = transcript_classification(dfTrans)
+    else:
+        genes = set(dfTrans["Gene stable ID"])
+        trans_sorted = parse_transcripts_expression(transcr_expr_file, genes)
+    # Initialise the return data frame.
+    transcripts = pd.DataFrame()
+    # Set the index to the transcript ID
+    dfFeat.set_index('Transcript stable ID', inplace=True)
+    dfTrans.set_index('Transcript stable ID', inplace=True)
+    # Concatenate the two data frames by setting the index to the inner product.
+    dfENSEMBL = pd.concat([dfFeat, dfTrans], axis=1, join='inner')
+    # dfENSEMBL.reset_index(inplace=True)
+    dfENSEMBL = dfENSEMBL.T.drop_duplicates().T
+    # Here is the actual population of the final transcripts data frame.
+    for gene in trans_sorted.keys():
+        for trans in trans_sorted[gene]:
+            row = dfENSEMBL.loc[trans.trans_id]
+            if row.isnull().any():
+                continue
+            else:
+                row = pd.DataFrame(row).T
+                row.reset_index(inplace=True)
+                transcripts = transcripts.append(row, ignore_index=True)  # Strange way to concatenate a data frame.
+                break
+    transcripts.set_index('index', inplace=True)
+    # Remove the transcript type column.
+    transcripts.drop('Transcript type', axis=1, inplace=True)
+    return transcripts
+
+
 def transcript_classification(ensemblTable):
     """Return a dictionary of transcripts per gene, sorted by the ENSEMBL classification based on the Havana-APPRIS-TSL (with this order) criteria.
 
-    ensemblTable: A pandas dataframe with the ENSEMBL transcript classification. It must contain 5 columns.
+    ensemblTable: A pandas dataframe with the ENSEMBL transcript classifications. It must contain 5 columns.
 
     return: A dicitonary of key=geneID : value:[sorted list of transcripts]
     """
     # Declare the namedtuple.
     Transcript = namedtuple('Transcript', "trans_id, havana, appris, tsl, length, sort")
     genes_transcripts = {}
-    havanaDict = {"ensembl_havana" : 0, "ensembl" : 1, "havana" : 2}
+    havanaDict = {"ensembl_havana": 0, "ensembl": 1, "havana": 2}
     for i in range(len(ensemblTable)):
         # Collect the attributes
-        print(ensemblTable.iloc[i,])
-        cid = ensemblTable.iloc[i, 0]
+        g_id = ensemblTable.iloc[i, 0]
         tr_id = ensemblTable.iloc[i, 1]
         tsl = ensemblTable.iloc[i, 2]
         appris = ensemblTable.iloc[i, 3]
@@ -228,13 +262,13 @@ def transcript_classification(ensemblTable):
         else:
             t = math.inf
         # reverse Length
-        l = -int(tr_len)
+        rl = -int(tr_len)
         # Form the sorting tuple.
-        sort_tuple = (h, a, t, l)
+        sort_tuple = (h, a, t, rl)
         # Form the namedtuple
         tr_namedtuple = Transcript(tr_id, havana, appris, tsl, tr_len, sort_tuple)
-        genes_transcripts.setdefault(cid, [])
-        genes_transcripts[cid].append(tr_namedtuple)
+        genes_transcripts.setdefault(g_id, [])
+        genes_transcripts[g_id].append(tr_namedtuple)
     # Sort each list of nametuples in the dict.
     for gene, transcript_list in genes_transcripts.items():
         trListSorted = sorted(transcript_list, key=lambda t: t.sort)
@@ -242,47 +276,29 @@ def transcript_classification(ensemblTable):
     return genes_transcripts
 
 
-def parse_transcripts_expression(transExprFile):
+def parse_transcripts_expression(transExprFile, genes):
     """Parse a transcript expression file and sorts each transcript per gene by its expression level.
 
     return: A dicitonary of key=geneID : value:[sorted list of transcripts]
     """
-    pass
-
-
-def select_transcripts(dfTrans, dfFeat, transcr_expr_file):
-    """Selects the transcripts according to the ENSEMBL classification, or according to a expression levels file.
-
-    Return a data frame with the transcripts info.
-    """
-    # Perform the transcript selection with the two ways
-    if transcr_expr_file == None:
-        trans_sorted = transcript_classification(dfTrans)
-    else:
-        trans_sorted = parse_transcripts_expression(transcr_expr_file)
-    # Initialise the return data frame.
-    transcripts = pd.DataFrame()
-    # Set the index to the transcript ID
-    dfFeat.set_index('Transcript stable ID', inplace=True)
-    dfTrans.set_index('Transcript stable ID', inplace=True)
-    # Concatenate the two data frames by setting the index to the inner product.
-    dfENSEMBL = pd.concat([dfFeat, dfTrans], axis=1, join='inner')
-    #dfENSEMBL.reset_index(inplace=True)
-    dfENSEMBL = dfENSEMBL.T.drop_duplicates().T
-    # Here is the actual population of the final transcripts data frame.
-    for gene in trans_sorted.keys():
-        for trans in trans_sorted[gene]:
-            row = dfENSEMBL.loc[trans.trans_id]
-            if row.isnull().any(): continue
-            else:
-                row = pd.DataFrame(row).T
-                row.reset_index(inplace=True)
-                transcripts = transcripts.append(row, ignore_index=True)  # Strange way to concatenate a data frame.
-                break
-    transcripts.set_index('index', inplace=True)
-    # Remove the transcript type column.
-    transcripts.drop('Transcript type', axis=1, inplace=True)
-    return transcripts
+    Transcript = namedtuple('Transcript', "trans_id, expr_level")
+    genes_transcripts = {}
+    # Iterate over the file and collect all the transcripts per gene that have more than 1 TPM expression.
+    with transExprFile as ef:
+        ef.readline()  # The first line is either header or comments.
+        for line in ef:
+            fields = line.split(",")
+            geneName = fields[0]
+            transName = fields[1]
+            trExpr = float(fields[2])
+            if geneName in genes and trExpr >= 1:  # The limit of TPM.
+                tr_namedtuple = Transcript(transName, trExpr)
+                genes_transcripts.setdefault(geneName, [])
+                genes_transcripts[geneName].append(tr_namedtuple)
+    for gene, transList in genes_transcripts.items():
+        transListSorted = sorted(transList, reverse=True, key=lambda t: t.expr_level)
+        genes_transcripts[gene] = transListSorted
+    return genes_transcripts
 
 
 def get_kozak(rec, s=10, c=20):
@@ -342,9 +358,9 @@ def get_coding(rec, codf):
 
     Return: None"""
     cds = rec.seq[int(rec.features["cDNA_start"])-1:int(rec.features["cDNA_end"])]
-    if len(cds)%3 != 0:
-        #raise StandardError('Coding sequence not a multiple of 3!')
-        write("Coding sequence not a multiple of 3!", sys.stderr)
+    if len(cds) % 3 != 0:
+        # raise StandardError('Coding sequence not a multiple of 3!')
+        print("Coding sequence not a multiple of 3!", file=sys.stderr)
     codf.write(">{}_CDS\n{}\n".format(rec.id, cds))
 
 
@@ -438,7 +454,7 @@ def chunks(l, n):
 
 
 
-## OBSOLETE functions
+# OBSOLETE functions
 def get_utr5MAX_OBSOLETE(cdna_feat_row):
     """Select the longest 5'UTR from a cdna_feat-row with multiples utrs."""
     utr5s_start = cdna_feat_row["5' UTR start"].values[0].split(";")
