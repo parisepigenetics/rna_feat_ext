@@ -9,7 +9,7 @@ mail: costas.bouyioukso@univ-paris-diderot.fr aerod7710@gmail.com lu.zhao.antoin
 @UMR7216 Paris Diderot
 """
 
-__version__ = "0.3a08"
+__version__ = "0.4a"
 
 import sys
 import argparse

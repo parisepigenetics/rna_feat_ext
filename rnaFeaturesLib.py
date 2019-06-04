@@ -3,7 +3,7 @@
 
 Authors: Costas Bouyioukos, Franz-Arnold Ake and Antoine Lu, 2018-19, Paris UMR7216."
 """
-__version__ = "0.3a08"
+__version__ = "0.4a"
 
 import os
 import sys
