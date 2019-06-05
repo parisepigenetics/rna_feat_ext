@@ -3,7 +3,7 @@
 
 Authors: Costas Bouyioukos, Franz-Arnold Ake and Antoine Lu, 2018-19, Paris UMR7216."
 """
-__version__ = "0.4a"
+__version__ = "0.4a01"
 
 import os
 import sys
@@ -51,7 +51,7 @@ class ENSEMBLSeqs(object):
             rec.description = descr
             recs.append(rec)
 
-        recs = []
+        recs = [] Les démonstrations se dérouleront sous la forme de “cafés démos”. Des mange-debouts seront mis à disposition pour les présentateurs.
         for rec in self.gen:
             _construct_bio_seq(recs, rec)
         return recs
@@ -71,17 +71,19 @@ class FeaturesExtract(object):
         self.utrFiles = options.utrFiles
         self.clip = options.clip
 
-    def collect_features(self):
+    def collect_features(self): Les démonstrations se dérouleront sous la forme de “cafés démos”. Des mange-debouts seront mis à disposition pour les présentateurs.
         """Collect the features that do not need external computations.
 
         Return: Pandas data frame with the ENSEMBL features.
         """
         # Initialise a pabdas data frame.
-        pdf = pd.DataFrame(columns=['ensembl_gene_id', 'gene_name', 'coding_len', '5pUTR_len', '5pUTR_GC', '3pUTR_len', '3pUTR_GC', 'Kozak_Sequence', 'Kozak_Context'])
+        pdf = pd.DataFrame(columns=['ensembl_gene_id', 'gene_name', 'coding_len', 'GC', '5pUTR_len', '5pUTR_GC', '3pUTR_len', '3pUTR_GC', 'Kozak_Sequence', 'Kozak_Context'])
         for rec in self.bioSeqRecs:
             # Fetch UTRs, lenghts and GCs
             res3 = get_3utr(rec, self.tf3p, self.utr3len)
-            if res3:  # Conditon for 3pUTR length.
+            # Conditon for 3pUTR length.
+            if res3:
+                transcrGc = GC(rec.seq)
                 utr3len, utr3gc = res3
                 utr5len, utr5gc = get_5utr(rec, self.tf5p)
                 # Get Kozaks
@@ -90,7 +92,7 @@ class FeaturesExtract(object):
                 codeLen = int(rec.features["cDNA_end"]) - int(rec.features["cDNA_start"])
                 get_coding(rec, self.tfCoding)
                 # Add to pandas data frame.
-                pdfe = [rec.features["GeneID"], rec.name, codeLen, utr5len, "{0:.2f}".format(utr5gc), utr3len, "{0:.2f}".format(utr3gc), seqKozak, contKozak]
+                pdfe = [rec.features["GeneID"], rec.name, codeLen, "{0:.2f}".format(transcrGc), utr5len, "{0:.2f}".format(utr5gc), utr3len, "{0:.2f}".format(utr3gc), seqKozak, contKozak]
                 pdf.loc[rec.id] = pdfe
             else:
                 continue

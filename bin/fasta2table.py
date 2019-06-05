@@ -9,7 +9,7 @@ mail: costas.bouyioukso@univ-paris-diderot.fr aerod7710@gmail.com lu.zhao.antoin
 @UMR7216 Paris Diderot
 """
 
-__version__ = "0.4a"
+__version__ = "0.4a01"
 
 import sys
 import argparse
@@ -50,10 +50,10 @@ dc = ensFeat.calculate_features()
 dd = pd.concat([de, dc], axis=1, sort=False)
 
 # Re-arrange data frame columns.
-dd = dd[['ensembl_gene_id', 'gene_name', 'coding_len', '5pUTR_len', '5pUTR_GC', '5pUTR_MFE', '5pUTR_MfeBP', '3pUTR_len', '3pUTR_GC', '3pUTR_MFE', '3pUTR_MfeBP', 'TOP_localScore', 'CAI', 'Kozak_Sequence', 'Kozak_Context']]
+dd = dd[['ensembl_gene_id', 'gene_name', 'coding_len', 'GC', '5pUTR_len', '5pUTR_GC', '5pUTR_MFE', '5pUTR_MfeBP', '3pUTR_len', '3pUTR_GC', '3pUTR_MFE', '3pUTR_MfeBP', 'TOP_localScore', 'CAI', 'Kozak_Sequence', 'Kozak_Context']]
 
 # Sort and print to csv file.
 dd.sort_values(by=['ensembl_gene_id', 'coding_len'])
 dd.to_csv(optArgs.outfile, sep=";")
 # Print the command line arguments in the csv file.
-optArgs.outfile.write('# {}\n# {}'.format(str(sys.argv), datetime.datetime.now().strftime("%d/%m/%Y at %H:%M:%S")))
+optArgs.outfile.write('# {}\n# {}\n'.format(str(sys.argv), datetime.datetime.now().strftime("%d/%m/%Y at %H:%M:%S")))
