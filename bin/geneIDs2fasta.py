@@ -27,8 +27,6 @@ optArgs = parser.parse_args()
 # Quickly take the genes of interest from the file.
 listID = optArgs.infile.read().splitlines()
 
-#print(rnaFeaturesLib.parse_transcripts_expression(optArgs.exprTrans))
-
 # Connect to ENSEBL and select sequences and data.
 transcripts = rnaFeaturesLib.get_ENSEMBL_data(listID, optArgs.dataset, optArgs.exprTrans)
 
