@@ -3,7 +3,7 @@
 
 Authors: Costas Bouyioukos, Franz-Arnold Ake and Antoine Lu, 2018-19, Paris UMR7216."
 """
-__version__ = "0.4a01"
+__version__ = "0.4a02"
 
 import os
 import sys
@@ -51,7 +51,7 @@ class ENSEMBLSeqs(object):
             rec.description = descr
             recs.append(rec)
 
-        recs = [] Les démonstrations se dérouleront sous la forme de “cafés démos”. Des mange-debouts seront mis à disposition pour les présentateurs.
+        recs = []
         for rec in self.gen:
             _construct_bio_seq(recs, rec)
         return recs
@@ -71,7 +71,7 @@ class FeaturesExtract(object):
         self.utrFiles = options.utrFiles
         self.clip = options.clip
 
-    def collect_features(self): Les démonstrations se dérouleront sous la forme de “cafés démos”. Des mange-debouts seront mis à disposition pour les présentateurs.
+    def collect_features(self):
         """Collect the features that do not need external computations.
 
         Return: Pandas data frame with the ENSEMBL features.
@@ -205,7 +205,7 @@ def select_transcripts(dfTrans, dfFeat, transcr_expr_file):
     # dfENSEMBL.reset_index(inplace=True)
     dfENSEMBL = dfENSEMBL.T.drop_duplicates().T
     # Here is the actual population of the final transcripts data frame.
-    for gene in trans_sorted.keys():
+    for gene in trans_sorted:
         for trans in trans_sorted[gene]:
             row = dfENSEMBL.loc[trans.trans_id]
             if row.isnull().any():
@@ -455,7 +455,7 @@ def chunks(l, n):
 
 
 
-
+###############################################################################
 # OBSOLETE functions
 def get_utr5MAX_OBSOLETE(cdna_feat_row):
     """Select the longest 5'UTR from a cdna_feat-row with multiples utrs."""
