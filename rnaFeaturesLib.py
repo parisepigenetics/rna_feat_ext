@@ -3,7 +3,7 @@
 
 Authors: Costas Bouyioukos, Franz-Arnold Ake and Antoine Lu, 2018-19, Paris UMR7216."
 """
-__version__ = "0.4a01"
+__version__ = "0.4a1"
 
 import os
 import sys
@@ -51,7 +51,7 @@ class ENSEMBLSeqs(object):
             rec.description = descr
             recs.append(rec)
 
-        recs = [] Les démonstrations se dérouleront sous la forme de “cafés démos”. Des mange-debouts seront mis à disposition pour les présentateurs.
+        recs = []
         for rec in self.gen:
             _construct_bio_seq(recs, rec)
         return recs
@@ -71,7 +71,7 @@ class FeaturesExtract(object):
         self.utrFiles = options.utrFiles
         self.clip = options.clip
 
-    def collect_features(self): Les démonstrations se dérouleront sous la forme de “cafés démos”. Des mange-debouts seront mis à disposition pour les présentateurs.
+    def collect_features(self):
         """Collect the features that do not need external computations.
 
         Return: Pandas data frame with the ENSEMBL features.
@@ -143,13 +143,11 @@ def get_ENSEMBL_data(listID, dataset, transcr_expr_file=None):
     """
     print("Connection to ENSEMBL server.", file=sys.stderr)
     server = BiomartServer("http://www.ensembl.org/biomart/")
+    #server.verbose = True
     dt = server.datasets[dataset]
-    print("Retrieve the dataset...", file=sys.stderr)
-    listAttrib = ['ensembl_gene_id', 'ensembl_transcript_id',
-                  'external_gene_name', 'transcript_length', 'transcript_biotype', 'cdna_coding_start', 'cdna_coding_end', 'cdna', 'description']
-    listAttrib2 = ['ensembl_gene_id', 'ensembl_transcript_id', 'transcript_tsl',
-                   'transcript_appris', 'transcript_source', 'transcript_length',
-                   'transcript_biotype']
+    print("Retrieve the dataset '{}'.".format(dataset), file=sys.stderr)
+    listAttrib = ['ensembl_gene_id', 'ensembl_transcript_id', 'external_gene_name', 'transcript_length', 'transcript_biotype', 'cdna_coding_start', 'cdna_coding_end', 'cdna', 'description']
+    listAttrib2 = ['ensembl_gene_id', 'ensembl_transcript_id', 'transcript_tsl', 'transcript_appris', 'transcript_source', 'transcript_length', 'transcript_biotype']
     print("Fetch data from: {}".format(str(server)), file=sys.stderr)
     # Collect data from the ENSEMBL datasets.
     dfFeat = pd.DataFrame()
@@ -170,7 +168,7 @@ def get_ENSEMBL_data(listID, dataset, transcr_expr_file=None):
     print("...fetch done!", file=sys.stderr)
     # Function to select transcripts.
     transcripts = select_transcripts(dfTrans, dfFeat, transcr_expr_file)
-    # Set the size of the UTRs and the CDS by using the information of the coding exon.
+    # Set the size of the UTRs and the CDS by using the information from the coding exons.
     for index, row in transcripts.iterrows():
         # For 5'UTR end take the smallest coordinate in the coding exons.
         coding_start = min([int(x) for x in row["cDNA coding start"].split(";")])
@@ -197,27 +195,31 @@ def select_transcripts(dfTrans, dfFeat, transcr_expr_file):
         trans_sorted = parse_transcripts_expression(transcr_expr_file, genes)
     # Initialise the return data frame.
     transcripts = pd.DataFrame()
-    # Set the index to the transcript ID
+    # Set the index to the transcript ID.
     dfFeat.set_index('Transcript stable ID', inplace=True)
     dfTrans.set_index('Transcript stable ID', inplace=True)
     # Concatenate the two data frames by setting the index to the inner product.
     dfENSEMBL = pd.concat([dfFeat, dfTrans], axis=1, join='inner')
     # dfENSEMBL.reset_index(inplace=True)
     dfENSEMBL = dfENSEMBL.T.drop_duplicates().T
-    # Here is the actual population of the final transcripts data frame.
+    # Here is the actual population of the transcripts data frame.
     for gene in trans_sorted.keys():
         for trans in trans_sorted[gene]:
             row = dfENSEMBL.loc[trans.trans_id]
-            if row.isnull().any():
-                continue
-            else:
-                row = pd.DataFrame(row).T
-                row.reset_index(inplace=True)
-                transcripts = transcripts.append(row, ignore_index=True)  # Strange way to concatenate a data frame.
-                break
+            #if row.isnull().any():  # Residual code for removing lines without TSL info (we have resolved it now)
+            #    continue
+            #else:
+            row = pd.DataFrame(row).T
+            row.reset_index(inplace=True)
+            transcripts = transcripts.append(row, ignore_index=True)  # Strange way to concatenate a data frame.
+            break
     transcripts.set_index('index', inplace=True)
     # Remove the transcript type column.
     transcripts.drop('Transcript type', axis=1, inplace=True)
+    # Convert the TSL column to str (to avoid errors by NaNs)
+    transcripts = transcripts.astype({"Transcript support level (TSL)": str})
+    #with pd.option_context('display.max_rows', None, 'display.max_columns', None):
+    #    print(transcripts)
     return transcripts
 
 
@@ -287,7 +289,7 @@ def parse_transcripts_expression(transExprFile, genes):
     genes_transcripts = {}
     # Iterate over the file and collect all the transcripts per gene that have more than 1 TPM expression.
     with transExprFile as ef:
-        ef.readline()  # The first line is either header or comments.
+        #ef.readline()  # IF The first line is either header or comments.
         for line in ef:
             fields = line.split(",")
             geneName = fields[0]
