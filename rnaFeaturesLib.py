@@ -24,7 +24,6 @@ from Bio.SeqUtils import CodonUsage
 import local_score
 
 
-
 # CLASSES Interface.
 class ENSEMBLSeqs(object):
     """Class to represent RNA related sequence features from ENSEMBL.
@@ -47,7 +46,9 @@ class ENSEMBLSeqs(object):
             descr = rec.description.split("|")[-1]
             # Extract all the features as a dictionary (apart from the last one which was the description.).
             feat = dict(item.split(":") for item in rec.description.split("|")[1:-1])
-            rec.features = feat  # TODO for the moment all the features are stored as a dictionary and not as proper SeqFeature objects. (perhaps we can stick with that and there is no need to change it.)
+            rec.features = feat  # TODO for the moment all the features are stored
+            # as a dictionary and not as proper SeqFeature objects.
+            # (perhaps we can stick with that and there is no need to change it.)
             rec.description = descr
             recs.append(rec)
 
@@ -58,7 +59,7 @@ class ENSEMBLSeqs(object):
 
 
 class FeaturesExtract(object):
-    """Claas to extract features."""
+    """Claas to extract RNA features."""
 
     def __init__(self, bioSeqRecs, options):
         """Initialise with a list of SeqIO records."""
@@ -105,7 +106,8 @@ class FeaturesExtract(object):
         """Method to perfom feature calculation.
         Invokes external software to make calculations that separates it from the previous method.
 
-        Return: Pandas data frame with the calculated features."""
+        Return: Pandas data frame with the calculated features.
+        """
         # Calculates 5pUTR folding etc.
         fe5p = calculate_free_energy(self.tf5p.name, "5pUTR")
         fe3p = calculate_free_energy(self.tf3p.name, "3pUTR")
@@ -121,7 +123,8 @@ class FeaturesExtract(object):
         return pd.concat([fe5p, fe3p, ls5p, caiCod], axis=1, sort=False)
 
     def __del__(self):
-        """Cleanup the temp files"""
+        """Cleanup the temp files.
+        """
         if self.utrFiles:
             shutil.move(self.tf5p.name, self.utrFiles[0])
             shutil.move(self.tf3p.name, self.utrFiles[1])
@@ -143,7 +146,7 @@ def get_ENSEMBL_data(listID, dataset, transcr_expr_file=None):
     """
     print("Connection to ENSEMBL server.", file=sys.stderr)
     server = BiomartServer("http://www.ensembl.org/biomart/")
-    #server.verbose = True
+    # server.verbose = True
     dt = server.datasets[dataset]
     print("Retrieve the dataset '{}'.".format(dataset), file=sys.stderr)
     listAttrib = ['ensembl_gene_id', 'ensembl_transcript_id', 'external_gene_name', 'transcript_length', 'transcript_biotype', 'cdna_coding_start', 'cdna_coding_end', 'cdna', 'description']
@@ -203,12 +206,9 @@ def select_transcripts(dfTrans, dfFeat, transcr_expr_file):
     # dfENSEMBL.reset_index(inplace=True)
     dfENSEMBL = dfENSEMBL.T.drop_duplicates().T
     # Here is the actual population of the transcripts data frame.
-    for gene in trans_sorted.keys():
+    for gene in trans_sorted:
         for trans in trans_sorted[gene]:
             row = dfENSEMBL.loc[trans.trans_id]
-            #if row.isnull().any():  # Residual code for removing lines without TSL info (we have resolved it now)
-            #    continue
-            #else:
             row = pd.DataFrame(row).T
             row.reset_index(inplace=True)
             transcripts = transcripts.append(row, ignore_index=True)  # Strange way to concatenate a data frame.
@@ -289,8 +289,9 @@ def parse_transcripts_expression(transExprFile, genes):
     genes_transcripts = {}
     # Iterate over the file and collect all the transcripts per gene that have more than 1 TPM expression.
     with transExprFile as ef:
-        #ef.readline()  # IF The first line is either header or comments.
         for line in ef:
+            if ef[0] in ["#", ";", " "]:  # Check if the first line is a comment, delimiter or empty.
+                ef.redline()
             fields = line.split(",")
             geneName = fields[0]
             transName = fields[1]
@@ -313,7 +314,8 @@ def get_kozak(rec, s=10, c=20):
     If ATG is located near the 5'UTR start, it is most likely that either seqs will not be retrieved as self.base[-5:10] returns blank.
 
     In this case, we test whether the value left to ':' is negative or not.
-    If it is < 0, we simply take the seq from 0 as : self.bases[0:self.cDNA_start) + 2) + s]"""
+    If it is < 0, we simply take the seq from 0 as : self.bases[0:self.cDNA_start) + 2) + s]
+    """
     feat = rec.features
     seq = rec.seq
     # Kozak sequence
@@ -333,7 +335,8 @@ def get_3utr(rec, tf3p, lim):
     """Fetch 3PUTR sequence, append it to fasta file.
     Impose limits to UTRs to upto <lim> nucleotides.
 
-    Return its length and GC content."""
+    Return its length and GC content.
+    """
     utr3p = rec.seq[int(rec.features["cDNA_end"]):]
     utr3plen = len(utr3p)
     if utr3plen >= lim:
@@ -348,7 +351,8 @@ def get_3utr(rec, tf3p, lim):
 def get_5utr(rec, tf5p):
     """Fetch 5PUTR sequence, append it to fasta file.
 
-    Return its length and GC content."""
+    Return its length and GC content.
+    """
     utr5p = rec.seq[0:int(rec.features["cDNA_start"])-1]
     if utr5p:
         tf5p.write(">{}_5PUTR\n{}\n".format(rec.id, utr5p))
@@ -371,7 +375,8 @@ def get_coding(rec, codf):
 def calculate_free_energy(ffile, col):
     """Method to perform the free energy calculation by RNAfold and parsing of the results.
 
-    Needs the RNA Vienna package to be installed."""
+    Needs the RNA Vienna package to be installed.
+    """
     pdf = pd.DataFrame(columns=['{}_MFE'.format(col), '{}_MfeBP'.format(col)])
     cmd = 'RNAfold --verbose --noPS --jobs -i {}'.format(ffile)
     proc = subprocess.check_output(shlex.split(cmd))
@@ -391,7 +396,8 @@ def calculate_free_energy(ffile, col):
 def calculate_local_score(file, scoring, cliping):
     """Calculate the local score for a given scoring functionself.
 
-    Here we use a scoring for TOP mRNAs and we clip at 50nts."""
+    Here we use a scoring for TOP mRNAs and we clip at 50nts.
+    """
     lsdf = pd.DataFrame(columns=["TOP_localScore"])
     for seq in SeqIO.parse(file, "fasta"):
         lss = local_score.local_score(seq.seq, scoring, cliping)
@@ -402,7 +408,8 @@ def calculate_local_score(file, scoring, cliping):
 
 
 def calculate_CAI(file):
-    """Calculate the Codon Adaptation Index."""
+    """Calculate the Codon Adaptation Index.
+    """
     caidf = pd.DataFrame(columns=["CAI"])
     SeqCai = CodonUsage.CodonAdaptationIndex()
     # This is a hardcoded dictionary of Human Codon Usage.
@@ -434,8 +441,8 @@ def calculate_CAI(file):
 def predict_binding(ffile, motifs):
     """Method to run a FIMO search and parse and collect the results.
 
-    Requires the intallation of the MEME suite."""
-    # TODO implement the method!!!
+    Requires the intallation of the MEME suite.
+    """
     subprocess.call('fimo --verbosity 1 ' + motifs + ' ' + ffile.name, shell=True)
     fimo_tab = pd.read_csv("fimo_out/fimo.tsv", sep="\t")
     fimo_tab = fimo_tab.reset_index(drop=True)
@@ -443,7 +450,8 @@ def predict_binding(ffile, motifs):
 
 
 def txt2fasta(cdna_feat_table, fastaOut):
-    """Write the ENSEMBL features to a fasta file with the appropriate first fasta line."""
+    """Write the ENSEMBL features to a fasta file with the appropriate first fasta line.
+    """
     with fastaOut as ff:
         for i, r in cdna_feat_table.iterrows():
             ff.write(">{} |GeneID:{}|GeneName:{}|cDNA_start:{}|cDNA_end:{}|TSL:{}|APPRIS:{}|Source:{}|{}\n".format(i, r["Gene stable ID"], r["Gene name"], r["cDNA coding start"], r["cDNA coding end"], r["Transcript support level (TSL)"], r["APPRIS annotation"], r["Source (transcript)"], r["Gene description"]))
@@ -451,51 +459,7 @@ def txt2fasta(cdna_feat_table, fastaOut):
 
 
 def chunks(l, n):
-    """Yield successive n-sized chunks from a list l."""
+    """Yield successive n-sized chunks from a list l.
+    """
     for i in range(0, len(l), n):
         yield l[i:i + n]
-
-
-
-
-# OBSOLETE functions
-def get_utr5MAX_OBSOLETE(cdna_feat_row):
-    """Select the longest 5'UTR from a cdna_feat-row with multiples utrs."""
-    utr5s_start = cdna_feat_row["5' UTR start"].values[0].split(";")
-    utr5s_end = cdna_feat_row["5' UTR end"].values[0].split(";")
-    size_liste = []
-    for i in range(len(utr5s_start)):
-        size = int(utr5s_end[i])-int(utr5s_start[i])
-        size_liste.append(size)
-    indice_max = size_liste.index(max(size_liste))
-    max_utr5_start = int(utr5s_start[indice_max])
-    max_utr5_end = int(utr5s_end[indice_max])
-    return([max_utr5_start, max_utr5_end])
-
-
-def get_utr3MAX_OBSOLETE(cdna_feat_row):
-    """Select the longest 3'UTR from a cdna_feat-row with multiples utrs."""
-    utr3s_start = cdna_feat_row["3' UTR start"].values[0].split(";")
-    utr3s_end = cdna_feat_row["3' UTR end"].values[0].split(";")
-    size_liste = []
-    for i in range(len(utr3s_start)):
-        size = int(utr3s_end[i])-int(utr3s_start[i])
-        size_liste.append(size)
-    indice_max = size_liste.index(max(size_liste))
-    max_utr3_start = int(utr3s_start[indice_max])
-    max_utr3_end = int(utr3s_end[indice_max])
-    return([max_utr3_start, max_utr3_end])
-
-
-def get_cDNAstartMIN_OBSOLETE(cdna_feat_row):
-    """Select the minimum cdna_start feature from multiples cDNA starts."""
-    cDNA_start = cdna_feat_row["cDNA coding start"].values[0].split(";")
-    min_cDNA_start = min(map(int, cDNA_start))
-    return min_cDNA_start
-
-
-def get_cDNAendMAX_OBSOLETE(cdna_feat_row):
-    """Select the maximum cdna_end feature from multiples cDNA ends."""
-    cDNA_end = cdna_feat_row["cDNA coding end"].values[0].split(";")
-    max_cDNA_end = max(map(int, cDNA_end))
-    return max_cDNA_end
