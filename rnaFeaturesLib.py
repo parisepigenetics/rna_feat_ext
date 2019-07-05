@@ -3,7 +3,7 @@
 
 Authors: Costas Bouyioukos, Franz-Arnold Ake and Antoine Lu, 2018-19, Paris UMR7216."
 """
-__version__ = "0.4a02"
+__version__ = "0.4a03"
 
 import os
 import sys
@@ -34,7 +34,7 @@ class ENSEMBLSeqs(object):
     def __init__(self, bioSeqRecsGen):
         self.gen = bioSeqRecsGen
         self.bioSeqRecs = self.get_bio_seqrec()
-
+http://www.ensembl.org/Homo_sapiens/Transcript/Idhistory?t=ENST00000558762
     def get_bio_seqrec(self):
         """Expands the Bio.Seq.Rec generator to a list of Bio.Record objects.
 
@@ -131,7 +131,7 @@ class FeaturesExtract(object):
 
 
 
-# FUNCTIONS
+# FUNCTIONShttp://www.ensembl.org/Homo_sapiens/Transcript/Idhistory?t=ENST00000558762
 def get_ENSEMBL_data(listID, dataset, transcr_expr_file=None):
     """Function to connect to ENSEBL and retrieve data.
 
