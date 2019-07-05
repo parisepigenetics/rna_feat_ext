@@ -145,11 +145,8 @@ def get_ENSEMBL_data(listID, dataset, transcr_expr_file=None):
     server = BiomartServer("http://www.ensembl.org/biomart/")
     dt = server.datasets[dataset]
     print("Retrieve the dataset...", file=sys.stderr)
-    listAttrib = ['ensembl_gene_id', 'ensembl_transcript_id',
-                  'external_gene_name', 'transcript_length', 'transcript_biotype', 'cdna_coding_start', 'cdna_coding_end', 'cdna', 'description']
-    listAttrib2 = ['ensembl_gene_id', 'ensembl_transcript_id', 'transcript_tsl',
-                   'transcript_appris', 'transcript_source', 'transcript_length',
-                   'transcript_biotype']
+    listAttrib = ['ensembl_gene_id', 'ensembl_transcript_id', 'external_gene_name', 'transcript_length', 'transcript_biotype', 'cdna_coding_start', 'cdna_coding_end', 'cdna', 'description']
+    listAttrib2 = ['ensembl_gene_id', 'ensembl_transcript_id', 'transcript_tsl', 'transcript_appris', 'transcript_source', 'transcript_length', 'transcript_biotype']
     print("Fetch data from: {}".format(str(server)), file=sys.stderr)
     # Collect data from the ENSEMBL datasets.
     dfFeat = pd.DataFrame()
@@ -209,6 +206,7 @@ def select_transcripts(dfTrans, dfFeat, transcr_expr_file):
         for trans in trans_sorted[gene]:
             row = dfENSEMBL.loc[trans.trans_id]
             if row.isnull().any():
+                print(row)
                 continue
             else:
                 row = pd.DataFrame(row).T
@@ -287,7 +285,7 @@ def parse_transcripts_expression(transExprFile, genes):
     genes_transcripts = {}
     # Iterate over the file and collect all the transcripts per gene that have more than 1 TPM expression.
     with transExprFile as ef:
-        ef.readline()  # The first line is either header or comments.
+        #ef.readline()  # Iff The first line is either header or comments.
         for line in ef:
             fields = line.split(",")
             geneName = fields[0]
