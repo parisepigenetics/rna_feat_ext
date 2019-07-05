@@ -204,7 +204,10 @@ def select_transcripts(dfTrans, dfFeat, transcr_expr_file):
     # Here is the actual population of the final transcripts data frame.
     for gene in trans_sorted:
         for trans in trans_sorted[gene]:
-            row = dfENSEMBL.loc[trans.trans_id]
+            if trans.trans_id not in list(dfENSEMBL.index):
+                continue
+            else:
+                row = dfENSEMBL.loc[trans.trans_id]
             if row.isnull().any():
                 print(row)
                 continue
