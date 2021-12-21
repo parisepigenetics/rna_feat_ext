@@ -15,6 +15,7 @@ import shlex
 import shutil
 import subprocess
 from collections import namedtuple
+
 import pandas as pd
 from biomart import BiomartServer
 from Bio import SeqIO
@@ -34,7 +35,7 @@ class ENSEMBLSeqs(object):
     def __init__(self, bioSeqRecsGen):
         self.gen = bioSeqRecsGen
         self.bioSeqRecs = self.get_bio_seqrec()
-http://www.ensembl.org/Homo_sapiens/Transcript/Idhistory?t=ENST00000558762
+
     def get_bio_seqrec(self):
         """Expands the Bio.Seq.Rec generator to a list of Bio.Record objects.
 
@@ -176,7 +177,7 @@ def get_ENSEMBL_data(listID, dataset, transcr_expr_file=None):
         transcripts.at[index, "cDNA coding start"] = coding_start
         transcripts.at[index, "cDNA coding end"] = coding_end
         # Clean up the TSL value.
-        tsl = row["Transcript support level (TSL)"].split()[0]
+        tsl = str(row["Transcript support level (TSL)"]).split()[0]
         transcripts.at[index, "Transcript support level (TSL)"] = tsl
     return transcripts
 
@@ -204,11 +205,14 @@ def select_transcripts(dfTrans, dfFeat, transcr_expr_file):
     # Here is the actual population of the final transcripts data frame.
     for gene in trans_sorted:
         for trans in trans_sorted[gene]:
+            # Condition for transcripts that are removed from ENSEMBL.
             if trans.trans_id not in list(dfENSEMBL.index):
                 continue
             else:
                 row = dfENSEMBL.loc[trans.trans_id]
-            if row.isnull().any():
+            # Condition for transcripts that are missing important information
+            #if row.isnull().any():
+            if pd.isnull(row).iloc[0:7].any() == True:  # We do not care about TSL, Apris or Havana
                 print(row)
                 continue
             else:
