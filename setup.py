@@ -10,7 +10,7 @@ config = {
   'author': 'Costas Bouyioukos',
   'author_email': 'costas.bouyioukos@univ-paris-diderot.fr',
   'url': 'github.com/parisepigenetics/rna_feat_ext',
-  'description': 'A software package for the Computer Aided Design of NEW To Nature chromosomes.',
+  'description': 'A software tool to extract mRNA data from ENSEMBL and compute sequence and structural features.',
   'long_description': open("README.md").read(),
   'download_url': 'https://github.com/parisepigenetics/rna_feat_ext.git',
   'py_modules': ['rnaFeaturesLib'],
